@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sum-IT · Wachtwoord instellen</title>
+<link rel="icon" type="image/png" href="sum-it-favicon.png">
+<script src="sb-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#64748B;--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
+.top{display:flex;align-items:center;gap:10px;padding:18px 24px;color:#fff}
+.top img{width:40px;height:auto}.top b{font-size:17px;font-weight:800}.top .sp{flex:1}
+.langs{display:flex;border:1px solid var(--line-d);border-radius:999px;overflow:hidden}
+.langs button{background:transparent;color:var(--mut-d);border:0;font-size:12px;font-weight:700;padding:6px 12px;cursor:pointer;font-family:inherit}
+.langs button.on{background:#fff;color:var(--indigo)}
+.wrap{max-width:440px;margin:6vh auto 60px;padding:0 18px}
+.card{background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+h1{font-size:22px;font-weight:800;color:var(--indigo);margin-bottom:4px}
+.sub{font-size:13.5px;color:var(--slate);margin-bottom:14px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit}
+input:focus{outline:2px solid var(--green)}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
+.btn:disabled{opacity:.55}
+.err{color:#C0263B;font-size:12.5px;min-height:18px;margin-top:10px}
+.okmsg{color:var(--green-d);font-size:13.5px;font-weight:700;margin-top:10px}
+.hide{display:none}
+.alt{font-size:13px;color:var(--slate);margin-top:16px;text-align:center}
+.alt a{color:var(--green-d);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="top">
+  <img src="sum-it-logo-mark.svg" alt=""><b>Sum-IT</b><span class="sp"></span>
+  <div class="langs"><button id="lang-en" onclick="setLang('en')">EN</button><button id="lang-nl" onclick="setLang('nl')">NL</button></div>
+</div>
+<div class="wrap">
+  <div class="card">
+    <div id="st-wait"><h1 data-i18n="w_h1">Even kijken…</h1><div class="sub" data-i18n="w_sub">We controleren je link.</div></div>
+    <div id="st-form" class="hide">
+      <h1 data-i18n="f_h1">Kies je wachtwoord</h1>
+      <div class="sub" data-i18n="f_sub">Je e-mailadres is bevestigd. Kies een wachtwoord van minimaal 12 tekens, dan zit je meteen in je member-portal. Hetzelfde account werkt straks ook in de app.</div>
+      <form onsubmit="return setPw(event)">
+        <label data-i18n="l_pw1">Wachtwoord (min. 12 tekens)</label>
+        <input id="pw1" type="password" required minlength="12" autocomplete="new-password">
+        <label data-i18n="l_pw2">Herhaal je wachtwoord</label>
+        <input id="pw2" type="password" required minlength="12" autocomplete="new-password">
+        <button class="btn" id="btn" type="submit" data-i18n="f_btn">Opslaan &amp; naar mijn portal</button>
+        <div class="err" id="err"></div>
+      </form>
+    </div>
+    <div id="st-bad" class="hide">
+      <h1 data-i18n="b_h1">Deze link werkt niet (meer)</h1>
+      <div class="sub" data-i18n="b_sub">De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.</div>
+      <label data-i18n="l_email">E-mailadres</label>
+      <input id="email" type="email" autocomplete="email">
+      <button class="btn" onclick="resend()" data-i18n="b_btn">Stuur mij een nieuwe link</button>
+      <div class="err" id="err2"></div><div class="okmsg hide" id="ok2" data-i18n="b_ok">Verstuurd! Check je inbox (en spam).</div>
+      <div class="alt"><a href="/login.html" data-i18n="b_login">Of ga naar de loginpagina</a></div>
+    </div>
+  </div>
+</div>
+<script>
+var I18N={
+ nl:{w_h1:"Even kijken…",w_sub:"We controleren je link.",
+     f_h1:"Kies je wachtwoord",f_sub:"Je e-mailadres is bevestigd. Kies een wachtwoord van minimaal 12 tekens, dan zit je meteen in je member-portal. Hetzelfde account werkt straks ook in de app.",
+     l_pw1:"Wachtwoord (min. 12 tekens)",l_pw2:"Herhaal je wachtwoord",f_btn:"Opslaan & naar mijn portal",
+     b_h1:"Deze link werkt niet (meer)",b_sub:"De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.",
+     l_email:"E-mailadres",b_btn:"Stuur mij een nieuwe link",b_ok:"Verstuurd! Check je inbox (en spam).",b_login:"Of ga naar de loginpagina",
+     e_match:"De wachtwoorden zijn niet gelijk.",e_save:"Opslaan mislukt: ",e_mail:"Vul een geldig e-mailadres in."},
+ en:{w_h1:"One moment…",w_sub:"Checking your link.",
+     f_h1:"Choose your password",f_sub:"Your e-mail address is confirmed. Pick a password of at least 12 characters and you'll be taken straight to your member portal. The same account will work in the app later.",
+     l_pw1:"Password (min. 12 characters)",l_pw2:"Repeat your password",f_btn:"Save & go to my portal",
+     b_h1:"This link no longer works",b_sub:"The link expired or was already used. Request a new one below, it arrives by e-mail right away.",
+     l_email:"E-mail address",b_btn:"Send me a new link",b_ok:"Sent! Check your inbox (and spam).",b_login:"Or go to the login page",
+     e_match:"The passwords don't match.",e_save:"Saving failed: ",e_mail:"Enter a valid e-mail address."}};
+var LANG='nl';
+function setLang(l){LANG=l;try{localStorage.setItem('sumit_lang',l);}catch(e){}
+  document.documentElement.lang=l;
+  document.getElementById('lang-en').classList.toggle('on',l==='en');
+  document.getElementById('lang-nl').classList.toggle('on',l==='nl');
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');
+    if(I18N[l][k]!==undefined)el.innerHTML=I18N[l][k];});}
+try{setLang(localStorage.getItem('sumit_lang')==='en'?'en':'nl');}catch(e){setLang('nl');}
+
+var SB=null;
+try{if(window.SB_URL&&window.SB_URL.indexOf('http')===0&&window.supabase){SB=window.supabase.createClient(window.SB_URL,window.SB_ANON);}}catch(e){}
+function show(id){['st-wait','st-form','st-bad'].forEach(function(x){document.getElementById(x).classList.toggle('hide',x!==id);});}
+
+async function boot(){
+  if(!SB){show('st-bad');return;}
+  var qs=new URLSearchParams(location.search);
+  var th=qs.get('token_hash');
+  if(th){
+    var v=await SB.auth.verifyOtp({type:qs.get('type')||'recovery',token_hash:th});
+    if(!v.error&&v.data&&v.data.session){history.replaceState(null,'',location.pathname);show('st-form');return;}
+  }
+  // fallback: session in URL-hash (old links) or existing session
+  for(var i=0;i<8;i++){
+    var s=await SB.auth.getSession();
+    if(s.data&&s.data.session){show('st-form');return;}
+    await new Promise(function(r){setTimeout(r,400);});
+  }
+  show('st-bad');
+}
+async function setPw(ev){
+  ev.preventDefault();
+  var err=document.getElementById('err');err.textContent='';
+  var p1=document.getElementById('pw1').value,p2=document.getElementById('pw2').value;
+  if(p1!==p2){err.textContent=I18N[LANG].e_match;return false;}
+  var btn=document.getElementById('btn');btn.disabled=true;
+  var r=await SB.auth.updateUser({password:p1});
+  btn.disabled=false;
+  if(r.error){err.textContent=I18N[LANG].e_save+r.error.message;return false;}
+  location.href='/portal.html';
+  return false;
+}
+async function resend(){
+  var em=(document.getElementById('email').value||'').trim().toLowerCase();
+  var err=document.getElementById('err2');err.textContent='';
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em)){err.textContent=I18N[LANG].e_mail;return;}
+  var r=await SB.auth.resetPasswordForEmail(em,{redirectTo:'https://sum-it.eu/wachtwoord.html'});
+  if(r.error){err.textContent=r.error.message;return;}
+  document.getElementById('ok2').classList.remove('hide');
+}
+boot();
+</script>
+</body>
+</html>

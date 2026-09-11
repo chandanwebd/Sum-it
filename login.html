@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sum-IT · Inloggen</title>
+<link rel="icon" type="image/png" href="sum-it-favicon.png">
+<script>/* Sum-IT backend config — Supabase.
+   Fill these in with YOUR Supabase project values.
+   The anon key is safe to expose publicly (it only allows what your
+   Row Level Security policies allow: read content, and write only when
+   logged in). Do NOT put the "service_role" key here. */
+window.SB_URL  = 'https://kncruytvvqyrwxhgostc.supabase.co';        // e.g. https://abcdxyz.supabase.co
+window.SB_ANON = 'sb_publishable_Okc2mW8gDttU9a6mjv56Fw_4k_mM7hN';   // the "anon / public" key
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#64748B;--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
+.top{display:flex;align-items:center;gap:10px;padding:18px 24px;color:#fff}
+.top img{width:40px;height:auto}.top b{font-size:17px;font-weight:800}.top .sp{flex:1}
+.top a{color:var(--mut-d);font-size:13px;text-decoration:none;font-weight:600}
+.langs{display:flex;border:1px solid var(--line-d);border-radius:999px;overflow:hidden;margin-right:6px}
+.langs button{background:transparent;color:var(--mut-d);border:0;font-size:12px;font-weight:700;padding:6px 12px;cursor:pointer;font-family:inherit}
+.langs button.on{background:#fff;color:var(--indigo)}
+.wrap{max-width:440px;margin:6vh auto 60px;padding:0 18px}
+.card{background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+h1{font-size:22px;font-weight:800;color:var(--indigo);margin-bottom:4px}
+.sub{font-size:13.5px;color:var(--slate);margin-bottom:14px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit}
+input:focus{outline:2px solid var(--green)}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
+.btn:disabled{opacity:.55}
+.err{color:#C0263B;font-size:12.5px;min-height:18px;margin-top:10px}
+.alt{font-size:13px;color:var(--slate);margin-top:16px;text-align:center}
+.alt a{color:var(--green-d);font-weight:700;text-decoration:none}
+.foot{color:var(--mut-d);font-size:12px;text-align:center;margin-top:22px}
+.foot a{color:#fff}
+</style>
+</head>
+<body>
+<div class="top">
+  <img src="/sum-it-logo-mark.svg" alt=""><b>Sum-IT</b><span class="sp"></span>
+  <div class="langs"><button id="lang-en" onclick="setLang('en')">EN</button><button id="lang-nl" onclick="setLang('nl')">NL</button></div>
+  <a href="/">← sum-it.eu</a>
+</div>
+<div class="wrap">
+  <div class="card">
+    <h1 data-i18n="h1">Inloggen</h1>
+    <div class="sub" data-i18n="sub">Voor members én beheerders. Log in met het e-mailadres van je Sum-IT-account.</div>
+    <form id="f" onsubmit="return doLogin(event)">
+      <label data-i18n="l_email">E-mailadres</label>
+      <input id="email" type="email" required autocomplete="email" placeholder="jij@bedrijf.nl">
+      <label data-i18n="l_pw">Wachtwoord</label>
+      <input id="pw" type="password" required autocomplete="current-password" minlength="12">
+      <button class="btn" id="btn" type="submit" data-i18n="btn">Inloggen</button>
+      <div class="err" id="err"></div>
+      <div class="alt" style="margin-top:10px"><a href="#" onclick="return forgot()" data-i18n="forgot">Wachtwoord vergeten?</a></div>
+    </form>
+    <div class="alt" data-i18n="alt">Nog geen account? <a href="/portal.html">Maak er een in het member-portal</a></div>
+  </div>
+  <div class="foot"><span data-i18n="foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> · <a href="/privacy">Privacy</a></div>
+</div>
+<script>
+var I18N={
+ nl:{h1:"Inloggen",sub:"Voor members én beheerders. Log in met het e-mailadres van je Sum-IT-account.",
+     l_email:"E-mailadres",l_pw:"Wachtwoord",btn:"Inloggen",
+     alt:'Nog geen account? <a href="/portal.html">Maak er een in het member-portal</a>',
+     e_cfg:"Backend nog niet geconfigureerd.",e_conf:"Bevestig eerst je e-mailadres via de mail die je kreeg.",
+     e_fail:"Inloggen mislukt: controleer e-mail en wachtwoord.",forgot:"Wachtwoord vergeten?",
+     f_mail:"Vul eerst je e-mailadres in, klik dan opnieuw.",f_sent:"Mail verstuurd! Klik de link om een nieuw wachtwoord te kiezen.",
+     foot:"Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU"},
+ en:{h1:"Log in",sub:"For members and admins. Log in with the e-mail address of your Sum-IT account.",
+     l_email:"E-mail address",l_pw:"Password",btn:"Log in",
+     alt:'No account yet? <a href="/portal.html">Create one in the member portal</a>',
+     e_cfg:"Backend not configured yet.",e_conf:"Please confirm your e-mail address first via the mail you received.",
+     e_fail:"Login failed: check your e-mail and password.",forgot:"Forgot your password?",
+     f_mail:"Fill in your e-mail address first, then click again.",f_sent:"Mail sent! Click the link to choose a new password.",
+     foot:"Sum-IT is a product of Alpha Nova B.V. · All data stays in the EU"}};
+var LANG='nl';
+function setLang(l){LANG=l;try{localStorage.setItem('sumit_lang',l);}catch(e){}
+  document.documentElement.lang=l;
+  document.getElementById('lang-en').classList.toggle('on',l==='en');
+  document.getElementById('lang-nl').classList.toggle('on',l==='nl');
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');
+    if(I18N[l][k]!==undefined)el.innerHTML=I18N[l][k];});
+  document.getElementById('email').placeholder=l==='en'?'you@business.nl':'jij@bedrijf.nl';}
+try{setLang(localStorage.getItem('sumit_lang')==='en'?'en':'nl');}catch(e){setLang('nl');}
+var SB=null;
+try{if(window.SB_URL&&window.SB_URL.indexOf('http')===0&&window.supabase){SB=window.supabase.createClient(window.SB_URL,window.SB_ANON);}}catch(e){}
+async function routeUser(){
+  try{
+    var r=await SB.rpc('is_admin');
+    if(r.data===true){location.href='/beheer.html';return;}
+  }catch(e){}
+  location.href='/portal.html';
+}
+async function doLogin(ev){
+  ev.preventDefault();
+  var err=document.getElementById('err');err.textContent='';
+  if(!SB){err.textContent=I18N[LANG].e_cfg;return false;}
+  var btn=document.getElementById('btn');btn.disabled=true;
+  var email=document.getElementById('email').value.trim().toLowerCase();
+  var pw=document.getElementById('pw').value;
+  var r=await SB.auth.signInWithPassword({email:email,password:pw});
+  btn.disabled=false;
+  if(r.error){
+    err.textContent=/confirm/i.test(r.error.message)?I18N[LANG].e_conf:I18N[LANG].e_fail;
+    return false;
+  }
+  routeUser();
+  return false;
+}
+async function forgot(){
+  var err=document.getElementById('err');err.textContent='';
+  var em=(document.getElementById('email').value||'').trim().toLowerCase();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em)){err.textContent=I18N[LANG].f_mail;return false;}
+  var r=await SB.auth.resetPasswordForEmail(em,{redirectTo:'https://sum-it.eu/wachtwoord.html'});
+  err.textContent=r.error?r.error.message:I18N[LANG].f_sent;
+  return false;
+}
+// already logged in? route straight away
+if(SB){SB.auth.getSession().then(function(s){if(s.data&&s.data.session)routeUser();});}
+</script>
+</body>
+</html>

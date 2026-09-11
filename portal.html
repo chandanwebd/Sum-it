@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sum-IT · Member portal</title>
+<link rel="icon" type="image/png" href="sum-it-favicon.png">
+<script src="config.js"></script>
+<script src="sb-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#009966;--green-t:#D0FAE5;
+--pink:#FF2357;--amber:#F99C00;--amber-t:#FFF4DE;--bg:#F1F5F9;--card:#fff;--line:#E2E8F0;--slate:#64748B;
+--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
+.top{display:flex;align-items:center;gap:10px;padding:18px 24px;color:#fff}
+.top img{width:40px;height:auto}
+.top b{font-size:17px;font-weight:800}
+.top .sp{flex:1}
+.langs{display:flex;border:1px solid var(--line-d);border-radius:999px;overflow:hidden}
+.langs button{background:transparent;color:var(--mut-d);border:0;font-size:12px;font-weight:700;padding:6px 12px;cursor:pointer;font-family:inherit}
+.langs button.on{background:#fff;color:var(--indigo)}
+.ghost{background:transparent;border:1px solid var(--line-d);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:7px 14px;cursor:pointer;font-family:inherit}
+.wrap{max-width:520px;margin:4vh auto 60px;padding:0 18px}
+.card{background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+h1{font-size:22px;font-weight:800;color:var(--indigo);margin-bottom:4px}
+.sub{font-size:13.5px;color:var(--slate);margin-bottom:18px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input,select{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit}
+input:focus,select:focus{outline:2px solid var(--green)}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
+.btn:disabled{opacity:.55}
+.tabs{display:flex;background:#E9EEF4;border-radius:999px;padding:4px;margin-bottom:16px}
+.tabs span{flex:1;text-align:center;font-size:13px;font-weight:700;color:var(--slate);padding:8px 0;border-radius:999px;cursor:pointer}
+.tabs span.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(20,20,60,.08)}
+.err{color:#C0263B;font-size:12.5px;min-height:18px;margin-top:10px}
+.note{background:var(--amber-t);border:1px solid rgba(249,156,0,.4);color:#8A5A00;border-radius:12px;padding:12px 14px;font-size:13px;margin-top:14px}
+.hide{display:none}
+.pos{display:flex;align-items:baseline;gap:10px;margin:6px 0 2px}
+.pos b{font-size:52px;font-weight:800;color:var(--green-d);line-height:1}
+.pos span{font-size:13px;color:var(--slate)}
+.linkbox{display:flex;gap:8px;margin:12px 0 8px}
+.linkbox input{flex:1;border:1.5px dashed var(--green);background:var(--green-t);font-weight:600;font-size:12.5px}
+.linkbox button{background:var(--indigo);color:#fff;border:0;border-radius:12px;font-size:12.5px;font-weight:700;padding:0 16px;cursor:pointer;font-family:inherit}
+.socrow{display:flex;gap:9px;margin-top:6px}
+.soc{width:40px;height:40px;border-radius:99px;background:var(--bg);border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.soc svg{width:18px;height:18px;fill:var(--indigo)}
+.statrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stat{background:var(--bg);border-radius:14px;padding:13px 15px}
+.stat small{font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--slate);text-transform:uppercase;display:block}
+.stat b{font-size:19px;font-weight:800}
+.ranks{margin-top:18px}
+.rlbl{font-size:12px;font-weight:700;color:var(--indigo);margin-bottom:8px}
+.rank{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:700;border:1px solid var(--line);margin:0 6px 6px 0}
+.rank.gold{background:linear-gradient(135deg,#FFE9A8,#F0C24F);color:#5C4308;border-color:#D9AE3E}
+.rank.lock{background:var(--bg);color:var(--slate)}
+.divider{border-top:1px solid var(--line);margin:20px 0}
+.small{font-size:12px;color:var(--slate)}
+#qrbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;width:max-content;margin:10px 0}
+.foot{text-align:center;color:var(--mut-d);font-size:11.5px;margin-top:24px}
+.foot a{color:var(--mut-d)}
+</style>
+</head>
+<body>
+<div class="top">
+  <img src="sum-it-logo-mark.svg" alt=""><b>Sum-IT <span style="font-weight:600;opacity:.8" data-i18n="t_portal">Member portal</span></b>
+  <span class="sp"></span>
+  <div class="langs"><button id="l-en" onclick="setLang('en')">EN</button><button id="l-nl" class="on" onclick="setLang('nl')">NL</button></div>
+  <button class="ghost hide" id="logout" data-i18n="t_out">Log out</button>
+</div>
+<div class="wrap">
+
+  <div class="card" id="nocfg" style="display:none">
+    <h1>Portal</h1>
+    <p class="sub" data-i18n="t_nocfg">The portal backend is not configured yet (sb-config.js). Ask the team to finish the setup.</p>
+    <a class="btn" href="/" data-i18n="t_back">Back to sum-it.eu</a>
+  </div>
+
+  <div class="card hide" id="auth">
+    <h1 data-i18n="a_h1">Welcome back</h1>
+    <p class="sub" data-i18n="a_sub">Log in, or create your account with the e-mail you signed up with.</p>
+    <div class="tabs"><span id="tab-in" class="on" onclick="mode('in')" data-i18n="a_in">Log in</span><span id="tab-up" onclick="mode('up')" data-i18n="a_up">Create account</span></div>
+    <label data-i18n="a_mail">E-mail</label>
+    <input type="email" id="a-email" placeholder="jij@bedrijf.nl">
+    <label data-i18n="a_pw">Password (min. 12 characters)</label>
+    <input type="password" id="a-pw" minlength="12">
+    <button class="btn" id="a-go" onclick="go()" data-i18n="a_go">Log in</button>
+    <div class="err" id="a-err"></div>
+    <div class="note hide" id="a-verify" data-i18n="a_verify">Almost there! Check your inbox and click the verification link, then log in here.</div>
+  </div>
+
+  <div class="card hide" id="dash">
+    <h1 data-i18n="d_h1">Sign up</h1>
+    <p class="sub" id="d-hello"></p>
+    <div id="d-pending" class="note hide" data-i18n="d_pending">Your signup is not confirmed yet. Click the link in the confirmation e-mail (check spam), then refresh this page.</div>
+    <div id="d-none" class="note hide" data-i18n="d_none">We couldn't find a signup with this e-mail. Create your free profile on sum-it.eu first.</div>
+    <div id="d-main" class="hide">
+      <div class="pos"><b id="d-pos">#—</b><span data-i18n="d_pos">your signup number</span></div>
+      <div class="linkbox"><input readonly id="d-link" value=""><button onclick="copyLink()" data-i18n="d_copy">Copy</button></div>
+      <div class="small" data-i18n="d_share">Share your personal link, every friend who joins counts:</div>
+      <div class="socrow">
+        <a class="soc" id="sh-wa" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.1.1.3 0 .5-.3.6-.7.9-.5 1.2.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .7-.2 1.1z"/></svg></a>
+        <a class="soc" id="sh-li" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a>
+        <a class="soc" id="sh-x" target="_blank" title="X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a>
+        <a class="soc" id="sh-mail" title="E-mail"><svg viewBox="0 0 24 24"><path d="M2 4h20v16H2zm2 2v.5l8 5.3 8-5.3V6zm16 12V9l-8 5.3L4 9v9z"/></svg></a>
+      </div>
+      <div class="statrow">
+        <div class="stat"><small data-i18n="d_fr">Friends joined (confirmed)</small><b id="d-refs">0</b></div>
+        <div class="stat"><small data-i18n="d_rank">Your rank</small><b style="font-size:14px">★ <span data-i18n="d_rank1">Member</span></b></div>
+      </div>
+      <div class="ranks">
+        <div class="rlbl" data-i18n="d_ladder">Rise through the ranks as your reputation grows</div>
+        <span class="rank gold">★ <span data-i18n="rk1">Member</span></span>
+        <span class="rank lock">Trusted Pro</span>
+        <span class="rank lock">Summit Elite</span>
+      </div>
+      <div class="divider"></div>
+      <label data-i18n="d_city">Your city (lights up the map on sum-it.eu)</label>
+      <input type="text" id="d-city" maxlength="40" placeholder="Zaandam">
+      <button class="btn" style="margin-top:12px;padding:11px" onclick="saveCity()" data-i18n="d_citysave">Save city</button>
+      <div class="divider"></div>
+      <div class="rlbl" data-i18n="d_qr">Your QR code — scanning it opens your personal link</div>
+      <div id="qrbox"></div>
+      <div class="small" data-i18n="d_qr2">Tip: download your business card on sum-it.eu and share it with this QR.</div>
+    </div>
+    <div class="err" id="d-err"></div>
+  </div>
+
+  <div class="foot"><span data-i18n="f_line">Sum-IT is a product of Alpha Nova B.V. · All data in the EU</span> · <a href="/privacy" >Privacy</a></div>
+</div>
+
+<script>
+const P18N = {
+en:{t_portal:"Member portal",t_out:"Log out",t_nocfg:"The portal backend is not configured yet (sb-config.js). Ask the team to finish the setup.",t_back:"Back to sum-it.eu",
+a_h1:"Welcome back",a_sub:"Log in, or create your account with the e-mail you signed up with.",a_in:"Log in",a_up:"Create account",a_mail:"E-mail",a_pw:"Password (min. 12 characters)",a_go:"Log in",a_go2:"Create account",
+a_verify:"Almost there! Check your inbox and click the verification link, then log in here.",
+d_h1:"Sign up",d_hello:"Logged in as",d_pending:"Your signup is not confirmed yet. Click the link in the confirmation e-mail (check spam), then refresh this page.",
+d_none:"We couldn't find a signup with this e-mail. Create your free profile on sum-it.eu first.",
+d_pos:"your signup number",d_copy:"Copy",d_share:"Share your personal link, every friend who joins counts:",
+d_fr:"Friends joined (confirmed)",d_rank:"Your rank",d_rank1:"Member",rk1:"Member",
+d_ladder:"Rise through the ranks as your reputation grows",
+d_city:"Your city (lights up the map on sum-it.eu)",d_citysave:"Save city",d_saved:"Saved!",
+d_qr:"Your QR code — scanning it opens your personal link",d_qr2:"Tip: download your business card on sum-it.eu and share it with this QR.",
+f_line:"Sum-IT is a product of Alpha Nova B.V. · All data in the EU",
+e_pw:"Password must be at least 12 characters.",e_generic:"Something went wrong, try again."},
+nl:{t_portal:"Member-portal",t_out:"Uitloggen",t_nocfg:"De portal-backend is nog niet geconfigureerd (sb-config.js). Vraag het team de setup af te ronden.",t_back:"Terug naar sum-it.eu",
+a_h1:"Welkom terug",a_sub:"Log in, of maak je account met het e-mailadres waarmee je je hebt aangemeld.",a_in:"Inloggen",a_up:"Account maken",a_mail:"E-mailadres",a_pw:"Wachtwoord (min. 12 tekens)",a_go:"Inloggen",a_go2:"Account maken",
+a_verify:"Bijna klaar! Check je inbox en klik op de verificatielink, log daarna hier in.",
+d_h1:"Aanmelden",d_hello:"Ingelogd als",d_pending:"Je aanmelding is nog niet bevestigd. Klik op de link in de bevestigingsmail (check je spam) en ververs deze pagina.",
+d_none:"We vonden geen aanmelding met dit e-mailadres. Maak eerst je gratis profiel aan op sum-it.eu.",
+d_pos:"jouw aanmeldnummer",d_copy:"Kopieer",d_share:"Deel je persoonlijke link, elke vriend die meedoet telt:",
+d_fr:"Vrienden meegedaan (bevestigd)",d_rank:"Jouw rang",d_rank1:"Lid",rk1:"Lid",
+d_ladder:"Klim in rang terwijl je reputatie groeit",
+d_city:"Jouw stad (licht op op de kaart op sum-it.eu)",d_citysave:"Stad opslaan",d_saved:"Opgeslagen!",
+d_qr:"Jouw QR-code — scannen opent jouw persoonlijke link",d_qr2:"Tip: download je visitekaartje op sum-it.eu en deel 'm met deze QR.",
+f_line:"Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU",
+e_pw:"Wachtwoord moet minimaal 12 tekens zijn.",e_generic:"Er ging iets mis, probeer opnieuw."}
+};
+let LANG='nl', MODE='in', SB=null, ME=null;
+function t(k){return (P18N[LANG]&&P18N[LANG][k])||P18N.en[k]||k;}
+function setLang(l){LANG=l;
+  document.getElementById('l-en').classList.toggle('on',l==='en');
+  document.getElementById('l-nl').classList.toggle('on',l==='nl');
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(P18N[l][k]!==undefined)el.innerHTML=P18N[l][k];});
+  document.getElementById('a-go').textContent=t(MODE==='in'?'a_go':'a_go2');
+}
+function mode(m){MODE=m;
+  document.getElementById('tab-in').classList.toggle('on',m==='in');
+  document.getElementById('tab-up').classList.toggle('on',m==='up');
+  document.getElementById('a-go').textContent=t(m==='in'?'a_go':'a_go2');
+  document.getElementById('a-err').textContent='';
+}
+function show(id){['nocfg','auth','dash'].forEach(function(x){document.getElementById(x).classList.toggle('hide',x!==id);document.getElementById(x).style.display=(x===id?'block':'none');});}
+async function go(){
+  var email=document.getElementById('a-email').value.trim(), pw=document.getElementById('a-pw').value;
+  var err=document.getElementById('a-err'); err.textContent='';
+  if(pw.length<12){err.textContent=t('e_pw');return;}
+  var btn=document.getElementById('a-go');btn.disabled=true;
+  try{
+    if(MODE==='up'){
+      var r=await SB.auth.signUp({email:email,password:pw,options:{emailRedirectTo:location.origin+'/portal.html'}});
+      if(r.error) throw r.error;
+      document.getElementById('a-verify').classList.remove('hide');
+    }else{
+      var r2=await SB.auth.signInWithPassword({email:email,password:pw});
+      if(r2.error) throw r2.error;
+      await openDash(r2.data.user);
+    }
+  }catch(e){err.textContent=e.message||t('e_generic');}
+  btn.disabled=false;
+}
+async function openDash(user){
+  show('dash');
+  document.getElementById('logout').classList.remove('hide');
+  document.getElementById('d-hello').textContent=t('d_hello')+' '+user.email;
+  try{
+    var r=await SB.rpc('portal_me');
+    if(r.error) throw r.error;
+    ME=r.data;
+    if(!ME){document.getElementById('d-none').classList.remove('hide');return;}
+    if(ME.status!=='confirmed'){document.getElementById('d-pending').classList.remove('hide');return;}
+    document.getElementById('d-main').classList.remove('hide');
+    var qoff=(window.SITE_CFG&&SITE_CFG.QUEUE_OFFSET)||0;
+    document.getElementById('d-pos').textContent='#'+(ME.queue_pos?ME.queue_pos+qoff:'—');
+    var link='https://sum-it.eu/?ref='+ME.ref_code;
+    document.getElementById('d-link').value=link;
+    document.getElementById('d-refs').textContent=ME.referred_confirmed||0;
+    if(ME.city) document.getElementById('d-city').value=ME.city;
+    var msg=encodeURIComponent((LANG==='nl'?'Ik heb me aangemeld bij Sum-IT, doe ook mee: ':'I signed up for Sum-IT, join me: ')+link);
+    document.getElementById('sh-wa').href='https://wa.me/?text='+msg;
+    document.getElementById('sh-li').href='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(link);
+    document.getElementById('sh-x').href='https://twitter.com/intent/tweet?text='+msg;
+    document.getElementById('sh-mail').href='mailto:?subject=Sum-IT&body='+msg;
+    document.getElementById('qrbox').innerHTML='';
+    if(window.QRCode) new QRCode(document.getElementById('qrbox'),{text:link,width:132,height:132,colorDark:'#2D2D6B'});
+  }catch(e){document.getElementById('d-err').textContent=e.message||t('e_generic');}
+}
+function copyLink(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('d-link').value);}
+async function saveCity(){
+  var c=document.getElementById('d-city').value.trim();
+  var r=await SB.rpc('portal_set_city',{p_city:c});
+  document.getElementById('d-err').textContent = r.error?(r.error.message||t('e_generic')):t('d_saved');
+}
+document.getElementById('logout').addEventListener('click',async function(){await SB.auth.signOut();location.reload();});
+(function init(){
+  setLang('nl');
+  if(!(window.SB_URL&&String(window.SB_URL).indexOf('http')===0)){show('nocfg');return;}
+  SB=window.supabase.createClient(window.SB_URL,window.SB_ANON);
+  show('auth');
+  SB.auth.getSession().then(function(s){if(s.data.session)openDash(s.data.session.user);});
+})();
+</script>
+</body>
+</html>

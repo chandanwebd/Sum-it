@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sum-IT · Content editor</title>
+<style>
+  :root{
+    --navy:#1E1E5C; --green:#0E9040; --green-light:#13a44d; --paper:#F1EFE8;
+    --ink:#111122; --mist:#6B6B7E; --fog:#D8D8E0; --snow:#fff; --tint:#E9F2E4;
+    --font:'Inter','Helvetica Neue',Helvetica,system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper)}
+  a{color:var(--green)}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 80px}
+  header.bar{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;
+    display:flex;align-items:center;gap:14px;padding:12px 20px}
+  header.bar h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.2px}
+  header.bar .sp{flex:1}
+  header.bar .who{font-size:13px;opacity:.8}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;font-weight:700}
+  .btn{background:var(--green);color:#fff;padding:11px 18px;font-size:14px}
+  .btn:hover{background:var(--green-light)}
+  .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn.sm{padding:6px 11px;font-size:12px}
+  .btn:disabled{opacity:.5;cursor:default}
+  /* login */
+  .login{max-width:380px;margin:12vh auto 0;background:var(--snow);border:1px solid var(--fog);
+    border-radius:16px;padding:30px;box-shadow:0 18px 50px rgba(30,30,92,.12)}
+  .login h2{margin:0 0 6px;color:var(--navy)}
+  .login p{margin:0 0 20px;color:var(--mist);font-size:14px}
+  label{display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin:14px 0 6px}
+  input[type=email],input[type=password]{width:100%;padding:11px 13px;border:1px solid var(--fog);
+    border-radius:10px;font-size:14px;font-family:inherit}
+  .login .btn{width:100%;margin-top:20px}
+  .err{color:#c0392b;font-size:13px;margin-top:12px;min-height:16px}
+  /* editor */
+  .hint{background:var(--tint);border:1px solid #cfe3c4;border-radius:12px;padding:12px 16px;
+    font-size:13px;color:#2c5a2c;margin:18px 0}
+  .toolbar{display:flex;gap:10px;align-items:center;margin:18px 0 8px;flex-wrap:wrap}
+  .search{flex:1;min-width:180px;padding:10px 13px;border:1px solid var(--fog);border-radius:10px;font-size:14px;font-family:inherit}
+  details.sec{background:var(--snow);border:1px solid var(--fog);border-radius:14px;margin:14px 0;overflow:hidden}
+  details.sec>summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:10px;background:#fafafa}
+  details.sec>summary::-webkit-details-marker{display:none}
+  details.sec>summary .cnt{font-size:12px;color:var(--mist);font-weight:600}
+  .field{padding:14px 18px;border-top:1px solid #eee}
+  .field .k{font-size:11.5px;color:var(--mist);font-family:ui-monospace,Menlo,monospace;margin-bottom:8px}
+  .langs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:680px){.langs{grid-template-columns:1fr}}
+  .lng label{margin:0 0 5px;display:flex;justify-content:space-between;align-items:center}
+  .lng .ovr{font-size:10px;color:#fff;background:var(--green);border-radius:6px;padding:1px 6px;font-weight:700}
+  textarea{width:100%;min-height:62px;padding:9px 11px;border:1px solid var(--fog);border-radius:9px;
+    font-size:13.5px;font-family:inherit;resize:vertical;line-height:1.4}
+  textarea.changed{border-color:var(--green);background:#f6fcf3}
+  /* save bar */
+  .savebar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--fog);
+    padding:12px 20px;display:flex;align-items:center;gap:14px;justify-content:flex-end;
+    box-shadow:0 -8px 24px rgba(30,30,92,.07)}
+  .savebar .msg{flex:1;font-size:13px;color:var(--mist)}
+  .hide{display:none!important}
+  .loading{text-align:center;color:var(--mist);padding:40px}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginView" class="login">
+  <h2>Sum-IT content editor</h2>
+  <p>Log in to edit the website text.</p>
+  <form id="loginForm">
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username" required>
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Log in</button>
+    <div class="err" id="loginErr"></div>
+  </form>
+</div>
+
+<!-- EDITOR -->
+<div id="appView" class="hide">
+  <header class="bar">
+    <h1>Sum-IT · Content editor</h1>
+    <span class="sp"></span>
+    <span class="who" id="who"></span>
+    <button class="btn ghost sm" id="logout">Log out</button>
+  </header>
+  <div class="wrap">
+    <div class="hint">
+      Edit any text below in English, Dutch or German. Changes go live on
+      <a href="https://sum-it.eu" target="_blank">sum-it.eu</a> the moment you save —
+      no code or redeploy needed. Leave a box matching the grey default to keep the built-in text.
+    </div>
+    <div class="toolbar">
+      <input id="search" class="search" placeholder="Filter fields… (type a word that appears on the site)">
+      <button class="btn sm" id="expandAll">Expand all</button>
+      <button class="btn sm" id="collapseAll" style="background:#6B6B7E">Collapse all</button>
+    </div>
+    <div id="editor"><div class="loading">Loading content…</div></div>
+  </div>
+  <div class="savebar">
+    <span class="msg" id="saveMsg"></span>
+    <button class="btn" id="saveBtn" disabled>Save changes</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="sb-config.js"></script>
+<script>
+(function(){
+  const LANGS = ['en','nl','de'];
+  const LANGLABEL = { en:'English', nl:'Nederlands', de:'Deutsch' };
+  // Friendly section names keyed by the prefix before the first dot.
+  const SECTION = {
+    nav:'Navigation', hero:'Hero', trust:'Hero trust row', app:'Hero app mock',
+    problem:'The gap', p:'The gap — cards', features:'Product — intro',
+    f:'Product — modules', phase:'Phase 2 strip', community:'Community',
+    trade:'Community trades', paycard:'Community card', how:'Experience',
+    security:'Security', sec:'Security — cards', compare:'Why Sum-IT wins',
+    cmp:'Comparison rows', pricing:'Pricing', price:'Pricing card',
+    team:'Team', market:'Market', final:'Closing', brand:'Brand', foot:'Footer'
+  };
+
+  if (!window.SB_URL || window.SB_URL.indexOf('http') !== 0) {
+    document.getElementById('loginErr').textContent =
+      'Backend not configured yet — fill in sb-config.js with your Supabase URL and anon key.';
+  }
+  const sb = window.supabase.createClient(window.SB_URL || 'https://x.supabase.co', window.SB_ANON || 'x');
+
+  // ---- state ----
+  let DEFAULTS = { en:{}, nl:{}, de:{} };   // built-in site text
+  let OVERRIDES = {};                        // "lang|key" -> value (from DB)
+  let ORDER = [];                            // keys in document order
+  let SECTIONS = [];                         // [{prefix,label,keys:[]}]
+
+  // ---------- auth ----------
+  const loginView = document.getElementById('loginView');
+  const appView   = document.getElementById('appView');
+
+  document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const err = document.getElementById('loginErr'); err.textContent='';
+    const { data, error } = await sb.auth.signInWithPassword({
+      email: document.getElementById('email').value.trim(),
+      password: document.getElementById('pw').value
+    });
+    if (error) { err.textContent = error.message; return; }
+    showApp(data.user);
+  });
+  document.getElementById('logout').addEventListener('click', async ()=>{
+    await sb.auth.signOut(); location.reload();
+  });
+
+  async function showApp(user){
+    loginView.classList.add('hide');
+    appView.classList.remove('hide');
+    document.getElementById('who').textContent = user.email;
+    await Promise.all([loadDefaults(), loadOverrides()]);
+    render();
+  }
+
+  // resume an existing session
+  sb.auth.getSession().then(({data})=>{ if (data.session) showApp(data.session.user); });
+
+  // ---------- load built-in text from the live index.html ----------
+  async function loadDefaults(){
+    const html = await fetch('index.html?cb=' + Date.now()).then(r=>r.text());
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    // EN = the innerHTML of each [data-i18n] node, in document order
+    doc.querySelectorAll('[data-i18n]').forEach(n=>{
+      const k = n.getAttribute('data-i18n');
+      if (!(k in DEFAULTS.en)) { DEFAULTS.en[k] = n.innerHTML.trim(); ORDER.push(k); }
+    });
+    // NL + DE come from the `const I18N = { ... };` object in the script
+    const m = html.match(/const I18N\s*=\s*(\{[\s\S]*?\n {2}\});/);
+    if (m) {
+      try {
+        const I18N = (new Function('return ' + m[1]))();
+        if (I18N.nl) DEFAULTS.nl = I18N.nl;
+        if (I18N.de) DEFAULTS.de = I18N.de;
+      } catch(e){ console.warn('Could not parse I18N', e); }
+    }
+    // group into sections by key prefix
+    const seen = {};
+    ORDER.forEach(k=>{
+      const p = k.split('.')[0];
+      if (!seen[p]) { seen[p] = { prefix:p, label:SECTION[p]||p, keys:[] }; SECTIONS.push(seen[p]); }
+      seen[p].keys.push(k);
+    });
+  }
+
+  async function loadOverrides(){
+    OVERRIDES = {};
+    const { data, error } = await sb.from('content_overrides').select('lang,key,value');
+    if (error) { console.warn(error); return; }
+    (data||[]).forEach(r=>{ OVERRIDES[r.lang+'|'+r.key] = r.value; });
+  }
+
+  // ---------- render editor ----------
+  const editorEl = document.getElementById('editor');
+
+  function valFor(lang,key){
+    const o = OVERRIDES[lang+'|'+key];
+    if (o != null) return o;
+    return (DEFAULTS[lang] && DEFAULTS[lang][key] != null) ? DEFAULTS[lang][key] : '';
+  }
+
+  function render(){
+    editorEl.innerHTML = '';
+    SECTIONS.forEach(sec=>{
+      const det = document.createElement('details');
+      det.className = 'sec'; det.dataset.prefix = sec.prefix;
+      const sum = document.createElement('summary');
+      sum.innerHTML = sec.label + ' <span class="cnt">'+sec.keys.length+' fields</span>';
+      det.appendChild(sum);
+      sec.keys.forEach(key=>{
+        const field = document.createElement('div'); field.className='field'; field.dataset.key=key;
+        const kEl = document.createElement('div'); kEl.className='k'; kEl.textContent=key;
+        field.appendChild(kEl);
+        const grid = document.createElement('div'); grid.className='langs';
+        LANGS.forEach(lang=>{
+          const cell = document.createElement('div'); cell.className='lng';
+          const lab = document.createElement('label');
+          const hasOvr = OVERRIDES[lang+'|'+key] != null;
+          lab.innerHTML = LANGLABEL[lang] + (hasOvr?' <span class="ovr">edited</span>':'');
+          const ta = document.createElement('textarea');
+          ta.value = valFor(lang,key);
+          ta.dataset.lang = lang; ta.dataset.key = key;
+          ta.dataset.default = (DEFAULTS[lang] && DEFAULTS[lang][key] != null) ? DEFAULTS[lang][key] : '';
+          ta.dataset.original = ta.value;
+          ta.addEventListener('input', onEdit);
+          cell.appendChild(lab); cell.appendChild(ta); grid.appendChild(cell);
+        });
+        field.appendChild(grid); det.appendChild(field);
+      });
+      editorEl.appendChild(det);
+    });
+  }
+
+  // ---------- track changes ----------
+  const dirty = new Map();  // "lang|key" -> textarea
+  function onEdit(e){
+    const ta = e.target, id = ta.dataset.lang+'|'+ta.dataset.key;
+    if (ta.value !== ta.dataset.original) { dirty.set(id, ta); ta.classList.add('changed'); }
+    else { dirty.delete(id); ta.classList.remove('changed'); }
+    updateSaveBar();
+  }
+  function updateSaveBar(){
+    const n = dirty.size;
+    document.getElementById('saveBtn').disabled = n===0;
+    document.getElementById('saveMsg').textContent = n? (n+' unsaved change'+(n>1?'s':'')) : '';
+  }
+
+  // ---------- save ----------
+  document.getElementById('saveBtn').addEventListener('click', async ()=>{
+    const btn = document.getElementById('saveBtn'); btn.disabled=true;
+    const msg = document.getElementById('saveMsg'); msg.textContent='Saving…';
+    const upserts = [], deletes = [];
+    dirty.forEach((ta)=>{
+      const lang = ta.dataset.lang, key = ta.dataset.key, val = ta.value;
+      if (val === ta.dataset.default) deletes.push({lang,key});   // back to built-in default
+      else upserts.push({ lang, key, value: val });
+    });
+    try {
+      if (upserts.length){
+        const { error } = await sb.from('content_overrides').upsert(upserts, { onConflict:'lang,key' });
+        if (error) throw error;
+      }
+      for (const d of deletes){
+        const { error } = await sb.from('content_overrides').delete().eq('lang',d.lang).eq('key',d.key);
+        if (error) throw error;
+      }
+      // refresh state
+      upserts.forEach(u=>{ OVERRIDES[u.lang+'|'+u.key]=u.value; });
+      deletes.forEach(d=>{ delete OVERRIDES[d.lang+'|'+d.key]; });
+      dirty.forEach((ta)=>{ ta.dataset.original = ta.value; ta.classList.remove('changed'); });
+      dirty.clear(); updateSaveBar();
+      msg.textContent = 'Saved ✓  — live on sum-it.eu';
+      setTimeout(()=>{ if(!dirty.size) msg.textContent=''; }, 4000);
+    } catch(err){
+      msg.textContent = 'Error: ' + (err.message||err);
+      btn.disabled = false;
+    }
+  });
+
+  // ---------- filter + expand ----------
+  document.getElementById('search').addEventListener('input', (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('details.sec').forEach(det=>{
+      let any=false;
+      det.querySelectorAll('.field').forEach(f=>{
+        const hay = (f.dataset.key + ' ' + f.textContent).toLowerCase();
+        const show = !q || hay.indexOf(q)>-1;
+        f.classList.toggle('hide', !show); if(show) any=true;
+      });
+      det.classList.toggle('hide', !any);
+      if (q && any) det.open = true;
+    });
+  });
+  document.getElementById('expandAll').addEventListener('click', ()=>{
+    document.querySelectorAll('details.sec').forEach(d=>d.open=true); });
+  document.getElementById('collapseAll').addEventListener('click', ()=>{
+    document.querySelectorAll('details.sec').forEach(d=>d.open=false); });
+
+  // warn before leaving with unsaved edits
+  window.addEventListener('beforeunload', (e)=>{ if(dirty.size){ e.preventDefault(); e.returnValue=''; } });
+})();
+</script>
+</body>
+</html>

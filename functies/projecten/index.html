@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Winst per klus zien: projectbudget bijhouden | Sum-IT</title>
+<meta name="description" content="Zie live wat een klus oplevert: kosten en omzet per project, winst per klus in één oogopslag. Zo maak je volgende keer een scherpere offerte.">
+<link rel="canonical" href="https://sum-it.eu/functies/projecten/">
+<link rel="icon" href="/sum-it-favicon.png">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Winst per klus zien: projectbudget bijhouden">
+<meta property="og:description" content="Zie live wat een klus oplevert: kosten en omzet per project, winst per klus in één oogopslag. Zo maak je volgende keer een scherpere offerte.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sum-it.eu/functies/projecten/">
+<meta property="og:image" content="https://sum-it.eu/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sum-IT", "item": "https://sum-it.eu/"}, {"@type": "ListItem", "position": 2, "name": "Projecten", "item": "https://sum-it.eu/functies/projecten/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Zie ik winst per klus live, of pas achteraf?", "acceptedAnswer": {"@type": "Answer", "text": "Live. Zodra een bonnetje of factuur aan een project hangt, telt het meteen mee in het overzicht van dat project. Je hoeft niet te wachten tot de klus klaar is."}}, {"@type": "Question", "name": "Kan ik meerdere klussen tegelijk bijhouden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Elk project heeft zijn eigen overzicht van kosten, omzet en winst, zodat je lopende klussen los van elkaar kunt volgen."}}, {"@type": "Question", "name": "Moet ik kosten handmatig aan een project koppelen?", "acceptedAnswer": {"@type": "Answer", "text": "Je kiest bij het inboeken van een bonnetje of factuur snel het project waar het bij hoort; daarna telt het automatisch mee in dat projectoverzicht."}}, {"@type": "Question", "name": "Helpt dit ook bij het maken van offertes?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Doordat je ziet wat vergelijkbare klussen eerder écht hebben gekost en opgeleverd, kun je een volgende offerte scherper onderbouwen in plaats van schatten."}}, {"@type": "Question", "name": "Kost de projectenfunctie extra naast de boekhouding?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Projecten en winst per klus horen bij de boekhouding van €11 per maand, alles inbegrepen. Een profiel in het netwerk is daarnaast gratis."}}]}</script>
+<style>
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#475569;--mut:#64748B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--slate);line-height:1.75;font-size:16px}
+.top{background:linear-gradient(140deg,#2D2D6B,#232358);padding:18px 22px}
+.topin{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:19px;text-decoration:none}
+.logo img{width:30px;height:30px}
+.topnav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.topnav a{color:#C7CBEA;text-decoration:none;font-size:14px;font-weight:600}
+.topnav a:hover{color:#fff}
+.cta{background:var(--green);color:#fff!important;padding:9px 16px;border-radius:99px;font-weight:700}
+main{max-width:760px;margin:0 auto;padding:42px 22px 30px}
+.crumb{font-size:13px;margin-bottom:18px} .crumb a{color:var(--green-d);text-decoration:none;font-weight:600}
+h1{color:var(--indigo);font-size:clamp(28px,5vw,40px);line-height:1.18;margin-bottom:14px}
+.meta{font-size:13.5px;color:var(--mut);margin-bottom:26px}
+article h2{color:var(--indigo);font-size:22px;margin:34px 0 10px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px 22px}
+article li{margin-bottom:8px}
+article b{color:var(--indigo)}
+article h3{color:var(--indigo);font-size:17px;margin:24px 0 6px}
+.tip{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:14px 18px;margin:20px 0;font-size:15px}
+.ctabox{background:linear-gradient(140deg,#2D2D6B,#232358);border-radius:18px;padding:28px;margin:38px 0 8px;color:#C7CBEA}
+.ctabox h3{color:#fff;font-size:20px;margin-bottom:8px}
+.ctabox a{display:inline-block;margin-top:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:99px}
+.disc{font-size:12.5px;color:var(--mut);margin-top:22px}
+footer{max-width:760px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color:var(--mut)}
+footer a{color:var(--green-d)}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <a class="logo" href="/"><img src="/sum-it-logo-mark.svg" alt="Sum-IT" width="30" height="30">Sum-IT</a>
+  <nav class="topnav">
+    <a href="/blog/" data-i18n="c_blog">Blog</a>
+    <a href="/#capture" data-i18n="c_feat">Functies</a>
+    <a href="/community/" data-i18n="c_comm">Community</a>
+    <a href="/prijzen/" data-i18n="c_price">Prijzen</a>
+    <a class="cta" href="/#signup" data-i18n="c_cta">Gratis profiel</a>
+  </nav>
+</div></div>
+<main>
+<div class="crumb"><a href="/" data-i18n="c_home">Home</a> · <span data-i18n="fp_crumb">Projecten</span></div>
+<h1 data-i18n="fp_h1">Project budget bijhouden: winst per klus in één oogopslag</h1>
+<div class="meta" data-i18n="fp_meta">Functie · Projecten · 4 min leestijd</div>
+<article>
+<p data-i18n="fp_intro">Je weet meestal pas ná een klus of hij goed heeft uitgepakt — als de laatste rekening binnen is en je het even optelt. Met projecten in Sum-IT hoef je niet te wachten: je ziet de kosten per klus en de winst per klus terwijl je bezig bent, niet pas achteraf.</p>
+
+<h2 data-i18n="fp_h2_how">Hoe houd je kosten per klus bij in Sum-IT?</h2>
+<ul>
+<li data-i18n="fp_li1"><b>Elke klus is een project.</b> Je maakt een project aan voor een klus of opdracht en koppelt er bonnetjes en facturen aan.</li>
+<li data-i18n="fp_li2"><b>Bonnetje, gelijk op de klus.</b> Fotografeer je <a href="/functies/bonnetjes-scannen/">bonnetje</a>, kies het project — de kosten tellen meteen mee.</li>
+<li data-i18n="fp_li3"><b>Omzet en kosten naast elkaar.</b> Je ziet per project wat er binnenkomt en wat eruit gaat, zonder losse rekensom.</li>
+<li data-i18n="fp_li4"><b>Winst live in beeld.</b> Winst per klus berekenen doe je niet meer zelf; het overzicht staat klaar zodra je boekt.</li>
+</ul>
+
+<h2 data-i18n="fp_h2_calc">Winst per klus berekenen zonder rekenwerk</h2>
+<p data-i18n="fp_p_calc">Project budget bijhouden voelt vaak als een aparte klus op zich — een Excel-bestand naast je administratie. In Sum-IT is het geen extra werk: omdat elk bonnetje en elke factuur toch al wordt ingeboekt, hoef je alleen het project te kiezen. De winst per klus rolt daar automatisch uit.</p>
+
+<div class="tip" data-i18n="fp_tip">Tip: reken bij een nieuwe klus eerst je uurtarief door, zodat je vooraf weet welk bedrag een gezonde winst per klus oplevert. Gebruik daarvoor de <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a>.</div>
+
+<h2 data-i18n="fp_h2_quote">Betere offertes dankzij inzicht in eerdere klussen</h2>
+<p data-i18n="fp_p_quote">Wie zwart-op-wit ziet wat een vergelijkbare klus eerder écht heeft gekost, hoeft de volgende offerte niet meer te gokken. Kosten per klus die eerst verspreid stonden over losse bonnetjes, komen samen in één overzicht — zo onderbouw je een prijs in plaats van hem te schatten.</p>
+
+<h2 data-i18n="fp_h2_who">Eerlijk over wat het nu wel en niet doet</h2>
+<p data-i18n="fp_p_who">Sum-IT is in aanbouw en start bewust klein en simpel. De projectenmodule houdt kosten, omzet en winst per klus bij; complexe planning met materiaal, personeel of urenregistratie zit er vandaag nog niet in. Voor zzp'ers en kleine aannemers die vooral willen weten wat een klus oplevert, is dat precies genoeg.</p>
+
+<h2 data-i18n="fp_h2_early">Op tijd zien dat een klus tegenvalt</h2>
+<p data-i18n="fp_p_early">Het grootste voordeel van live inzicht is niet de winst die je aan het eind telt, maar het moment daarvoor. Lopen de kosten van een klus uit de hand, dan zie je dat terwijl hij nog loopt — niet pas als de factuur al verstuurd is. Zo kun je nog bijsturen, extra werk apart in rekening brengen, of gewoon weten waar je bij een volgende vergelijkbare klus scherper op moet letten.</p>
+
+<h2 data-i18n="fp_h2_more">Meer bij Sum-IT</h2>
+<p data-i18n="fp_p_more">Wil je weten hoe de bonnetjes en facturen zelf worden ingeboekt? Lees over <a href="/functies/bonnetjes-scannen/">automatisch bonnetjes inboeken</a>. Benieuwd wat er van je winst overblijft na de fiscus? Bekijk <a href="/functies/btw-apart-zetten/">btw apart zetten</a>. Alle prijzen staan op <a href="/prijzen/">prijzen</a>.</p>
+
+<h2 data-i18n="fp_h2_faq">Veelgestelde vragen</h2>
+<h3 data-i18n="fp_faq1_q">Zie ik winst per klus live, of pas achteraf?</h3>
+<p data-i18n="fp_faq1_a">Live. Zodra een bonnetje of factuur aan een project hangt, telt het meteen mee in het overzicht van dat project. Je hoeft niet te wachten tot de klus klaar is.</p>
+<h3 data-i18n="fp_faq2_q">Kan ik meerdere klussen tegelijk bijhouden?</h3>
+<p data-i18n="fp_faq2_a">Ja. Elk project heeft zijn eigen overzicht van kosten, omzet en winst, zodat je lopende klussen los van elkaar kunt volgen.</p>
+<h3 data-i18n="fp_faq3_q">Moet ik kosten handmatig aan een project koppelen?</h3>
+<p data-i18n="fp_faq3_a">Je kiest bij het inboeken van een bonnetje of factuur snel het project waar het bij hoort; daarna telt het automatisch mee in dat projectoverzicht.</p>
+<h3 data-i18n="fp_faq4_q">Helpt dit ook bij het maken van offertes?</h3>
+<p data-i18n="fp_faq4_a">Ja. Doordat je ziet wat vergelijkbare klussen eerder écht hebben gekost en opgeleverd, kun je een volgende offerte scherper onderbouwen in plaats van schatten.</p>
+<h3 data-i18n="fp_faq5_q">Kost de projectenfunctie extra naast de boekhouding?</h3>
+<p data-i18n="fp_faq5_a">Nee. Projecten en winst per klus horen bij de boekhouding van €11 per maand, alles inbegrepen. Een profiel in het netwerk is daarnaast gratis.</p>
+</article>
+<div class="ctabox">
+<h3 data-i18n="fp_cta_h3">Maak je gratis profiel aan bij Sum-IT</h3>
+<span data-i18n="fp_cta_p">Kosten en omzet per klus, winst live in beeld — zo houd je projecten bij in Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.</span>
+<br><a href="/#signup" data-i18n="fp_cta_btn">Maak je gratis profiel aan →</a>
+</div>
+<p class="disc" data-i18n="fp_disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
+</main>
+<footer>
+<span data-i18n="c_foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> ·
+<a href="/blog/" data-i18n="c_blog">Blog</a> ·
+<a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
+<a href="/">sum-it.eu</a>
+</footer>
+<script>
+window.PAGE_I18N={
+"nl":{
+"fp_crumb":"Projecten",
+"fp_h1":"Project budget bijhouden: winst per klus in één oogopslag",
+"fp_meta":"Functie · Projecten · 4 min leestijd",
+"fp_intro":"Je weet meestal pas ná een klus of hij goed heeft uitgepakt — als de laatste rekening binnen is en je het even optelt. Met projecten in Sum-IT hoef je niet te wachten: je ziet de kosten per klus en de winst per klus terwijl je bezig bent, niet pas achteraf.",
+"fp_h2_how":"Hoe houd je kosten per klus bij in Sum-IT?",
+"fp_li1":"<b>Elke klus is een project.</b> Je maakt een project aan voor een klus of opdracht en koppelt er bonnetjes en facturen aan.",
+"fp_li2":"<b>Bonnetje, gelijk op de klus.</b> Fotografeer je <a href=\"/functies/bonnetjes-scannen/\">bonnetje</a>, kies het project — de kosten tellen meteen mee.",
+"fp_li3":"<b>Omzet en kosten naast elkaar.</b> Je ziet per project wat er binnenkomt en wat eruit gaat, zonder losse rekensom.",
+"fp_li4":"<b>Winst live in beeld.</b> Winst per klus berekenen doe je niet meer zelf; het overzicht staat klaar zodra je boekt.",
+"fp_h2_calc":"Winst per klus berekenen zonder rekenwerk",
+"fp_p_calc":"Project budget bijhouden voelt vaak als een aparte klus op zich — een Excel-bestand naast je administratie. In Sum-IT is het geen extra werk: omdat elk bonnetje en elke factuur toch al wordt ingeboekt, hoef je alleen het project te kiezen. De winst per klus rolt daar automatisch uit.",
+"fp_tip":"Tip: reken bij een nieuwe klus eerst je uurtarief door, zodat je vooraf weet welk bedrag een gezonde winst per klus oplevert. Gebruik daarvoor de <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a>.",
+"fp_h2_quote":"Betere offertes dankzij inzicht in eerdere klussen",
+"fp_p_quote":"Wie zwart-op-wit ziet wat een vergelijkbare klus eerder écht heeft gekost, hoeft de volgende offerte niet meer te gokken. Kosten per klus die eerst verspreid stonden over losse bonnetjes, komen samen in één overzicht — zo onderbouw je een prijs in plaats van hem te schatten.",
+"fp_h2_who":"Eerlijk over wat het nu wel en niet doet",
+"fp_p_who":"Sum-IT is in aanbouw en start bewust klein en simpel. De projectenmodule houdt kosten, omzet en winst per klus bij; complexe planning met materiaal, personeel of urenregistratie zit er vandaag nog niet in. Voor zzp'ers en kleine aannemers die vooral willen weten wat een klus oplevert, is dat precies genoeg.",
+"fp_h2_early":"Op tijd zien dat een klus tegenvalt",
+"fp_p_early":"Het grootste voordeel van live inzicht is niet de winst die je aan het eind telt, maar het moment daarvoor. Lopen de kosten van een klus uit de hand, dan zie je dat terwijl hij nog loopt — niet pas als de factuur al verstuurd is. Zo kun je nog bijsturen, extra werk apart in rekening brengen, of gewoon weten waar je bij een volgende vergelijkbare klus scherper op moet letten.",
+"fp_h2_more":"Meer bij Sum-IT",
+"fp_p_more":"Wil je weten hoe de bonnetjes en facturen zelf worden ingeboekt? Lees over <a href=\"/functies/bonnetjes-scannen/\">automatisch bonnetjes inboeken</a>. Benieuwd wat er van je winst overblijft na de fiscus? Bekijk <a href=\"/functies/btw-apart-zetten/\">btw apart zetten</a>. Alle prijzen staan op <a href=\"/prijzen/\">prijzen</a>.",
+"fp_h2_faq":"Veelgestelde vragen",
+"fp_faq1_q":"Zie ik winst per klus live, of pas achteraf?",
+"fp_faq1_a":"Live. Zodra een bonnetje of factuur aan een project hangt, telt het meteen mee in het overzicht van dat project. Je hoeft niet te wachten tot de klus klaar is.",
+"fp_faq2_q":"Kan ik meerdere klussen tegelijk bijhouden?",
+"fp_faq2_a":"Ja. Elk project heeft zijn eigen overzicht van kosten, omzet en winst, zodat je lopende klussen los van elkaar kunt volgen.",
+"fp_faq3_q":"Moet ik kosten handmatig aan een project koppelen?",
+"fp_faq3_a":"Je kiest bij het inboeken van een bonnetje of factuur snel het project waar het bij hoort; daarna telt het automatisch mee in dat projectoverzicht.",
+"fp_faq4_q":"Helpt dit ook bij het maken van offertes?",
+"fp_faq4_a":"Ja. Doordat je ziet wat vergelijkbare klussen eerder écht hebben gekost en opgeleverd, kun je een volgende offerte scherper onderbouwen in plaats van schatten.",
+"fp_cta_h3":"Maak je gratis profiel aan bij Sum-IT",
+"fp_cta_p":"Kosten en omzet per klus, winst live in beeld — zo houd je projecten bij in Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.",
+"fp_cta_btn":"Maak je gratis profiel aan →",
+"fp_disc":"Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.",
+"fp_faq5_q":"Kost de projectenfunctie extra naast de boekhouding?",
+"fp_faq5_a":"Nee. Projecten en winst per klus horen bij de boekhouding van €11 per maand, alles inbegrepen. Een profiel in het netwerk is daarnaast gratis."
+},
+"en":{
+"fp_crumb":"Projects",
+"fp_h1":"Project budget tracking: profit per job at a glance",
+"fp_meta":"Feature · Projects · 4 min read",
+"fp_intro":"You usually only find out after a job whether it worked out well — once the last bill is in and you add it all up. With projects in Sum-IT you don't have to wait: you see the costs per job and the profit per job while you're working, not just afterwards.",
+"fp_h2_how":"How do you track costs per job in Sum-IT?",
+"fp_li1":"<b>Every job is a project.</b> You create a project for a job or assignment and link receipts and invoices to it.",
+"fp_li2":"<b>Receipt, straight onto the job.</b> Photograph your <a href=\"/functies/bonnetjes-scannen/\">receipt</a>, pick the project — the cost counts immediately.",
+"fp_li3":"<b>Revenue and costs side by side.</b> You see per project what's coming in and what's going out, without a separate calculation.",
+"fp_li4":"<b>Profit live on screen.</b> You no longer calculate profit per job yourself; the overview is ready the moment you book.",
+"fp_h2_calc":"Calculating profit per job without doing the maths",
+"fp_p_calc":"Project budget tracking often feels like a job in itself — a spreadsheet next to your bookkeeping. In Sum-IT it's no extra work: since every receipt and invoice is booked anyway, you just pick the project. The profit per job rolls out of that automatically.",
+"fp_tip":"Tip: work out your hourly rate before starting a new job, so you know in advance what amount makes for a healthy profit per job. Use the <a href=\"/tools/uurtarief-calculator.html\">hourly rate calculator</a> for that.",
+"fp_h2_quote":"Better quotes thanks to insight from past jobs",
+"fp_p_quote":"If you can see in black and white what a similar job actually cost before, you no longer have to guess on your next quote. Costs per job that used to be scattered across separate receipts come together in one overview — so you can back up a price instead of estimating it.",
+"fp_h2_who":"Honest about what it does and doesn't do today",
+"fp_p_who":"Sum-IT is in build and deliberately starts small and simple. The projects module tracks costs, revenue and profit per job; complex planning with materials, staff or time tracking isn't in there today. For sole traders and small contractors who mainly want to know what a job earns, that's exactly enough.",
+"fp_h2_early":"Spotting early that a job is running over",
+"fp_p_early":"The biggest benefit of live insight isn't the profit you count at the end, it's the moment before that. If a job's costs are running over, you see it while it's still happening, not once the invoice has already gone out. That gives you room to adjust, bill extra work separately, or simply know what to watch more closely on the next similar job.",
+"fp_h2_more":"More at Sum-IT",
+"fp_p_more":"Want to know how the receipts and invoices themselves get booked? Read about <a href=\"/functies/bonnetjes-scannen/\">automatic receipt booking</a>. Curious what's left of your profit after tax? Check <a href=\"/functies/btw-apart-zetten/\">setting VAT aside</a>. All prices are on <a href=\"/prijzen/\">pricing</a>.",
+"fp_h2_faq":"Frequently asked questions",
+"fp_faq1_q":"Do I see profit per job live, or only afterwards?",
+"fp_faq1_a":"Live. As soon as a receipt or invoice is linked to a project, it immediately counts towards that project's overview. You don't have to wait until the job is finished.",
+"fp_faq2_q":"Can I track several jobs at the same time?",
+"fp_faq2_a":"Yes. Each project has its own overview of costs, revenue and profit, so you can follow running jobs separately from each other.",
+"fp_faq3_q":"Do I have to link costs to a project manually?",
+"fp_faq3_a":"When booking a receipt or invoice you quickly pick the project it belongs to; after that it automatically counts towards that project's overview.",
+"fp_faq4_q":"Does this help with making quotes too?",
+"fp_faq4_a":"Yes. Because you can see what similar jobs actually cost and earned before, you can back up your next quote instead of guessing.",
+"fp_cta_h3":"Create your free profile at Sum-IT",
+"fp_cta_p":"Costs and revenue per job, profit live on screen — that's how projects work in Sum-IT. A profile in the network is free; bookkeeping on top is available from €11 per month, everything included.",
+"fp_cta_btn":"Create your free profile →",
+"fp_disc":"This article is general information, not tax or financial advice. For your situation, consult a bookkeeper or the Dutch Tax Authority."
+,
+"fp_faq5_q":"Does the projects feature cost extra on top of bookkeeping?",
+"fp_faq5_a":"No. Projects and profit per job are part of the €11 per month bookkeeping plan, everything included. A profile in the network is free on top of that."
+}
+};
+</script>
+<script src="/i18n.js" defer></script>
+</body>
+</html>
