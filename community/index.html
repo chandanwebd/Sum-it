@@ -1,183 +1,2141 @@
 <!doctype html>
 <html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Netwerk van vakmensen (in aanbouw) · Sum-IT</title>
-<meta name="description" content="Sum-IT bouwt aan een netwerk van vakmensen die door collega's worden aanbevolen, veilig onderaannemen en elkaar werk gunnen — zonder doorverkochte gegevens. In aanbouw.">
-<link rel="canonical" href="https://sum-it.eu/community/">
-<link rel="icon" href="/sum-it-favicon.png">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Een netwerk van vakmensen — in aanbouw">
-<meta property="og:description" content="Door collega's aanbevolen, veilig onderaannemen, geen doorverkochte gegevens. Dit is wat we bouwen.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sum-it.eu/community/">
-<meta property="og:image" content="https://sum-it.eu/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--indigo:#2D2D6B;--indigo-d:#232358;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#475569;--mut:#64748B}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Netwerk van vakmensen (in aanbouw) · Sum-IT</title>
+    <meta name="description"
+      content="Sum-IT bouwt aan een netwerk van vakmensen die door collega's worden aanbevolen, veilig onderaannemen en elkaar werk gunnen — zonder doorverkochte gegevens. In aanbouw.">
+    <link rel="canonical" href="https://sum-it.eu/community/">
+    <link rel="icon" href="/sum-it-favicon.png">
+    <meta name="robots" content="index, follow">
+    <link rel='stylesheet'
+      href='../css/index.css'>
+    <meta property="og:title" content="Een netwerk van vakmensen — in aanbouw">
+    <meta property="og:description"
+      content="Door collega's aanbevolen, veilig onderaannemen, geen doorverkochte gegevens. Dit is wat we bouwen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sum-it.eu/community/">
+    <meta property="og:image" content="https://sum-it.eu/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+    <style>
+/* =========================================================
+   SUM-IT COMMUNITY — MAGIC UI
+   Presentation layer only.
+   Existing URLs, data-i18n keys and /i18n.js functionality
+   are intentionally preserved.
+   ========================================================= */
+
+:root{
+  --navy:#111842;
+  --navy-2:#191e52;
+  --indigo:#2d2d6b;
+  --indigo-2:#24275e;
+  --green:#00c98b;
+  --green-2:#00a875;
+  --mint:#dffaf1;
+  --ink:#17213d;
+  --text:#506079;
+  --muted:#718096;
+  --bg:#f7f9fc;
+  --white:#fff;
+  --line:#e5eaf2;
+  --line-dark:rgba(255,255,255,.14);
+  --shadow:0 18px 55px rgba(30,43,82,.10);
+  --shadow-lg:0 30px 90px rgba(16,27,67,.17);
+  --max:1080px;
+  --radius:24px;
+}
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--slate);line-height:1.75;font-size:16px}
-.top{background:linear-gradient(140deg,#2D2D6B,#232358);padding:18px 22px}
-.topin{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:19px;text-decoration:none}
-.logo img{width:30px;height:30px}
-.topnav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.topnav a{color:#C7CBEA;text-decoration:none;font-size:14px;font-weight:600}
-.topnav a:hover{color:#fff}
-.cta{background:var(--green);color:#fff!important;padding:9px 16px;border-radius:99px;font-weight:700}
-main{max-width:760px;margin:0 auto;padding:42px 22px 30px}
-.crumb{font-size:13px;margin-bottom:18px} .crumb a{color:var(--green-d);text-decoration:none;font-weight:600}
-h1{color:var(--indigo);font-size:clamp(28px,5vw,40px);line-height:1.18;margin-bottom:14px}
-.meta{font-size:13.5px;color:var(--mut);margin-bottom:26px}
-article h2{color:var(--indigo);font-size:22px;margin:34px 0 10px}
-article h3{color:var(--indigo);font-size:17px;margin:22px 0 6px}
-article p{margin:0 0 16px}
-article b{color:var(--indigo)}
-.ctabox{background:linear-gradient(140deg,#2D2D6B,#232358);border-radius:18px;padding:28px;margin:38px 0 8px;color:#C7CBEA}
-.ctabox h3{color:#fff;font-size:20px;margin-bottom:8px}
-.ctabox a{display:inline-block;margin-top:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:99px}
-.disc{font-size:12.5px;color:var(--mut);margin-top:22px}
-footer{max-width:760px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color:var(--mut)}
-footer a{color:var(--green-d)}
-.hero2{background:linear-gradient(140deg,#2D2D6B,#232358);color:#fff;padding:8px 0 34px}
-.hero2 .in{max-width:760px;margin:0 auto;padding:0 22px}
-.hero2 .chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#C7CBEA;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:99px;padding:5px 12px;margin-bottom:14px}
-.hero2 h1{color:#fff;font-size:clamp(28px,5.5vw,42px);line-height:1.15;margin-bottom:12px}
-.hero2 p{color:#C7CBEA;font-size:17px;max-width:560px}
-.hero2 .btn{display:inline-block;margin-top:20px;background:var(--green);color:#fff;text-decoration:none;font-weight:800;padding:15px 26px;border-radius:14px;font-size:17px}
-.hero2 .sub{color:#8f95c9;font-size:13px;margin-top:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
-@media(max-width:620px){.grid{grid-template-columns:1fr}}
-.wcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-.wcard h3{color:var(--indigo);font-size:16px;margin-bottom:4px}
-.wcard p{font-size:14.5px;margin:0}
-.steps{counter-reset:s;margin:18px 0}
-.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
-.step .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--green-d);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
-.step b{color:var(--indigo)}
-.note2{background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:14px 18px;font-size:14px;color:#92400E;margin:20px 0}
-/* --- example listed profile (from the app prototype) --- */
-.profwrap{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:26px;align-items:center;margin:22px 0 8px}
-@media(max-width:700px){.profwrap{grid-template-columns:1fr}}
-.prof{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(15,61,94,.12)}
-.prof .phead{background:linear-gradient(120deg,#16883C 0%,#1B7079 55%,#1C297D 100%);color:#fff;padding:20px 18px 16px;display:flex;gap:13px;align-items:center}
-.prof .pav{flex:0 0 54px;height:54px;border-radius:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
-.prof .pn{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:7px;line-height:1.2}
-.prof .plv{font-size:10px;font-weight:800;background:rgba(255,255,255,.24);border-radius:8px;padding:2px 7px;letter-spacing:.02em}
-.prof .pb{font-size:12px;font-weight:600;opacity:.95;margin-top:2px}
-.prof .pm{font-size:11px;opacity:.85;margin-top:1px}
-.prof .ppill{display:inline-flex;align-items:center;gap:6px;background:var(--green);font-size:10.5px;font-weight:800;border-radius:99px;padding:4px 10px;margin-top:7px}
-.prof .ppill i{width:6px;height:6px;border-radius:50%;background:#fff}
-.prof .pbody{padding:14px 16px 16px}
-.prof .pskills{display:flex;flex-wrap:wrap;gap:7px}
-.prof .pskill{font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:99px;background:rgba(45,45,107,.07);color:var(--indigo);display:inline-flex;align-items:center;gap:6px}
-.prof .pskill i{font-style:normal;font-size:10px;font-weight:800;background:var(--green);color:#fff;border-radius:6px;padding:1px 5px}
-.prof .pcontact{display:flex;gap:8px;margin:13px 0 3px}
-.prof .pcontact span{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:var(--indigo);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 4px}
-.prof .pcontact svg{width:17px;height:17px;stroke:var(--green-d);fill:none;stroke-width:1.8}
-.prof .plist{margin-top:11px;border-top:1px solid var(--line)}
-.prof .pli{display:flex;align-items:center;gap:9px;font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--line)}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:84px;
+}
+
+body{
+  min-width:320px;
+  overflow-x:hidden;
+  font-family:Poppins,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 10%,rgba(0,201,139,.055),transparent 28rem),
+    radial-gradient(circle at 92% 18%,rgba(45,45,107,.055),transparent 30rem),
+    var(--bg);
+  font-size:15px;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  opacity:.7;
+  background-image:
+    linear-gradient(rgba(45,45,107,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,45,107,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,#000,transparent 72%);
+}
+
+a{color:inherit}
+img{max-width:100%}
+button,input,select,textarea{font:inherit}
+
+/* ================= NAV ================= */
+
+.top{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:10px 22px;
+  background:rgba(17,24,66,.88);
+  border-bottom:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+}
+
+.top:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  opacity:.8;
+}
+
+.topin{
+  width:min(var(--max),100%);
+  min-height:50px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.45px;
+  white-space:nowrap;
+}
+
+.logo img{width:30px;height:30px;object-fit:contain}
+
+.topnav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:4px;
+  min-width:0;
+}
+
+.topnav a{
+  color:#cfd4ef;
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:color .2s,background .2s,transform .2s;
+}
+
+.topnav a:hover{
+  color:#fff;
+  background:rgba(255,255,255,.07);
+  transform:translateY(-1px);
+}
+
+.topnav .nav-cta{
+  color:#fff;
+  margin-left:5px;
+  padding:9px 15px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  box-shadow:0 9px 25px rgba(0,201,139,.25);
+}
+
+.topnav .nav-cta:hover{
+  background:linear-gradient(135deg,#11d99a,#00a875);
+  box-shadow:0 14px 30px rgba(0,201,139,.34);
+}
+
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  margin-left:8px;
+  padding:3px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  border-radius:10px;
+}
+
+.topnav .lang-switch .lang{
+  padding:4px 7px;
+  font-size:9px;
+  border-radius:7px;
+  color:#adb5d7;
+}
+
+.topnav .lang-switch .lang.active{
+  color:var(--navy);
+  background:#fff;
+}
+
+/* ================= HERO ================= */
+
+.hero2{
+  position:relative;
+  isolation:isolate;
+  min-height:520px;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(650px 420px at 72% 50%,rgba(0,201,139,.17),transparent 68%),
+    radial-gradient(600px 420px at 8% 100%,rgba(82,76,205,.2),transparent 70%),
+    linear-gradient(135deg,#101743 0%,#171d50 53%,#0c1234 100%);
+}
+
+.hero-grid{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.52;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:38px 38px;
+  mask-image:linear-gradient(to bottom,#000,transparent 100%);
+}
+
+.hero-glow{
+  position:absolute;
+  z-index:-1;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(12px);
+}
+
+.hero-glow-a{
+  width:330px;
+  height:330px;
+  right:9%;
+  top:-120px;
+  background:rgba(0,201,139,.11);
+}
+
+.hero-glow-b{
+  width:270px;
+  height:270px;
+  left:-120px;
+  bottom:-130px;
+  background:rgba(87,82,216,.14);
+}
+
+.hero-inner{
+  position:relative;
+  width:min(var(--max),100%);
+  min-height:520px;
+  margin:auto;
+  padding:68px 22px 64px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(390px,.9fr);
+  gap:30px;
+  align-items:center;
+}
+
+.hero-copy{position:relative;z-index:2}
+
+.status-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:18px;
+  padding:6px 11px;
+  color:#aeeede;
+  border:1px solid rgba(123,244,207,.27);
+  background:rgba(0,201,139,.10);
+  border-radius:999px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 0 28px rgba(0,201,139,.10);
+}
+
+.status-chip i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#55e3b5;
+  box-shadow:0 0 0 5px rgba(85,227,181,.10);
+  animation:pulse 1.8s infinite;
+}
+
+.hero2 h1{
+  max-width:650px;
+  color:#fff;
+  font-size:clamp(39px,5.2vw,61px);
+  line-height:1.04;
+  letter-spacing:-2px;
+  margin-bottom:18px;
+  text-wrap:balance;
+}
+
+.hero2 h1::after{
+  content:"";
+  display:block;
+  width:100px;
+  height:3px;
+  margin-top:22px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--green),transparent);
+}
+
+.hero-lead{
+  max-width:620px;
+  color:#cbd2ec;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:27px;
+}
+
+.primary-btn,
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:49px;
+  text-decoration:none;
+  border-radius:13px;
+  font-weight:800;
+  font-size:13px;
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+
+.primary-btn{
+  position:relative;
+  overflow:hidden;
+  gap:8px;
+  padding:12px 19px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  box-shadow:0 13px 30px rgba(0,201,139,.27);
+}
+
+.primary-btn:after{
+  content:"";
+  position:absolute;
+  top:-90%;
+  left:-35%;
+  width:25%;
+  height:280%;
+  transform:rotate(20deg) translateX(-250%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);
+  transition:transform .65s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 19px 38px rgba(0,201,139,.36);
+}
+
+.primary-btn:hover:after{transform:rotate(20deg) translateX(650%)}
+
+.primary-btn .arrow{font-size:17px;line-height:0}
+
+.secondary-btn{
+  gap:9px;
+  padding:9px 13px;
+  color:#e2e6f6;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(10px);
+}
+
+.secondary-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.10);
+}
+
+.play-icon{
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  color:#fff;
+  font-size:9px;
+  background:rgba(0,201,139,.22);
+  border:1px solid rgba(118,243,210,.24);
+}
+
+.hero-trust{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:25px;
+  color:#9da7c8;
+  font-size:10.5px;
+}
+
+.avatar-stack{
+  display:flex;
+  padding-left:4px;
+}
+
+.avatar-stack span{
+  display:grid;
+  place-items:center;
+  width:27px;
+  height:27px;
+  margin-left:-4px;
+  color:#fff;
+  background:linear-gradient(135deg,#7783ad,#2e356b);
+  border:2px solid #111842;
+  border-radius:50%;
+  font-size:8px;
+  font-weight:800;
+}
+
+/* Hero visual: CSS-only product showcase */
+.hero-visual{
+  position:relative;
+  min-height:410px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-orbit{
+  position:absolute;
+  border:1px solid rgba(0,201,139,.12);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.orbit-1{width:390px;height:390px;transform:rotate(-16deg)}
+.orbit-2{width:310px;height:310px;transform:rotate(28deg);border-color:rgba(255,255,255,.07)}
+
+.phone-mockup{
+  position:relative;
+  z-index:3;
+  width:210px;
+  height:365px;
+  padding:9px;
+  border-radius:31px;
+  transform:rotate(7deg);
+  background:linear-gradient(145deg,#7cf1d0,#172a51 20%,#080e2c 80%);
+  border:1px solid rgba(147,255,224,.55);
+  box-shadow:
+    -24px 30px 65px rgba(0,0,0,.36),
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 60px rgba(0,201,139,.12);
+}
+
+.phone-notch{
+  position:absolute;
+  z-index:5;
+  top:12px;
+  left:50%;
+  width:74px;
+  height:18px;
+  transform:translateX(-50%);
+  border-radius:0 0 12px 12px;
+  background:#080d27;
+}
+
+.phone-screen{
+  height:100%;
+  overflow:hidden;
+  padding:34px 12px 12px;
+  border-radius:24px;
+  background:linear-gradient(180deg,#f8fbff,#eef4f6);
+  color:var(--indigo);
+}
+
+.phone-brand{
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:13px;
+}
+
+.brand-mark{color:var(--green);font-size:13px}
+
+.mini-profile{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(20,36,70,.07);
+}
+
+.mini-avatar{
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border-radius:9px;
+  color:#fff;
+  background:linear-gradient(135deg,#20a66c,#26316e);
+  font-size:8px;
+  font-weight:800;
+}
+
+.mini-profile span:nth-child(2){
+  display:flex;
+  flex:1;
+  min-width:0;
+  flex-direction:column;
+}
+
+.mini-profile b{font-size:7px;white-space:nowrap}
+.mini-profile small{font-size:6px;color:#718096}
+.mini-profile i{
+  display:grid;
+  place-items:center;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  color:#fff;
+  background:var(--green);
+  font-size:8px;
+  font-style:normal;
+}
+
+.work-pill{
+  display:inline-flex;
+  margin:9px 0;
+  padding:4px 8px;
+  border-radius:99px;
+  color:#007d58;
+  background:#dcfaee;
+  font-size:7px;
+  font-weight:800;
+}
+
+.phone-skills{
+  display:flex;
+  gap:4px;
+  flex-wrap:wrap;
+}
+
+.phone-skills span{
+  padding:4px 6px;
+  border-radius:99px;
+  background:#fff;
+  border:1px solid #e5ebf2;
+  font-size:6.5px;
+  font-weight:700;
+}
+
+.phone-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:5px;
+  margin:12px 0;
+}
+
+.phone-actions span{
+  display:grid;
+  place-items:center;
+  height:35px;
+  border-radius:9px;
+  background:#fff;
+  border:1px solid #e6ebf2;
+  color:var(--green-2);
+  font-size:12px;
+}
+
+.phone-checks{
+  padding:5px 8px;
+  border-radius:10px;
+  background:#fff;
+}
+
+.phone-checks p{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:6px 0;
+  border-bottom:1px solid #edf0f5;
+  font-size:6.5px;
+}
+
+.phone-checks p:last-child{border-bottom:0}
+.phone-checks i{
+  display:grid;
+  place-items:center;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  color:#008d63;
+  background:#dcfaee;
+  font-size:7px;
+  font-style:normal;
+}
+.phone-checks b{margin-left:auto;font-size:6px}
+
+.person-card{
+  position:absolute;
+  z-index:4;
+  left:3%;
+  top:20%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  width:190px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;
+  color:#fff;
+  background:rgba(24,31,75,.72);
+  box-shadow:0 18px 40px rgba(0,0,0,.2);
+  backdrop-filter:blur(14px);
+  transform:rotate(-3deg);
+}
+
+.person-avatar{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  color:#fff;
+  background:linear-gradient(135deg,#2aaf77,#28316f);
+  font-size:10px;
+  font-weight:800;
+}
+
+.person-card div:nth-child(2){
+  display:flex;
+  flex:1;
+  min-width:0;
+  flex-direction:column;
+}
+
+.person-card strong{font-size:9px}
+.person-card span{font-size:7px;color:#9ea8c8}
+.verified-dot{
+  display:grid;
+  place-items:center;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  color:#fff;
+  background:var(--green);
+  font-size:9px;
+}
+
+.hero-floating-card{
+  position:absolute;
+  z-index:5;
+  right:0;
+  top:45%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 13px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:15px;
+  color:#fff;
+  background:rgba(20,27,68,.76);
+  box-shadow:0 20px 45px rgba(0,0,0,.22);
+  backdrop-filter:blur(16px);
+}
+
+.float-icon{
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  border-radius:10px;
+  color:#fff;
+  background:rgba(0,201,139,.18);
+}
+
+.hero-floating-card div{
+  display:flex;
+  flex-direction:column;
+}
+
+.hero-floating-card b{font-size:9px}
+.hero-floating-card small{font-size:7px;color:#aeb6d2}
+
+/* ================= CONTENT ================= */
+
+main{
+  width:min(var(--max),100%);
+  margin:auto;
+  padding:54px 22px 26px;
+}
+
+article{width:100%}
+
+.notice{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  max-width:900px;
+  margin:0 auto 50px;
+  padding:14px 17px;
+  border:1px solid #f5dc88;
+  border-radius:16px;
+  color:#8c5a0c;
+  background:rgba(255,251,235,.86);
+  box-shadow:0 10px 28px rgba(146,64,14,.045);
+}
+
+.notice-icon{
+  display:grid;
+  place-items:center;
+  flex:0 0 22px;
+  height:22px;
+  margin-top:1px;
+  border-radius:7px;
+  color:#fff;
+  background:#f4b942;
+  font-size:11px;
+  font-weight:800;
+}
+
+.notice p{font-size:12px;line-height:1.65}
+.notice b{color:#624000}
+
+.content-section{margin:0 auto 65px}
+
+.section-heading{
+  max-width:850px;
+  margin-bottom:21px;
+}
+
+.eyebrow,
+.card-kicker{
+  display:block;
+  margin-bottom:7px;
+  color:var(--green-2);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.section-heading h2{
+  color:var(--indigo);
+  font-size:clamp(27px,4vw,35px);
+  line-height:1.17;
+  letter-spacing:-.9px;
+  margin-bottom:7px;
+}
+
+.section-heading h2:after{
+  content:"";
+  display:block;
+  width:45px;
+  height:3px;
+  margin-top:11px;
+  border-radius:99px;
+  background:linear-gradient(90deg,var(--green),transparent);
+}
+
+.section-heading p{
+  max-width:680px;
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+/* Feature bento */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+.feature-card{
+  position:relative;
+  overflow:hidden;
+  min-height:190px;
+  padding:21px;
+  border:1px solid rgba(222,229,239,.96);
+  border-radius:20px;
+  background:rgba(255,255,255,.82);
+  box-shadow:0 9px 30px rgba(31,44,80,.055);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+
+.feature-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:0;
+  background:radial-gradient(circle at 0 0,rgba(0,201,139,.13),transparent 55%);
+  transition:opacity .3s;
+}
+
+.feature-card:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:18px;
+  width:65px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,var(--green),transparent);
+}
+
+.feature-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(0,201,139,.28);
+  box-shadow:0 22px 50px rgba(31,44,80,.12);
+}
+
+.feature-card:hover:before{opacity:1}
+
+.feature-icon{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:41px;
+  height:41px;
+  margin-bottom:16px;
+  border-radius:13px;
+  color:var(--green-2);
+  background:linear-gradient(135deg,#e0fbf2,#f5fffc);
+  border:1px solid #c9f5e7;
+  font-size:20px;
+  font-weight:800;
+  box-shadow:0 8px 20px rgba(0,201,139,.09);
+}
+
+.feature-card h3{
+  position:relative;
+  color:var(--indigo);
+  font-size:14px;
+  line-height:1.35;
+  margin-bottom:7px;
+}
+
+.feature-card p{
+  position:relative;
+  color:#607087;
+  font-size:11.8px;
+  line-height:1.68;
+}
+
+/* Profile showcase */
+.profile-showcase{
+  display:grid;
+  grid-template-columns:minmax(350px,440px) minmax(0,1fr);
+  gap:50px;
+  align-items:center;
+  padding:4px 0;
+}
+
+.prof{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #e0e6ef;
+  border-radius:25px;
+  background:#fff;
+  box-shadow:var(--shadow-lg);
+  transition:transform .35s,box-shadow .35s;
+}
+
+.prof:before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  z-index:5;
+  pointer-events:none;
+  border-radius:26px;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(0,201,139,.48),transparent 36%,rgba(45,45,107,.12));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
+
+.prof:hover{
+  transform:translateY(-6px) rotate(-.2deg);
+  box-shadow:0 38px 90px rgba(20,35,75,.18);
+}
+
+.prof .phead{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:20px 17px 17px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 100% 0,rgba(0,201,139,.24),transparent 35%),
+    linear-gradient(125deg,#158c4b,#1c7078 54%,#252b78);
+}
+
+.prof .pav{
+  display:grid;
+  place-items:center;
+  flex:0 0 55px;
+  height:55px;
+  border:1px solid rgba(255,255,255,.34);
+  border-radius:16px;
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 10px 25px rgba(0,0,0,.11);
+  font-size:19px;
+  font-weight:800;
+}
+
+.pidentity{
+  display:flex;
+  min-width:0;
+  flex:1;
+  flex-direction:column;
+}
+
+.prof .pn{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  line-height:1.25;
+}
+
+.prof .plv{
+  padding:3px 7px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:7px;
+  color:#e7fff8;
+  background:rgba(255,255,255,.14);
+  font-size:8px;
+  font-weight:800;
+}
+
+.prof .pb{font-size:10px;font-weight:600;opacity:.94;margin-top:3px}
+.prof .pm{font-size:9px;opacity:.79}
+
+.prof .ppill{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  width:max-content;
+  margin-top:6px;
+  padding:4px 9px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(0,201,139,.9);
+  font-size:8.5px;
+  font-weight:800;
+}
+
+.prof .ppill i{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#fff;
+}
+
+.head-check{
+  display:grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  color:#007d58;
+  background:#fff;
+  font-size:11px;
+  font-weight:900;
+}
+
+.prof .pbody{padding:15px 16px 17px}
+
+.profile-status{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+  color:#8994a7;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.07em;
+}
+
+.profile-status b{
+  color:var(--green-2);
+  font-size:9px;
+}
+
+.prof .pskills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.prof .pskill{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:6px 9px;
+  border:1px solid #e3e8f0;
+  border-radius:999px;
+  color:var(--indigo);
+  background:#f7f9fc;
+  font-size:9px;
+  font-weight:700;
+}
+
+.prof .pskill i{
+  padding:1px 5px;
+  border-radius:5px;
+  color:#fff;
+  background:var(--green);
+  font-size:7px;
+  font-style:normal;
+}
+
+.prof .pcontact{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+  margin:13px 0 4px;
+}
+
+.prof .pcontact span{
+  display:flex;
+  min-width:0;
+  min-height:53px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
+  padding:7px 3px;
+  border:1px solid #e5eaf1;
+  border-radius:11px;
+  color:var(--indigo);
+  background:#f7f9fc;
+}
+
+.prof .pcontact b{font-size:7px;white-space:nowrap}
+.prof .pcontact svg{width:16px;height:16px;fill:none;stroke:var(--green-2);stroke-width:1.8}
+
+.prof .plist{margin-top:11px;border-top:1px solid #e9edf3}
+.prof .pli{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:30px;
+  border-bottom:1px solid #edf0f4;
+  font-size:9.5px;
+}
 .prof .pli:last-child{border-bottom:0}
-.prof .pck{flex:0 0 17px;height:17px;border-radius:50%;background:rgba(0,188,125,.14);color:var(--green-d);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
-.prof .pr{margin-left:auto;font-weight:700;color:var(--indigo)}
-.profside h3{color:var(--indigo);font-size:19px;margin:0 0 8px}
-.profside p{font-size:14.5px;margin:0 0 12px}
-.profcap{font-size:12px;color:var(--mut);margin-top:10px}
+
+.prof .pck{
+  display:grid;
+  place-items:center;
+  flex:0 0 16px;
+  height:16px;
+  border-radius:50%;
+  color:var(--green-2);
+  background:#def9ef;
+  font-size:8px;
+  font-weight:900;
+}
+
+.prof .pr{
+  margin-left:auto;
+  color:var(--indigo);
+  font-size:8.5px;
+}
+
+.profile-copy{max-width:500px}
+.trust-line{display:flex;align-items:center;gap:6px;margin-bottom:11px;color:var(--green-2);font-size:9px;font-weight:800;letter-spacing:.08em}
+.trust-line i{font-style:normal}
+
+.profile-copy h3{
+  color:var(--indigo);
+  font-size:24px;
+  line-height:1.25;
+  letter-spacing:-.55px;
+  margin-bottom:12px;
+}
+
+.profile-copy p{
+  margin-bottom:13px;
+  color:#5c6d84;
+  font-size:13px;
+  line-height:1.75;
+}
+
+.demo-strip{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:18px;
+  padding:11px 13px;
+  border:1px solid #c8f2e4;
+  border-radius:12px;
+  color:#317d6b;
+  background:#e9fbf5;
+  font-size:10px;
+}
+
+.demo-strip span:first-child{
+  display:grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  border-radius:7px;
+  color:#fff;
+  background:var(--green);
+}
+
+.proof-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:13px;
+}
+
+.proof-pills span{
+  padding:6px 9px;
+  border:1px solid #dce4ee;
+  border-radius:999px;
+  color:#617087;
+  background:#fff;
+  font-size:9px;
+  font-weight:700;
+}
+
+/* Steps */
+.steps{
+  display:grid;
+  grid-template-columns:1fr 34px 1fr 34px 1fr;
+  align-items:start;
+  gap:10px;
+}
+
+.step{
+  position:relative;
+  display:flex;
+  gap:12px;
+  padding:17px;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  background:rgba(255,255,255,.74);
+  box-shadow:0 8px 26px rgba(31,44,80,.045);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+
+.step:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,201,139,.26);
+  box-shadow:0 18px 38px rgba(31,44,80,.09);
+}
+
+.step .n{
+  display:grid;
+  place-items:center;
+  flex:0 0 35px;
+  height:35px;
+  border-radius:11px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  box-shadow:0 8px 19px rgba(0,201,139,.2);
+  font-size:13px;
+  font-weight:800;
+}
+
+.step h3{
+  color:var(--indigo);
+  font-size:12px;
+  line-height:1.4;
+  margin-bottom:5px;
+}
+
+.step p{
+  color:#66768c;
+  font-size:10.5px;
+  line-height:1.65;
+}
+
+.step p b{color:var(--indigo)}
+.step-arrow{
+  display:grid;
+  place-items:center;
+  height:70px;
+  color:#9aa5b9;
+  font-size:22px;
+}
+
+/* Lower cards */
+.lower-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:16px;
+  margin-top:2px;
+}
+
+.info-card{
+  position:relative;
+  overflow:hidden;
+  padding:23px;
+  border:1px solid #dfe6ef;
+  border-radius:21px;
+  background:rgba(255,255,255,.79);
+  box-shadow:0 12px 35px rgba(31,44,80,.055);
+}
+
+.bookkeeping{
+  background:
+    radial-gradient(circle at 100% 100%,rgba(0,201,139,.08),transparent 45%),
+    linear-gradient(135deg,#fff,#f6fbff);
+}
+
+.info-card h2{
+  color:var(--indigo);
+  font-size:19px;
+  line-height:1.25;
+  margin-bottom:8px;
+}
+
+.info-card p{
+  color:#627188;
+  font-size:11.5px;
+  line-height:1.7;
+}
+
+.info-card p b{color:var(--indigo)}
+
+.outline-btn{
+  display:inline-flex;
+  align-items:center;
+  margin-top:16px;
+  padding:9px 13px;
+  border:1px solid var(--green);
+  border-radius:999px;
+  color:var(--green-2);
+  background:#fff;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:800;
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+.outline-btn:hover{
+  transform:translateY(-2px);
+  background:#effcf8;
+  box-shadow:0 8px 20px rgba(0,201,139,.12);
+}
+
+.faq-heading{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.faq-arrow{
+  color:var(--green-2);
+  font-size:15px;
+  font-weight:800;
+}
+
+.faq-list{margin-top:8px}
+
+.faq-item{
+  position:relative;
+  padding:10px 25px 10px 0;
+  border-bottom:1px solid #e7ebf1;
+}
+
+.faq-item:last-child{border-bottom:0}
+
+.faq-item h3{
+  color:var(--indigo);
+  font-size:11px;
+  line-height:1.4;
+}
+
+.faq-item>span{
+  position:absolute;
+  right:0;
+  top:8px;
+  color:var(--green-2);
+  font-size:16px;
+  font-weight:700;
+}
+
+.faq-item p{
+  margin-top:5px;
+  font-size:10px;
+}
+
+.faq-item a{color:var(--green-2);font-weight:700}
+
+.contractor-note{
+  margin:22px 0 0;
+  color:#69788e;
+  font-size:11px;
+  text-align:center;
+}
+
+.contractor-note a{
+  color:var(--green-2);
+  font-weight:700;
+  text-underline-offset:3px;
+}
+
+/* CTA */
+.ctabox{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:18px;
+  margin:60px 0 14px;
+  padding:23px 25px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:21px;
+  color:#d6dbed;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(0,201,139,.19),transparent 30%),
+    linear-gradient(135deg,#2f347b,#20265f 65%,#141943);
+  box-shadow:0 24px 60px rgba(24,30,75,.19);
+}
+
+.cta-pattern{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.35;
+  background-image:
+    linear-gradient(115deg,transparent 20%,rgba(255,255,255,.05) 20.5%,transparent 21%),
+    linear-gradient(115deg,transparent 45%,rgba(255,255,255,.04) 45.5%,transparent 46%);
+  background-size:240px 100%;
+}
+
+.cta-icon{
+  display:grid;
+  place-items:center;
+  width:53px;
+  height:53px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  font-size:24px;
+}
+
+.cta-copy h3{
+  color:#fff;
+  font-size:20px;
+  line-height:1.25;
+  margin-bottom:4px;
+}
+
+.cta-copy p{
+  max-width:650px;
+  color:#b9c1dd;
+  font-size:10.5px;
+  line-height:1.6;
+}
+
+.cta-button{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:45px;
+  padding:11px 17px;
+  border-radius:12px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  box-shadow:0 11px 25px rgba(0,201,139,.24);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  white-space:nowrap;
+  transition:transform .25s,box-shadow .25s;
+}
+
+.cta-button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 31px rgba(0,201,139,.33);
+}
+
+.disc{
+  max-width:850px;
+  margin:17px auto 0;
+  color:#8a96a9;
+  font-size:10px;
+  line-height:1.7;
+  text-align:center;
+}
+
+/* Footer */
+footer{
+  border-top:1px solid #e4e9f0;
+  background:#fff;
+}
+
+.footer-inner{
+  width:min(var(--max),100%);
+  min-height:82px;
+  margin:auto;
+  padding:17px 22px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:20px;
+}
+
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--indigo);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+}
+
+.footer-logo img{width:27px;height:27px}
+
+.footer-inner p{
+  color:#7a8799;
+  font-size:10px;
+  text-align:center;
+}
+
+.footer-inner nav{
+  display:flex;
+  gap:14px;
+}
+
+.footer-inner nav a{
+  color:#637187;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:600;
+}
+
+.footer-inner nav a:hover{color:var(--green-2)}
+
+/* Reveal animation */
+.magic-reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:
+    opacity .55s ease var(--reveal-delay),
+    transform .55s ease var(--reveal-delay);
+}
+
+.magic-reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(85,227,181,0)}
+  50%{box-shadow:0 0 0 7px rgba(85,227,181,.12)}
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+  .hero-inner{
+    grid-template-columns:minmax(0,1fr) 360px;
+    gap:10px;
+  }
+
+  .hero-visual{transform:scale(.92);transform-origin:center right}
+  .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile-showcase{grid-template-columns:minmax(320px,420px) minmax(0,1fr);gap:30px}
+}
+
+@media(max-width:800px){
+  .topnav a:nth-child(1),
+  .topnav a:nth-child(2),
+  .topnav a:nth-child(3),
+  .topnav a:nth-child(4){display:none}
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding-top:58px;
+    padding-bottom:38px;
+  }
+
+  .hero-copy{text-align:center}
+  .hero2 h1{margin-left:auto;margin-right:auto}
+  .hero-lead{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-visual{
+    min-height:370px;
+    margin-top:-8px;
+    transform:none;
+  }
+
+  .profile-showcase{grid-template-columns:1fr;max-width:760px}
+  .profile-copy{max-width:100%}
+  .steps{grid-template-columns:1fr}
+  .step-arrow{display:none}
+  .step{min-height:95px}
+}
+
+@media(max-width:640px){
+  body{font-size:14px}
+
+  .top{padding:8px 13px}
+  .topin{min-height:45px}
+  .logo{font-size:16px}
+  .logo img{width:27px;height:27px}
+
+  .topnav{gap:3px}
+  .topnav .nav-cta{padding:8px 11px;font-size:10px}
+  .lang-switch{margin-left:2px}
+
+  .hero2{min-height:auto}
+  .hero-inner{padding:45px 16px 25px}
+  .status-chip{font-size:8.5px}
+  .hero2 h1{
+    font-size:clamp(32px,10vw,43px);
+    letter-spacing:-1.3px;
+  }
+  .hero-lead{font-size:13.5px}
+  .hero-actions{align-items:stretch;flex-direction:column}
+  .primary-btn,.secondary-btn{width:100%}
+  .hero-trust{font-size:9px}
+
+  .hero-visual{
+    min-height:330px;
+    margin-top:0;
+    transform:scale(.88);
+  }
+
+  .person-card{left:0;top:15%}
+  .hero-floating-card{right:-3%;top:49%}
+
+  main{padding:37px 15px 22px}
+  .notice{margin-bottom:39px;padding:13px 14px}
+  .notice p{font-size:11px}
+
+  .content-section{margin-bottom:49px}
+  .section-heading h2{font-size:26px}
+  .section-heading p{font-size:12px}
+
+  .feature-grid{grid-template-columns:1fr;gap:11px}
+  .feature-card{min-height:0;padding:18px}
+  .feature-icon{width:37px;height:37px;margin-bottom:12px}
+
+  .profile-showcase{gap:24px}
+  .prof{border-radius:21px}
+  .prof .phead{padding:18px 14px}
+  .prof .pn{font-size:13px}
+  .prof .pb{font-size:9px}
+  .prof .pm{font-size:8px}
+  .prof .pbody{padding:13px}
+  .prof .pcontact{grid-template-columns:repeat(2,1fr)}
+  .prof .pcontact span{min-height:48px}
+  .profile-copy h3{font-size:21px}
+  .profile-copy p{font-size:12px}
+
+  .lower-grid{grid-template-columns:1fr}
+  .info-card{padding:20px}
+  .ctabox{
+    grid-template-columns:auto 1fr;
+    gap:13px;
+    padding:20px;
+    margin-top:45px;
+  }
+  .cta-copy h3{font-size:17px}
+  .cta-button{
+    grid-column:1/-1;
+    width:100%;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:9px;
+    padding:22px 15px 28px;
+  }
+}
+
+@media(max-width:430px){
+  .hero-visual{
+    min-height:300px;
+    transform:scale(.76);
+    transform-origin:center top;
+    margin-bottom:-65px;
+  }
+
+  .person-card{left:-10px}
+  .hero-floating-card{right:-18px}
+
+  .prof .phead{gap:9px}
+  .prof .pav{flex-basis:48px;height:48px;border-radius:13px}
+  .prof .plv{font-size:7px;padding:2px 5px}
+  .head-check{display:none}
+
+  .faq-item h3{font-size:10.5px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+  .magic-reveal{
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+
 </style>
-</head>
-<body>
-<div class="top"><div class="topin">
-  <a class="logo" href="/"><img src="/sum-it-logo-mark.svg" alt="Sum-IT">Sum-IT</a>
-  <nav class="topnav"><a href="/blog/" data-i18n="c_blog">Blog</a><a href="/#capture" data-i18n="c_feat">Functies</a><a href="/#pricing" data-i18n="c_price">Prijzen</a><a class="cta" href="/#signup" data-i18n="c_cta">Gratis profiel</a></nav>
-</div></div>
-<div class="hero2"><div class="in">
-  <span class="chip">In aanbouw</span>
-  <h1 data-i18n="c1">Een netwerk van vakmensen die elkaar werk gunnen.</h1>
-  <p data-i18n="c2">Door collega's aanbevolen, veilig onderaannemen, elkaar klussen doorgeven — zonder dat je gegevens aan tien bedrijven worden doorverkocht.</p>
-  <a class="btn" href="/#capture">Ontdek Sum-IT →</a>
-  <div class="sub" data-i18n="c29">Het netwerk is in aanbouw. Deze pagina laat zien waar we aan werken.</div>
-</div></div>
-<main>
-<article>
-<div class="note2" data-i18n="c30"><b>Eerlijk:</b> dit netwerk wordt nu gebouwd — het is er nog niet. Deze pagina laat zien wat we maken.</div>
+  </head>
+  <body>
 
-<h2 data-i18n="c3">Wat maakt dit anders?</h2>
-<div class="grid">
-  <div class="wcard"><h3 data-i18n="c4">Vakmensen onder elkaar</h3><p data-i18n="c5">Gemaakt voor bouw, techniek en klus — geen brede marktplaats, maar jouw vak.</p></div>
-  <div class="wcard"><h3 data-i18n="c6">Door vakmensen aanbevolen</h3><p data-i18n="c7">Geen anonieme leads, maar collega's uit het vak die voor elkaar instaan.</p></div>
-  <div class="wcard"><h3 data-i18n="c8">Geen doorverkochte gegevens</h3><p data-i18n="c9">Je gegevens worden niet aan tien bedrijven verkocht die je platbellen. Jij houdt de regie.</p></div>
-  <div class="wcard"><h3 data-i18n="c10">Veilig onderaannemen</h3><p data-i18n="c11">Te veel werk of een klus die je liever doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden — vooraf.</p></div>
-</div>
-
-<h2 data-i18n="cp0">Zo sta je straks in het netwerk</h2>
-<div class="profwrap">
-  <div class="prof" aria-label="Voorbeeldprofiel">
-    <div class="phead">
-      <span class="pav">MZ</span>
-      <span>
-        <span class="pn">Mark van Zanten <span class="plv">LVL 3</span></span>
-        <div class="pb">Van Zanten Installatietechniek</div>
-        <div class="pm" data-i18n="cp1">Loodgieter · Breda · 3,1 km</div>
-        <div class="ppill"><i></i><span data-i18n="cp2">Neemt werk aan</span></div>
-      </span>
-    </div>
-    <div class="pbody">
-      <div class="pskills">
-        <span class="pskill" data-i18n="cp3">Badkamerrenovatie <i>3</i></span>
-        <span class="pskill" data-i18n="cp4">CV-ketel <i>3</i></span>
-        <span class="pskill" data-i18n="cp5">Lekkage <i>2</i></span>
+    <header>
+      <div class="hero">
+        <div class="wrap"> 
+        <div class="nav">
+          <a class="logo" href="/"><span class="mark"><img
+                src="/sum-it-logo-mark.svg" alt="Sum-IT" /></span>Sum-IT</a>
+          <nav class="menu">
+            <a href="#capture" data-i18n="m_feat">Features</a>
+            <a href="#control" data-i18n="m_proj">Projects</a>
+            <a href="/community/" data-i18n="m_comm">Community</a>
+            <a href="#pricing" data-i18n="m_price">Pricing</a>
+            <a href="#team" data-i18n="m_team">Team</a>
+            <a href="#blog" data-i18n="m_blog">Blog</a>
+          </nav>
+          <div class="right">
+            <div class="langs">
+              <button
+                type="button"
+                id="lang-en"
+                class="on"
+                onclick="setLang('en')">
+                EN</button><span class="langsep">/</span><button type="button"
+                id="lang-nl" onclick="setLang('nl')">
+                NL
+              </button>
+            </div>
+            <a class="navlogin" href="/login.html" data-i18n="nav_login">Log
+              in</a>
+            <a class="btn small" href="#signup" data-i18n="nav_cta">Create a
+              free profile</a>
+            <button
+              type="button"
+              class="burger"
+              id="burger"
+              aria-label="Menu"
+              aria-controls="mobmenu"
+              aria-expanded="false"
+              onclick="toggleMenu()">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+        <div class="mobmenu" id="mobmenu">
+          <a href="#capture" data-i18n="m_feat"
+            onclick="closeMenu()">Features</a>
+          <a href="#control" data-i18n="m_proj"
+            onclick="closeMenu()">Projects</a>
+          <a href="/community/" data-i18n="m_comm">Community</a>
+          <a href="#pricing" data-i18n="m_price"
+            onclick="closeMenu()">Pricing</a>
+          <a href="#team" data-i18n="m_team" onclick="closeMenu()">Team</a>
+          <a href="#blog" data-i18n="m_blog">Blog</a>
+          <div class="sep"></div>
+          <a href="/login.html" data-i18n="nav_login">Log in</a>
+          <a
+            class="btn small"
+            href="#signup"
+            data-i18n="nav_cta"
+            onclick="closeMenu()">Create a free profile</a>
+        </div>
+        <script>
+          function closeMenu() {
+            var m = document.getElementById("mobmenu"),
+              b = document.getElementById("burger");
+            if (m) {
+              m.classList.remove("open");
+            }
+            if (b) {
+              b.setAttribute("aria-expanded", "false");
+            }
+          }
+          function toggleMenu() {
+            var m = document.getElementById("mobmenu"),
+              b = document.getElementById("burger");
+            var o = !m.classList.contains("open");
+            m.classList.toggle("open", o);
+            b.setAttribute("aria-expanded", o ? "true" : "false");
+          }
+        </script>
+        </div>
       </div>
-      <div class="pcontact">
-        <span><svg viewBox="0 0 24 24"><path d="M19.6 14.2a3 3 0 0 1-3 3H8.8L4.8 20.4V6.8a3 3 0 0 1 3-3h8.8a3 3 0 0 1 3 3z"/></svg><span data-i18n="cp6">Bericht</span></span>
-        <span><svg viewBox="0 0 24 24"><path d="M6.4 3.6h3l1.5 3.7-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 3.7 1.5v3a1.8 1.8 0 0 1-2 1.8A16.4 16.4 0 0 1 4.6 5.6a1.8 1.8 0 0 1 1.8-2z"/></svg><span data-i18n="cp7">Bellen</span></span>
-        <span><svg viewBox="0 0 24 24"><path d="M20.2 11.6a8.2 8.2 0 0 1-12 7.3L3.8 20.2l1.4-4.3a8.2 8.2 0 1 1 15-4.3z"/><path d="M8.9 9.2c.4 2.6 3.3 5.5 5.9 5.9"/></svg>WhatsApp</span>
-        <span><svg viewBox="0 0 24 24"><rect x="3.4" y="5.4" width="17.2" height="13.2" rx="2.4"/><path d="m4 7 8 5.6L20 7"/></svg>E-mail</span>
-      </div>
-      <div class="plist">
-        <div class="pli"><span class="pck">✓</span><span data-i18n="cp8">KvK-inschrijving</span><span class="pr" data-i18n="cp12">Gecheckt</span></div>
-        <div class="pli"><span class="pck">✓</span><span data-i18n="cp9">Btw-nummer</span><span class="pr" data-i18n="cp12b">Gecheckt</span></div>
-        <div class="pli"><span class="pck">✓</span><span data-i18n="cp10">Aansprakelijkheid</span><span class="pr" data-i18n="cp13">Verzekerd</span></div>
-        <div class="pli"><span data-i18n="cp11">Jaren actief</span><span class="pr">7</span></div>
-        <div class="pli"><span data-i18n="cp14">Reactietijd</span><span class="pr">± 1 uur</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="profside">
-    <h3 data-i18n="cp15">Je vakwerk, gecheckt en zichtbaar</h3>
-    <p data-i18n="cp16">Dit is hoe collega's en klanten je straks zien: je specialiteiten met niveau, je werkfoto's, en de checks die vertrouwen geven — KvK, btw-nummer, verzekering. Geen sterretjes van anonieme reviews, maar bewijs uit het vak.</p>
-    <p data-i18n="cp17">Je profiel aanmaken is gratis en duurt een minuut. Hoe eerder je erop staat, hoe eerder collega's je weten te vinden.</p>
-    <p class="profcap" data-i18n="cp18">Voorbeeld uit de app-demo — geen echt bedrijf.</p>
-  </div>
-</div>
+    </header>
 
-<h2 data-i18n="c12">Hoe het straks werkt</h2>
-<div class="steps">
-  <div class="step"><span class="n">1</span><span data-i18n="c26"><b>Vind een vakman die je vertrouwt.</b> Aanbevolen door collega's uit het vak, bij jou in de buurt.</span></div>
-  <div class="step"><span class="n">2</span><span data-i18n="c27"><b>Werk samen of besteed uit.</b> Spreek scope, prijs en voorwaarden vooraf af — zonder gedoe.</span></div>
-  <div class="step"><span class="n">3</span><span data-i18n="c28"><b>Laat het netwerk groeien.</b> Hoe meer vakmensen elkaar gunnen, hoe waardevoller het voor iedereen wordt.</span></div>
-</div>
+    <div class="site-shell">
 
-<h2 data-i18n="c13">En het boekhouden dan?</h2>
-<p data-i18n="c14">Dat staat los. Wil je er je administratie bij? Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>: bonnetje fotograferen en het staat geboekt, btw klaargezet, winst per klus live. Je profiel in het netwerk is gratis.</p>
+      <header class="top">
+        <div class="topin">
+          <a class="logo" href="/" aria-label="Sum-IT home">
+            <img src="/sum-it-logo-mark.svg" alt="Sum-IT">
+            <span>Sum-IT</span>
+          </a>
 
-<h2 data-i18n="c15">Veelgestelde vragen</h2>
-<h3 data-i18n="c16">Wanneer gaat het netwerk open?</h3>
-<p data-i18n="c17">Het netwerk is in aanbouw; er is nog geen live-datum. We bouwen het stap voor stap en laten hier zien wat we maken.</p>
-<h3 data-i18n="c18">Kan ik nu al een vakman vinden?</h3>
-<p data-i18n="c19">Nog niet — het netwerk is in aanbouw. Deze pagina laat zien wat we maken.</p>
-<h3 data-i18n="c20">Worden mijn gegevens doorverkocht?</h3>
-<p data-i18n="c21">Nee. We verkopen je gegevens niet en delen ze niet met derden voor hun eigen doeleinden. Zie de <a href="/privacy">privacyverklaring</a>.</p>
-<h3 data-i18n="c22">Voor wie is dit?</h3>
-<p data-i18n="c23">Voor vakmensen en zzp'ers — bouw, techniek, klus — die betere klussen willen en betrouwbare collega's zoeken om mee samen te werken of aan uit te besteden.</p>
-<p data-i18n="c31">Ben je aannemer? Lees hoe Sum-IT specifiek voor aannemers werkt op <a href="/voor/aannemers/">onze pagina voor aannemers</a>.</p>
-</article>
-<div class="ctabox"><h3 data-i18n="c24">Automatiseer alvast je boekhouding</h3><span data-i18n="c_cta1">Terwijl we aan het netwerk bouwen, kun je nu al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het netwerk is gratis.</span><br><a href="/#signup" data-i18n="c_cta2">Maak je gratis profiel aan →</a></div>
-<p class="disc" data-i18n="c25">Het netwerk is in ontwikkeling; functies en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha Nova B.V.</p>
-</main>
-<footer><span data-i18n="c_foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
-<script>window.PAGE_I18N={"nl": {"c1": "Een netwerk van vakmensen die elkaar werk gunnen.", "c2": "Door collega's aanbevolen, veilig onderaannemen, elkaar klussen doorgeven — zonder dat je gegevens aan tien bedrijven worden doorverkocht.", "c3": "Wat maakt dit anders?", "c4": "Vakmensen onder elkaar", "c5": "Gemaakt voor bouw, techniek en klus — geen brede marktplaats, maar jouw vak.", "c6": "Door vakmensen aanbevolen", "c7": "Geen anonieme leads, maar collega's uit het vak die voor elkaar instaan.", "c8": "Geen doorverkochte gegevens", "c9": "Je gegevens worden niet aan tien bedrijven verkocht die je platbellen. Jij houdt de regie.", "c10": "Veilig onderaannemen", "c11": "Te veel werk of een klus die je liever doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden — vooraf.", "c12": "Hoe het straks werkt", "c13": "En het boekhouden dan?", "c14": "Dat staat los. Wil je er je administratie bij? Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>: bonnetje fotograferen en het staat geboekt, btw klaargezet, winst per klus live. Je profiel in het netwerk is gratis.", "c15": "Veelgestelde vragen", "c16": "Wanneer gaat het netwerk open?", "c17": "Het netwerk is in aanbouw; er is nog geen live-datum. We bouwen het stap voor stap en laten hier zien wat we maken.", "c18": "Kan ik nu al een vakman vinden?", "c19": "Nog niet — het netwerk is in aanbouw. Deze pagina laat zien wat we maken.", "c20": "Worden mijn gegevens doorverkocht?", "c21": "Nee. We verkopen je gegevens niet en delen ze niet met derden voor hun eigen doeleinden. Zie de <a href=\"/privacy\">privacyverklaring</a>.", "c22": "Voor wie is dit?", "c23": "Voor vakmensen en zzp'ers — bouw, techniek, klus — die betere klussen willen en betrouwbare collega's zoeken om mee samen te werken of aan uit te besteden.", "c24": "Automatiseer alvast je boekhouding", "c25": "Het netwerk is in ontwikkeling; functies en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha Nova B.V.", "c26": "<b>Vind een vakman die je vertrouwt.</b> Aanbevolen door collega's uit het vak, bij jou in de buurt.", "c27": "<b>Werk samen of besteed uit.</b> Spreek scope, prijs en voorwaarden vooraf af — zonder gedoe.", "c28": "<b>Laat het netwerk groeien.</b> Hoe meer vakmensen elkaar gunnen, hoe waardevoller het voor iedereen wordt.", "c_cta1": "Terwijl we aan het netwerk bouwen, kun je nu al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het netwerk is gratis.", "c_cta2": "Maak je gratis profiel aan →", "c29": "Het netwerk is in aanbouw. Deze pagina laat zien waar we aan werken.", "c30": "<b>Eerlijk:</b> dit netwerk wordt nu gebouwd — het is er nog niet. Deze pagina laat zien wat we maken.", "cp0": "Zo sta je straks in het netwerk", "cp1": "Loodgieter · Breda · 3,1 km", "cp2": "Neemt werk aan", "cp3": "Badkamerrenovatie <i>3</i>", "cp4": "CV-ketel <i>3</i>", "cp5": "Lekkage <i>2</i>", "cp6": "Bericht", "cp7": "Bellen", "cp8": "KvK-inschrijving", "cp9": "Btw-nummer", "cp10": "Aansprakelijkheid", "cp11": "Jaren actief", "cp12": "Gecheckt", "cp12b": "Gecheckt", "cp13": "Verzekerd", "cp14": "Reactietijd", "cp15": "Je vakwerk, gecheckt en zichtbaar", "cp16": "Dit is hoe collega's en klanten je straks zien: je specialiteiten met niveau, je werkfoto's, en de checks die vertrouwen geven — KvK, btw-nummer, verzekering. Geen sterretjes van anonieme reviews, maar bewijs uit het vak.", "cp17": "Je profiel aanmaken is gratis en duurt een minuut. Hoe eerder je erop staat, hoe eerder collega's je weten te vinden.", "cp18": "Voorbeeld uit de app-demo — geen echt bedrijf.", "c31": "Ben je aannemer? Lees hoe Sum-IT specifiek voor aannemers werkt op <a href=\"/voor/aannemers/\">onze pagina voor aannemers</a>."}, "en": {"c1": "A network of tradespeople who work together and grow together.", "c2": "Recommended by colleagues, safe subcontracting, passing jobs to each other — without your details being sold on to ten different companies.", "c3": "What makes this different?", "c4": "Tradespeople among themselves", "c5": "Built for construction, technical trades, and repair work — not a broad marketplace, but your trade.", "c6": "Recommended by tradespeople", "c7": "No anonymous leads, but colleagues from the trade who vouch for each other.", "c8": "No data sold on", "c9": "Your details are not sold to ten companies who then call you all day. You stay in control.", "c10": "Safe subcontracting", "c11": "Too much work, or a job you would rather pass on? Clear agreements — scope, price, terms — up front.", "c12": "How it will work", "c13": "And what about the bookkeeping?", "c14": "That is separate. Want your admin handled too? Then Sum-IT does your bookkeeping for <b>€11 a month</b>: photograph a receipt and it is booked, VAT set aside, profit per job live. Your profile in the network is free.", "c15": "Frequently asked questions", "c16": "When does the network open?", "c17": "The network is being built; there is no live date yet. We are building it step by step and showing here what we make.", "c18": "Can I find a tradesperson already?", "c19": "Not yet — the network is being built. This page shows what we are making.", "c20": "Will my details be sold on?", "c21": "No. We do not sell your data and we do not share it with third parties for their own purposes. See the <a href=\"/privacy\">privacy statement</a>.", "c22": "Who is this for?", "c23": "For tradespeople and self-employed professionals — construction, technical trades, repair work — who want better jobs and reliable colleagues to work with or subcontract to.", "c24": "Automate your bookkeeping in the meantime", "c25": "The network is in development; features and terms may still change. Sum-IT is a product of Alpha Nova B.V.", "c26": "<b>Find a tradesperson you trust.</b> Recommended by colleagues from the trade, close to you.", "c27": "<b>Work together or subcontract.</b> Agree scope, price and terms up front — no hassle.", "c28": "<b>Let the network grow.</b> The more tradespeople pass each other work, the more valuable it becomes for everyone.", "c_cta1": "While we build the network you can already use photograph-your-receipt-and-done. Your profile in the network is free.", "c_cta2": "Create your free profile →", "c29": "The network is being built. This page shows what we are working on.", "c30": "<b>To be straight with you:</b> this network is being built right now — it does not exist yet. This page shows what we are making.", "cp0": "This is how you will appear in the network", "cp1": "Plumber · Breda · 3.1 km", "cp2": "Taking work", "cp3": "Bathroom renovation <i>3</i>", "cp4": "Boiler <i>3</i>", "cp5": "Leak repair <i>2</i>", "cp6": "Message", "cp7": "Call", "cp8": "Chamber of Commerce", "cp9": "VAT number", "cp10": "Liability", "cp11": "Years trading", "cp12": "Checked", "cp12b": "Checked", "cp13": "Insured", "cp14": "Response time", "cp15": "Your craft, verified and visible", "cp16": "This is how colleagues and customers will see you: your specialities with a level, your work photos, and the checks that build trust — Chamber of Commerce, VAT number, insurance. No stars from anonymous reviews, but proof from the trade.", "cp17": "Creating your profile is free and takes a minute. The sooner you are on it, the sooner colleagues can find you.", "cp18": "Example from the app demo — not a real business.", "c31": "Are you a contractor? Read how Sum-IT works specifically for contractors on <a href=\"/voor/aannemers/\">our contractors page</a>."}};</script>
-<script src="/i18n.js" defer></script>
-</body>
-</html>
+          <nav class="topnav" aria-label="Primary navigation">
+            <a href="/blog/" data-i18n="c_blog">Blog</a>
+            <a href="/#capture" data-i18n="c_feat">Functies</a>
+            <a href="/#pricing" data-i18n="c_price">Prijzen</a>
+            <a href="/community/" data-i18n="c_community">Community</a>
+            <a class="nav-cta" href="/#signup" data-i18n="c_cta">Gratis
+              profiel</a>
+            <span class="lang-switch" aria-label="Language">
+              <a class="lang active" href="?lang=en" data-lang="en">EN</a>
+              <a class="lang" href="?lang=nl" data-lang="nl">NL</a>
+            </span>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero2">
+        <div class="hero-glow hero-glow-a"></div>
+        <div class="hero-glow hero-glow-b"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="status-chip"><i></i><span data-i18n="c_status">In
+                development</span></span>
+
+            <h1 data-i18n="c1">Een netwerk van vakmensen die elkaar werk
+              gunnen.</h1>
+
+            <p class="hero-lead" data-i18n="c2">
+              Door collega's aanbevolen, veilig onderaannemen, elkaar klussen
+              doorgeven —
+              zonder dat je gegevens aan tien bedrijven worden doorverkocht.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-btn" href="/#capture">
+                <span data-i18n="c_hero_btn">Ontdek Sum-IT</span>
+                <span class="arrow">→</span>
+              </a>
+
+              <a class="secondary-btn" href="#how-it-works">
+                <span class="play-icon">▶</span>
+                <span data-i18n="c_hero_watch">Hoe het werkt</span>
+              </a>
+            </div>
+
+            <div class="hero-trust">
+              <div class="avatar-stack" aria-hidden="true">
+                <span>J</span><span>M</span><span>A</span><span>R</span>
+              </div>
+              <span data-i18n="c_hero_trust">Gebouwd voor vakmensen die elkaar
+                vertrouwen</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-orbit orbit-1"></div>
+            <div class="hero-orbit orbit-2"></div>
+
+            <div class="person-card">
+              <div class="person-avatar">MZ</div>
+              <div>
+                <strong>Mark van Zanten</strong>
+                <span>Installatietechniek</span>
+              </div>
+              <b class="verified-dot">✓</b>
+            </div>
+
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-brand">
+                  <span class="brand-mark">✦</span> Sum-IT
+                </div>
+                <div class="mini-profile">
+                  <span class="mini-avatar">MZ</span>
+                  <span><b>Mark van
+                      Zanten</b><small>Installatietechniek</small></span>
+                  <i>✓</i>
+                </div>
+                <span class="work-pill">● Taking work</span>
+                <div class="phone-skills">
+                  <span>Badkamer</span><span>Boiler</span><span>Lekkage</span>
+                </div>
+                <div class="phone-actions">
+                  <span>☎</span><span>◉</span><span>✉</span>
+                </div>
+                <div class="phone-checks">
+                  <p><i>✓</i> KvK-inschrijving <b>Gecheckt</b></p>
+                  <p><i>✓</i> Btw-nummer <b>Gecheckt</b></p>
+                  <p><i>✓</i> Aansprakelijkheid <b>Verzekerd</b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-floating-card">
+              <span class="float-icon">✓</span>
+              <div><b>Verified</b><small>by colleagues</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <article>
+
+          <div class="notice">
+            <span class="notice-icon">!</span>
+            <p data-i18n="c30"><b>Eerlijk:</b> dit netwerk wordt nu gebouwd —
+              het is er nog niet. Deze pagina laat zien wat we maken.</p>
+          </div>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <span class="eyebrow" data-i18n="c_eyebrow">THE NETWORK</span>
+              <h2 data-i18n="c3">Wat maakt dit anders?</h2>
+              <p data-i18n="c_diff_intro">Een eerlijkere, veiligere en sterkere
+                manier voor vakmensen om elkaar te vinden.</p>
+            </div>
+
+            <div class="feature-grid">
+              <div class="feature-card">
+                <span class="feature-icon">♟</span>
+                <h3 data-i18n="c4">Vakmensen onder elkaar</h3>
+                <p data-i18n="c5">Gemaakt voor bouw, techniek en klus — geen
+                  brede marktplaats, maar jouw vak.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-icon">◆</span>
+                <h3 data-i18n="c6">Door vakmensen aanbevolen</h3>
+                <p data-i18n="c7">Geen anonieme leads, maar collega's uit het
+                  vak die voor elkaar instaan.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-icon">⌂</span>
+                <h3 data-i18n="c8">Geen doorverkochte gegevens</h3>
+                <p data-i18n="c9">Je gegevens worden niet aan tien bedrijven
+                  verkocht die je platbellen. Jij houdt de regie.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-icon">↗</span>
+                <h3 data-i18n="c10">Veilig onderaannemen</h3>
+                <p data-i18n="c11">Te veel werk of een klus die je liever
+                  doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden
+                  — vooraf.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-section profile-section">
+            <div class="section-heading">
+              <span class="eyebrow" data-i18n="cp_eyebrow">YOUR PROFILE</span>
+              <h2 data-i18n="cp0">Zo sta je straks in het netwerk</h2>
+              <p data-i18n="cp_intro">Een professioneel profiel, gebouwd op
+                vertrouwen. Zichtbaar voor collega's en klanten.</p>
+            </div>
+
+            <div class="profile-showcase">
+              <div class="prof">
+                <div class="phead">
+                  <span class="pav">MZ</span>
+                  <span class="pidentity">
+                    <span class="pn">Mark van Zanten <span class="plv">LVL
+                        3</span></span>
+                    <span class="pb">Van Zanten Installatietechniek</span>
+                    <span class="pm" data-i18n="cp1">Loodgieter · Breda · 3,1
+                      km</span>
+                    <span class="ppill"><i></i><span data-i18n="cp2">Neemt werk
+                        aan</span></span>
+                  </span>
+                  <span class="head-check">✓</span>
+                </div>
+
+                <div class="pbody">
+                  <div class="profile-status">
+                    <span data-i18n="cp_status">PROFESSIONEEL PROFIEL</span>
+                    <b>98%</b>
+                  </div>
+
+                  <div class="pskills">
+                    <span class="pskill" data-i18n="cp3">Badkamerrenovatie
+                      <i>3</i></span>
+                    <span class="pskill" data-i18n="cp4">CV-ketel
+                      <i>3</i></span>
+                    <span class="pskill" data-i18n="cp5">Lekkage <i>2</i></span>
+                  </div>
+
+                  <div class="pcontact">
+                    <span><svg viewBox="0 0 24 24"><path
+                          d="M19.6 14.2a3 3 0 0 1-3 3H8.8L4.8 20.4V6.8a3 3 0 0 1 3-3h8.8a3 3 0 0 1 3 3z" /></svg><b
+                        data-i18n="cp6">Bericht</b></span>
+                    <span><svg viewBox="0 0 24 24"><path
+                          d="M6.4 3.6h3l1.5 3.7-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 3.7 1.5v3a1.8 1.8 0 0 1-2 1.8A16.4 16.4 0 0 1 4.6 5.6a1.8 1.8 0 0 1 1.8-2z" /></svg><b
+                        data-i18n="cp7">Bellen</b></span>
+                    <span><svg viewBox="0 0 24 24"><path
+                          d="M20.2 11.6a8.2 8.2 0 0 1-12 7.3L3.8 20.2l1.4-4.3a8.2 8.2 0 1 1 15-4.3z" /></svg><b>WhatsApp</b></span>
+                    <span><svg viewBox="0 0 24 24"><rect x="3.4" y="5.4"
+                          width="17.2" height="13.2" rx="2.4" /><path
+                          d="m4 7 8 5.6L20 7" /></svg><b>E-mail</b></span>
+                  </div>
+
+                  <div class="plist">
+                    <div class="pli"><span class="pck">✓</span><span
+                        data-i18n="cp8">KvK-inschrijving</span><b class="pr"
+                        data-i18n="cp12">Gecheckt</b></div>
+                    <div class="pli"><span class="pck">✓</span><span
+                        data-i18n="cp9">Btw-nummer</span><b class="pr"
+                        data-i18n="cp12b">Gecheckt</b></div>
+                    <div class="pli"><span class="pck">✓</span><span
+                        data-i18n="cp10">Aansprakelijkheid</span><b class="pr"
+                        data-i18n="cp13">Verzekerd</b></div>
+                    <div class="pli"><span data-i18n="cp11">Jaren
+                        actief</span><b class="pr">7</b></div>
+                    <div class="pli"><span data-i18n="cp14">Reactietijd</span><b
+                        class="pr">± 1 uur</b></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profile-copy">
+                <span class="trust-line"><i>✓</i> <span
+                    data-i18n="cp_trust">REAL WORK · REAL PEOPLE</span></span>
+                <h3 data-i18n="cp15">Je vakwerk, gecheckt en zichtbaar</h3>
+                <p data-i18n="cp16">Dit is hoe collega's en klanten je straks
+                  zien: je specialiteiten met niveau, je werkfoto's, en de
+                  checks die vertrouwen geven — KvK, btw-nummer, verzekering.
+                  Geen sterretjes van anonieme reviews, maar bewijs uit het
+                  vak.</p>
+                <p data-i18n="cp17">Je profiel aanmaken is gratis en duurt een
+                  minuut. Hoe eerder je erop staat, hoe eerder collega's je
+                  weten te vinden.</p>
+
+                <div class="demo-strip">
+                  <span>✦</span>
+                  <span data-i18n="cp18">Voorbeeld uit de app-demo — geen echt
+                    bedrijf.</span>
+                </div>
+
+                <div class="proof-pills">
+                  <span>✓ Verified</span>
+                  <span>✓ Local</span>
+                  <span>✓ Trusted</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-section" id="how-it-works">
+            <div class="section-heading">
+              <span class="eyebrow" data-i18n="c_steps_eyebrow">SIMPLE
+                FLOW</span>
+              <h2 data-i18n="c12">Hoe het straks werkt</h2>
+              <p data-i18n="c_steps_intro">Simpel, eerlijk en gebouwd op
+                vertrouwen.</p>
+            </div>
+
+            <div class="steps">
+              <div class="step">
+                <span class="n">1</span>
+                <div><h3 data-i18n="c26_title">Vind een vakman die je
+                    vertrouwt.</h3><p data-i18n="c26"><b>Vind een vakman die je
+                      vertrouwt.</b> Aanbevolen door collega's uit het vak, bij
+                    jou in de buurt.</p></div>
+              </div>
+              <div class="step-arrow">→</div>
+              <div class="step">
+                <span class="n">2</span>
+                <div><h3 data-i18n="c27_title">Werk samen of besteed uit.</h3><p
+                    data-i18n="c27"><b>Werk samen of besteed uit.</b> Spreek
+                    scope, prijs en voorwaarden vooraf af — zonder
+                    gedoe.</p></div>
+              </div>
+              <div class="step-arrow">→</div>
+              <div class="step">
+                <span class="n">3</span>
+                <div><h3 data-i18n="c28_title">Laat het netwerk groeien.</h3><p
+                    data-i18n="c28"><b>Laat het netwerk groeien.</b> Hoe meer
+                    vakmensen elkaar gunnen, hoe waardevoller het voor iedereen
+                    wordt.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="lower-grid">
+            <section class="info-card bookkeeping">
+              <span class="card-kicker"
+                data-i18n="c_book_kicker">BOOKKEEPING</span>
+              <h2 data-i18n="c13">En het boekhouden dan?</h2>
+              <p data-i18n="c14">Dat staat los. Wil je er je administratie bij?
+                Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>:
+                bonnetje fotograferen en het staat geboekt, btw klaargezet,
+                winst per klus live. Je profiel in het netwerk is gratis.</p>
+              <a href="/#capture" class="outline-btn"
+                data-i18n="c_book_btn">Meer over boekhouden →</a>
+            </section>
+
+            <section class="info-card faq-card">
+              <div class="faq-heading">
+                <div>
+                  <span class="card-kicker" data-i18n="c_faq_kicker">HELP
+                    CENTER</span>
+                  <h2 data-i18n="c15">Veelgestelde vragen</h2>
+                </div>
+                <span class="faq-arrow">→</span>
+              </div>
+
+              <div class="faq-list">
+                <div class="faq-item">
+                  <h3 data-i18n="c16">Wanneer gaat het netwerk open?</h3>
+                  <span>+</span>
+                  <p data-i18n="c17">Het netwerk is in aanbouw; er is nog geen
+                    live-datum. We bouwen het stap voor stap en laten hier zien
+                    wat we maken.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 data-i18n="c18">Kan ik nu al een vakman vinden?</h3>
+                  <span>+</span>
+                  <p data-i18n="c19">Nog niet — het netwerk is in aanbouw. Deze
+                    pagina laat zien wat we maken.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 data-i18n="c20">Worden mijn gegevens doorverkocht?</h3>
+                  <span>+</span>
+                  <p data-i18n="c21">Nee. We verkopen je gegevens niet en delen
+                    ze niet met derden voor hun eigen doeleinden. Zie de <a
+                      href="/privacy">privacyverklaring</a>.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 data-i18n="c22">Voor wie is dit?</h3>
+                  <span>+</span>
+                  <p data-i18n="c23">Voor vakmensen en zzp'ers — bouw, techniek,
+                    klus — die betere klussen willen en betrouwbare collega's
+                    zoeken om mee samen te werken of aan uit te besteden.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <p class="contractor-note" data-i18n="c31">Ben je aannemer? Lees hoe
+            Sum-IT specifiek voor aannemers werkt op <a
+              href="/voor/aannemers/">onze pagina voor aannemers</a>.</p>
+        </article>
+
+        <section class="ctabox">
+          <div class="cta-pattern"></div>
+          <div class="cta-icon">♙</div>
+          <div class="cta-copy">
+            <span class="card-kicker" data-i18n="c_cta_kicker">JOIN EARLY</span>
+            <h3 data-i18n="c24">Automatiseer alvast je boekhouding</h3>
+            <p data-i18n="c_cta1">Terwijl we aan het netwerk bouwen, kun je nu
+              al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het
+              netwerk is gratis.</p>
+          </div>
+          <a href="/#signup" class="cta-button" data-i18n="c_cta2">Maak je
+            gratis profiel aan →</a>
+        </section>
+
+        <p class="disc" data-i18n="c25">Het netwerk is in ontwikkeling; functies
+          en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha
+          Nova B.V.</p>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <a class="footer-logo" href="/"><img src="/sum-it-logo-mark.svg"
+              alt="Sum-IT"><span>Sum-IT</span></a>
+          <p data-i18n="c_foot">Sum-IT is een product van Alpha Nova B.V. · Alle
+            data in de EU</p>
+          <nav>
+            <a href="/blog/">Blog</a>
+            <a href="/">sum-it.eu</a>
+          </nav>
+        </div>
+      </footer>
+
+      <script>
+window.PAGE_I18N={"nl":{"c1":"Een netwerk van vakmensen die elkaar werk gunnen.","c2":"Door collega's aanbevolen, veilig onderaannemen, elkaar klussen doorgeven — zonder dat je gegevens aan tien bedrijven worden doorverkocht.","c3":"Wat maakt dit anders?","c4":"Vakmensen onder elkaar","c5":"Gemaakt voor bouw, techniek en klus — geen brede marktplaats, maar jouw vak.","c6":"Door vakmensen aanbevolen","c7":"Geen anonieme leads, maar collega's uit het vak die voor elkaar instaan.","c8":"Geen doorverkochte gegevens","c9":"Je gegevens worden niet aan tien bedrijven verkocht die je platbellen. Jij houdt de regie.","c10":"Veilig onderaannemen","c11":"Te veel werk of een klus die je liever doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden — vooraf.","c12":"Hoe het straks werkt","c13":"En het boekhouden dan?","c14":"Dat staat los. Wil je er je administratie bij? Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>: bonnetje fotograferen en het staat geboekt, btw klaargezet, winst per klus live. Je profiel in het netwerk is gratis.","c15":"Veelgestelde vragen","c16":"Wanneer gaat het netwerk open?","c17":"Het netwerk is in aanbouw; er is nog geen live-datum. We bouwen het stap voor stap en laten hier zien wat we maken.","c18":"Kan ik nu al een vakman vinden?","c19":"Nog niet — het netwerk is in aanbouw. Deze pagina laat zien wat we maken.","c20":"Worden mijn gegevens doorverkocht?","c21":"Nee. We verkopen je gegevens niet en delen ze niet met derden voor hun eigen doeleinden. Zie de <a href=\"/privacy\">privacyverklaring</a>.","c22":"Voor wie is dit?","c23":"Voor vakmensen en zzp'ers — bouw, techniek, klus — die betere klussen willen en betrouwbare collega's zoeken om mee samen te werken of aan uit te besteden.","c24":"Automatiseer alvast je boekhouding","c25":"Het netwerk is in ontwikkeling; functies en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha Nova B.V.","c26":"<b>Vind een vakman die je vertrouwt.</b> Aanbevolen door collega's uit het vak, bij jou in de buurt.","c27":"<b>Werk samen of besteed uit.</b> Spreek scope, prijs en voorwaarden vooraf af — zonder gedoe.","c28":"<b>Laat het netwerk groeien.</b> Hoe meer vakmensen elkaar gunnen, hoe waardevoller het voor iedereen wordt.","c29":"Het netwerk is in aanbouw. Deze pagina laat zien waar we aan werken.","c30":"<b>Eerlijk:</b> dit netwerk wordt nu gebouwd — het is er nog niet. Deze pagina laat zien wat we maken.","cp0":"Zo sta je straks in het netwerk","cp1":"Loodgieter · Breda · 3,1 km","cp2":"Neemt werk aan","cp3":"Badkamerrenovatie <i>3</i>","cp4":"CV-ketel <i>3</i>","cp5":"Lekkage <i>2</i>","cp6":"Bericht","cp7":"Bellen","cp8":"KvK-inschrijving","cp9":"Btw-nummer","cp10":"Aansprakelijkheid","cp11":"Jaren actief","cp12":"Gecheckt","cp12b":"Gecheckt","cp13":"Verzekerd","cp14":"Reactietijd","cp15":"Je vakwerk, gecheckt en zichtbaar","cp16":"Dit is hoe collega's en klanten je straks zien: je specialiteiten met niveau, je werkfoto's, en de checks die vertrouwen geven — KvK, btw-nummer, verzekering. Geen sterretjes van anonieme reviews, maar bewijs uit het vak.","cp17":"Je profiel aanmaken is gratis en duurt een minuut. Hoe eerder je erop staat, hoe eerder collega's je weten te vinden.","cp18":"Voorbeeld uit de app-demo — geen echt bedrijf.","c31":"Ben je aannemer? Lees hoe Sum-IT specifiek voor aannemers werkt op <a href=\"/voor/aannemers/\">onze pagina voor aannemers</a>.","c_status":"In ontwikkeling","c_hero_btn":"Ontdek Sum-IT","c_hero_watch":"Hoe het werkt","c_hero_trust":"Gebouwd voor vakmensen die elkaar vertrouwen","c_eyebrow":"HET NETWERK","c_diff_intro":"Een eerlijkere, veiligere en sterkere manier voor vakmensen om elkaar te vinden.","cp_eyebrow":"JOUW PROFIEL","cp_intro":"Een professioneel profiel, gebouwd op vertrouwen. Zichtbaar voor collega's en klanten.","cp_status":"PROFESSIONEEL PROFIEL","cp_trust":"ECHT WERK · ECHTE MENSEN","c_steps_eyebrow":"SIMPLE FLOW","c_steps_intro":"Simpel, eerlijk en gebouwd op vertrouwen.","c26_title":"Vind een vakman die je vertrouwt.","c27_title":"Werk samen of besteed uit.","c28_title":"Laat het netwerk groeien.","c_book_kicker":"BOEKHOUDING","c_book_btn":"Meer over boekhouden →","c_faq_kicker":"HELP CENTER","c_cta_kicker":"DOE VROEG MEE","c_cta1":"Terwijl we aan het netwerk bouwen, kun je nu al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het netwerk is gratis.","c_cta2":"Maak je gratis profiel aan →","c_foot":"Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU","c_blog":"Blog","c_feat":"Functies","c_price":"Prijzen","c_community":"Community","c_cta":"Gratis profiel"},"en":{"c1":"A network of tradespeople who work together and grow together.","c2":"Recommended by colleagues, safe subcontracting, passing jobs to each other — without your details being sold on to ten different companies.","c3":"What makes this different?","c4":"Tradespeople among themselves","c5":"Built for construction, technical trades, and repair work — not a broad marketplace, but your trade.","c6":"Recommended by tradespeople","c7":"No anonymous leads, but colleagues from the trade who vouch for each other.","c8":"No data sold on","c9":"Your details are not sold to ten companies who then call you all day. You stay in control.","c10":"Safe subcontracting","c11":"Too much work, or a job you would rather pass on? Clear agreements — scope, price, terms — up front.","c12":"How it will work","c13":"And what about the bookkeeping?","c14":"That is separate. Want your admin handled too? Then Sum-IT does your bookkeeping for <b>€11 a month</b>: photograph a receipt and it is booked, VAT set aside, profit per job live. Your profile in the network is free.","c15":"Frequently asked questions","c16":"When does the network open?","c17":"The network is being built; there is no live date yet. We are building it step by step and showing here what we make.","c18":"Can I find a tradesperson already?","c19":"Not yet — the network is being built. This page shows what we are making.","c20":"Will my details be sold on?","c21":"No. We do not sell your data and we do not share it with third parties for their own purposes. See the <a href=\"/privacy\">privacy statement</a>.","c22":"Who is this for?","c23":"For tradespeople and self-employed professionals — construction, technical trades, repair work — who want better jobs and reliable colleagues to work with or subcontract to.","c24":"Automate your bookkeeping in the meantime","c25":"The network is in development; features and terms may still change. Sum-IT is a product of Alpha Nova B.V.","c26":"<b>Find a tradesperson you trust.</b> Recommended by colleagues from the trade, close to you.","c27":"<b>Work together or subcontract.</b> Agree scope, price and terms up front — no hassle.","c28":"<b>Let the network grow.</b> The more tradespeople pass each other work, the more valuable it becomes for everyone.","c29":"The network is being built. This page shows what we are working on.","c30":"<b>To be straight with you:</b> this network is being built right now — it does not exist yet. This page shows what we are making.","cp0":"This is how you will appear in the network","cp1":"Plumber · Breda · 3.1 km","cp2":"Taking work","cp3":"Bathroom renovation <i>3</i>","cp4":"Boiler <i>3</i>","cp5":"Leak repair <i>2</i>","cp6":"Message","cp7":"Call","cp8":"Chamber of Commerce","cp9":"VAT number","cp10":"Liability","cp11":"Years trading","cp12":"Checked","cp12b":"Checked","cp13":"Insured","cp14":"Response time","cp15":"Your craft, verified and visible","cp16":"This is how colleagues and customers will see you: your specialities with a level, your work photos, and the checks that build trust — Chamber of Commerce, VAT number, insurance. No stars from anonymous reviews, but proof from the trade.","cp17":"Creating your profile is free and takes a minute. The sooner you are on it, the sooner colleagues can find you.","cp18":"Example from the app demo — not a real business.","c31":"Are you a contractor? Read how Sum-IT works specifically for contractors on <a href=\"/voor/aannemers/\">our contractors page</a>.","c_status":"In development","c_hero_btn":"Discover Sum-IT","c_hero_watch":"How it works","c_hero_trust":"Built for tradespeople who trust each other","c_eyebrow":"THE NETWORK","c_diff_intro":"A fairer, safer and stronger way for tradespeople to find each other.","cp_eyebrow":"YOUR PROFILE","cp_intro":"A professional profile, built on trust. Visible to colleagues and customers.","cp_status":"PROFESSIONAL PROFILE","cp_trust":"REAL WORK · REAL PEOPLE","c_steps_eyebrow":"SIMPLE FLOW","c_steps_intro":"Simple, fair and built around trust.","c26_title":"Find a tradesperson you trust.","c27_title":"Work together or subcontract.","c28_title":"Let the network grow.","c_book_kicker":"BOOKKEEPING","c_book_btn":"More about bookkeeping →","c_faq_kicker":"HELP CENTER","c_cta_kicker":"JOIN EARLY","c_cta1":"While we build the network you can already use photograph-your-receipt-and-done. Your profile in the network is free.","c_cta2":"Create your free profile →","c_foot":"Sum-IT is a product of Alpha Nova B.V. · All data in the EU","c_blog":"Blog","c_feat":"Features","c_price":"Pricing","c_community":"Community","c_cta":"Free profile"}};
+
+/* Sum-IT Community UI layer — no business functionality changed. */
+(() => {
+  "use strict";
+
+  /* Visual reveal only. Existing links, data-i18n attributes and /i18n.js remain untouched. */
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = document.querySelectorAll(
+    ".feature-card, .prof, .profile-copy, .step, .info-card, .ctabox"
+  );
+
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  targets.forEach((el, index) => {
+    el.classList.add("magic-reveal");
+    el.style.setProperty("--reveal-delay", `${Math.min(index * 45, 220)}ms`);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
+
+  targets.forEach((el) => observer.observe(el));
+})();
+
+</script>
+      <script src="/i18n.js" defer></script>
+    </body>
+  </html>

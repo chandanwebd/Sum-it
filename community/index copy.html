@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Netwerk van vakmensen (in aanbouw) · Sum-IT</title>
+<meta name="description" content="Sum-IT bouwt aan een netwerk van vakmensen die door collega's worden aanbevolen, veilig onderaannemen en elkaar werk gunnen — zonder doorverkochte gegevens. In aanbouw.">
+<link rel="canonical" href="https://sum-it.eu/community/">
+<link rel="icon" href="/sum-it-favicon.png">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Een netwerk van vakmensen — in aanbouw">
+<meta property="og:description" content="Door collega's aanbevolen, veilig onderaannemen, geen doorverkochte gegevens. Dit is wat we bouwen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sum-it.eu/community/">
+<meta property="og:image" content="https://sum-it.eu/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#475569;--mut:#64748B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--slate);line-height:1.75;font-size:16px}
+.top{background:linear-gradient(140deg,#2D2D6B,#232358);padding:18px 22px}
+.topin{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:19px;text-decoration:none}
+.logo img{width:30px;height:30px}
+.topnav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.topnav a{color:#C7CBEA;text-decoration:none;font-size:14px;font-weight:600}
+.topnav a:hover{color:#fff}
+.cta{background:var(--green);color:#fff!important;padding:9px 16px;border-radius:99px;font-weight:700}
+main{max-width:760px;margin:0 auto;padding:42px 22px 30px}
+.crumb{font-size:13px;margin-bottom:18px} .crumb a{color:var(--green-d);text-decoration:none;font-weight:600}
+h1{color:var(--indigo);font-size:clamp(28px,5vw,40px);line-height:1.18;margin-bottom:14px}
+.meta{font-size:13.5px;color:var(--mut);margin-bottom:26px}
+article h2{color:var(--indigo);font-size:22px;margin:34px 0 10px}
+article h3{color:var(--indigo);font-size:17px;margin:22px 0 6px}
+article p{margin:0 0 16px}
+article b{color:var(--indigo)}
+.ctabox{background:linear-gradient(140deg,#2D2D6B,#232358);border-radius:18px;padding:28px;margin:38px 0 8px;color:#C7CBEA}
+.ctabox h3{color:#fff;font-size:20px;margin-bottom:8px}
+.ctabox a{display:inline-block;margin-top:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:99px}
+.disc{font-size:12.5px;color:var(--mut);margin-top:22px}
+footer{max-width:760px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color:var(--mut)}
+footer a{color:var(--green-d)}
+.hero2{background:linear-gradient(140deg,#2D2D6B,#232358);color:#fff;padding:8px 0 34px}
+.hero2 .in{max-width:760px;margin:0 auto;padding:0 22px}
+.hero2 .chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#C7CBEA;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:99px;padding:5px 12px;margin-bottom:14px}
+.hero2 h1{color:#fff;font-size:clamp(28px,5.5vw,42px);line-height:1.15;margin-bottom:12px}
+.hero2 p{color:#C7CBEA;font-size:17px;max-width:560px}
+.hero2 .btn{display:inline-block;margin-top:20px;background:var(--green);color:#fff;text-decoration:none;font-weight:800;padding:15px 26px;border-radius:14px;font-size:17px}
+.hero2 .sub{color:#8f95c9;font-size:13px;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.wcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.wcard h3{color:var(--indigo);font-size:16px;margin-bottom:4px}
+.wcard p{font-size:14.5px;margin:0}
+.steps{counter-reset:s;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.step .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--green-d);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step b{color:var(--indigo)}
+.note2{background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:14px 18px;font-size:14px;color:#92400E;margin:20px 0}
+/* --- example listed profile (from the app prototype) --- */
+.profwrap{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:26px;align-items:center;margin:22px 0 8px}
+@media(max-width:700px){.profwrap{grid-template-columns:1fr}}
+.prof{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(15,61,94,.12)}
+.prof .phead{background:linear-gradient(120deg,#16883C 0%,#1B7079 55%,#1C297D 100%);color:#fff;padding:20px 18px 16px;display:flex;gap:13px;align-items:center}
+.prof .pav{flex:0 0 54px;height:54px;border-radius:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.prof .pn{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:7px;line-height:1.2}
+.prof .plv{font-size:10px;font-weight:800;background:rgba(255,255,255,.24);border-radius:8px;padding:2px 7px;letter-spacing:.02em}
+.prof .pb{font-size:12px;font-weight:600;opacity:.95;margin-top:2px}
+.prof .pm{font-size:11px;opacity:.85;margin-top:1px}
+.prof .ppill{display:inline-flex;align-items:center;gap:6px;background:var(--green);font-size:10.5px;font-weight:800;border-radius:99px;padding:4px 10px;margin-top:7px}
+.prof .ppill i{width:6px;height:6px;border-radius:50%;background:#fff}
+.prof .pbody{padding:14px 16px 16px}
+.prof .pskills{display:flex;flex-wrap:wrap;gap:7px}
+.prof .pskill{font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:99px;background:rgba(45,45,107,.07);color:var(--indigo);display:inline-flex;align-items:center;gap:6px}
+.prof .pskill i{font-style:normal;font-size:10px;font-weight:800;background:var(--green);color:#fff;border-radius:6px;padding:1px 5px}
+.prof .pcontact{display:flex;gap:8px;margin:13px 0 3px}
+.prof .pcontact span{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:var(--indigo);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 4px}
+.prof .pcontact svg{width:17px;height:17px;stroke:var(--green-d);fill:none;stroke-width:1.8}
+.prof .plist{margin-top:11px;border-top:1px solid var(--line)}
+.prof .pli{display:flex;align-items:center;gap:9px;font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--line)}
+.prof .pli:last-child{border-bottom:0}
+.prof .pck{flex:0 0 17px;height:17px;border-radius:50%;background:rgba(0,188,125,.14);color:var(--green-d);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.prof .pr{margin-left:auto;font-weight:700;color:var(--indigo)}
+.profside h3{color:var(--indigo);font-size:19px;margin:0 0 8px}
+.profside p{font-size:14.5px;margin:0 0 12px}
+.profcap{font-size:12px;color:var(--mut);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <a class="logo" href="/"><img src="/sum-it-logo-mark.svg" alt="Sum-IT">Sum-IT</a>
+  <nav class="topnav"><a href="/blog/" data-i18n="c_blog">Blog</a><a href="/#capture" data-i18n="c_feat">Functies</a><a href="/#pricing" data-i18n="c_price">Prijzen</a><a class="cta" href="/#signup" data-i18n="c_cta">Gratis profiel</a></nav>
+</div></div>
+<div class="hero2"><div class="in">
+  <span class="chip">In aanbouw</span>
+  <h1 data-i18n="c1">Een netwerk van vakmensen die elkaar werk gunnen.</h1>
+  <p data-i18n="c2">Door collega's aanbevolen, veilig onderaannemen, elkaar klussen doorgeven — zonder dat je gegevens aan tien bedrijven worden doorverkocht.</p>
+  <a class="btn" href="/#capture">Ontdek Sum-IT →</a>
+  <div class="sub" data-i18n="c29">Het netwerk is in aanbouw. Deze pagina laat zien waar we aan werken.</div>
+</div></div>
+<main>
+<article>
+<div class="note2" data-i18n="c30"><b>Eerlijk:</b> dit netwerk wordt nu gebouwd — het is er nog niet. Deze pagina laat zien wat we maken.</div>
+
+<h2 data-i18n="c3">Wat maakt dit anders?</h2>
+<div class="grid">
+  <div class="wcard"><h3 data-i18n="c4">Vakmensen onder elkaar</h3><p data-i18n="c5">Gemaakt voor bouw, techniek en klus — geen brede marktplaats, maar jouw vak.</p></div>
+  <div class="wcard"><h3 data-i18n="c6">Door vakmensen aanbevolen</h3><p data-i18n="c7">Geen anonieme leads, maar collega's uit het vak die voor elkaar instaan.</p></div>
+  <div class="wcard"><h3 data-i18n="c8">Geen doorverkochte gegevens</h3><p data-i18n="c9">Je gegevens worden niet aan tien bedrijven verkocht die je platbellen. Jij houdt de regie.</p></div>
+  <div class="wcard"><h3 data-i18n="c10">Veilig onderaannemen</h3><p data-i18n="c11">Te veel werk of een klus die je liever doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden — vooraf.</p></div>
+</div>
+
+<h2 data-i18n="cp0">Zo sta je straks in het netwerk</h2>
+<div class="profwrap">
+  <div class="prof" aria-label="Voorbeeldprofiel">
+    <div class="phead">
+      <span class="pav">MZ</span>
+      <span>
+        <span class="pn">Mark van Zanten <span class="plv">LVL 3</span></span>
+        <div class="pb">Van Zanten Installatietechniek</div>
+        <div class="pm" data-i18n="cp1">Loodgieter · Breda · 3,1 km</div>
+        <div class="ppill"><i></i><span data-i18n="cp2">Neemt werk aan</span></div>
+      </span>
+    </div>
+    <div class="pbody">
+      <div class="pskills">
+        <span class="pskill" data-i18n="cp3">Badkamerrenovatie <i>3</i></span>
+        <span class="pskill" data-i18n="cp4">CV-ketel <i>3</i></span>
+        <span class="pskill" data-i18n="cp5">Lekkage <i>2</i></span>
+      </div>
+      <div class="pcontact">
+        <span><svg viewBox="0 0 24 24"><path d="M19.6 14.2a3 3 0 0 1-3 3H8.8L4.8 20.4V6.8a3 3 0 0 1 3-3h8.8a3 3 0 0 1 3 3z"/></svg><span data-i18n="cp6">Bericht</span></span>
+        <span><svg viewBox="0 0 24 24"><path d="M6.4 3.6h3l1.5 3.7-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 3.7 1.5v3a1.8 1.8 0 0 1-2 1.8A16.4 16.4 0 0 1 4.6 5.6a1.8 1.8 0 0 1 1.8-2z"/></svg><span data-i18n="cp7">Bellen</span></span>
+        <span><svg viewBox="0 0 24 24"><path d="M20.2 11.6a8.2 8.2 0 0 1-12 7.3L3.8 20.2l1.4-4.3a8.2 8.2 0 1 1 15-4.3z"/><path d="M8.9 9.2c.4 2.6 3.3 5.5 5.9 5.9"/></svg>WhatsApp</span>
+        <span><svg viewBox="0 0 24 24"><rect x="3.4" y="5.4" width="17.2" height="13.2" rx="2.4"/><path d="m4 7 8 5.6L20 7"/></svg>E-mail</span>
+      </div>
+      <div class="plist">
+        <div class="pli"><span class="pck">✓</span><span data-i18n="cp8">KvK-inschrijving</span><span class="pr" data-i18n="cp12">Gecheckt</span></div>
+        <div class="pli"><span class="pck">✓</span><span data-i18n="cp9">Btw-nummer</span><span class="pr" data-i18n="cp12b">Gecheckt</span></div>
+        <div class="pli"><span class="pck">✓</span><span data-i18n="cp10">Aansprakelijkheid</span><span class="pr" data-i18n="cp13">Verzekerd</span></div>
+        <div class="pli"><span data-i18n="cp11">Jaren actief</span><span class="pr">7</span></div>
+        <div class="pli"><span data-i18n="cp14">Reactietijd</span><span class="pr">± 1 uur</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="profside">
+    <h3 data-i18n="cp15">Je vakwerk, gecheckt en zichtbaar</h3>
+    <p data-i18n="cp16">Dit is hoe collega's en klanten je straks zien: je specialiteiten met niveau, je werkfoto's, en de checks die vertrouwen geven — KvK, btw-nummer, verzekering. Geen sterretjes van anonieme reviews, maar bewijs uit het vak.</p>
+    <p data-i18n="cp17">Je profiel aanmaken is gratis en duurt een minuut. Hoe eerder je erop staat, hoe eerder collega's je weten te vinden.</p>
+    <p class="profcap" data-i18n="cp18">Voorbeeld uit de app-demo — geen echt bedrijf.</p>
+  </div>
+</div>
+
+<h2 data-i18n="c12">Hoe het straks werkt</h2>
+<div class="steps">
+  <div class="step"><span class="n">1</span><span data-i18n="c26"><b>Vind een vakman die je vertrouwt.</b> Aanbevolen door collega's uit het vak, bij jou in de buurt.</span></div>
+  <div class="step"><span class="n">2</span><span data-i18n="c27"><b>Werk samen of besteed uit.</b> Spreek scope, prijs en voorwaarden vooraf af — zonder gedoe.</span></div>
+  <div class="step"><span class="n">3</span><span data-i18n="c28"><b>Laat het netwerk groeien.</b> Hoe meer vakmensen elkaar gunnen, hoe waardevoller het voor iedereen wordt.</span></div>
+</div>
+
+<h2 data-i18n="c13">En het boekhouden dan?</h2>
+<p data-i18n="c14">Dat staat los. Wil je er je administratie bij? Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>: bonnetje fotograferen en het staat geboekt, btw klaargezet, winst per klus live. Je profiel in het netwerk is gratis.</p>
+
+<h2 data-i18n="c15">Veelgestelde vragen</h2>
+<h3 data-i18n="c16">Wanneer gaat het netwerk open?</h3>
+<p data-i18n="c17">Het netwerk is in aanbouw; er is nog geen live-datum. We bouwen het stap voor stap en laten hier zien wat we maken.</p>
+<h3 data-i18n="c18">Kan ik nu al een vakman vinden?</h3>
+<p data-i18n="c19">Nog niet — het netwerk is in aanbouw. Deze pagina laat zien wat we maken.</p>
+<h3 data-i18n="c20">Worden mijn gegevens doorverkocht?</h3>
+<p data-i18n="c21">Nee. We verkopen je gegevens niet en delen ze niet met derden voor hun eigen doeleinden. Zie de <a href="/privacy">privacyverklaring</a>.</p>
+<h3 data-i18n="c22">Voor wie is dit?</h3>
+<p data-i18n="c23">Voor vakmensen en zzp'ers — bouw, techniek, klus — die betere klussen willen en betrouwbare collega's zoeken om mee samen te werken of aan uit te besteden.</p>
+<p data-i18n="c31">Ben je aannemer? Lees hoe Sum-IT specifiek voor aannemers werkt op <a href="/voor/aannemers/">onze pagina voor aannemers</a>.</p>
+</article>
+<div class="ctabox"><h3 data-i18n="c24">Automatiseer alvast je boekhouding</h3><span data-i18n="c_cta1">Terwijl we aan het netwerk bouwen, kun je nu al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het netwerk is gratis.</span><br><a href="/#signup" data-i18n="c_cta2">Maak je gratis profiel aan →</a></div>
+<p class="disc" data-i18n="c25">Het netwerk is in ontwikkeling; functies en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha Nova B.V.</p>
+</main>
+<footer><span data-i18n="c_foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<script>window.PAGE_I18N={"nl": {"c1": "Een netwerk van vakmensen die elkaar werk gunnen.", "c2": "Door collega's aanbevolen, veilig onderaannemen, elkaar klussen doorgeven — zonder dat je gegevens aan tien bedrijven worden doorverkocht.", "c3": "Wat maakt dit anders?", "c4": "Vakmensen onder elkaar", "c5": "Gemaakt voor bouw, techniek en klus — geen brede marktplaats, maar jouw vak.", "c6": "Door vakmensen aanbevolen", "c7": "Geen anonieme leads, maar collega's uit het vak die voor elkaar instaan.", "c8": "Geen doorverkochte gegevens", "c9": "Je gegevens worden niet aan tien bedrijven verkocht die je platbellen. Jij houdt de regie.", "c10": "Veilig onderaannemen", "c11": "Te veel werk of een klus die je liever doorschuift? Duidelijke afspraken — scope, prijs, voorwaarden — vooraf.", "c12": "Hoe het straks werkt", "c13": "En het boekhouden dan?", "c14": "Dat staat los. Wil je er je administratie bij? Dan doet Sum-IT je boekhouding voor <b>€11 per maand</b>: bonnetje fotograferen en het staat geboekt, btw klaargezet, winst per klus live. Je profiel in het netwerk is gratis.", "c15": "Veelgestelde vragen", "c16": "Wanneer gaat het netwerk open?", "c17": "Het netwerk is in aanbouw; er is nog geen live-datum. We bouwen het stap voor stap en laten hier zien wat we maken.", "c18": "Kan ik nu al een vakman vinden?", "c19": "Nog niet — het netwerk is in aanbouw. Deze pagina laat zien wat we maken.", "c20": "Worden mijn gegevens doorverkocht?", "c21": "Nee. We verkopen je gegevens niet en delen ze niet met derden voor hun eigen doeleinden. Zie de <a href=\"/privacy\">privacyverklaring</a>.", "c22": "Voor wie is dit?", "c23": "Voor vakmensen en zzp'ers — bouw, techniek, klus — die betere klussen willen en betrouwbare collega's zoeken om mee samen te werken of aan uit te besteden.", "c24": "Automatiseer alvast je boekhouding", "c25": "Het netwerk is in ontwikkeling; functies en voorwaarden kunnen nog veranderen. Sum-IT is een product van Alpha Nova B.V.", "c26": "<b>Vind een vakman die je vertrouwt.</b> Aanbevolen door collega's uit het vak, bij jou in de buurt.", "c27": "<b>Werk samen of besteed uit.</b> Spreek scope, prijs en voorwaarden vooraf af — zonder gedoe.", "c28": "<b>Laat het netwerk groeien.</b> Hoe meer vakmensen elkaar gunnen, hoe waardevoller het voor iedereen wordt.", "c_cta1": "Terwijl we aan het netwerk bouwen, kun je nu al bonnetje-fotograferen-en-klaar gebruiken. Je profiel in het netwerk is gratis.", "c_cta2": "Maak je gratis profiel aan →", "c29": "Het netwerk is in aanbouw. Deze pagina laat zien waar we aan werken.", "c30": "<b>Eerlijk:</b> dit netwerk wordt nu gebouwd — het is er nog niet. Deze pagina laat zien wat we maken.", "cp0": "Zo sta je straks in het netwerk", "cp1": "Loodgieter · Breda · 3,1 km", "cp2": "Neemt werk aan", "cp3": "Badkamerrenovatie <i>3</i>", "cp4": "CV-ketel <i>3</i>", "cp5": "Lekkage <i>2</i>", "cp6": "Bericht", "cp7": "Bellen", "cp8": "KvK-inschrijving", "cp9": "Btw-nummer", "cp10": "Aansprakelijkheid", "cp11": "Jaren actief", "cp12": "Gecheckt", "cp12b": "Gecheckt", "cp13": "Verzekerd", "cp14": "Reactietijd", "cp15": "Je vakwerk, gecheckt en zichtbaar", "cp16": "Dit is hoe collega's en klanten je straks zien: je specialiteiten met niveau, je werkfoto's, en de checks die vertrouwen geven — KvK, btw-nummer, verzekering. Geen sterretjes van anonieme reviews, maar bewijs uit het vak.", "cp17": "Je profiel aanmaken is gratis en duurt een minuut. Hoe eerder je erop staat, hoe eerder collega's je weten te vinden.", "cp18": "Voorbeeld uit de app-demo — geen echt bedrijf.", "c31": "Ben je aannemer? Lees hoe Sum-IT specifiek voor aannemers werkt op <a href=\"/voor/aannemers/\">onze pagina voor aannemers</a>."}, "en": {"c1": "A network of tradespeople who work together and grow together.", "c2": "Recommended by colleagues, safe subcontracting, passing jobs to each other — without your details being sold on to ten different companies.", "c3": "What makes this different?", "c4": "Tradespeople among themselves", "c5": "Built for construction, technical trades, and repair work — not a broad marketplace, but your trade.", "c6": "Recommended by tradespeople", "c7": "No anonymous leads, but colleagues from the trade who vouch for each other.", "c8": "No data sold on", "c9": "Your details are not sold to ten companies who then call you all day. You stay in control.", "c10": "Safe subcontracting", "c11": "Too much work, or a job you would rather pass on? Clear agreements — scope, price, terms — up front.", "c12": "How it will work", "c13": "And what about the bookkeeping?", "c14": "That is separate. Want your admin handled too? Then Sum-IT does your bookkeeping for <b>€11 a month</b>: photograph a receipt and it is booked, VAT set aside, profit per job live. Your profile in the network is free.", "c15": "Frequently asked questions", "c16": "When does the network open?", "c17": "The network is being built; there is no live date yet. We are building it step by step and showing here what we make.", "c18": "Can I find a tradesperson already?", "c19": "Not yet — the network is being built. This page shows what we are making.", "c20": "Will my details be sold on?", "c21": "No. We do not sell your data and we do not share it with third parties for their own purposes. See the <a href=\"/privacy\">privacy statement</a>.", "c22": "Who is this for?", "c23": "For tradespeople and self-employed professionals — construction, technical trades, repair work — who want better jobs and reliable colleagues to work with or subcontract to.", "c24": "Automate your bookkeeping in the meantime", "c25": "The network is in development; features and terms may still change. Sum-IT is a product of Alpha Nova B.V.", "c26": "<b>Find a tradesperson you trust.</b> Recommended by colleagues from the trade, close to you.", "c27": "<b>Work together or subcontract.</b> Agree scope, price and terms up front — no hassle.", "c28": "<b>Let the network grow.</b> The more tradespeople pass each other work, the more valuable it becomes for everyone.", "c_cta1": "While we build the network you can already use photograph-your-receipt-and-done. Your profile in the network is free.", "c_cta2": "Create your free profile →", "c29": "The network is being built. This page shows what we are working on.", "c30": "<b>To be straight with you:</b> this network is being built right now — it does not exist yet. This page shows what we are making.", "cp0": "This is how you will appear in the network", "cp1": "Plumber · Breda · 3.1 km", "cp2": "Taking work", "cp3": "Bathroom renovation <i>3</i>", "cp4": "Boiler <i>3</i>", "cp5": "Leak repair <i>2</i>", "cp6": "Message", "cp7": "Call", "cp8": "Chamber of Commerce", "cp9": "VAT number", "cp10": "Liability", "cp11": "Years trading", "cp12": "Checked", "cp12b": "Checked", "cp13": "Insured", "cp14": "Response time", "cp15": "Your craft, verified and visible", "cp16": "This is how colleagues and customers will see you: your specialities with a level, your work photos, and the checks that build trust — Chamber of Commerce, VAT number, insurance. No stars from anonymous reviews, but proof from the trade.", "cp17": "Creating your profile is free and takes a minute. The sooner you are on it, the sooner colleagues can find you.", "cp18": "Example from the app demo — not a real business.", "c31": "Are you a contractor? Read how Sum-IT works specifically for contractors on <a href=\"/voor/aannemers/\">our contractors page</a>."}};</script>
+<script src="/i18n.js" defer></script>
+</body>
+</html>
