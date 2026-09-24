@@ -1,0 +1,153 @@
+/* Sum-IT design tokens + global accessibility base.
+   Loaded on every page before any page stylesheet. Contains no layout
+   rules for page content, so it is safe to load next to css/index.css. */
+
+:root {
+  /* Brand */
+  --c-navy-950: #11143a;
+  --c-navy-900: #1a1d4f;
+  --c-navy-800: #232358;
+  --c-indigo: #2d2d6b;
+  --c-indigo-600: #3b3b84;
+  --c-green: #00bc7d;
+  --c-green-600: #009966;
+  --c-green-700: #007a55; /* green text on light backgrounds (AA) */
+  --c-green-300: #5ce3b4; /* green text / focus ring on dark backgrounds */
+  --c-green-50: #e6f8f1;
+  --c-on-green: #062b1f; /* text on green buttons (AA, ~6:1) */
+
+  /* Neutrals */
+  --c-ink: #0f172a;
+  --c-text: #334155;
+  --c-muted: #526071; /* AA on white and on --c-bg */
+  --c-line: #e2e8f0;
+  --c-line-strong: #cbd5e1;
+  --c-bg: #f5f7fb;
+  --c-surface: #ffffff;
+  --c-on-dark: #ffffff;
+  --c-on-dark-muted: rgba(255, 255, 255, .74);
+  --c-line-dark: rgba(255, 255, 255, .14);
+
+  /* Status */
+  --c-danger: #c8102e;
+  --c-danger-50: #fdecee;
+  --c-warn: #b45309;
+  --c-warn-50: #fff4e0;
+
+  /* Typography */
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-display: clamp(2.5rem, 1.55rem + 4vw, 4.25rem);
+  --fs-h1: clamp(2rem, 1.45rem + 2.4vw, 3rem);
+  --fs-h2: clamp(1.625rem, 1.3rem + 1.4vw, 2.25rem);
+  --fs-h3: clamp(1.1875rem, 1.1rem + .4vw, 1.375rem);
+  --fs-h4: 1.0625rem;
+  --fs-body-lg: clamp(1.0625rem, 1rem + .3vw, 1.1875rem);
+  --fs-body: 1rem;
+  --fs-small: .875rem;
+  --fs-caption: .8125rem;
+  --fs-nav: .9375rem;
+  --fs-button: .9375rem;
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.7;
+  --tracking-tight: -.02em;
+  --tracking-caps: .08em;
+
+  /* Spacing scale (4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 80 · 96 · 120) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 80px;
+  --sp-10: 96px;
+  --sp-11: 120px;
+  --section-y: clamp(64px, 5vw + 40px, 112px);
+
+  /* Containers */
+  --container: 1200px;
+  --container-narrow: 960px;
+  --container-text: 720px;
+  --gutter: 16px;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, .07), 0 2px 4px rgba(15, 23, 42, .05);
+  --shadow-lg: 0 18px 40px rgba(15, 23, 42, .12), 0 4px 10px rgba(15, 23, 42, .06);
+  --shadow-green: 0 8px 20px rgba(0, 188, 125, .28);
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --dur-fast: .15s;
+  --dur: .25s;
+
+  /* Components */
+  --header-h: 68px;
+  --control-h: 48px;
+  --control-h-sm: 40px;
+  --focus-ring: 0 0 0 3px var(--c-surface), 0 0 0 5px var(--c-green-600);
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 24px; }
+}
+
+@media (min-width: 1024px) {
+  :root { --gutter: 32px; --header-h: 76px; }
+}
+
+/* Visible keyboard focus everywhere; mouse clicks stay clean. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--c-green-600);
+  outline-offset: 2px;
+}
+
+/* Keep anchored sections clear of the sticky header. */
+html { scroll-padding-top: calc(var(--header-h) + 12px); }
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font: 700 var(--fs-small)/1.2 var(--font-sans);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+}
+.skip-link:focus { top: 12px; }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

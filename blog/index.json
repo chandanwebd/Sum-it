@@ -1,0 +1,700 @@
+{
+  "tools": [
+    {
+      "href": "/tools/belastingpotje-calculator.html",
+      "title": "Belastingpotje-calculator",
+      "desc": "Hoeveel moet je als zzp'er opzij zetten in 2026? Reken het in 10 seconden uit.",
+      "title_i18n": "bl5",
+      "desc_i18n": "bl6"
+    },
+    {
+      "href": "/tools/uurtarief-calculator.html",
+      "title": "Uurtarief-calculator",
+      "desc": "Reken terug vanaf je gewenste netto inkomen naar het uurtarief dat je écht moet vragen.",
+      "title_i18n": "bl7",
+      "desc_i18n": "bl8"
+    }
+  ],
+  "articles": [
+    {
+      "href": "/blog/aftrekposten-zzp.html",
+      "title": "Aftrekposten voor zzp'ers: wat mag wél en wat niet",
+      "desc": "Welke kosten mag je aftrekken als zzp'er? Concrete voorbeelden: telefoon, laptop, werkkleding, etentjes, cursussen en KIA. Mét de regels voor 2026.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-voor-vakmensen.html",
+      "title": "BTW voor vakmensen: 9% of 21%, en hoe houd je het bij?",
+      "desc": "Wanneer geldt het 9%-tarief en wanneer 21% voor klussen aan woningen? Een praktische uitleg voor schilders, stukadoors en andere vakmensen, plus tips om je btw-administratie simpel te houden.",
+      "category": "belasting",
+      "date": "2026-07-24",
+      "min": 6
+    },
+    {
+      "href": "/blog/belasting-eerste-jaar-zzp.html",
+      "title": "Belasting in je eerste jaar als zzp'er: dit komt er op je af",
+      "desc": "Belasting in je eerste jaar als zzp'er: btw vanaf dag 1, inkomstenbelasting pas later. Tijdlijn voor je eerste 18 maanden, mét startersaftrek en tips.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/bonnetjes-bewaren-belastingdienst.html",
+      "title": "Bonnetjes bewaren: wat de Belastingdienst echt eist",
+      "desc": "Hoe lang moet je bonnetjes bewaren voor de Belastingdienst? 7 jaar, bij vastgoed 10. Lees wanneer digitaal mag en hoe een simpele scan-routine je redt.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-buitenlandse-klant-zzp.html",
+      "title": "Btw en factureren aan buitenlandse klanten",
+      "desc": "Factureren aan een klant in of buiten de EU? Lees hoe btw werkt bij buitenlandse klanten, wanneer je 0% of verlegde btw toepast en wat op de factuur moet.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-terugvragen-voorbelasting.html",
+      "title": "Btw terugvragen op zakelijke aankopen: zo werkt voorbelasting",
+      "desc": "Btw terugvragen op zakelijke aankopen? Dit mag wel en niet: horeca nooit, auto via forfait 2,7%. Plus de factuureisen waar je bonnetje aan moet voldoen.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-verleggen-zzp.html",
+      "title": "Btw verleggen als zzp'er: wanneer en hoe",
+      "desc": "Btw verleggen uitgelegd voor zzp'ers: wanneer je de btw verlegt, hoe je dat op je factuur vermeldt en wat het betekent voor je btw-aangifte. Met voorbeeld.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-aangifte-zzp.html",
+      "title": "Btw-aangifte doen als zzp'er: stap voor stap",
+      "desc": "Btw-aangifte doen als zzp'er? Stappenplan met deadlines per kwartaal, uitleg per rubriek en de fouten die je een boete besparen. Ook bij €0 omzet.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 5
+    },
+    {
+      "href": "/blog/btw-suppletie-corrigeren-zzp.html",
+      "title": "Btw-suppletie: je btw-aangifte corrigeren",
+      "desc": "Fout gemaakt in je btw-aangifte? Met een suppletie corrigeer je te veel of te weinig betaalde btw. Lees wanneer het moet, de grens van 1.000 euro en hoe.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/belasting-opzij-zetten-zzp.html",
+      "title": "Hoeveel belasting moet je opzij zetten als zzp'er?",
+      "desc": "Hoeveel belasting moet je opzij zetten als zzp'er? Rekenvoorbeelden bij €30.000, €50.000 en €75.000 winst, vuistregels en tips voor je belastingpotje.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/kor-kleineondernemersregeling.html",
+      "title": "KOR: wanneer is de kleineondernemersregeling slim (en wanneer niet)?",
+      "desc": "De KOR scheelt btw-administratie, maar is niet altijd slim. Check de grens van €20.000, de voorwaarden, het grote nadeel en hoe je je aan- of afmeldt.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/kleinschaligheidsinvesteringsaftrek-zzp.html",
+      "title": "Kleinschaligheidsinvesteringsaftrek (KIA) voor zzp'ers",
+      "desc": "Met de kleinschaligheidsinvesteringsaftrek (KIA) verlaag je je belasting bij investeringen. Lees de bedragen 2026, voorwaarden en hoe je de aftrek claimt.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/margeregeling-btw-zzp.html",
+      "title": "Margeregeling btw: btw over je winstmarge",
+      "desc": "Verkoop je tweedehands goederen? Met de margeregeling reken je btw alleen over je winstmarge. Lees de voorwaarden, administratie en hoe je de marge.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/mkb-winstvrijstelling-nettowinst.html",
+      "title": "Mkb-winstvrijstelling: wat hou je netto over?",
+      "desc": "De mkb-winstvrijstelling haalt in 2026 12,7% van je winst uit de belasting. Met rekenvoorbeeld: van omzet naar winst, belastbaar bedrag en nettowinst.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/naheffing-boete-belastingdienst-zzp.html",
+      "title": "Naheffing en boete van de Belastingdienst als zzp'er",
+      "desc": "Kreeg je een naheffing of boete van de Belastingdienst? Lees waarom dit gebeurt, hoe je bezwaar maakt en hoe je naheffingen bij btw en inkomstenbelasting.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/opgaaf-icp-zzp.html",
+      "title": "Opgaaf ICP voor zzp'ers: uitleg en stappen",
+      "desc": "Lever je diensten of goederen aan EU-klanten? Ontdek wanneer een opgaaf ICP verplicht is, hoe je die indient en hoe hij samenhangt met je btw-aangifte.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/reiskosten-kilometervergoeding-zzp.html",
+      "title": "Reiskosten en kilometervergoeding voor zzp'ers",
+      "desc": "Rij je zakelijk met je privéauto? Lees hoeveel cent per kilometer je in 2026 mag aftrekken, hoe je een kilometerregistratie bijhoudt en welke reiskosten.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/startersaftrek-zzp.html",
+      "title": "Startersaftrek voor zzp'ers: zo werkt het",
+      "desc": "De startersaftrek geeft startende zzp'ers extra belastingvoordeel. Ontdek de voorwaarden, het bedrag in 2026 en hoe hij samenhangt met de zelfstandigenaftr.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/telefoon-internet-kosten-aftrekken-zzp.html",
+      "title": "Telefoon- en internetkosten aftrekken als zzp'er",
+      "desc": "Zakelijk bellen en internetten? Ontdek welk deel van je telefoon- en internetkosten je als zzp'er mag aftrekken en hoe je zakelijk en privé gebruik.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/urencriterium-zelfstandigenaftrek.html",
+      "title": "Urencriterium en zelfstandigenaftrek: zo werkt het",
+      "desc": "Het urencriterium van 1.225 uur bepaalt of je zelfstandigenaftrek (€1.200) en startersaftrek (€2.123) krijgt. Zo tel je je uren en houd je bewijs bij.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/voorlopige-aanslag-zzp.html",
+      "title": "Voorlopige aanslag: waarom die de belastingkater voorkomt",
+      "desc": "Een voorlopige aanslag voorkomt dat je in één keer duizenden euro's belasting moet betalen. Zo vraag je hem aan, pas je hem aan en ontloop je 5% rente.",
+      "category": "belasting",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/btw-tarief-9-of-21-zzp.html",
+      "title": "Welk btw-tarief reken je: 9% of 21%?",
+      "desc": "Twijfel je over het juiste btw-tarief? Lees wanneer je 9%, 21% of 0% btw rekent als zzp'er, met voorbeelden per branche en tips om fouten te voorkomen.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/werkkleding-aftrekbaar-zzp.html",
+      "title": "Werkkleding aftrekken: wat mag als zzp'er?",
+      "desc": "Is werkkleding aftrekbaar? Lees wanneer bedrijfskleding en veiligheidsschoenen wél aftrekbaar zijn, welke eisen de Belastingdienst stelt en wat niet mag.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/werkruimte-aan-huis-aftrek-zzp.html",
+      "title": "Werkruimte aan huis aftrekken: mag dat?",
+      "desc": "Werk je thuis? Ontdek wanneer je kosten voor een werkruimte aan huis mag aftrekken, het verschil tussen zelfstandige en onzelfstandige ruimte en de.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/inkomstenbelasting-zzp-berekenen.html",
+      "title": "Zo bereken je je inkomstenbelasting als zzp'er in 2026",
+      "desc": "Bereken stap voor stap je inkomstenbelasting als zzp'er in 2026: van winst naar belastbaar inkomen, met belastingschijven, heffingskortingen en.",
+      "category": "belasting",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/auto-zakelijk-of-prive-zzp.html",
+      "title": "Auto zakelijk of privé rijden: wat is slimmer voor jou?",
+      "desc": "Auto zakelijk of privé rijden als zzp'er? Vergelijk €0,25 per km met bijtelling 22% (EV 18%), btw-forfait en rittenregistratie. Zo kies je in 2026.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/aanbetaling-vragen-klant-zzp.html",
+      "title": "Een aanbetaling of voorschot vragen als zzp'er",
+      "desc": "Bescherm je cashflow: lees wanneer een aanbetaling of voorschot gebruikelijk is, hoeveel je vraagt, hoe je dit vastlegt en hoe je de aanbetaling.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/projectbegroting-maken-zzp.html",
+      "title": "Een projectbegroting maken en calculeren",
+      "desc": "Een goede begroting voorkomt verlies. Lees hoe je een projectbegroting of calculatie opstelt, uren en materiaal inschat en een marge inbouwt op je offerte.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/factuur-niet-betaald.html",
+      "title": "Factuur niet betaald? Dit doe je",
+      "desc": "Factuur niet betaald? Volg dit stappenplan: herinnering, aanmaning, incasso. Met de betaaltermijnen, incassokosten-staffel en 10,4% handelsrente van 2026.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/winstmarge-per-project-verhogen.html",
+      "title": "Je winstmarge per project verhogen",
+      "desc": "Meer overhouden per klus? Lees hoe je je winstmarge berekent, waar verborgen kosten je marge opeten en welke stappen je zet om per project meer te.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/meerwerk-factureren-zzp.html",
+      "title": "Meerwerk factureren: vastleggen en doorbelasten",
+      "desc": "Extra werk buiten de opdracht? Lees hoe je meerwerk vastlegt en factureert, welke afspraken je vooraf maakt en hoe je discussies met de klant voorkomt.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/nacalculatie-project-zzp.html",
+      "title": "Nacalculatie: wat verdiende je écht per project?",
+      "desc": "Was je project winstgevend? Lees hoe je met een nacalculatie je begrote uren en kosten vergelijkt met de werkelijkheid en zo je volgende offerte scherper.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/offerte-maken-zzp.html",
+      "title": "Offerte maken die geen geld weggeeft",
+      "desc": "Offerte maken als zzp'er? Kies bewust tussen vaste prijs en nacalculatie, zet een geldigheidstermijn en meerwerk-clausule erin. Zo lekt geen geld weg.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/opdrachtbevestiging-zzp.html",
+      "title": "Opdrachtbevestiging: afspraken zwart-op-wit",
+      "desc": "Voorkom misverstanden met een opdrachtbevestiging. Lees wat erin hoort, het verschil met een offerte en gebruik onze voorbeeldtekst om afspraken vast te.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/projectadministratie-zzp.html",
+      "title": "Projectadministratie zonder gedoe",
+      "desc": "Projectadministratie voor zzp'ers: houd per klus offerte, uren, bonnetjes en factuur bij elkaar. Simpele structuur, 10 minuten per week, direct overzicht.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/uurtarief-berekenen-zzp.html",
+      "title": "Uurtarief berekenen: het eerlijke stappenplan",
+      "desc": "Uurtarief berekenen als zzp'er? Begin bij je netto doel, tel kosten en niet-declarabele uren mee en reken terug. Met tabelvoorbeeld en gratis rekentool.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/vaste-prijs-of-regie-project.html",
+      "title": "Vaste prijs of op regie werken als zzp'er",
+      "desc": "Werk je op regie of tegen een vaste prijs? Vergelijk de risico's en voordelen per model, ontdek wanneer welk het beste past en hoe je dit vastlegt met de.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/winst-per-klus-berekenen.html",
+      "title": "Welke klus verdient écht? Zo bereken je winst per project",
+      "desc": "Omzet zegt niets, marge alles. Leer in 4 stappen hoe je als vakman de echte winst per klus berekent: materiaal, uren, kilometers en indirecte kosten, en waarom projectadministratie je offertes beter maakt.",
+      "category": "projecten",
+      "date": "2026-07-24",
+      "min": 5
+    },
+    {
+      "href": "/blog/werkbon-maken-vakman.html",
+      "title": "Werkbon maken: uren en materiaal per klus",
+      "desc": "Leg je klus goed vast met een werkbon. Lees wat op een werkbon hoort, hoe je uren en materiaal registreert en hoe je hem gebruikt als basis voor je.",
+      "category": "projecten",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/zakelijke-kosten-of-prive.html",
+      "title": "Zakelijk of privé? Zo ga je om met de grijze zone",
+      "desc": "Telefoon, werkruimte, kleding, etentjes: zakelijk of privé? Zo splits je gemengde kosten in 2026 en voorkom je gedoe met de Belastingdienst.",
+      "category": "projecten",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/onderaannemer-inhuren-bouw.html",
+      "title": "Een onderaannemer inhuren: dit moet je regelen",
+      "desc": "Huur je een onderaannemer in? Lees over verlegde btw, de g-rekening, ketenaansprakelijkheid en welke gegevens je vastlegt om verrassingen te voorkomen.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/vof-oprichten-samen-zzp.html",
+      "title": "Een vof oprichten: samen een bedrijf starten",
+      "desc": "Ga je samen ondernemen? Lees hoe je een vof opricht, wie waarvoor aansprakelijk is, hoe winst en belasting werken en waarom je een vennootschapscontract.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/inkomende-factuur-controleren-zzp.html",
+      "title": "Inkomende facturen controleren en verwerken",
+      "desc": "Huur je zzp'ers of leveranciers in? Lees hoe je inkomende facturen controleert op btw en juistheid, ze correct boekt en de voorbelasting terugvraagt.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/eerste-personeel-aannemen-zzp.html",
+      "title": "Je eerste medewerker aannemen als zzp'er",
+      "desc": "Klaar om te groeien? Lees wat je regelt bij je eerste werknemer: loonadministratie, werkgeverslasten, contract en het verschil met iemand inhuren als.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/ketenaansprakelijkheid-bouw.html",
+      "title": "Ketenaansprakelijkheid in bouw en techniek: zo houd je de keten schoon",
+      "desc": "Ketenaansprakelijkheid betekent: als hoofdaannemer opdraaien voor loonheffingen van je onderaannemer. Zo werken g-rekening en verklaring betalingsgedrag.",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/klanten-vinden-zzp.html",
+      "title": "Klanten vinden zonder acquisitie-ziel",
+      "desc": "Klanten vinden als zzp'er zonder gladde verkooppraatjes? Begin bij je warme netwerk, vraag op het juiste moment om doorverwijzingen en gebruik Google slim.",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 5
+    },
+    {
+      "href": "/blog/modelovereenkomst-gebruiken-zzp.html",
+      "title": "Modelovereenkomst: zo werk je veilig samen",
+      "desc": "Werk je voor opdrachtgevers? Lees wat een modelovereenkomst is, wanneer je er een gebruikt en hoe die helpt om buiten dienstverband te blijven onder de.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/personeel-of-zzp-inhuren.html",
+      "title": "Personeel aannemen of een zzp'er inhuren?",
+      "desc": "Groeien met vast personeel of flexibel inhuren? Vergelijk kosten, risico's en verplichtingen, en ontdek wat past bij jouw opdrachten en omzet als.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/zzp-samenwerken-in-collectief.html",
+      "title": "Samenwerken in een zzp-collectief of coöperatie",
+      "desc": "Krachten bundelen zonder je zelfstandigheid te verliezen? Lees hoe een zzp-collectief werkt, hoe je opdrachten en facturatie regelt en waar je fiscaal op.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/samenwerkingsovereenkomst-zzp.html",
+      "title": "Samenwerkingsovereenkomst opstellen als zzp'er",
+      "desc": "Werk je structureel met een collega samen? Lees wat in een samenwerkingsovereenkomst hoort over taken, verdeling, aansprakelijkheid en beëindiging, met.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/schijnzelfstandigheid-voorkomen-zzp.html",
+      "title": "Schijnzelfstandigheid voorkomen als zzp'er",
+      "desc": "De Belastingdienst handhaaft weer op schijnzelfstandigheid. Lees waar de grens ligt tussen zelfstandigheid en dienstverband en hoe je als zzp'er risico's.",
+      "category": "samenwerken",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/opdracht-doorgeven-collega.html",
+      "title": "Te veel werk? Zo schuif je een klus door",
+      "desc": "Te veel werk? Zo geef je een opdracht door aan een collega-zzp'er: doorverwijzen, onderaanneming of samen offreren. Mét tips voor fee en klantrelatie.",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 5
+    },
+    {
+      "href": "/blog/zzper-inhuren-als-zzper.html",
+      "title": "Werk uitbesteden aan een andere zzp'er: zo doe je het veilig",
+      "desc": "Huur je als zzp'er een andere zzp'er in? Dan ben jij opdrachtgever en geldt de Wet DBA ook voor jou. Regel afspraken, contract en btw meteen goed.",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/wet-dba-2026-uitgelegd.html",
+      "title": "Wet DBA in 2026: mag je nog als zzp'er werken?",
+      "desc": "De Belastingdienst handhaaft de Wet DBA sinds 1 januari 2025. Lees wat er in 2026 geldt, wat de fiscus toetst en hoe je veilig als zzp'er blijft werken.",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 5
+    },
+    {
+      "href": "/blog/samenwerken-met-boekhouder.html",
+      "title": "Zo werk je slim samen met je boekhouder",
+      "desc": "Slim samenwerken met je boekhouder scheelt uren à €65-100 en dus geld. Wie levert wat aan, welk kwartaalritme werkt en welke vragen stel je vooraf?",
+      "category": "samenwerken",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/algemene-voorwaarden-zzp.html",
+      "title": "Algemene voorwaarden voor zzp'ers: wat moet erin?",
+      "desc": "Wat moet er in je algemene voorwaarden als zzp'er? Aansprakelijkheid, betalingstermijn, meerwerk en eigendom — plus hoe je ze rechtsgeldig gebruikt.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/balans-winst-verliesrekening-zzp.html",
+      "title": "Balans en winst- en verliesrekening uitgelegd",
+      "desc": "Snap je cijfers: lees wat een balans en winst- en verliesrekening zijn, welk verschil ertussen zit en hoe je ze als zzp'er leest en zelf opstelt. Met.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/betalingsherinnering-aanmaning-zzp.html",
+      "title": "Betalingsherinnering en aanmaning: zo pak je het aan",
+      "desc": "Klant betaalt niet op tijd? Lees het verschil tussen een herinnering en aanmaning, welke termijnen je hanteert en gebruik onze voorbeeldteksten om te.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/bewaarplicht-administratie-zzp.html",
+      "title": "Bewaarplicht: hoelang bewaar je je administratie?",
+      "desc": "Hoelang moet je je administratie bewaren? Lees de 7-jaars bewaarplicht (en 10 jaar voor vastgoed), wat je digitaal mag bewaren en hoe je dit slim.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 3
+    },
+    {
+      "href": "/blog/boekhouden-excel-of-programma-zzp.html",
+      "title": "Boekhouden in Excel of met een programma?",
+      "desc": "Boekhouden in Excel of met een boekhoudprogramma? Vergelijk de voor- en nadelen, kosten en risico's, en ontdek wanneer software zich terugverdient voor.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/boekhouder-of-zelf-doen.html",
+      "title": "Boekhouder inhuren of zelf je boekhouding doen? Zo kies je",
+      "desc": "Zelf boekhouden of uitbesteden aan een boekhouder? De voor- en nadelen op een rij voor zzp'ers en vakmensen, wat een boekhouder kost, en waarom de combinatie vaak het beste werkt.",
+      "category": "basis",
+      "date": "2026-07-24",
+      "min": 5
+    },
+    {
+      "href": "/blog/bonnetjes-administratie-zzp.html",
+      "title": "Bonnetjes bijhouden als zzp'er: 7 praktische tips tegen de schoenendoos",
+      "desc": "Bonnetjes kwijt, avonden sorteren? Met deze 7 tips houd je als zzp'er of vakman je bonnetjes en administratie simpel, digitaal en klaar voor de btw-aangifte.",
+      "category": "basis",
+      "date": "2026-07-24",
+      "min": 5
+    },
+    {
+      "href": "/blog/btw-id-aanvragen-zzp.html",
+      "title": "Btw-id aanvragen en gebruiken als zzp'er",
+      "desc": "Ontdek het verschil tussen je btw-id en omzetbelastingnummer, hoe en wanneer je ze ontvangt na je KVK-inschrijving en waar je het btw-id op je factuur zet.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/creditfactuur-maken-zzp.html",
+      "title": "Creditfactuur maken: zo corrigeer je een factuur",
+      "desc": "Moet je een factuur corrigeren of terugboeken? Lees wat een creditfactuur is, wanneer je er een maakt, welke eisen gelden en hoe je hem in je btw verwerkt.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/debiteurenbeheer-zzp.html",
+      "title": "Debiteurenbeheer: sneller betaald krijgen",
+      "desc": "Word je op tijd betaald? Lees hoe je met slim debiteurenbeheer je facturen sneller betaald krijgt: betalingstermijnen, herinneringen en tips tegen.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/eenmanszaak-of-bv-kiezen.html",
+      "title": "Eenmanszaak of bv: welke rechtsvorm past bij jou?",
+      "desc": "Eenmanszaak of bv? Vergelijk belasting, aansprakelijkheid en kosten, en ontdek bij welke winst een bv fiscaal interessanter wordt voor jou als ondernemer.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/eenmanszaak-omzetten-naar-bv.html",
+      "title": "Eenmanszaak omzetten naar een bv",
+      "desc": "Overweeg je een bv? Lees wanneer omzetten van eenmanszaak naar bv loont, welke stappen je zet, de rol van de notaris en de fiscale gevolgen (ruisend of.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/eenmanszaak-oprichten-stappenplan.html",
+      "title": "Eenmanszaak oprichten: het complete stappenplan",
+      "desc": "Wil je een eenmanszaak starten? Volg dit stappenplan: van bedrijfsnaam en KVK-inschrijving tot btw-id, verzekeringen en je eerste administratie.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/factuur-maken-eisen.html",
+      "title": "Factuur maken: deze onderdelen zijn verplicht",
+      "desc": "Factuur maken? Dit zijn de verplichte onderdelen volgens de Belastingdienst: opeenvolgend factuurnummer, btw-id, datum en meer. Met rekenvoorbeeld.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/factuurnummering-zzp.html",
+      "title": "Factuurnummering: regels en handige opbouw",
+      "desc": "Factuurnummers moeten opeenvolgend en uniek zijn. Lees de eisen van de Belastingdienst, hoe je een logische nummering opzet en fouten bij je btw voorkomt.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/grootboekrekeningen-uitleg-zzp.html",
+      "title": "Grootboek en grootboekrekeningen voor zzp'ers",
+      "desc": "Wat zijn grootboekrekeningen en waarom heb je ze nodig? Lees hoe een grootboek werkt, welke rekeningen een zzp'er gebruikt en hoe je kosten juist boekt.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/handelsnaam-kiezen-zzp.html",
+      "title": "Handelsnaam kiezen: regels en tips voor zzp'ers",
+      "desc": "Een goede bedrijfsnaam kiezen: lees de regels voor handelsnamen, hoe je controleert of een naam vrij is, en waar je op let bij domeinnaam en.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/boekhoudprogramma-kiezen-zzp.html",
+      "title": "Het juiste boekhoudprogramma kiezen als zzp'er",
+      "desc": "Op zoek naar boekhoudsoftware? Lees welke functies een zzp'er echt nodig heeft, waar je op let bij prijs en gebruiksgemak, en hoe je het juiste pakket.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/inschrijven-kvk-zzp.html",
+      "title": "Inschrijven bij de KVK: zo regel je het",
+      "desc": "Inschrijven bij de KVK als zzp'er: lees welke gegevens je nodig hebt, wat de inschrijving kost, hoe je een afspraak maakt en wanneer je je btw-id ontvangt.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/jaarafsluiting-checklist-zzp.html",
+      "title": "Jaarafsluiting: je boekjaar afsluiten als zzp'er",
+      "desc": "Sluit je boekjaar netjes af met deze checklist: van openstaande facturen en voorraad tot afschrijvingen, reserveringen en het voorbereiden van je aangifte.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/boekhouding-inrichten-zzp.html",
+      "title": "Je boekhouding inrichten als startende zzp'er",
+      "desc": "Begin je met ondernemen? Lees hoe je je boekhouding vanaf dag één slim inricht: welke administratie je bijhoudt, mappen of software, en de belangrijkste.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/pensioen-opbouwen-zzp.html",
+      "title": "Pensioen als zzp'er: je opties zonder werkgever",
+      "desc": "Pensioen opbouwen als zzp'er? De AOW is je basis, de rest regel je zelf. Zo werken jaarruimte 2026, lijfrente en banksparen — met rekenvoorbeeld.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/proforma-factuur-zzp.html",
+      "title": "Proformafactuur: wat is het en wanneer gebruik je het?",
+      "desc": "Wat is een proformafactuur en wanneer gebruik je die? Lees het verschil met een gewone factuur, of er btw op staat en hoe je er zelf een opstelt als.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/blog/starten-als-zzper-checklist.html",
+      "title": "Starten als zzp'er: de complete checklist",
+      "desc": "Starten als zzp'er? Doorloop deze checklist: KVK-inschrijving (€85,15), btw-id binnen 2 weken, rekening, verzekeringen, administratie en je eerste factuur.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/verzekeringen-zzp.html",
+      "title": "Verzekeringen voor zzp'ers: wat heb je echt nodig (en wat niet)?",
+      "desc": "Welke verzekeringen heb je als zzp'er echt nodig in 2026? Een AOV is nog niet verplicht. Check per beroepsgroep wat slim is, van AVB tot broodfonds.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/zakelijke-rekening-zzp.html",
+      "title": "Zakelijke rekening als zzp'er: verplicht of gewoon slim?",
+      "desc": "Een zakelijke rekening is niet wettelijk verplicht voor zzp'ers. Toch zit er een addertje in de voorwaarden van je bank. Lees waarom scheiden slim is.",
+      "category": "basis",
+      "date": "2026-07-25",
+      "min": 4
+    },
+    {
+      "href": "/blog/zzp-starten-naast-loondienst.html",
+      "title": "Zzp'er worden naast je baan in loondienst",
+      "desc": "Wil je zzp'er worden naast je baan? Lees over urencriterium, belasting, toestemming van je werkgever en hoe je inkomsten uit loondienst en onderneming.",
+      "category": "basis",
+      "date": "2026-08-01",
+      "min": 4
+    },
+    {
+      "href": "/bonnetjes-scannen",
+      "title": "Bonnetjes scannen app voor zzp",
+      "desc": "Foto in, boeking uit — btw uitgelezen, op het juiste project, aangifte-klaar.",
+      "category": "sum-it",
+      "date": "",
+      "min": 4
+    },
+    {
+      "href": "/moneybird-alternatief",
+      "title": "Een ander boekhoudprogramma? Zo kies je",
+      "desc": "Waar je op let en waar Sum-IT voor gemaakt is — eerlijk, zonder concurrentprijzen.",
+      "category": "sum-it",
+      "date": "",
+      "min": 4
+    },
+    {
+      "href": "/e-boekhouden-alternatief",
+      "title": "Ander pakket dan je nu hebt?",
+      "desc": "Voor ondernemers die van de administratie af willen in plaats van een completer pakket.",
+      "category": "sum-it",
+      "date": "",
+      "min": 4
+    }
+  ]
+}

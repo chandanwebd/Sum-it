@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/ADMIN/AppData/Local/Temp/claude/D--Rishi-Chandan-Sum-it/8cba83bb-9b64-42b5-9c33-049b3d2dc168/scratchpad/serve.js", "D:/Rishi/Chandan/Sum-it", "5173"],
+      "port": 5173
+    }
+  ]
+}

@@ -13,68 +13,57 @@
 <meta property="og:url" content="https://sum-it.eu/tools/uurtarief-calculator.html">
 <meta property="og:image" content="https://sum-it.eu/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Uurtarief-calculator zzp 2026", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "nl", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "url": "https://sum-it.eu/tools/uurtarief-calculator.html"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is een gemiddeld uurtarief voor een zzp'er in de bouw?", "acceptedAnswer": {"@type": "Answer", "text": "In 2026 ligt het gemiddelde zzp-uurtarief in de bouw rond de €61 per uur ex btw, maar het verschilt sterk per beroep (schilder ~€45, loodgieter ~€58), per regio (Randstad 8-15% hoger) en per ervaring. Deze tool toont een indicatie op basis van marktcijfers 2026."}}, {"@type": "Question", "name": "Verschilt het uurtarief per regio?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. In de Randstad liggen de tarieven ongeveer 8 tot 15% boven het landelijk gemiddelde door meer vraag en reistijd; in Noord-Nederland, Limburg en Zeeland liggen ze vaak iets lager."}}, {"@type": "Question", "name": "Telt ervaring mee in mijn uurtarief?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Een starter zit vaak rond of net onder het gemiddelde; met meer jaren ervaring of een specialisme (zoals zonnepanelen of laadpalen) kun je 10 tot 20% boven het gemiddelde vragen."}}, {"@type": "Question", "name": "Is dit tarief inclusief btw?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, alle bedragen zijn exclusief btw. Zakelijke klanten rekenen met bedragen ex btw; bij particulieren communiceer je de prijs inclusief."}}]}</script>
-<style>
-:root{--indigo:#2D2D6B;--indigo-d:#232358;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#475569;--mut:#64748B}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--slate);line-height:1.7;font-size:16px}
-.top{background:linear-gradient(140deg,#2D2D6B,#232358);padding:18px 22px}
-.topin{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:19px;text-decoration:none}
-.logo img{width:30px;height:30px}
-.topnav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.topnav a{color:#C7CBEA;text-decoration:none;font-size:14px;font-weight:600}.topnav a:hover{color:#fff}
-.cta{background:var(--green);color:#fff!important;padding:9px 16px;border-radius:99px;font-weight:700}
-main{max-width:760px;margin:0 auto;padding:42px 22px 30px}
-.crumb{font-size:13px;margin-bottom:18px}.crumb a{color:var(--green-d);text-decoration:none;font-weight:600}
-h1{color:var(--indigo);font-size:clamp(28px,5vw,40px);line-height:1.18;margin-bottom:12px}
-.lead{color:var(--slate);margin-bottom:8px}
-h2{color:var(--indigo);font-size:22px;margin:34px 0 10px}
-p{margin:0 0 14px}a{color:var(--green-d)}b{color:var(--indigo)}
-.tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin:24px 0}
-.step{border-top:1px solid var(--line);padding-top:20px;margin-top:20px}
-.step:first-of-type{border-top:0;padding-top:0;margin-top:0}
-.step.locked{opacity:.45;pointer-events:none}
-.step.done .steptitle::before{background:var(--green);content:"✓"}
-.steptitle{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--indigo);font-size:16px;margin-bottom:12px}
-.steptitle::before{content:attr(data-n);display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:99px;background:var(--indigo);color:#fff;font-size:13px;font-weight:800;flex:0 0 26px}
-.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.opt{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:15px;font-weight:600;color:var(--slate);background:#fff;cursor:pointer;text-align:left;transition:.12s;line-height:1.3}
-.opt:hover{border-color:var(--green);color:var(--indigo)}
-.opt.sel{border-color:var(--green);background:#E7FBF3;color:var(--indigo)}
-.opt small{display:block;font-weight:500;font-size:12px;color:var(--mut);margin-top:2px}
-.res{background:linear-gradient(140deg,#2D2D6B,#232358);color:#C7CBEA;border-radius:16px;padding:24px;margin-top:22px}
-.res .lbl{font-size:14px;color:#AEB4DF}
-.res .big{font-size:36px;font-weight:800;color:#fff;line-height:1.12;margin:2px 0}
-.res .sub{font-size:14.5px;color:#C7CBEA}
-.res table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
-.res td{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.18)}.res td:last-child{text-align:right;font-weight:700;color:#fff}
-.reset{display:inline-block;margin-top:16px;background:rgba(255,255,255,.12);color:#fff;border:0;font-family:inherit;font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:99px;cursor:pointer}
-.reset:hover{background:rgba(255,255,255,.2)}
-.note{font-size:12.5px;color:var(--mut);margin-top:14px}
-input[type=number]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-family:inherit;font-size:16px}
-input[type=range]{width:100%;accent-color:var(--green)}
-label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px;color:var(--indigo)}
-.chk{display:flex;align-items:center;gap:8px;margin:10px 0;font-size:14.5px}.chk input{width:18px;height:18px;accent-color:var(--green)}
-.res2{background:linear-gradient(140deg,#2D2D6B,#232358);color:#C7CBEA;border-radius:16px;padding:22px;margin-top:20px}
-.res2 .big{font-size:30px;font-weight:800;color:#fff}
-.res2 table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
-.res2 td{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.18)}.res2 td:last-child{text-align:right;font-weight:700;color:#fff}
-.ctabox{background:linear-gradient(140deg,#2D2D6B,#232358);border-radius:18px;padding:28px;margin:34px 0 8px;color:#C7CBEA}
-.ctabox h3{color:#fff;font-size:20px;margin-bottom:8px}
-.ctabox a{display:inline-block;margin-top:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:99px}
-.disc{font-size:12.5px;color:var(--mut);margin-top:22px}
-footer{max-width:760px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color:var(--mut)}footer a{color:var(--green-d)}
-</style>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/components/header/header.css">
+<script src="/components/header/header.js" defer></script>
 </head>
 <body>
-<div class="top"><div class="topin">
-  <a class="logo" href="/"><img src="/sum-it-logo-mark.svg" alt="Sum-IT">Sum-IT</a>
-  <nav class="topnav"><a href="/blog/" data-i18n="c_blog">Blog</a><a href="/#capture" data-i18n="c_feat">Functies</a><a href="/#pricing" data-i18n="c_price">Prijzen</a><a class="cta" href="/#signup" data-i18n="c_cta">Gratis profiel</a></nav>
-</div></div>
-<main>
+<!-- site-header:start -->
+<header id="site-header" class="site-header">
+  <a class="skip-link" href="#main">Naar de inhoud</a>
+  <div class="header-wrap">
+    <div class="nav">
+      <a class="logo" href="/" aria-label="Sum-IT home"><span class="mark"><img src="/sum-it-logo-mark.svg" alt="" width="32" height="32" /></span><span class="logo-text">Sum-IT</span></a>
+      <nav class="menu" aria-label="Hoofdmenu">
+        <a href="/#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="right">
+        <div class="langs" role="group" aria-label="Taal / Language">
+          <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+          <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
+        </div>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobmenu" id="mobmenu">
+      <nav aria-label="Mobiel menu">
+        <a href="/#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="mobmenu-actions">
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- site-header:end -->
+<main id="main">
 <div class="crumb"><a href="/" data-i18n="c_home">Home</a> · <a href="/blog/">Blog</a> · <span data-i18n="tt_crumb">Uurtarief-calculator</span></div>
 <h1 data-i18n="tu1">Wat is een goed uurtarief voor jouw vak?</h1>
 <p class="lead" data-i18n="tu2">Beantwoord drie vragen — je beroep, waar je werkt en hoeveel ervaring je hebt — en zie meteen wat een reëel uurtarief is in 2026.</p>

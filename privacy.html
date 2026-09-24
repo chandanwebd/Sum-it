@@ -9,36 +9,55 @@
 <link rel="icon" href="/sum-it-favicon.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--indigo:#2D2D6B;--indigo-d:#232358;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#475569;--mut:#64748B}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--slate);line-height:1.7;font-size:16px}
-.top{background:linear-gradient(140deg,#2D2D6B,#232358);padding:18px 22px}
-.topin{max-width:820px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:19px;text-decoration:none}
-.logo img{width:30px;height:30px}
-.topnav a{color:#C7CBEA;text-decoration:none;font-size:14px;font-weight:600}
-main{max-width:820px;margin:0 auto;padding:42px 22px 40px}
-h1{color:var(--indigo);font-size:clamp(26px,5vw,36px);margin-bottom:6px}
-.upd{font-size:13px;color:var(--mut);margin-bottom:26px}
-h2{color:var(--indigo);font-size:20px;margin:30px 0 8px}
-h3{color:var(--indigo);font-size:16px;margin:18px 0 4px}
-p{margin:0 0 12px}ul{margin:0 0 14px 22px}li{margin-bottom:6px}
-b{color:var(--indigo)}a{color:var(--green-d)}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;background:#fff}
-th{color:var(--indigo)}
-.box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:14px 18px;margin:18px 0;font-size:14.5px}
-footer{max-width:820px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color:var(--mut)}footer a{color:var(--green-d)}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/components/header/header.css">
+<script src="/components/header/header.js" defer></script>
 </head>
 <body>
-<div class="top"><div class="topin">
-  <a class="logo" href="/"><img src="/sum-it-logo-mark.svg" alt="Sum-IT">Sum-IT</a>
-  <nav class="topnav"><a href="/" data-i18n="c_home">Home</a></nav>
-</div></div>
-<main>
+<!-- site-header:start -->
+<header id="site-header" class="site-header">
+  <a class="skip-link" href="#main">Naar de inhoud</a>
+  <div class="header-wrap">
+    <div class="nav">
+      <a class="logo" href="/" aria-label="Sum-IT home"><span class="mark"><img src="/sum-it-logo-mark.svg" alt="" width="32" height="32" /></span><span class="logo-text">Sum-IT</span></a>
+      <nav class="menu" aria-label="Hoofdmenu">
+        <a href="/#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="right">
+        <div class="langs" role="group" aria-label="Taal / Language">
+          <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+          <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
+        </div>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobmenu" id="mobmenu">
+      <nav aria-label="Mobiel menu">
+        <a href="/#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="mobmenu-actions">
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- site-header:end -->
+<main id="main">
 <h1 data-i18n="p1">Privacyverklaring</h1>
 <div class="upd" data-i18n="p46">Laatst bijgewerkt: augustus 2026 · Sum-IT is een product van Alpha Nova B.V.</div>
 
@@ -50,7 +69,7 @@ footer{max-width:820px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color
 <p data-i18n="p4"><b>Alpha Nova B.V.</b> (hierna "Sum-IT", "wij") is verwerkingsverantwoordelijke voor de gegevens die via deze website en de wervingsacties worden verzameld. Vragen over privacy? Mail <a href="mailto:hallo@sum-it.eu">hallo@sum-it.eu</a>.</p>
 
 <h2 data-i18n="p5">2. Welke gegevens verwerken we en waarvoor?</h2>
-<table>
+<div class="table-wrap"><table>
 <tr><th data-i18n="p6">Doel</th><th data-i18n="p7">Gegevens</th><th data-i18n="p8">Grondslag (AVG)</th></tr>
 <tr><td data-i18n="p9">Een gratis profiel aanmaken in het netwerk</td><td data-i18n="p10">Naam, e-mailadres, rol (ondernemer/boekhouder), type bedrijf, taalvoorkeur</td><td data-i18n="p11">Toestemming</td></tr>
 <tr><td data-i18n="p12">Aanmelden bij een balie (bijv. Breda) en je daarna bellen om je op weg te helpen</td><td data-i18n="p13">Naam, e-mailadres, telefoonnummer (optioneel), plaats, de vestiging waar je je aanmeldde</td><td data-i18n="p14">Toestemming</td></tr>
@@ -58,7 +77,7 @@ footer{max-width:820px;margin:0 auto;padding:26px 22px 40px;font-size:13px;color
 <tr><td data-i18n="p18">Je een bevestigings- en welkomstmail sturen</td><td data-i18n="p19">E-mailadres, naam</td><td data-i18n="p20">Toestemming</td></tr>
 <tr><td data-i18n="p21">Misbruik van het formulier tegengaan (bijv. spam, bots)</td><td data-i18n="p22">Versleutelde ('gehashte') vorm van je IP-adres</td><td data-i18n="p23">Gerechtvaardigd belang</td></tr>
 <tr><td data-i18n="p24">Bezoekersstatistieken (privacyvriendelijk, zonder cookies)</td><td data-i18n="p25">Geanonimiseerde paginabezoeken via Plausible</td><td data-i18n="p26">Gerechtvaardigd belang</td></tr>
-</table>
+</table></div>
 <p data-i18n="p27">Je hoeft je telefoonnummer niet te geven; het veld is optioneel. De toestemming voor onze mailings vragen we los en ongebundeld — je vinkt die zelf aan, hij staat niet vooraf aangevinkt.</p>
 
 <h2 data-i18n="p28">3. Met welke verwerkers werken we?</h2>

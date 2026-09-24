@@ -19,7 +19,15 @@
       c_back: 'Terug',
       c_foot: 'Sum-IT is een product van Alpha Nova B.V. &middot; Alle data in de EU',
       c_foot_nl: 'Sum-IT is een product van Alpha Nova B.V. &middot; Nederland &middot; Alle data in de EU',
-      c_priv: 'Privacyverklaring'
+      c_priv: 'Privacyverklaring',
+      m_feat: 'Functies',
+      m_proj: 'Projecten',
+      m_comm: 'Community',
+      m_price: 'Prijzen',
+      m_team: 'Team',
+      m_blog: 'Blog',
+      nav_login: 'Inloggen',
+      nav_cta: 'Gratis profiel aanmaken'
     },
     en: {
       c_blog: 'Blog',
@@ -33,7 +41,15 @@
       c_back: 'Back',
       c_foot: 'Sum-IT is a product of Alpha Nova B.V. &middot; All data stays in the EU',
       c_foot_nl: 'Sum-IT is a product of Alpha Nova B.V. &middot; The Netherlands &middot; All data stays in the EU',
-      c_priv: 'Privacy statement'
+      c_priv: 'Privacy statement',
+      m_feat: 'Features',
+      m_proj: 'Projects',
+      m_comm: 'Community',
+      m_price: 'Pricing',
+      m_team: 'Team',
+      m_blog: 'Blog',
+      nav_login: 'Log in',
+      nav_cta: 'Create a free profile'
     }
   };
 
@@ -91,7 +107,7 @@
   }
 
   function mountStyle() {
-    if (document.getElementById('i18n-css')) return;
+    if (document.getElementById('i18n-css') || document.getElementById('site-header')) return;
     var s = document.createElement('style');
     s.id = 'i18n-css';
     s.textContent =

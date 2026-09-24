@@ -10,13 +10,15 @@
 <script src="sb-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#009966;--green-t:#D0FAE5;
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#007a55;--green-t:#D0FAE5;
 --pink:#FF2357;--amber:#F99C00;--amber-t:#FFF4DE;--bg:#F1F5F9;--card:#fff;--line:#E2E8F0;--slate:#64748B;
 --mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
+body{font-family:var(--font-sans);background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
 .top{display:flex;align-items:center;gap:10px;padding:18px 24px;color:#fff}
 .top img{width:40px;height:auto}
 .top b{font-size:17px;font-weight:800}
@@ -32,7 +34,7 @@ h1{font-size:22px;font-weight:800;color:var(--indigo);margin-bottom:4px}
 label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
 input,select{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit}
 input:focus,select:focus{outline:2px solid var(--green)}
-.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:var(--c-on-green);font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
 .btn:disabled{opacity:.55}
 .tabs{display:flex;background:#E9EEF4;border-radius:999px;padding:4px;margin-bottom:16px}
 .tabs span{flex:1;text-align:center;font-size:13px;font-weight:700;color:var(--slate);padding:8px 0;border-radius:999px;cursor:pointer}
@@ -84,9 +86,9 @@ input:focus,select:focus{outline:2px solid var(--green)}
     <h1 data-i18n="a_h1">Welcome back</h1>
     <p class="sub" data-i18n="a_sub">Log in, or create your account with the e-mail you signed up with.</p>
     <div class="tabs"><span id="tab-in" class="on" onclick="mode('in')" data-i18n="a_in">Log in</span><span id="tab-up" onclick="mode('up')" data-i18n="a_up">Create account</span></div>
-    <label data-i18n="a_mail">E-mail</label>
+    <label for="a-email" data-i18n="a_mail">E-mail</label>
     <input type="email" id="a-email" placeholder="jij@bedrijf.nl">
-    <label data-i18n="a_pw">Password (min. 12 characters)</label>
+    <label for="a-pw" data-i18n="a_pw">Password (min. 12 characters)</label>
     <input type="password" id="a-pw" minlength="12">
     <button class="btn" id="a-go" onclick="go()" data-i18n="a_go">Log in</button>
     <div class="err" id="a-err"></div>
@@ -119,7 +121,7 @@ input:focus,select:focus{outline:2px solid var(--green)}
         <span class="rank lock">Summit Elite</span>
       </div>
       <div class="divider"></div>
-      <label data-i18n="d_city">Your city (lights up the map on sum-it.eu)</label>
+      <label for="d-city" data-i18n="d_city">Your city (lights up the map on sum-it.eu)</label>
       <input type="text" id="d-city" maxlength="40" placeholder="Zaandam">
       <button class="btn" style="margin-top:12px;padding:11px" onclick="saveCity()" data-i18n="d_citysave">Save city</button>
       <div class="divider"></div>

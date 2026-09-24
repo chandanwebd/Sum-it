@@ -324,6 +324,7 @@ const I18N = {
         rf_p4: "Earn badges",
         rf_pos: "Your personal link (demo)",
         rf_copy: "Copy",
+        rf_copied: "Copied!",
         rf_boost:
             "Share it on WhatsApp, LinkedIn or at the wholesaler, <b>every friend who joins through your link counts</b>.",
         of_k: "Join our network of trusted pros",
@@ -753,6 +754,7 @@ const I18N = {
         rf_p4: "Verdien badges",
         rf_pos: "Jouw persoonlijke link (demo)",
         rf_copy: "Kopieer",
+        rf_copied: "Gekopieerd!",
         rf_boost:
             "Deel 'm op WhatsApp, LinkedIn of gewoon bij de groothandel, <b>elke vriend die via jouw link meedoet, telt</b>.",
         of_k: "Gratis profiel",
@@ -858,15 +860,35 @@ const I18N = {
     },
 };
 let LANG = "en";
+function repairMojibake(root) {
+    var repairs = [
+        ["ðŸ§®", "🧮"], ["â€”", "—"], ["â†’", "→"], ["â€º", "›"],
+        ["â‚¬", "€"], ["Â·", "·"], ["Ã©", "é"], ["Ã«", "ë"],
+        ["Ã ", "à"], ["Ã¯", "ï"], ["Ã¶", "ö"], ["Ã¼", "ü"],
+    ];
+    if (!root) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var node;
+    while ((node = walker.nextNode())) {
+        if (node.parentElement && /^(SCRIPT|STYLE)$/.test(node.parentElement.tagName)) continue;
+        repairs.forEach(function (pair) {
+            if (node.nodeValue.indexOf(pair[0]) !== -1)
+                node.nodeValue = node.nodeValue.split(pair[0]).join(pair[1]);
+        });
+    }
+}
 function setLang(l) {
     LANG = l;
     try {
         localStorage.setItem("sumit_lang", l);
     } catch (e) { }
-    document.getElementById("lang-en").classList.toggle("on", l === "en");
-    document.getElementById("lang-nl").classList.toggle("on", l === "nl");
+    var langEn = document.getElementById("lang-en");
+    var langNl = document.getElementById("lang-nl");
+    if (langEn) langEn.classList.toggle("on", l === "en");
+    if (langNl) langNl.classList.toggle("on", l === "nl");
     document.documentElement.lang = l;
-    document.getElementById("taalfield").value = l;
+    var taalfield = document.getElementById("taalfield");
+    if (taalfield) taalfield.value = l;
     document.querySelectorAll("[data-i18n]").forEach((el) => {
         const k = el.getAttribute("data-i18n");
         if (I18N[l][k] !== undefined) el.innerHTML = I18N[l][k];
@@ -878,6 +900,7 @@ function setLang(l) {
     cap.innerHTML = I18N[LANG]["cap" + cur];
     applyRole();
     wireAllShares();
+    repairMojibake(document.body);
 }
 function chooseRole(r) {
     var el = document.getElementById(
@@ -945,6 +968,28 @@ const fillEl = document.getElementById("spotfill");
             }
         })
         .catch(function () { });
+})();
+
+/* Lightweight hero parallax; visual-only and disabled for reduced motion. */
+(function () {
+    var hero = document.querySelector(".hero");
+    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+        return;
+    hero.classList.add("motion-ready");
+    var ticking = false;
+    function updateHeroMotion() {
+        var height = Math.max(hero.offsetHeight, 1);
+        var progress = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / height));
+        hero.style.setProperty("--saas-scroll", progress.toFixed(3));
+        ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeroMotion);
+            ticking = true;
+        }
+    }, { passive: true });
+    updateHeroMotion();
 })();
 const scrs = [...document.querySelectorAll(".scr")],
     cap = document.getElementById("caption"),
@@ -1790,3 +1835,15 @@ mobile CTA and back-to-top. No dependency on the existing site JS. */
 
     updateScrollUX();
 })();
+
+/* Keyboard access for the interactive product mockups: elements marked
+   role="button" (projects list, tabs, back) respond to Enter and Space. */
+document.addEventListener("keydown", function (e) {
+    var el = e.target;
+    if (!el || !el.getAttribute || el.getAttribute("role") !== "button") return;
+    if (el.tagName === "BUTTON" || el.tagName === "A") return;
+    if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        el.click();
+    }
+});

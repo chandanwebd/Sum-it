@@ -8,11 +8,13 @@
 <link rel="icon" type="image/png" href="sum-it-favicon.png">
 <script src="sb-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#009966;--bg:#F1F5F9;--line:#E2E8F0;--slate:#64748B;--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
+:root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#007a55;--bg:#F1F5F9;--line:#E2E8F0;--slate:#64748B;--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
+body{font-family:var(--font-sans);background:linear-gradient(155deg,var(--indigo) 0%,var(--indigo-d) 100%);min-height:100vh;color:var(--ink);line-height:1.6}
 .top{display:flex;align-items:center;gap:10px;padding:18px 24px;color:#fff}
 .top img{width:40px;height:auto}.top b{font-size:17px;font-weight:800}.top .sp{flex:1}
 .langs{display:flex;border:1px solid var(--line-d);border-radius:999px;overflow:hidden}
@@ -25,7 +27,7 @@ h1{font-size:22px;font-weight:800;color:var(--indigo);margin-bottom:4px}
 label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
 input{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit}
 input:focus{outline:2px solid var(--green)}
-.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:var(--c-on-green);font-weight:700;font-size:15px;padding:14px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;margin-top:18px;box-shadow:0 10px 26px rgba(0,188,125,.35)}
 .btn:disabled{opacity:.55}
 .err{color:#C0263B;font-size:12.5px;min-height:18px;margin-top:10px}
 .okmsg{color:var(--green-d);font-size:13.5px;font-weight:700;margin-top:10px}
@@ -46,9 +48,9 @@ input:focus{outline:2px solid var(--green)}
       <h1 data-i18n="f_h1">Kies je wachtwoord</h1>
       <div class="sub" data-i18n="f_sub">Je e-mailadres is bevestigd. Kies een wachtwoord van minimaal 12 tekens, dan zit je meteen in je member-portal. Hetzelfde account werkt straks ook in de app.</div>
       <form onsubmit="return setPw(event)">
-        <label data-i18n="l_pw1">Wachtwoord (min. 12 tekens)</label>
+        <label for="pw1" data-i18n="l_pw1">Wachtwoord (min. 12 tekens)</label>
         <input id="pw1" type="password" required minlength="12" autocomplete="new-password">
-        <label data-i18n="l_pw2">Herhaal je wachtwoord</label>
+        <label for="pw2" data-i18n="l_pw2">Herhaal je wachtwoord</label>
         <input id="pw2" type="password" required minlength="12" autocomplete="new-password">
         <button class="btn" id="btn" type="submit" data-i18n="f_btn">Opslaan &amp; naar mijn portal</button>
         <div class="err" id="err"></div>
@@ -57,7 +59,7 @@ input:focus{outline:2px solid var(--green)}
     <div id="st-bad" class="hide">
       <h1 data-i18n="b_h1">Deze link werkt niet (meer)</h1>
       <div class="sub" data-i18n="b_sub">De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.</div>
-      <label data-i18n="l_email">E-mailadres</label>
+      <label for="email" data-i18n="l_email">E-mailadres</label>
       <input id="email" type="email" autocomplete="email">
       <button class="btn" onclick="resend()" data-i18n="b_btn">Stuur mij een nieuwe link</button>
       <div class="err" id="err2"></div><div class="okmsg hide" id="ok2" data-i18n="b_ok">Verstuurd! Check je inbox (en spam).</div>
