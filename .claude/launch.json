@@ -4,7 +4,7 @@
     {
       "name": "site",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["C:/Users/ADMIN/AppData/Local/Temp/claude/D--Rishi-Chandan-Sum-it/8cba83bb-9b64-42b5-9c33-049b3d2dc168/scratchpad/serve.js", "D:/Rishi/Chandan/Sum-it", "5173"],
+      "runtimeArgs": ["C:/Users/ADMIN/AppData/Local/Temp/claude/D--Github-Sum-it/e57f160e-e612-4dec-8266-17a2e0edf85f/scratchpad/serve.js", "D:/Github/Sum-it", "5173"],
       "port": 5173
     }
   ]

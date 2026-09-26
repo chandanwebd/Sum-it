@@ -67,7 +67,46 @@ You are continuing work on the Sum-IT website: a Dutch ZZP bookkeeping product b
 - **`supabase-setup-v5.sql`** (additive): adds the columns `blocks`, `category`, `cover_image`, `cover_alt`, `tags`, `author_name`, `published_at`, `meta_title`, `meta_description` and `og_image`, and creates the `blog-images` bucket with admin-only write.
 - **Audit and status:** `docs/blog-audit.md`.
 
+### DONE — Header, blog CMS v2, invoicing showcase (2026-09-26)
+- **Header:** `components/header/header.html` is the single source again. It has a new "Facturen/Invoicing" item (`/#invoicing`, `m_inv`), and Login/CTA point to `https://stg.sum-it.eu/login` and `/register` (these links had drifted onto the homepage only). Synced into all 100 pages.
+- **Blog CMS moved to `/admin/blogs/`:**
+  - Pages: list (`index.html` + `list.js`), `new/`, `edit/?slug=`. Editor: `editor.js`/`editor.css`, moved from `blog/`. Shared data layer: `store.js`, which detects DB level legacy/v5/v6 and degrades.
+  - Auth gate: `admin/admin.js` (session + `is_admin()`). Signed-out users go to `/login.html?next=…`, which now returns admins to `/admin/...`.
+  - `beheer.html`'s Blog tab now only links to the CMS.
+  - New editor features: keyword chips, Kop 1–3 (a body H1 renders as `h2.b-h1`), undo/redo, an image button that adds an Image block, image replace/remove, canonical URL, "uitgelicht" (featured), a Google preview, explicit publish/unpublish, and a slug uniqueness check.
+- **`supabase-setup-v6.sql`** (after v5):
+  - Adds `id` (uuid), a derived `status`, `canonical_url` and `is_featured`.
+  - A trigger sets `published_at` on first publish.
+  - anon column grants hide `author` (the editor's e-mail).
+- **Public blog:**
+  - `SumitBlocks.sanitizeHTML()` (allow-list) for legacy `body_html`.
+  - Fixed an XSS in `post.js` `readingMinutes()`, which used innerHTML on raw HTML.
+  - `post.js` sets canonical, OG/Twitter, keywords and BlogPosting JSON-LD.
+  - Featured CMS posts lead "Nieuwste artikelen".
+- **Invoicing showcase:** homepage `#invoicing` between `#capture` and `#control`.
+  - Component: `components/invoice/invoice.{js,css}`. The data mirrors the app's invoice PDF (`sum-it-documentstijlen` reference, "Kantoor" skin), and totals are computed from the lines.
+  - Copy is placeholder: `inv_*` keys in `js/index.js`.
+  - Layout: two columns from 1180px, stacked below; the invoice uses container queries (stacked lines under 480px).
+  - Motion respects reduced motion. The CTA opens the full invoice in a `<dialog>`.
+  - No `/functies/facturen/` page yet: it needs real copy.
+
+- **Admin language + separate blog project (2026-09-26, later):**
+  - The admin UI is English by default, with an EN/NL switch in the top bar. It uses `admin/i18n.js` (`data-t` attributes plus `SumitAdminI18n.t()`) and stores the choice in localStorage (`sumit_admin_lang`).
+  - The blog can run on its own Supabase project: set `BLOG_SB_URL` / `BLOG_SB_ANON` in `sb-config.js` and run `supabase-blog-setup.sql` there. Left empty, it falls back to the main project.
+  - `/admin/*` now has its own sign-in form and password reset.
+
+- **Blog cards in EN/NL:**
+  - `blog/index.json` has `title_en` / `desc_en` for all 85 static articles. `build-blog-index.mjs` writes them as `data-title-en` / `data-desc-en`, and `blog.js` swaps card text on `langchange`; search matches both languages.
+  - CMS posts get optional `title_en` / `description_en` (editor section "English version"; DB columns via `supabase-blog-en.sql`).
+  - The articles themselves stay Dutch.
+
+- **Invoice designs page `/functies/facturen/`** (target of the homepage "Bekijk de voorbeeldfactuur" button):
+  - Gallery of the 32 invoice/quote designs (3 series) from the internal reference "sum-it-documentstijlen".
+  - `components/invoice/styles.js` holds the render engine, with fictional data matching the homepage invoice and third-party names removed. `gallery.js` handles the grid, preview, series/document/accent controls, and follows the site EN/NL switch. `gallery.css` holds the page styles.
+  - Designs taller than A4 are shrunk to fit. The page copy is placeholder (`fi_*` keys in the page's `PAGE_I18N`).
+
 ### PENDING / NOT DONE (needs decision or action)
+0. **Run `supabase-setup-v5.sql` then `supabase-setup-v6.sql`** (live DB checked 2026-09-26: v5 not applied, bucket `blog-images` missing). Confirm the `stg.sum-it.eu` header links are the intended production targets.
 1. **Owner actions:**
    - Run `supabase-setup-v5.sql` in the Supabase SQL Editor. Until then, category, cover, tags, SEO fields and uploads are unavailable, and each visitor session logs one harmless 400 error.
    - The optional privacy hardening at the end of that file hides the editor's e-mail stored in `blog_posts.author` from the public API.

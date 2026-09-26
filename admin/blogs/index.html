@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title data-t="title.list">Blog posts · Sum-IT admin</title>
+<link rel="icon" type="image/png" href="/sum-it-favicon.png">
+<script src="/sb-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/admin/admin.css">
+<link rel="stylesheet" href="/admin/blogs/editor.css">
+</head>
+<body>
+<header class="adm-top">
+  <a class="brand" href="/admin/blogs/"><img src="/sum-it-logo-mark.svg" alt=""><span data-t="shell.brand">Sum-IT admin</span></a>
+  <span class="sp"></span>
+  <span class="who" id="who"></span>
+  <nav aria-label="Admin" data-t-label="shell.nav">
+    <a class="ghost" href="/beheer.html" data-t="shell.signups">Sign-ups</a>
+    <a class="ghost" href="/admin/blogs/" aria-current="page" data-t="shell.blog">Blog</a>
+    <a class="ghost" href="/admin.html" data-t="shell.texts">Site texts</a>
+    <button class="ghost" type="button" data-logout data-t="shell.logout">Log out</button>
+  </nav>
+</header>
+<main class="adm-wrap">
+  <div id="gate" class="gate" role="status" data-t="gate.checking">Checking who you are…</div>
+  <div id="app" hidden>
+    <div class="adm-head">
+      <h1 data-t="list.h1">Blog posts</h1>
+      <span class="sp"></span>
+      <a class="btn" href="/admin/blogs/new/" data-t="list.new">+ New post</a>
+    </div>
+    <div id="bl-schema" class="be-banner" hidden></div>
+    <div class="panel">
+      <div class="bl-bar">
+        <label class="sr-only" for="bl-q" data-t="list.search">Search</label>
+        <input type="search" id="bl-q" placeholder="Search by title or slug…" data-t-ph="list.searchPh" autocomplete="off">
+        <div class="bl-filter" role="group" aria-label="Filter by status" data-t-label="list.filter">
+          <button type="button" data-status="all" aria-pressed="true"><span data-t="list.all">All</span><span class="n" data-count="all"></span></button>
+          <button type="button" data-status="published" aria-pressed="false"><span data-t="list.published">Published</span><span class="n" data-count="published"></span></button>
+          <button type="button" data-status="draft" aria-pressed="false"><span data-t="list.draft">Draft</span><span class="n" data-count="draft"></span></button>
+        </div>
+      </div>
+      <p class="sr-only" id="bl-live" role="status" aria-live="polite"></p>
+      <table class="bl-table">
+        <thead><tr><th scope="col"><span class="sr-only" data-t="list.colImage">Image</span></th><th scope="col" data-t="list.colTitle">Title</th><th scope="col" data-t="list.colStatus">Status</th><th scope="col" data-t="list.colCreated">Created</th><th scope="col" data-t="list.colPublished">Published</th><th scope="col" data-t="list.colUpdated">Updated</th><th scope="col"><span class="sr-only" data-t="list.colActions">Actions</span></th></tr></thead>
+        <tbody id="bl-rows"></tbody>
+      </table>
+      <div id="bl-state"></div>
+    </div>
+  </div>
+</main>
+<script src="/admin/i18n.js"></script>
+<script src="/admin/admin.js"></script>
+<script src="/admin/blogs/store.js"></script>
+<script src="/admin/blogs/list.js"></script>
+</body>
+</html>

@@ -7,6 +7,10 @@
 (function () {
   "use strict";
 
+  /* The blog may run on its own Supabase project (sb-config.js: BLOG_SB_URL / BLOG_SB_ANON). */
+  var BLOG_URL = window.BLOG_SB_URL || window.SB_URL;
+  var BLOG_KEY = window.BLOG_SB_URL ? window.BLOG_SB_ANON : window.SB_ANON;
+
   var CATS = ["belasting", "projecten", "samenwerken", "basis", "sum-it"];
   var FILTERS = CATS.concat(["tools"]);
   var PREVIEW = 6;
@@ -78,7 +82,10 @@
       card.querySelector("p") ? card.querySelector("p").textContent : "",
       card.dataset.cat ? catLabel(card.dataset.cat) : "",
       card.dataset.tags || "",
-      card.dataset.author || ""
+      card.dataset.author || "",
+      /* Both languages, so a search matches whichever language is shown. */
+      card.dataset.titleNl || "", card.dataset.descNl || "",
+      card.dataset.titleEn || "", card.dataset.descEn || ""
     ].join(" ").toLocaleLowerCase("nl-NL");
   }
 
@@ -114,6 +121,9 @@
     var newest = allCategoryCards()
       .filter(function (c) { return c.dataset.date; })
       .sort(function (a, b) {
+        /* CMS posts marked "uitgelicht" (featured) come first. */
+        var fa = a.dataset.featured === "1", fb = b.dataset.featured === "1";
+        if (fa !== fb) return fa ? -1 : 1;
         return a.dataset.date === b.dataset.date ? (+a.dataset.idx || 0) - (+b.dataset.idx || 0) : (a.dataset.date > b.dataset.date ? -1 : 1);
       })
       .slice(0, 3);
@@ -228,7 +238,18 @@
   function refreshTexts() {
     var fmt;
     try { fmt = new Intl.DateTimeFormat(lang() === "en" ? "en-GB" : "nl-NL", { day: "numeric", month: "short", year: "numeric" }); } catch (e) { fmt = null; }
+    var en = lang() === "en";
     document.querySelectorAll(".post-card").forEach(function (c) {
+      /* Card title + description: Dutch is in the HTML, English in data-title-en / data-desc-en. */
+      [["pc-title", "title"], ["pc-desc", "desc"]].forEach(function (f) {
+        var node = c.querySelector("." + f[0]);
+        if (!node) return;
+        var nlKey = f[1] + "Nl", enKey = f[1] + "En";
+        if (c.dataset[nlKey] === undefined) c.dataset[nlKey] = node.textContent;
+        var text = en && c.dataset[enKey] ? c.dataset[enKey] : c.dataset[nlKey];
+        if (node.textContent !== text) node.textContent = text;
+        if (en && c.dataset[enKey]) node.setAttribute("lang", "en"); else node.removeAttribute("lang");
+      });
       var t = c.querySelector("time[datetime]");
       if (t && fmt) t.textContent = fmt.format(new Date(t.getAttribute("datetime") + "T12:00:00"));
       var r = c.querySelector(".pc-read[data-min]");
@@ -397,6 +418,9 @@
     a.dataset.author = p.author_name || "Sum-IT";
     a.dataset.tags = (p.tags || []).join(",");
     a.dataset.idx = "-1";
+    if (p.is_featured) a.dataset.featured = "1";
+    if (p.title_en) a.dataset.titleEn = p.title_en;
+    if (p.description_en) a.dataset.descEn = p.description_en;
     var cover = safeUrl(p.cover_image);
     if (cover) {
       var media = el("span", "pc-media");
@@ -438,30 +462,37 @@
   }
 
   function fetchPosts(columns) {
-    return fetch(window.SB_URL + "/rest/v1/blog_posts?select=" + columns + "&published=eq.true&order=created_at.desc&limit=100", {
-      headers: { apikey: window.SB_ANON, Authorization: "Bearer " + window.SB_ANON }
+    return fetch(BLOG_URL + "/rest/v1/blog_posts?select=" + columns + "&published=eq.true&order=created_at.desc&limit=100", {
+      headers: { apikey: BLOG_KEY, Authorization: "Bearer " + BLOG_KEY }
     }).then(function (r) {
       return r.json().then(function (body) { return { ok: r.ok, body: body }; });
     });
   }
 
   function loadCms() {
-    if (!window.SB_URL || String(window.SB_URL).indexOf("http") !== 0) return;
+    if (!BLOG_URL || String(BLOG_URL).indexOf("http") !== 0) return;
     cmsStatus = "loading";
     if (latest) latest.setAttribute("aria-busy", "true");
     renderCmsNote();
     var LEGACY = "slug,title,description,created_at";
-    var legacyKnown = false;
-    try { legacyKnown = sessionStorage.getItem("sumit_blog_schema") === "legacy"; } catch (e) {}
-    fetchPosts(legacyKnown ? LEGACY : LEGACY + ",published_at,category,cover_image,cover_alt,tags,author_name")
-      .then(function (res) {
-        /* Before supabase-setup-v5.sql has run the new columns do not exist yet. */
-        if (!res.ok && res.body && res.body.code === "42703") {
-          try { sessionStorage.setItem("sumit_blog_schema", "legacy"); } catch (e) {}
-          return fetchPosts(LEGACY);
+    var V5 = LEGACY + ",published_at,category,cover_image,cover_alt,tags,author_name";
+    /* Newest column set first; step down while the migrations (v5, v6) haven't run. */
+    var levels = [["v7", V5 + ",is_featured,title_en,description_en"], ["v6", V5 + ",is_featured"], ["v5", V5], ["legacy", LEGACY]];
+    var start = 0;
+    try {
+      var known = sessionStorage.getItem("sumit_blog_schema:" + BLOG_URL);
+      levels.forEach(function (l, i) { if (l[0] === known) start = i; });
+    } catch (e) {}
+    function attempt(i) {
+      return fetchPosts(levels[i][1]).then(function (res) {
+        if (!res.ok && res.body && res.body.code === "42703" && i < levels.length - 1) {
+          try { sessionStorage.setItem("sumit_blog_schema:" + BLOG_URL, levels[i + 1][0]); } catch (e) {}
+          return attempt(i + 1);
         }
         return res;
-      })
+      });
+    }
+    attempt(start)
       .then(function (res) {
         if (!res.ok || !Array.isArray(res.body)) throw new Error("CMS request failed");
         document.querySelectorAll('.post-card[data-idx="-1"]').forEach(function (c) { c.remove(); });

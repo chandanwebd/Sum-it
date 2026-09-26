@@ -3,7 +3,8 @@
 //   node scripts/build-blog-index.mjs                # rebuild cards from blog/index.json
 //   node scripts/build-blog-index.mjs --from-legacy  # one-off: create index.json from the old hand-written cards
 //
-// index.json holds the editorial data (category, card title, card text) per URL.
+// index.json holds the editorial data (category, card title, card text) per URL,
+// in Dutch (title, desc) and English (title_en, desc_en; shown when EN is selected).
 // Publish date and reading time are read from each article's own HTML so they
 // never drift. The cards stay server-rendered HTML (crawlable, work without JS);
 // /blog/blog.js adds search, filtering, sorting and the CMS articles on top.
@@ -77,7 +78,8 @@ function card(a, catLabel) {
   const parts = ['<span class="pc-author">Sum-IT</span>'];
   if (meta.date) parts.push(`<time datetime="${meta.date}">${nlDate(meta.date)}</time>`);
   if (meta.min) parts.push(`<span class="pc-read" data-min="${meta.min}">${meta.min} min leestijd</span>`);
-  return `<a class="card post-card" href="${esc(a.href)}" data-cat="${a.category}" data-date="${meta.date}" data-author="Sum-IT" data-tags="${esc((a.tags || []).join(","))}">` +
+  return `<a class="card post-card" href="${esc(a.href)}" data-cat="${a.category}" data-date="${meta.date}" data-author="Sum-IT" data-tags="${esc((a.tags || []).join(","))}"` +
+    (a.title_en ? ` data-title-en="${esc(a.title_en)}"` : "") + (a.desc_en ? ` data-desc-en="${esc(a.desc_en)}"` : "") + `>` +
     `<span class="pc-cat">${esc(catLabel)}</span>` +
     `<h3 class="pc-title">${esc(a.title)}</h3>` +
     `<p class="pc-desc">${esc(a.desc)}</p>` +

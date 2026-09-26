@@ -1,4 +1,4 @@
-/* Sum-IT block renderer — shared by /blog/post.html and the editor in beheer.html.
+/* Sum-IT block renderer — shared by /blog/post.html and the editor in /admin/blogs/.
  *
  * Content format (stored in blog_posts.blocks):
  *   { "version": 1, "blocks": [ { "id": "b1", "type": "rich_text", "data": { ... } }, ... ] }
@@ -164,8 +164,10 @@
         }
         quote = null;
         var level = +a.header;
+        /* The article title is the page's only <h1>; a body "Kop 1" renders as a large h2. */
         var tag = level === 1 || level === 2 ? "h2" : level >= 3 ? "h3" : "p";
         var el = fill(h(tag), line);
+        if (level === 1) el.classList.add("b-h1");
         if (tag !== "p") el.id = slugId(el.textContent) || null;
         wrap.appendChild(el);
       });
@@ -292,6 +294,62 @@
     }).join("\n");
   }
 
+  /* ---------- legacy HTML: allow-list sanitizer ---------- */
+
+  var DROP = { SCRIPT: 1, STYLE: 1, TEMPLATE: 1, IFRAME: 1, OBJECT: 1, EMBED: 1, FORM: 1, INPUT: 1, BUTTON: 1, TEXTAREA: 1, SELECT: 1, SVG: 1, MATH: 1, LINK: 1, META: 1, NOSCRIPT: 1 };
+  var KEEP = {
+    P: [], BR: [], H2: ["id"], H3: ["id"], H4: ["id"], STRONG: [], B: [], EM: [], I: [], U: [], S: [], CODE: [], PRE: [],
+    A: ["href"], UL: [], OL: [], LI: [], BLOCKQUOTE: [], FIGURE: [], FIGCAPTION: [], IMG: ["src", "alt", "width", "height"],
+    HR: [], TABLE: [], THEAD: [], TBODY: [], TR: [], TH: ["colspan", "rowspan", "scope"], TD: ["colspan", "rowspan"], SPAN: [], DIV: []
+  };
+
+  /* Returns HTML that only contains allow-listed tags and attributes, with
+     safe URLs. Unknown elements are unwrapped (their text is kept). */
+  function sanitizeHTML(html) {
+    var doc = new DOMParser().parseFromString("<body>" + String(html || "") + "</body>", "text/html");
+    function clean(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) return;
+        if (child.nodeType !== 1) { child.remove(); return; }
+        var tag = child.tagName.toUpperCase();
+        if (DROP[tag]) { child.remove(); return; }
+        if (tag === "H1") {
+          var h2 = doc.createElement("h2");
+          while (child.firstChild) h2.appendChild(child.firstChild);
+          child.replaceWith(h2);
+          child = h2;
+          tag = "H2";
+        }
+        clean(child);
+        var allowed = KEEP[tag];
+        if (!allowed) {
+          while (child.firstChild) node.insertBefore(child.firstChild, child);
+          child.remove();
+          return;
+        }
+        Array.prototype.slice.call(child.attributes).forEach(function (at) {
+          if (allowed.indexOf(at.name) < 0) child.removeAttribute(at.name);
+        });
+        if (tag === "A") {
+          var href = safeUrl(child.getAttribute("href"), false);
+          if (href) {
+            child.setAttribute("href", href);
+            if (isExternal(href)) { child.setAttribute("target", "_blank"); child.setAttribute("rel", "noopener noreferrer"); }
+          } else child.removeAttribute("href");
+        }
+        if (tag === "IMG") {
+          var src = safeUrl(child.getAttribute("src"), true);
+          if (!src) { child.remove(); return; }
+          child.setAttribute("src", src);
+          child.setAttribute("loading", "lazy");
+          if (!child.hasAttribute("alt")) child.setAttribute("alt", "");
+        }
+      });
+    }
+    clean(doc.body);
+    return doc.body.innerHTML;
+  }
+
   function create(type) {
     var def = registry[type];
     if (!def) throw new Error("Unknown block type: " + type);
@@ -307,6 +365,7 @@
     create: create,
     normalize: normalize,
     safeUrl: safeUrl,
+    sanitizeHTML: sanitizeHTML,
     types: function () { return order.map(function (t) { return { type: t, label: registry[t].label, hint: registry[t].hint }; }); }
   };
 })(window);

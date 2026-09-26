@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title data-t="title.edit">Edit post · Sum-IT admin</title>
+<link rel="icon" type="image/png" href="/sum-it-favicon.png">
+<script src="/sb-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" integrity="sha384-ecIckRi4QlKYya/FQUbBUjS4qp65jF/J87Guw5uzTbO1C1Jfa/6kYmd6dXUF6D7i" crossorigin="anonymous">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="stylesheet" href="/admin/admin.css">
+<link rel="stylesheet" href="/admin/blogs/editor.css">
+</head>
+<body>
+<header class="adm-top">
+  <a class="brand" href="/admin/blogs/"><img src="/sum-it-logo-mark.svg" alt=""><span data-t="shell.brand">Sum-IT admin</span></a>
+  <span class="sp"></span>
+  <span class="who" id="who"></span>
+  <nav aria-label="Admin" data-t-label="shell.nav">
+    <a class="ghost" href="/beheer.html" data-t="shell.signups">Sign-ups</a>
+    <a class="ghost" href="/admin/blogs/" aria-current="page" data-t="shell.blog">Blog</a>
+    <a class="ghost" href="/admin.html" data-t="shell.texts">Site texts</a>
+    <button class="ghost" type="button" data-logout data-t="shell.logout">Log out</button>
+  </nav>
+</header>
+<main class="adm-wrap">
+  <div id="gate" class="gate" role="status" data-t="gate.checking">Checking who you are…</div>
+  <div id="app" hidden><div id="be-root"></div></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js" integrity="sha384-utBUCeG4SYaCm4m7GQZYr8Hy8Fpy3V4KGjBZaf4WTKOcwhCYpt/0PfeEe3HNlwx8" crossorigin="anonymous"></script>
+<script src="/blog/blocks.js"></script>
+<script src="/admin/i18n.js"></script>
+<script src="/admin/admin.js"></script>
+<script src="/admin/blogs/store.js"></script>
+<script src="/admin/blogs/editor.js"></script>
+</body>
+</html>

@@ -797,6 +797,12 @@ main a.article-cat {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
+/* "Kop 1" in the editor: visually larger, still an h2 (the title is the h1). */
+.b-rich h2.b-h1 {
+  font-size: clamp(1.625rem, 1.35rem + 1vw, 2.125rem);
+  line-height: 1.2;
+}
+
 .article-body h3,
 .b-rich h3 {
   margin: 1.6em 0 .5em;

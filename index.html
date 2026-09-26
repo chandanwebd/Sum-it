@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/css/tokens.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="components/header/header.css" />
+    <link rel="stylesheet" href="/components/invoice/invoice.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,6 +36,7 @@
     <script src="config.js"></script>
     <script src="js/index.js" defer></script>
     <script src="components/header/header.js" defer></script>
+    <script src="/components/invoice/invoice.js" defer></script>
 
     <script>
       /* Sum-IT backend config — Supabase.
@@ -53,66 +55,48 @@
       <span></span>
     </div>
     <!-- site-header:start -->
-    <header id="site-header" class="site-header">
-      <a class="skip-link" href="#main">Naar de inhoud</a>
-      <div class="header-wrap">
-        <div class="nav">
-          <a class="logo" href="/" aria-label="Sum-IT home"><span
-              class="mark"><img src="/sum-it-logo-mark.svg" alt width="32"
-                height="32" /></span><span class="logo-text">Sum-IT</span></a>
-          <nav class="menu" aria-label="Hoofdmenu">
-            <a href="#capture" data-nav="features"
-              data-i18n="m_feat">Functies</a>
-            <a href="#control" data-nav="projects"
-              data-i18n="m_proj">Projecten</a>
-            <a href="/community/" data-nav="community"
-              data-i18n="m_comm">Community</a>
-            <a href="#pricing" data-home-href="#pricing" data-nav="pricing"
-              data-i18n="m_price">Prijzen</a>
-            <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
-            <a href="#blog" data-home-href="#blog" data-nav="blog"
-              data-i18n="m_blog">Blog</a>
-          </nav>
-          <div class="right">
-            <div class="langs" role="group" aria-label="Taal / Language">
-              <button type="button" id="lang-en" lang="en" aria-pressed="false"
-                onclick="setLang('en')">EN</button>
-              <button type="button" id="lang-nl" lang="nl" aria-pressed="true"
-                class="on" onclick="setLang('nl')">NL</button>
-            </div>
-            <a class="navlogin" href="https://stg.sum-it.eu/login"
-              data-i18n="nav_login">Inloggen</a>
-            <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis
-              profiel aanmaken</a>
-            <button type="button" class="burger" id="burger" aria-label="Menu"
-              aria-controls="mobmenu" aria-expanded="false"
-              onclick="toggleMenu()"><span></span><span></span><span></span></button>
-          </div>
+<header id="site-header" class="site-header">
+  <a class="skip-link" href="#main">Naar de inhoud</a>
+  <div class="header-wrap">
+    <div class="nav">
+      <a class="logo" href="/" aria-label="Sum-IT home"><span class="mark"><img src="/sum-it-logo-mark.svg" alt="" width="32" height="32" /></span><span class="logo-text">Sum-IT</span></a>
+      <nav class="menu" aria-label="Hoofdmenu">
+        <a href="#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
+        <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="#pricing" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="#blog" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="right">
+        <div class="langs" role="group" aria-label="Taal / Language">
+          <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+          <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <div class="mobmenu" id="mobmenu">
-          <nav aria-label="Mobiel menu">
-            <a href="#capture" data-nav="features"
-              data-i18n="m_feat">Functies</a>
-            <a href="#control" data-nav="projects"
-              data-i18n="m_proj">Projecten</a>
-            <a href="/community/" data-nav="community"
-              data-i18n="m_comm">Community</a>
-            <a href="#pricing" data-home-href="#pricing" data-nav="pricing"
-              data-i18n="m_price">Prijzen</a>
-            <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
-            <a href="#blog" data-home-href="#blog" data-nav="blog"
-              data-i18n="m_blog">Blog</a>
-          </nav>
-          <div class="mobmenu-actions">
-            <a class="btn ghost" href="/login.html"
-              data-i18n="nav_login">Inloggen</a>
-            <a class="btn" href="#signup" data-i18n="nav_cta">Gratis profiel
-              aanmaken</a>
-          </div>
-        </div>
+        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
-    </header>
-    <!-- site-header:end -->
+    </div>
+    <div class="mobmenu" id="mobmenu">
+      <nav aria-label="Mobiel menu">
+        <a href="#capture" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
+        <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
+        <a href="#pricing" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="#blog" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+      </nav>
+      <div class="mobmenu-actions">
+        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- site-header:end -->
     <main id="main">
       <section class="hero">
         <div class="hero-tech-grid" aria-hidden="true"></div>
@@ -666,6 +650,42 @@
                 your accountant becomes as easy as pressing a button.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVOICING
+           Placeholder copy (final text to be supplied): edit the inv_* keys in
+           js/index.js (NL + EN); the layout does not depend on text length.
+           The invoice itself is rendered by components/invoice/invoice.js. -->
+      <section id="invoicing" class="inv-sec" aria-labelledby="inv-h2">
+        <div class="wrap2">
+          <div class="inv-grid">
+            <div class="inv-copy reveal">
+              <div class="k" data-i18n="inv_k">Facturen</div>
+              <h2 id="inv-h2" data-i18n="inv_h2">Professionele facturen. Minder administratie.</h2>
+              <p class="lead" data-i18n="inv_lead">Maak, beheer en verstuur professionele facturen, met alles wat je nodig hebt om facturatie simpel en overzichtelijk te houden.</p>
+              <ol class="inv-steps">
+                <li><span class="num" aria-hidden="true">01</span><span><b data-i18n="inv_s1">Opstellen</b><span class="inv-sd" data-i18n="inv_s1b">Klant, factuurregels, aantallen en prijzen.</span></span></li>
+                <li><span class="num" aria-hidden="true">02</span><span><b data-i18n="inv_s2">Controleren</b><span class="inv-sd" data-i18n="inv_s2b">Btw per tarief, korting en totaal worden voor je berekend.</span></span></li>
+                <li><span class="num" aria-hidden="true">03</span><span><b data-i18n="inv_s3">Versturen</b><span class="inv-sd" data-i18n="inv_s3b">Een nette pdf met jouw gegevens, vervaldatum en kenmerk.</span></span></li>
+                <li><span class="num" aria-hidden="true">04</span><span><b data-i18n="inv_s4">Betaald krijgen</b><span class="inv-sd" data-i18n="inv_s4b">Je klant betaalt via IBAN of scant de betaal-QR.</span></span></li>
+              </ol>
+              <ul class="inv-feats">
+                <li data-i18n="inv_f1">Btw per tarief</li>
+                <li data-i18n="inv_f2">Korting</li>
+                <li data-i18n="inv_f3">Betalingskorting</li>
+                <li data-i18n="inv_f4">IBAN + betaal-QR</li>
+                <li data-i18n="inv_f5">Pdf in NL of EN</li>
+              </ul>
+              <div class="inv-actions">
+                <a class="btn" href="/functies/facturen/" data-i18n="inv_cta">Bekijk de voorbeeldfactuur</a>
+              </div>
+            </div>
+            <figure class="inv-visual reveal" style="margin: 0">
+              <div class="inv-stage" data-invoice data-invoice-animate></div>
+              <figcaption class="sr-only" data-i18n="inv_fig">Voorbeeld van een factuur uit Sum-IT, met factuurregels, btw, korting, totaal en een betaalblok met IBAN en QR-code.</figcaption>
+            </figure>
           </div>
         </div>
       </section>

@@ -98,7 +98,9 @@ try{if(window.SB_URL&&window.SB_URL.indexOf('http')===0&&window.supabase){SB=win
 async function routeUser(){
   try{
     var r=await SB.rpc('is_admin');
-    if(r.data===true){location.href='/beheer.html';return;}
+    /* ?next=/admin/... returns admins to the admin page they came from (same-site paths only). */
+    var next=new URLSearchParams(location.search).get('next')||'';
+    if(r.data===true){location.href=/^\/admin\/[\w\-\/]*(\?[\w\-=&%.]*)?$/.test(next)?next:'/beheer.html';return;}
   }catch(e){}
   location.href='/portal.html';
 }

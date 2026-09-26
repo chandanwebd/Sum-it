@@ -1,0 +1,288 @@
+/* Sum-IT invoice designs page (/functies/facturen/). Requires /css/tokens.css
+   and the shared header. Page chrome uses the site tokens; the A4 document
+   canvas rules at the bottom come from the design reference and are only
+   used inside .ig-page (the rendered invoices / quotes). */
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font: var(--fs-body)/var(--lh-body) var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+.ig-wrap { max-width: calc(var(--container) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- Hero ---------- */
+.ig-hero {
+  padding: calc(var(--sp-7) + 8px) 0 var(--sp-7);
+  background: linear-gradient(180deg, #fff 0%, #eef7f4 100%);
+  border-bottom: 1px solid var(--c-line);
+}
+.ig-crumb { margin: 0 0 var(--sp-4); color: var(--c-muted); font-size: var(--fs-caption); }
+.ig-crumb a { color: var(--c-green-700); font-weight: 600; text-decoration: none; }
+.ig-crumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ig-k { margin: 0 0 10px; color: var(--c-green-600); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.ig-hero h1 {
+  max-width: 20ch;
+  margin: 0 0 var(--sp-4);
+  color: var(--c-indigo);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.ig-lead { max-width: 62ch; margin: 0 0 var(--sp-5); color: #64748b; font-size: var(--fs-body-lg); line-height: 1.65; }
+.ig-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ig-stats li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #dfe7ee;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--c-ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+.ig-stats li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c-green); }
+
+/* ---------- Controls ---------- */
+.ig-bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  border-bottom: 1px solid var(--c-line);
+  background: rgba(245, 247, 251, .94);
+  backdrop-filter: saturate(1.4) blur(10px);
+}
+.ig-bar .ig-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding-top: 12px; padding-bottom: 12px; }
+.ig-grp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ig-grp > span { color: #64748b; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ig-seg { display: inline-flex; padding: 3px; border: 1px solid #dfe7ee; border-radius: var(--radius-pill); background: #fff; }
+.ig-seg button {
+  min-height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: #526071;
+  font: 700 13px/1 var(--font-sans);
+  cursor: pointer;
+}
+.ig-seg button[aria-pressed="true"] { background: var(--c-indigo); color: #fff; }
+.ig-sw { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ig-sw button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, .18);
+  cursor: pointer;
+}
+.ig-sw button[aria-pressed="true"] { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--c-indigo); }
+.ig-sw input[type="color"] { width: 30px; height: 30px; padding: 0; border: 1px solid #dfe7ee; border-radius: 50%; background: #fff; cursor: pointer; }
+.ig-sw input[type="color"]::-webkit-color-swatch-wrapper { padding: 3px; }
+.ig-sw input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 50%; }
+.ig-count { margin-left: auto; color: #64748b; font-size: 12.5px; font-weight: 600; }
+
+/* ---------- Gallery ---------- */
+.ig-gallery { padding: var(--sp-7) 0 var(--sp-8); }
+.ig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 32px 24px; margin: 0; padding: 0; list-style: none; }
+.ig-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ig-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #dfe7ee;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 10px 26px rgba(20, 24, 28, .08);
+  cursor: zoom-in;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.ig-thumb:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 18px 40px rgba(20, 24, 28, .14); }
+.ig-thumb .ig-page { position: absolute; top: 0; left: 0; transform-origin: top left; pointer-events: none; }
+.ig-meta { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.ig-meta .no { flex: none; color: #8a94a6; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ig-meta .nm { overflow: hidden; color: var(--c-ink); font-size: 15px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.ig-meta .tag {
+  flex: none;
+  margin-left: auto;
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  background: var(--c-green-50);
+  color: var(--c-green-700);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+/* ---------- Explainer + CTA ---------- */
+.ig-explain { padding: 0 0 var(--sp-8); }
+.ig-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.ig-card { padding: 24px; border: 1px solid #dfe7ee; border-radius: 24px; background: #fff; box-shadow: 0 10px 30px rgba(20, 20, 60, .045); }
+.ig-card h2 { margin: 0 0 8px; color: var(--c-indigo); font-size: var(--fs-h3); font-weight: 700; line-height: 1.3; }
+.ig-card p { margin: 0 0 12px; color: #64748b; font-size: 15px; line-height: 1.65; }
+.ig-card ul { margin: 0; padding: 0; list-style: none; }
+.ig-card li { position: relative; margin: 0 0 6px; padding-left: 20px; color: var(--c-text); font-size: 14.5px; line-height: 1.55; }
+.ig-card li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--c-green); }
+.ig-legend { display: flex; gap: 12px; align-items: center; margin: 4px 0 10px; }
+.ig-legend i { display: inline-block; width: 14px; height: 36px; border-radius: 3px; background: var(--c-indigo); }
+.ig-legend i.striped { background-color: var(--c-navy-900); background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .28) 0 4px, transparent 4px 9px); }
+.ig-legend span { color: var(--c-text); font-size: 14px; }
+
+.ig-cta {
+  margin-top: 28px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 30px;
+  background: linear-gradient(140deg, var(--c-indigo), var(--c-navy-800));
+  color: #fff;
+  text-align: center;
+}
+.ig-cta h2 { margin: 0 0 8px; font-size: var(--fs-h2); font-weight: 700; line-height: 1.2; }
+.ig-cta p { max-width: 56ch; margin: 0 auto 20px; color: var(--c-on-dark-muted); }
+.ig-cta a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 15px;
+  background: var(--c-green);
+  color: var(--c-on-green);
+  font-weight: 700;
+  text-decoration: none;
+}
+.ig-cta a:hover { background: #10c98b; }
+
+footer.ig-foot {
+  padding: var(--sp-6) var(--gutter) var(--sp-7);
+  border-top: 1px solid var(--c-line);
+  background: var(--c-surface);
+  color: var(--c-muted);
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  text-align: center;
+}
+footer.ig-foot a { color: var(--c-green-700); font-weight: 600; text-decoration: none; }
+
+/* ---------- Lightbox ---------- */
+dialog.ig-lb { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; overflow: auto; border: 0; background: transparent; }
+dialog.ig-lb::backdrop { background: rgba(10, 13, 40, .72); }
+.ig-lb-in { display: flex; flex-direction: column; align-items: center; gap: 14px; min-height: 100%; padding: 16px; }
+.ig-lb-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 860px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+.ig-lb-bar .no { color: #8a94a6; font-size: 12px; font-weight: 700; }
+.ig-lb-bar strong { color: var(--c-indigo); font-size: 15px; }
+.ig-lb-bar .sp { flex: 1; }
+.ig-lb-bar button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #dfe7ee;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--c-indigo);
+  font: 700 13px/1 var(--font-sans);
+  cursor: pointer;
+}
+.ig-lb-bar button:hover { border-color: var(--c-green); }
+.ig-lb-stage { position: relative; max-width: 100%; overflow: hidden; border-radius: 4px; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, .4); }
+.ig-lb-stage .ig-page { position: absolute; top: 0; left: 0; transform-origin: top left; }
+
+@media (max-width: 720px) {
+  .ig-bar { position: static; }
+  .ig-count { width: 100%; margin-left: 0; }
+  .ig-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+  .ig-meta { flex-wrap: wrap; }
+  .ig-meta .tag { margin-left: 0; }
+}
+@media (max-width: 360px) {
+  .ig-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-thumb { transition: none; }
+  .ig-thumb:hover { transform: none; }
+}
+
+/* ======================================================================
+   A4 document canvas (from the design reference, scoped to .ig-page)
+   ====================================================================== */
+.ig-page {
+  --ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  position: relative;
+  width: 794px;
+  height: 1123px;
+  overflow: hidden;
+  padding-left: 26px;
+  background: #fff;
+  color: #14181c;
+  font-family: var(--ui);
+  font-size: 12px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  overflow-wrap: normal;
+}
+.ig-page * { box-sizing: border-box; margin: 0; padding: 0; }
+.ig-page table { width: 100%; border-collapse: collapse; }
+.ig-page td, .ig-page th { padding: 0; }
+.ig-page .num { text-align: right; font-variant-numeric: tabular-nums; }
+.ig-page .logo { font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+.ig-page .logo small { display: block; margin-top: .35em; font-size: .36em; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+.ig-page .docbody { position: relative; width: 100%; height: 100%; overflow: hidden; }
+
+/* Spine: solid = quote, striped = invoice */
+.ig-page .docmark { position: absolute; top: 0; bottom: 0; left: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 26px; padding-top: 16px; overflow: hidden; }
+.ig-page .docmark .glyph { flex: none; width: 12px; height: 12px; }
+.ig-page .docmark .word { font: 700 9px/1 var(--ui); letter-spacing: .34em; text-transform: uppercase; white-space: nowrap; writing-mode: vertical-rl; transform: rotate(180deg); }
+.ig-page .docmark.offer { background: var(--ac); }
+.ig-page .docmark.offer .glyph { border: 2.5px solid var(--ac-on); border-radius: 50%; }
+.ig-page .docmark.offer .word { color: var(--ac-on); }
+.ig-page .docmark.invoice { background: var(--ac-deep); background-image: repeating-linear-gradient(45deg, color-mix(in srgb, var(--ac-on-deep) 26%, transparent) 0 5px, transparent 5px 11px); }
+.ig-page .docmark.invoice .glyph { background: var(--ac-on-deep); }
+.ig-page .docmark.invoice .word { color: var(--ac-on-deep); }
+
+/* Action block: signature box on quotes, payment panel on invoices */
+.ig-page .slot { margin-top: 18px; font-family: var(--ui); font-variant-numeric: tabular-nums; }
+.ig-page .slot .slot-hd { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; font: 700 8.5px/1 var(--ui); letter-spacing: .18em; text-transform: uppercase; }
+.ig-page .slot .slot-hd .k { padding: 4px 8px; border-radius: 2px; }
+.ig-page .slot .slot-hd .v { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: none; }
+.ig-page .slot-offer .slot-hd .k { background: var(--ac); color: var(--ac-on); }
+.ig-page .slot-offer .slot-hd .v { color: var(--ac-deep); }
+.ig-page .slot-offer .akkoord { display: grid; grid-template-columns: 1.4fr 1fr 1.6fr; gap: 22px; padding: 14px 16px 18px; border: 2.5px solid var(--ac); border-radius: 3px; }
+.ig-page .slot-offer .akkoord .ttl { grid-column: 1 / -1; margin-bottom: 2px; color: var(--ac-deep); font: 700 10px/1.3 var(--ui); letter-spacing: .14em; text-transform: uppercase; }
+.ig-page .slot-offer .akkoord .fld { display: flex; flex-direction: column; gap: 26px; }
+.ig-page .slot-offer .akkoord .fld span { color: #8d959b; font: 600 8px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; }
+.ig-page .slot-offer .akkoord .fld i { display: block; height: 0; border-bottom: 1.5px solid #2b3238; }
+.ig-page .slot-offer .note { margin: 7px 0 0; color: #8d959b; font: 400 8.5px/1.5 var(--ui); }
+.ig-page .slot-invoice .slot-hd .k { background: var(--ac-deep); color: var(--ac-on-deep); }
+.ig-page .slot-invoice .slot-hd .v { color: var(--ac-deep); }
+.ig-page .slot-invoice .betaal { display: flex; align-items: center; gap: 18px; padding: 14px 16px; border-left: 6px solid var(--ac-deep); background: var(--ac-soft); }
+.ig-page .slot-invoice .betaal .det { flex: 1; min-width: 0; }
+.ig-page .slot-invoice .betaal .det .row { display: flex; gap: 10px; padding: 2.5px 0; font-size: 10px; }
+.ig-page .slot-invoice .betaal .det .row b { flex: none; width: 118px; color: #727c83; font-weight: 600; }
+.ig-page .slot-invoice .betaal .det .row span { color: #1d2429; font-weight: 700; letter-spacing: .01em; }
+.ig-page .slot-invoice .betaal .qr { flex: none; text-align: center; }
+.ig-page .slot-invoice .betaal .qr svg { display: block; width: 78px; height: 78px; padding: 4px; background: #fff; }
+.ig-page .slot-invoice .betaal .qr em { display: block; margin-top: 4px; color: #8d959b; font: 600 7px/1.3 var(--ui); font-style: normal; letter-spacing: .1em; text-transform: uppercase; }

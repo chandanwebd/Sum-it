@@ -11,9 +11,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" integrity="sha384-ecIckRi4QlKYya/FQUbBUjS4qp65jF/J87Guw5uzTbO1C1Jfa/6kYmd6dXUF6D7i" crossorigin="anonymous">
-<link rel="stylesheet" href="/blog/blog.css">
-<link rel="stylesheet" href="/blog/editor.css">
 <style>
 :root{--indigo:#2D2D6B;--indigo-d:#232358;--ink:#0F172A;--green:#00BC7D;--green-d:#007a55;--green-t:#D0FAE5;--pink:#FF2357;--amber-t:#FFF4DE;--bg:#F1F5F9;--line:#E2E8F0;--slate:#64748B;--mut-d:rgba(255,255,255,.72);--line-d:rgba(255,255,255,.14)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -74,6 +71,7 @@ input:focus,textarea:focus{outline:2px solid var(--green)}
 <div class="top">
   <img src="sum-it-logo-mark.svg" alt=""><b>Sum-IT beheer</b><span class="sp"></span>
   <span class="who" id="who"></span>
+  <a class="ghost" href="/admin/blogs/">Blog-CMS</a>
   <a class="ghost" href="/admin.html">Teksten-editor</a>
   <button class="ghost" onclick="logout()">Uitloggen</button>
 </div>
@@ -105,60 +103,8 @@ input:focus,textarea:focus{outline:2px solid var(--green)}
     <!-- ============ BLOG ============ -->
     <div id="tab-b" class="panel hide">
       <h2>Blogposts</h2>
-      <div id="be-schema" class="be-banner hide">De database heeft de blog-update nog niet. Voer <code>supabase-setup-v5.sql</code> uit in Supabase (SQL Editor) om categorieën, afbeeldingen, tags en SEO-velden op te slaan. Tot die tijd worden alleen titel, omschrijving en inhoud bewaard.</div>
-      <div class="postlist" id="postlist"></div>
-      <div class="rowbar"><button class="btn" type="button" id="be-new">+ Nieuwe post</button></div>
-      <div id="editor" class="hide">
-        <div class="be-layout">
-          <div class="be-main">
-            <section class="be-card" aria-labelledby="be-h-meta">
-              <h3 id="be-h-meta">Artikel <span class="pill pend" id="p-status">Nieuw</span></h3>
-              <div class="be-field"><label for="p-title">Titel</label><input type="text" id="p-title" maxlength="140"></div>
-              <div class="be-field"><label for="p-slug">Slug (URL)</label><input type="text" id="p-slug" maxlength="80" autocomplete="off" spellcheck="false"><small class="be-hint" id="p-slug-hint"></small></div>
-              <div class="be-field"><label for="p-desc">Korte omschrijving <span class="be-count" id="p-desc-count"></span></label><textarea id="p-desc" rows="2" maxlength="180"></textarea><small class="be-hint">Verschijnt op de blogkaart en in Google.</small></div>
-              <div class="be-needs-v5">
-                <div class="be-grid2">
-                  <div class="be-field"><label for="p-cat">Categorie</label><select id="p-cat"></select></div>
-                  <div class="be-field"><label for="p-author">Auteur (naam op de site)</label><input type="text" id="p-author" maxlength="60" placeholder="Sum-IT"></div>
-                  <div class="be-field"><label for="p-tags">Tags</label><input type="text" id="p-tags" placeholder="btw, factuur, starter"><small class="be-hint">Komma-gescheiden, maximaal 10.</small></div>
-                  <div class="be-field"><label for="p-date">Publicatiedatum</label><input type="date" id="p-date"><small class="be-hint">Leeg = datum van eerste publicatie.</small></div>
-                </div>
-              </div>
-            </section>
-            <section class="be-card be-needs-v5" aria-labelledby="be-h-cover">
-              <h3 id="be-h-cover">Omslagafbeelding</h3>
-              <input type="hidden" id="p-cover"><input type="hidden" id="p-cover-alt">
-              <div id="p-cover-picker"></div>
-            </section>
-            <section class="be-card" aria-labelledby="be-h-content">
-              <h3 id="be-h-content">Inhoud</h3>
-              <ol class="be-blocks" id="be-blocks" aria-label="Blokken"></ol>
-              <p class="be-empty" id="be-empty" hidden>Nog geen blokken. Voeg er een toe.</p>
-              <div class="be-add">
-                <button type="button" class="be-add-btn" id="be-add-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="be-add-menu">+ Blok toevoegen</button>
-                <div class="be-add-menu" id="be-add-menu" role="menu" aria-label="Bloktype kiezen" hidden></div>
-              </div>
-            </section>
-            <details class="be-card be-needs-v5">
-              <summary>SEO (optioneel)</summary>
-              <div class="be-field"><label for="p-mtitle">SEO-titel <span class="be-count" id="p-mtitle-count"></span></label><input type="text" id="p-mtitle" maxlength="70"><small class="be-hint">Leeg = de titel van het artikel.</small></div>
-              <div class="be-field"><label for="p-mdesc">SEO-omschrijving <span class="be-count" id="p-mdesc-count"></span></label><textarea id="p-mdesc" rows="2" maxlength="170"></textarea><small class="be-hint">Leeg = de korte omschrijving.</small></div>
-            </details>
-            <div class="be-actions" id="be-actions">
-              <button class="btn" type="button" id="be-save">Opslaan als concept</button>
-              <button class="btn sec" type="button" id="be-publish">Opslaan &amp; publiceren</button>
-              <button class="mini" type="button" id="be-preview">Voorbeeld in nieuw tabblad ↗</button>
-              <span class="sp"></span>
-              <button class="btn warn hide" type="button" id="p-del">Verwijderen</button>
-            </div>
-            <div class="err" id="b-err" role="alert"></div><div class="okmsg" id="b-ok" role="status"></div>
-          </div>
-          <aside class="be-preview" aria-label="Voorbeeld">
-            <div class="be-preview-head"><strong>Voorbeeld</strong><small class="be-hint">Zo ziet het artikel eruit</small></div>
-            <div class="preview" id="pv"></div>
-          </aside>
-        </div>
-      </div>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:14px">Blogposts schrijven, publiceren en beheren gaat via het blog-CMS: overzicht met zoeken en filteren, editor met afbeeldingen, keywords en SEO-velden.</p>
+      <a class="btn" href="/admin/blogs/" style="display:inline-block;text-decoration:none">Naar het blog-CMS →</a>
     </div>
 
     <!-- ============ ADMINS ============ -->
@@ -174,9 +120,6 @@ input:focus,textarea:focus{outline:2px solid var(--green)}
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js" integrity="sha384-utBUCeG4SYaCm4m7GQZYr8Hy8Fpy3V4KGjBZaf4WTKOcwhCYpt/0PfeEe3HNlwx8" crossorigin="anonymous"></script>
-<script src="/blog/blocks.js"></script>
-<script src="/blog/editor.js"></script>
 <script>
 var SB=null,ROWS=[],MYEMAIL='';
 try{if(window.SB_URL&&window.SB_URL.indexOf('http')===0&&window.supabase){SB=window.supabase.createClient(window.SB_URL,window.SB_ANON);}}catch(e){}
@@ -193,7 +136,7 @@ async function boot(){
   document.getElementById('who').textContent=MYEMAIL;
   gate.classList.add('hide');
   document.getElementById('app').classList.remove('hide');
-  loadStats();loadSignups();loadPosts();loadAdmins();
+  loadStats();loadSignups();loadAdmins();
 }
 function logout(){SB.auth.signOut().then(function(){location.href='/login.html';});}
 function showTab(t){['s','b','a'].forEach(function(x){
@@ -237,8 +180,6 @@ function exportCsv(){
   var blob=new Blob(['﻿'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
   var a=document.createElement('a');a.download='sumit-aanmeldingen.csv';a.href=URL.createObjectURL(blob);a.click();
 }
-
-/* ---------- blog: see /blog/editor.js ---------- */
 
 /* ---------- admins ---------- */
 async function loadAdmins(){

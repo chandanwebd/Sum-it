@@ -1,10 +1,14 @@
 /* Sum-IT CMS article page: /blog/post.html?slug=<slug>
- * Also renders an unsaved editor draft with ?preview=1 (from beheer.html,
+ * Also renders an unsaved editor draft with ?preview=1 (from the /admin/blogs/ editor,
  * stored in this browser's localStorage only).
- * Requires /blog/blocks.js and window.SB_URL / SB_ANON (sb-config.js).
+ * Requires /blog/blocks.js and the blog Supabase settings in sb-config.js.
  */
 (function () {
   "use strict";
+
+  /* The blog may run on its own Supabase project (sb-config.js: BLOG_SB_URL / BLOG_SB_ANON). */
+  var BLOG_URL = window.BLOG_SB_URL || window.SB_URL;
+  var BLOG_KEY = window.BLOG_SB_URL ? window.BLOG_SB_ANON : window.SB_ANON;
 
   var CATS = {
     belasting: "Belasting & geld",
@@ -13,8 +17,12 @@
     basis: "Starten & administratie",
     "sum-it": "Sum-IT & vergelijken"
   };
+  var SITE = "https://sum-it.eu";
   var COLS_LEGACY = "slug,title,description,body_html,created_at,updated_at";
-  var COLS = COLS_LEGACY + ",blocks,category,cover_image,cover_alt,tags,author_name,published_at,meta_title,meta_description";
+  var COLS_V5 = COLS_LEGACY + ",blocks,category,cover_image,cover_alt,tags,author_name,published_at,meta_title,meta_description,og_image";
+  var COLS_V6 = COLS_V5 + ",canonical_url";
+  /* Which columns exist depends on the SQL migrations that have been run. */
+  var LEVELS = [["v6", COLS_V6], ["v5", COLS_V5], ["legacy", COLS_LEGACY]];
 
   var params = new URLSearchParams(location.search);
   var slug = params.get("slug") || "";
@@ -36,14 +44,71 @@
     try { return new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "long", year: "numeric" }).format(d); }
     catch (e) { return String(iso).slice(0, 10); }
   }
-  function setMeta(name, value) {
-    var m = document.querySelector('meta[name="' + name + '"]');
-    if (m && value) m.setAttribute("content", value);
+  /* Create or update <meta name|property="…">. */
+  function setMeta(key, value, attr) {
+    if (!value) return;
+    attr = attr || "name";
+    var m = document.head.querySelector("meta[" + attr + '="' + key + '"]');
+    if (!m) { m = document.createElement("meta"); m.setAttribute(attr, key); document.head.appendChild(m); }
+    m.setAttribute("content", value);
+  }
+  function setLink(rel, href) {
+    var l = document.head.querySelector('link[rel="' + rel + '"]');
+    if (!l) { l = document.createElement("link"); l.rel = rel; document.head.appendChild(l); }
+    l.href = href;
+  }
+  function absolute(url) {
+    if (!url) return "";
+    return /^https?:\/\//i.test(url) ? url : SITE + (url.charAt(0) === "/" ? url : "/" + url);
+  }
+
+  /* Metadata for search engines and social previews, built from the CMS fields. */
+  function seo(p) {
+    var desc = p.meta_description || p.description || "";
+    var own = SITE + "/blog/post.html?slug=" + encodeURIComponent(p.slug);
+    var canonical = /^https:\/\/\S+$/.test(p.canonical_url || "") ? p.canonical_url : own;
+    var image = absolute(window.SumitBlocks ? SumitBlocks.safeUrl(p.og_image || p.cover_image, true) : "");
+    document.title = (p.meta_title || p.title) + " · Sum-IT Blog";
+    setMeta("description", desc);
+    if (p.tags && p.tags.length) setMeta("keywords", p.tags.join(", "));
+    setLink("canonical", canonical);
+    setMeta("og:type", "article", "property");
+    setMeta("og:site_name", "Sum-IT", "property");
+    setMeta("og:locale", "nl_NL", "property");
+    setMeta("og:title", p.meta_title || p.title, "property");
+    setMeta("og:description", desc, "property");
+    setMeta("og:url", canonical, "property");
+    setMeta("og:image", image || SITE + "/og-image.png", "property");
+    if (image && p.cover_alt) setMeta("og:image:alt", p.cover_alt, "property");
+    setMeta("twitter:card", image ? "summary_large_image" : "summary");
+    setMeta("article:published_time", p.published_at || p.created_at, "property");
+    setMeta("article:modified_time", p.updated_at, "property");
+
+    var ld = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: p.title,
+      description: desc,
+      mainEntityOfPage: canonical,
+      datePublished: p.published_at || p.created_at,
+      dateModified: p.updated_at || p.published_at || p.created_at,
+      author: { "@type": p.author_name ? "Person" : "Organization", name: p.author_name || "Sum-IT" },
+      publisher: { "@type": "Organization", name: "Sum-IT", logo: { "@type": "ImageObject", url: SITE + "/sum-it-logo-mark.png" } },
+      inLanguage: "nl-NL"
+    };
+    if (image) ld.image = image;
+    if (p.tags && p.tags.length) ld.keywords = p.tags.join(", ");
+    var script = document.getElementById("post-ld") || document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "post-ld";
+    script.textContent = JSON.stringify(ld).replace(/</g, "\\u003c");
+    document.head.appendChild(script);
   }
 
   /* ---------- states ---------- */
 
   function showState(title, text, retry) {
+    setMeta("robots", "noindex");
     art.removeAttribute("aria-busy");
     art.textContent = "";
     var box = el("div", "blog-empty");
@@ -84,9 +149,8 @@
   function readingMinutes(p) {
     var text = p.blocks && window.SumitBlocks ? SumitBlocks.text(p.blocks) : "";
     if (!text.trim() && p.body_html) {
-      var tmp = document.createElement("div");
-      tmp.innerHTML = p.body_html;
-      text = tmp.textContent;
+      /* Parse in an inert document: a live element would load images and run their handlers. */
+      text = new DOMParser().parseFromString(p.body_html, "text/html").body.textContent || "";
     }
     var words = (text.match(/\S+/g) || []).length;
     return words ? Math.max(1, Math.round(words / 200)) : 0;
@@ -97,8 +161,8 @@
     art.textContent = "";
     var cat = CATS[p.category] ? p.category : "";
 
-    document.title = (p.meta_title || p.title) + " · Sum-IT Blog";
-    setMeta("description", p.meta_description || p.description);
+    if (!isPreview) seo(p);
+    else document.title = "Voorbeeld: " + (p.title || "artikel") + " · Sum-IT Blog";
 
     if (crumbCat && cat) {
       crumbCat.textContent = "";
@@ -157,9 +221,9 @@
     if (blocks.length) {
       SumitBlocks.render(p.blocks, body);
     } else if (p.body_html) {
-      /* Legacy posts: admin-authored HTML, rendered exactly as before. */
+      /* Legacy posts: admin-authored HTML, reduced to an allow-list of tags first. */
       var legacy = el("div", "b-rich");
-      legacy.innerHTML = p.body_html;
+      legacy.innerHTML = window.SumitBlocks ? SumitBlocks.sanitizeHTML(p.body_html) : "";
       body.appendChild(legacy);
     }
     art.appendChild(body);
@@ -210,22 +274,29 @@
   /* ---------- data ---------- */
 
   function request(cols) {
-    return fetch(window.SB_URL + "/rest/v1/blog_posts?slug=eq." + encodeURIComponent(slug) + "&select=" + cols, {
-      headers: { apikey: window.SB_ANON, Authorization: "Bearer " + window.SB_ANON }
+    return fetch(BLOG_URL + "/rest/v1/blog_posts?slug=eq." + encodeURIComponent(slug) + "&select=" + cols, {
+      headers: { apikey: BLOG_KEY, Authorization: "Bearer " + BLOG_KEY }
     }).then(function (r) { return r.json().then(function (body) { return { ok: r.ok, body: body }; }); });
   }
 
+  /* Try the newest column set first and step down on "column does not exist" (42703). */
+  function requestBest(i) {
+    return request(LEVELS[i][1]).then(function (res) {
+      if (!res.ok && res.body && res.body.code === "42703" && i < LEVELS.length - 1) {
+        try { sessionStorage.setItem("sumit_post_schema:" + BLOG_URL, LEVELS[i + 1][0]); } catch (e) {}
+        return requestBest(i + 1);
+      }
+      return res;
+    });
+  }
+
   function load() {
-    var legacyKnown = false;
-    try { legacyKnown = sessionStorage.getItem("sumit_blog_schema") === "legacy"; } catch (e) {}
-    request(legacyKnown ? COLS_LEGACY : COLS)
-      .then(function (res) {
-        if (!res.ok && res.body && res.body.code === "42703") {
-          try { sessionStorage.setItem("sumit_blog_schema", "legacy"); } catch (e) {}
-          return request(COLS_LEGACY);
-        }
-        return res;
-      })
+    var start = 0;
+    try {
+      var known = sessionStorage.getItem("sumit_post_schema:" + BLOG_URL);
+      LEVELS.forEach(function (l, i) { if (l[0] === known) start = i; });
+    } catch (e) {}
+    requestBest(start)
       .then(function (res) {
         if (!res.ok || !Array.isArray(res.body)) throw new Error("request failed");
         var p = res.body[0];
@@ -253,7 +324,7 @@
     return;
   }
 
-  if (!/^[a-z0-9-]{3,80}$/.test(slug) || !window.SB_URL) {
+  if (!/^[a-z0-9-]{3,80}$/.test(slug) || !BLOG_URL) {
     showState("Artikel niet gevonden", "Deze link klopt niet. Bekijk alle artikelen in het blogoverzicht.", false);
     return;
   }
