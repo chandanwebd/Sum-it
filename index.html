@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="components/header/header.css" />
     <link rel="stylesheet" href="/components/invoice/invoice.css" />
+    <link rel="stylesheet" href="/components/invoice/gallery.css" />
+    <!-- Fonts used by the invoice designs; loaded without blocking the page. -->
+    <link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@400;500;600;700&family=Bitter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,7 +45,8 @@
     <script src="js/index.js" defer></script>
     <script src="components/header/header.js" defer></script>
     <script src="/components/invoice/calc.js" defer></script>
-    <script src="/components/invoice/invoice.js" defer></script>
+    <script src="/components/invoice/styles.js" defer></script>
+    <script src="/components/invoice/gallery.js" defer></script>
 
     <script>
       /* Sum-IT backend config — Supabase.
@@ -66,12 +71,12 @@
     <div class="nav">
       <a class="logo" href="/" aria-label="Sum-IT home"><span class="mark"><img src="/sum-it-logo-mark.svg" alt="" width="32" height="32" /></span><span class="logo-text">Sum-IT</span></a>
       <nav class="menu" aria-label="Hoofdmenu">
-        <a href="#capture" data-nav="features" data-i18n="m_feat">Functies</a>
-        <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
-        <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/functies/" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/functies/facturen/" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
+        <a href="/functies/projecten/" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
         <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
-        <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/team/" data-nav="team" data-i18n="m_team">Team</a>
         <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
@@ -86,12 +91,12 @@
     </div>
     <div class="mobmenu" id="mobmenu">
       <nav aria-label="Mobiel menu">
-        <a href="#capture" data-nav="features" data-i18n="m_feat">Functies</a>
-        <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
-        <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
+        <a href="/functies/" data-nav="features" data-i18n="m_feat">Functies</a>
+        <a href="/functies/facturen/" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
+        <a href="/functies/projecten/" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
         <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
-        <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
+        <a href="/team/" data-nav="team" data-i18n="m_team">Team</a>
         <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
@@ -659,41 +664,77 @@
         </div>
       </section>
 
-      <!-- INVOICING
-           Placeholder copy (final text to be supplied): edit the inv_* keys in
-           js/index.js (NL + EN); the layout does not depend on text length.
-           The invoice itself is rendered by components/invoice/invoice.js. -->
+      <!-- INVOICING: the invoice designs from /functies/facturen/ (Zakelijk series,
+           invoice, shown first). Gallery: components/invoice/gallery.js +
+           gallery.css; the designs themselves: components/invoice/styles.js. -->
       <section id="invoicing" class="inv-sec" aria-labelledby="inv-h2">
         <div class="wrap2">
-          <div class="inv-grid">
-            <div class="inv-copy reveal">
-              <div class="k" data-i18n="inv_k">Facturen</div>
-              <h2 id="inv-h2" data-i18n="inv_h2">Professionele facturen. Minder administratie.</h2>
-              <p class="lead" data-i18n="inv_lead">Maak, beheer en verstuur professionele facturen, met alles wat je nodig hebt om facturatie simpel en overzichtelijk te houden.</p>
-              <ol class="inv-steps">
-                <li><span class="num" aria-hidden="true">01</span><span><b data-i18n="inv_s1">Opstellen</b><span class="inv-sd" data-i18n="inv_s1b">Klant, factuurregels, aantallen en prijzen.</span></span></li>
-                <li><span class="num" aria-hidden="true">02</span><span><b data-i18n="inv_s2">Controleren</b><span class="inv-sd" data-i18n="inv_s2b">Btw per tarief, korting en totaal worden voor je berekend.</span></span></li>
-                <li><span class="num" aria-hidden="true">03</span><span><b data-i18n="inv_s3">Versturen</b><span class="inv-sd" data-i18n="inv_s3b">Een nette pdf met jouw gegevens, vervaldatum en kenmerk.</span></span></li>
-                <li><span class="num" aria-hidden="true">04</span><span><b data-i18n="inv_s4">Betaald krijgen</b><span class="inv-sd" data-i18n="inv_s4b">Je klant betaalt via IBAN of scant de betaal-QR.</span></span></li>
-              </ol>
-              <ul class="inv-feats">
-                <li data-i18n="inv_f1">Btw per tarief</li>
-                <li data-i18n="inv_f2">Korting</li>
-                <li data-i18n="inv_f3">Betalingskorting</li>
-                <li data-i18n="inv_f4">IBAN + betaal-QR</li>
-                <li data-i18n="inv_f5">Pdf in NL of EN</li>
-              </ul>
-              <div class="inv-actions">
-                <a class="btn" href="/functies/facturen/" data-i18n="inv_cta">Bekijk de voorbeeldfactuur</a>
+          <div class="k" data-i18n="inv_k">Facturen</div>
+          <h2 id="inv-h2" data-i18n="inv_h2">Jouw factuur, in jouw stijl</h2>
+          <p class="lead" data-i18n="inv_lead">Elke factuur en offerte uit Sum-IT bevat dezelfde gegevens, maar hoe hij eruitziet kies je zelf. Blader door de ontwerpen, wissel tussen factuur en offerte en probeer je eigen accentkleur.</p>
+          <ul class="ig-stats">
+            <li data-i18n="inv_st1">32 ontwerpen</li>
+            <li data-i18n="inv_st2">3 series</li>
+            <li data-i18n="inv_st3">Factuur én offerte</li>
+            <li data-i18n="inv_st4">Nederlands en Engels</li>
+            <li data-i18n="inv_st5">Jouw accentkleur</li>
+          </ul>
+
+          <div class="ig-bar">
+            <div class="ig-wrap">
+              <div class="ig-grp">
+                <span data-i18n="inv_c_set">Serie</span>
+                <div class="ig-seg" id="ig-set" role="group" aria-label="Serie">
+                  <button type="button" data-v="a" aria-pressed="true" data-i18n="inv_set_a">Zakelijk</button>
+                  <button type="button" data-v="b" aria-pressed="false" data-i18n="inv_set_b">Speels</button>
+                  <button type="button" data-v="c" aria-pressed="false" data-i18n="inv_set_c">Modern</button>
+                </div>
               </div>
+              <div class="ig-grp">
+                <span data-i18n="inv_c_doc">Document</span>
+                <div class="ig-seg" id="ig-doc" role="group" aria-label="Document">
+                  <button type="button" data-v="invoice" aria-pressed="true" data-i18n="inv_doc_inv">Factuur</button>
+                  <button type="button" data-v="offer" aria-pressed="false" data-i18n="inv_doc_off">Offerte</button>
+                </div>
+              </div>
+              <div class="ig-grp">
+                <span data-i18n="inv_c_accent">Accentkleur</span>
+                <div class="ig-sw" id="ig-sw">
+                <button type="button" data-c="#2d2d6b" style="background:#2d2d6b" aria-pressed="true" aria-label="Indigo" title="Indigo"></button>
+                <button type="button" data-c="#16304b" style="background:#16304b" aria-pressed="false" aria-label="Navy" title="Navy"></button>
+                <button type="button" data-c="#1f6b4f" style="background:#1f6b4f" aria-pressed="false" aria-label="Groen / Green" title="Groen / Green"></button>
+                <button type="button" data-c="#b0451f" style="background:#b0451f" aria-pressed="false" aria-label="Roest / Rust" title="Roest / Rust"></button>
+                <button type="button" data-c="#8a1538" style="background:#8a1538" aria-pressed="false" aria-label="Bordeaux" title="Bordeaux"></button>
+                <button type="button" data-c="#0f7b93" style="background:#0f7b93" aria-pressed="false" aria-label="Teal" title="Teal"></button>
+                <button type="button" data-c="#2b3137" style="background:#2b3137" aria-pressed="false" aria-label="Grafiet / Graphite" title="Grafiet / Graphite"></button>
+                  <input type="color" id="ig-sw-custom" value="#2d2d6b" aria-label="Eigen kleur / Custom colour">
+                </div>
+              </div>
+              <p class="ig-count" id="ig-count" role="status" aria-live="polite"></p>
             </div>
-            <figure class="inv-visual reveal" style="margin: 0">
-              <div class="inv-stage" data-invoice data-invoice-animate></div>
-              <figcaption class="sr-only" data-i18n="inv_fig">Voorbeeld van een factuur uit Sum-IT, met factuurregels, btw, korting, totaal en een betaalblok met IBAN en QR-code.</figcaption>
-            </figure>
           </div>
+
+          <div class="ig-gallery">
+            <ul class="ig-grid" id="ig-grid"></ul>
+            <noscript><p data-i18n="inv_noscript">Zet JavaScript aan om de ontwerpen te bekijken.</p></noscript>
+          </div>
+          <a class="v24-blog-all" href="/functies/facturen/" data-i18n="inv_more">Meer over facturen en offertes →</a>
         </div>
       </section>
+
+      <dialog class="ig-lb" id="ig-lb" aria-labelledby="ig-lb-name">
+        <div class="ig-lb-in">
+          <div class="ig-lb-bar">
+            <span class="no" id="ig-lb-no"></span>
+            <strong id="ig-lb-name"></strong>
+            <span class="sp"></span>
+            <button type="button" id="ig-lb-prev">← Vorige</button>
+            <button type="button" id="ig-lb-next">Volgende →</button>
+            <button type="button" id="ig-lb-close">Sluiten</button>
+          </div>
+          <div class="ig-lb-stage" id="ig-lb-stage" role="img"></div>
+        </div>
+      </dialog>
 
       <!-- CONTROL -->
       <section id="control">

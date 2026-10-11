@@ -2566,7 +2566,8 @@ h2 {
   padding: 8px 16px;
 }
 
-.mega {
+/* a.mega: the invoice designs on this page have their own .mega class. */
+a.mega {
   display: inline-block;
   background: #fff;
   color: var(--green-d);
@@ -2581,7 +2582,7 @@ h2 {
     box-shadow 0.15s;
 }
 
-.mega:hover {
+a.mega:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
 }

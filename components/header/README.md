@@ -27,7 +27,7 @@ Each page also needs:
 <script src="/components/header/header.js" defer></script>
 ```
 
-- `data-page` on `<body>` (`features`, `pricing`, `community`, `blog`) marks
+- `data-page` on `<body>` (`features`, `invoicing`, `projects`, `community`, `pricing`, `team`, `blog`) marks
   the active item. Without it, the homepage highlights the section in view.
 - Pages whose first section is a dark hero add `class="has-dark-hero"` to
   `<body>`: the bar is transparent over the hero and turns solid on scroll.

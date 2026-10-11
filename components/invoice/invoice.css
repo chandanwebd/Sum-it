@@ -21,6 +21,22 @@
   background: radial-gradient(closest-side, rgba(0, 188, 125, .10), transparent);
   pointer-events: none;
 }
+/* Homepage: the invoice designs gallery (gallery.css) inside this section. */
+.inv-sec .wrap2 { position: relative; }
+.inv-sec .ig-stats { margin-top: 18px; }
+.inv-sec .ig-bar {
+  margin-top: 28px;
+  border: 1px solid var(--c-line);
+  border-radius: 18px;
+}
+.inv-sec .ig-bar .ig-wrap { max-width: none; padding-left: 16px; padding-right: 16px; }
+.inv-sec .ig-gallery { padding: 28px 0 0; }
+.inv-sec .v24-blog-all { margin-top: 28px; }
+/* Keep homepage element rules out of the A4 designs: the homepage's h2 and
+   "section h2" rules, and ".k" (section kicker) on the designs' own .k label. */
+.inv-sec .ig-page h2 { color: inherit; line-height: inherit; letter-spacing: inherit; }
+.inv-sec .ig-page .k { margin: 0; font-size: inherit; font-weight: inherit; line-height: inherit; letter-spacing: inherit; }
+
 .inv-grid {
   position: relative;
   display: grid;
