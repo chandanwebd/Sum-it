@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="blog">
 <!-- site-header:start -->
@@ -33,17 +34,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -53,13 +54,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -68,10 +69,10 @@
 <main id="main">
 <div class="crumb"><a href="/">Home</a> · <a href="/blog/">Blog</a> · Btw terugvragen op zakelijke aankopen: zo werk…</div>
 <h1>Btw terugvragen op zakelijke aankopen: zo werkt voorbelasting</h1>
-<div class="meta">Sum-IT · Belasting · 4 min leestijd · bijgewerkt 2026-07-25</div>
+<div class="meta">Sum-IT · Belasting &amp; geld · 4 min leestijd · <time datetime="2026-07-25">25 jul 2026</time></div>
 <article>
 <p>De btw die je betaalt op zakelijke aankopen heet <strong>voorbelasting</strong>, en die mag je bij je btw-aangifte aftrekken van de btw die je zelf in rekening bracht. Voorwaarden: je gebruikt de aankoop voor btw-belaste omzet én je hebt een factuur die aan de eisen voldoet. Niet alles mag: btw op eten en drinken in de horeca is nooit aftrekbaar, en voor privégebruik van de zakelijke auto geldt een correctie van 2,7% van de cataloguswaarde. Hier lees je precies wat wel en niet kan.</p>
-<h2>Welke btw mag je terugvragen — en welke niet?</h2>
+<h2>Welke btw mag je terugvragen, en welke niet?</h2>
 <p>Hoofdregel: gebruik je een aankoop voor je onderneming en lever je daarmee btw-belaste diensten of producten, dan is de btw aftrekbaar. <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/btw_aftrekken/btw_aftrekken">De Belastingdienst zet de regels hier op een rij</a>.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -109,12 +110,12 @@
 <td>Nee</td>
 </tr>
 </tbody></table></div>
-<p>Die horeca-regel verrast veel starters: ook een 100% zakelijke lunch met een klant in een restaurant levert géén btw-aftrek op. De kosten zelf kunnen wel (beperkt) aftrekbaar zijn voor de inkomstenbelasting — dat is een andere regeling, zie <a href="/blog/zakelijke-kosten-of-prive.html">welke kosten zakelijk zijn en welke privé</a>.</p>
+<p>Die horeca-regel verrast veel starters: ook een 100% zakelijke lunch met een klant in een restaurant levert géén btw-aftrek op. De kosten zelf kunnen wel (beperkt) aftrekbaar zijn voor de inkomstenbelasting. Dat is een andere regeling, zie <a href="/blog/zakelijke-kosten-of-prive.html">welke kosten zakelijk zijn en welke privé</a>.</p>
 <p>Zit je in de KOR (kleineondernemersregeling)? Dan breng je geen btw in rekening, maar mag je ook níéts terugvragen. Lees hoe dat uitpakt in <a href="/blog/kor-kleineondernemersregeling.html">onze uitleg over de KOR</a>.</p>
 <h2>Aan welke factuureisen moet een bonnetje voldoen?</h2>
 <p>Btw aftrekken mag alleen met een factuur die aan de wettelijke eisen voldoet. Daarop moeten onder meer staan: naam en adres van de leverancier en van jou, het btw-identificatienummer van de leverancier, een opeenvolgend factuurnummer, de factuurdatum, een omschrijving van wat er is geleverd, en het btw-bedrag per tarief.</p>
-<p>Er is een belangrijke versoepeling: tot en met <strong>€100 inclusief btw</strong> volstaat een <strong>vereenvoudigde factuur</strong> — een gewone kassabon met datum, naam leverancier, omschrijving en het btw-bedrag of -tarief. Daarom kun je bij de bouwmarkt gewoon de bon gebruiken, maar vraag je bij grotere aankopen een factuur op jouw bedrijfsnaam.</p>
-<p>Zonder (juiste) factuur geen aftrek. Bewaar je bonnen dus goed — <a href="/blog/bonnetjes-bewaren-belastingdienst.html">7 jaar, digitaal mag</a>. Direct <a href="/#capture">scannen bij aankoop</a> voorkomt dat de aftrek verdampt met het thermische papier.</p>
+<p>Er is een belangrijke versoepeling: tot en met <strong>€100 inclusief btw</strong> volstaat een <strong>vereenvoudigde factuur</strong>: een gewone kassabon met datum, naam leverancier, omschrijving en het btw-bedrag of -tarief. Daarom kun je bij de bouwmarkt gewoon de bon gebruiken, maar vraag je bij grotere aankopen een factuur op jouw bedrijfsnaam.</p>
+<p>Zonder (juiste) factuur geen aftrek. Bewaar je bonnen dus goed: <a href="/blog/bonnetjes-bewaren-belastingdienst.html">7 jaar, digitaal mag</a>. Direct <a href="/#capture">scannen bij aankoop</a> voorkomt dat de aftrek verdampt met het thermische papier.</p>
 <h2>Hoe werkt btw bij gemengd gebruik (zakelijk én privé)?</h2>
 <p>Gebruik je iets deels privé, dan mag je alleen de btw over het zakelijke deel aftrekken. Stel: Youssef is timmerman en koopt een telefoon van €968 inclusief €168 btw. Hij gebruikt hem naar schatting 60% zakelijk. Dan vraagt hij 60% van €168 = ruim €100 terug. De verdeling moet je redelijk kunnen onderbouwen; pure natte-vingerwerk-percentages sneuvelen bij controle.</p>
 <p>Voor de auto van de zaak geldt een praktische standaard. Je trekt door het jaar heen alle btw op brandstof, onderhoud en gebruik af, en corrigeert in de laatste aangifte van het jaar voor privégebruik met een forfait van <strong>2,7% van de cataloguswaarde</strong> (inclusief btw en bpm). Voor een marge-auto of een auto die je al meer dan 4 jaar (na het jaar van ingebruikname) zakelijk gebruikt, is het forfait <strong>1,5%</strong>. Let op: woon-werkverkeer telt voor de btw als privé. Meer over de afweging lees je in <a href="/blog/auto-zakelijk-of-prive-zzp.html">auto zakelijk of privé</a>.</p>
@@ -125,12 +126,12 @@
 <li><strong>Verzamel alle inkoopfacturen en bonnen</strong> van het kwartaal en check of ze aan de factuureisen voldoen.</li>
 <li><strong>Tel de voorbelasting op</strong>, met correcties voor privégebruik en vrijgestelde omzet.</li>
 <li><strong>Vul de voorbelasting in bij rubriek 5b</strong> van de aangifte; de btw over je omzet staat in rubriek 1.</li>
-<li><strong>Betaal of ontvang het saldo.</strong> Is je voorbelasting hoger dan de btw over je omzet — bijvoorbeeld na een grote investering — dan krijg je geld terug.</li>
+<li><strong>Betaal of ontvang het saldo.</strong> Is je voorbelasting hoger dan de btw over je omzet, bijvoorbeeld na een grote investering, dan krijg je geld terug.</li>
 <li><strong>Doe dit vóór de deadline:</strong> 30 april, 31 juli, 31 oktober en 31 januari. Ook bij €0 omzet moet je aangifte doen.</li>
 </ol>
 <p>Kocht je iets vóór je start als ondernemer, maar gebruik je het voor de zaak? Ook die btw is vaak nog aftrekbaar. Twijfel je, <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/btw_aftrekken/welke_btw_is_aftrekbaar/welke_btw_is_aftrekbaar">check de regels bij de Belastingdienst</a> of vraag je boekhouder.</p>
 <h2>Wat zijn de duurste btw-missers?</h2>
-<p>Drie klassiekers. Eén: bonnetjes kwijt, dus aftrek kwijt — bij €5.000 aan inkopen per jaar laat je zo honderden euro&#39;s liggen. Twee: horeca-btw tóch aftrekken; dat wordt bij controle gecorrigeerd, met rente. Drie: de privécorrectie voor de auto vergeten in de laatste aangifte van het jaar — een bekende controlepost. Wie zijn bonnen direct vastlegt en de kwartaalroutine volgt, zit vrijwel altijd goed.</p>
+<p>Drie klassiekers. Eén: bonnetjes kwijt, dus aftrek kwijt: bij €5.000 aan inkopen per jaar laat je zo honderden euro&#39;s liggen. Twee: horeca-btw tóch aftrekken; dat wordt bij controle gecorrigeerd, met rente. Drie: de privécorrectie voor de auto vergeten in de laatste aangifte van het jaar: een bekende controlepost. Wie zijn bonnen direct vastlegt en de kwartaalroutine volgt, zit vrijwel altijd goed.</p>
 
 <h2>Veelgestelde vragen</h2>
 <h3>Kan ik btw terugvragen op een zakenlunch?</h3>
@@ -147,8 +148,8 @@
 <div class="ctabox"><h3>Minder administratie, meer ondernemen?</h3>
 Sum-IT leest je bonnetjes, zet je btw apart en laat per klus zien wat je verdient. Je profiel in het netwerk is gratis, voor altijd. Boekhouden erbij kan voor €11 per maand, alles inbegrepen.
 <br><a href="/#signup">Maak je gratis profiel aan →</a></div><p class="disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
-<div class="cards"><a class="card" href="/blog/aftrekposten-zzp.html"><h2>Aftrekposten voor zzp&#x27;ers: wat mag wél en wat niet</h2><p>Welke kosten mag je aftrekken als zzp&#x27;er? Concrete voorbeelden: telefoon, laptop, werkkleding, etentjes, cursu…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/belasting-eerste-jaar-zzp.html"><h2>Belasting in je eerste jaar als zzp&#x27;er: dit komt er op je af</h2><p>Belasting in je eerste jaar als zzp&#x27;er: btw vanaf dag 1, inkomstenbelasting pas later. Tijdlijn voor je eerste…</p><p class="rm">Lees verder →</p></a></div>
+<div class="cards"><a class="card" href="/blog/aftrekposten-zzp.html"><h2>Aftrekposten voor zzp&#x27;ers: wat mag wél en wat niet</h2><p>Welke kosten mag je aftrekken als zzp&#x27;er? Concrete voorbeelden: telefoon, laptop, werkkleding, etentjes…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/belasting-eerste-jaar-zzp.html"><h2>Belasting in je eerste jaar als zzp&#x27;er: dit komt er op je af</h2><p>Belasting in je eerste jaar als zzp&#x27;er: btw vanaf dag 1, inkomstenbelasting pas later. Tijdlijn voor je eerste…</p><p class="rm">Lees verder →</p></a></div>
 </main>
-<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacyverklaring</a> · <a href="/">sum-it.eu</a><!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 </body>
 </html>

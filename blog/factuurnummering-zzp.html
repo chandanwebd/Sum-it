@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="blog">
 <!-- site-header:start -->
@@ -34,17 +35,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -54,13 +55,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -69,9 +70,9 @@
 <main id="main">
 <div class="crumb"><a href="/">Home</a> · <a href="/blog/">Blog</a> · Factuurnummering: regels en handige opbouw…</div>
 <h1>Factuurnummering: regels en handige opbouw</h1>
-<div class="meta">Sum-IT · Zzp basis · 4 min leestijd · bijgewerkt 2026-08-01</div>
+<div class="meta">Sum-IT · Starten &amp; administratie · 4 min leestijd · <time datetime="2026-08-01">1 aug 2026</time></div>
 <article>
-<p>Elke factuur die je stuurt, moet een <strong>uniek en opeenvolgend factuurnummer</strong> hebben. Dat is een harde eis van de Belastingdienst. &quot;Opeenvolgend&quot; betekent dat er geen gaten in de reeks mogen zitten: 1, 2, 3 — niet 1, 2, 5. &quot;Uniek&quot; betekent dat je elk nummer maar één keer gebruikt. Je mag zelf een logische opbouw kiezen, bijvoorbeeld met een jaartal erin, zolang de volgorde maar klopt en herleidbaar is. Hieronder lees je de precieze regels, een paar handige nummeropbouwen en hoe je fouten voorkomt die tot gedoe bij je btw-aangifte leiden.</p>
+<p>Elke factuur die je stuurt, moet een <strong>uniek en opeenvolgend factuurnummer</strong> hebben. Dat is een harde eis van de Belastingdienst. &quot;Opeenvolgend&quot; betekent dat er geen gaten in de reeks mogen zitten: 1, 2, 3, niet 1, 2, 5. &quot;Uniek&quot; betekent dat je elk nummer maar één keer gebruikt. Je mag zelf een logische opbouw kiezen, bijvoorbeeld met een jaartal erin, zolang de volgorde maar klopt en herleidbaar is. Hieronder lees je de precieze regels, een paar handige nummeropbouwen en hoe je fouten voorkomt die tot gedoe bij je btw-aangifte leiden.</p>
 <h2>Welke eisen stelt de Belastingdienst aan factuurnummers?</h2>
 <p>Het factuurnummer is een van de verplichte gegevens op een factuur. De eisen zijn:</p>
 <ul>
@@ -112,7 +113,7 @@
 </tr>
 </tbody></table></div>
 <p>De meest gebruikte en veilige vorm is <strong>jaartal + volgnummer</strong>, bijvoorbeeld <code>2026-001</code>. Je ziet in één oogopslag uit welk jaar de factuur komt, en je kunt per 1 januari opnieuw bij 001 beginnen. Belangrijk daarbij: begin elk jaar netjes met dezelfde opbouw en houd de reeks binnen dat jaar aaneengesloten.</p>
-<p>Wil je liever nooit resetten, dan gebruik je één doorlopende reeks zonder jaartal die eeuwig doorloopt. Ook prima — kies wat bij jou past en blijf er consequent in.</p>
+<p>Wil je liever nooit resetten, dan gebruik je één doorlopende reeks zonder jaartal die eeuwig doorloopt. Ook prima. Kies wat bij jou past en blijf er consequent in.</p>
 <h2>Mag ik met factuurnummer 1 beginnen?</h2>
 <p>Ja, dat mag. Sommige zzp&#39;ers beginnen liever met een hoger nummer, bijvoorbeeld <code>2026-100</code>, zodat het niet lijkt alsof je net begonnen bent. Ook dat is toegestaan, zolang je vanaf dat startpunt maar netjes opeenvolgend doortelt. Het gaat de Belastingdienst niet om het startgetal, maar om de doorlopende, controleerbare reeks. Zet je stappen als starter goed neer met de <a href="/blog/starten-als-zzper-checklist.html">checklist voor starters</a>.</p>
 <h2>Wat als ik een fout maak of een factuur moet crediteren?</h2>
@@ -126,7 +127,7 @@
 <ol>
 <li>Kies je opbouw (bijvoorbeeld <code>2026-001</code>) en leg die vast.</li>
 <li>Nummer elke factuur direct bij het aanmaken, in volgorde.</li>
-<li>Gebruik voor proforma&#39;s of offertes een <strong>aparte</strong> aanduiding, zodat ze niet in je echte reeks belanden — zie <a href="/blog/proforma-factuur-zzp.html">proformafactuur</a>.</li>
+<li>Gebruik voor proforma&#39;s of offertes een <strong>aparte</strong> aanduiding, zodat ze niet in je echte reeks belanden. Zie <a href="/blog/proforma-factuur-zzp.html">proformafactuur</a>.</li>
 <li>Corrigeer fouten met een creditnota, nooit door te verwijderen.</li>
 <li>Bewaar alle facturen (ook de gecrediteerde) 7 jaar; digitaal mag.</li>
 <li>Controleer aan het einde van elk kwartaal of de reeks nog compleet is.</li>
@@ -148,8 +149,8 @@
 <div class="ctabox"><h3>Minder administratie, meer ondernemen?</h3>
 Sum-IT leest je bonnetjes, zet je btw apart en laat per klus zien wat je verdient. Je profiel in het netwerk is gratis, voor altijd. Boekhouden erbij kan voor €11 per maand, alles inbegrepen.
 <br><a href="/#signup">Maak je gratis profiel aan →</a></div><p class="disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
-<div class="cards"><a class="card" href="/blog/balans-winst-verliesrekening-zzp.html"><h2>Balans en winst- en verliesrekening uitgelegd</h2><p>Snap je cijfers: lees wat een balans en winst- en verliesrekening zijn, welk verschil ertussen zit en hoe je z…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/betalingsherinnering-aanmaning-zzp.html"><h2>Betalingsherinnering en aanmaning: zo pak je het aan</h2><p>Klant betaalt niet op tijd? Lees het verschil tussen een herinnering en aanmaning, welke termijnen je hanteert…</p><p class="rm">Lees verder →</p></a></div>
+<div class="cards"><a class="card" href="/blog/balans-winst-verliesrekening-zzp.html"><h2>Balans en winst- en verliesrekening uitgelegd</h2><p>Snap je cijfers: lees wat een balans en een winst- en verliesrekening zijn, wat het verschil is en hoe je ze…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/betalingsherinnering-aanmaning-zzp.html"><h2>Betalingsherinnering en aanmaning: zo pak je het aan</h2><p>Klant betaalt niet? Lees het verschil tussen herinnering en aanmaning, welke termijnen je hanteert en gebruik…</p><p class="rm">Lees verder →</p></a></div>
 </main>
-<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacyverklaring</a> · <a href="/">sum-it.eu</a><!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 </body>
 </html>

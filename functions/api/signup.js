@@ -1,5 +1,9 @@
 /* POST /api/signup — Cloudflare Pages Function.
-   Body: {naam,email,rol,bedrijfstype,boekhouder,taal,source,ref,website}
+   Body: {naam,email,rol,bedrijfstype,boekhouder,taal,source,ref,website,mailing_optin}
+   - mailing_optin (optional, default false) is stored separately from the
+     signup itself; only people who opted in are added to the Laposta mailing
+     list (single opt-in mode). Run supabase-setup-v7.sql to add the column;
+     until then the signup is stored without it.
    - honeypot 'website' filled  -> silently OK
    - disposable e-mail domains  -> silently OK
    - rate limit: max 5/hour/IP (checked in Supabase)
@@ -61,6 +65,8 @@ export async function onRequestPost({ request, env }) {
   const plaats    = String(d.plaats || '').trim().slice(0, 80) || null;   // vakman's own town -> city
   const stad      = String(d.stad || '').trim().slice(0, 80) || null;     // campaign city (e.g. breda)
   const vestiging = String(d.vestiging || '').replace(/[^a-z0-9-]/gi, '').slice(0, 40) || null;
+  // Separate, optional consent for mailings (never assumed).
+  const mailingOptin = d.mailing_optin === true || d.mailing_optin === 'true' || d.mailing_optin === 'ja';
   if (!naam || !/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) return json2({ ok: false, error: 'invalid' }, 400);
   if (DISPOSABLE.includes(email.split('@')[1])) return ok;
 
@@ -86,21 +92,28 @@ export async function onRequestPost({ request, env }) {
 
   // insert with unique ref_code (retry on collision), ignore duplicate e-mail
   let myCode = null;
-  for (let i = 0; i < 3 && !myCode; i++) {
+  let withOptin = true; // false once we know the mailing_optin column is missing (v7 not run yet)
+  for (let i = 0; i < 4 && !myCode; i++) {
     const code = refCode();
+    const row = {
+      email, naam, rol, taal,
+      bedrijfstype: rol === 'ondernemer' ? String(d.bedrijfstype || '').slice(0, 60) : null,
+      boekhouder: rol === 'ondernemer' ? (d.boekhouder === 'ja' ? 'ja' : d.boekhouder === 'nee' ? 'nee' : null) : null,
+      source: String(d.source || 'site').slice(0, 60),
+      telefoon, stad, vestiging, city: plaats,
+      ref_code: code, referred_by: referredBy, ip_hash: ipHash
+    };
+    if (withOptin) row.mailing_optin = mailingOptin;
     const res = await fetch(`${env.SUPABASE_URL}/rest/v1/signups?on_conflict=email`, {
       method: 'POST',
       headers: sbHeaders(env, { Prefer: 'resolution=ignore-duplicates,return=representation' }),
-      body: JSON.stringify({
-        email, naam, rol, taal,
-        bedrijfstype: rol === 'ondernemer' ? String(d.bedrijfstype || '').slice(0, 60) : null,
-        boekhouder: rol === 'ondernemer' ? (d.boekhouder === 'ja' ? 'ja' : d.boekhouder === 'nee' ? 'nee' : null) : null,
-        source: String(d.source || 'site').slice(0, 60),
-        telefoon, stad, vestiging, city: plaats,
-        ref_code: code, referred_by: referredBy, ip_hash: ipHash
-      })
+      body: JSON.stringify(row)
     });
     if (res.status === 409) continue;           // ref_code collision -> retry
+    if (!res.ok && withOptin && res.status === 400) {
+      const msg = await res.text().catch(() => '');
+      if (/mailing_optin/.test(msg)) { withOptin = false; continue; } // retry without the new column
+    }
     if (!res.ok) return json2({ ok: false }, 500);
     const rows = await res.json().catch(() => []);
     if (!rows.length) return ok;                // duplicate e-mail -> done, no Laposta re-add
@@ -115,12 +128,14 @@ export async function onRequestPost({ request, env }) {
       bedrijfstype: rol === 'ondernemer' ? String(d.bedrijfstype || '') : '',
       boekhouder: rol === 'ondernemer' ? String(d.boekhouder || '') : '',
       telefoon, stad, city: plaats, source: String(d.source || 'site'),
-      ref_code: myCode, referred_by: referredBy
+      ref_code: myCode, referred_by: referredBy, mailing_optin: mailingOptin
     });
   } catch { /* notification is best-effort; the signup already succeeded */ }
 
-  // Laposta member (double opt-in mail comes from the list settings)
-  if (env.LAPOSTA_API_KEY && env.LAPOSTA_LIST_ID) {
+  // Laposta member = the mailing list, so only with mailing consent. In double
+  // opt-in mode (DOUBLE_OPTIN=1) Laposta's confirmation also confirms the signup,
+  // so there every signup is still added; see SETUP.md before switching that on.
+  if (env.LAPOSTA_API_KEY && env.LAPOSTA_LIST_ID && (mailingOptin || env.DOUBLE_OPTIN === '1')) {
     try {
       const body = new URLSearchParams({
         list_id: env.LAPOSTA_LIST_ID, ip, email, source_url: 'https://sum-it.eu',

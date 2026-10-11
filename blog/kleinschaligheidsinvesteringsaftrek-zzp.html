@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="blog">
 <!-- site-header:start -->
@@ -34,17 +35,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -54,13 +55,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -69,7 +70,7 @@
 <main id="main">
 <div class="crumb"><a href="/">Home</a> · <a href="/blog/">Blog</a> · Kleinschaligheidsinvesteringsaftrek (KIA) voor…</div>
 <h1>Kleinschaligheidsinvesteringsaftrek (KIA) voor zzp&#x27;ers</h1>
-<div class="meta">Sum-IT · Belasting · 3 min leestijd · bijgewerkt 2026-08-01</div>
+<div class="meta">Sum-IT · Belasting &amp; geld · 3 min leestijd · <time datetime="2026-08-01">1 aug 2026</time></div>
 <article>
 <p>De kleinschaligheidsinvesteringsaftrek (KIA) is een extra aftrekpost voor zzp&#39;ers die in een jaar voor meer dan €2.900 in bedrijfsmiddelen investeren. Je mag dan een percentage van je investering extra van je winst aftrekken, bovenop de gewone afschrijving. In 2026 is de aftrek 28% van je investering bij bedragen tussen €2.901 en €71.683. Zo betaal je minder inkomstenbelasting in het jaar dat je investeert. Er zijn wel voorwaarden: het bedrijfsmiddel moet minstens €450 kosten en niet alles telt mee. Hieronder zie je de bedragen, de voorwaarden en hoe je de aftrek claimt.</p>
 <h2>Hoeveel KIA krijg je in 2026?</h2>
@@ -86,15 +87,15 @@
 <td>Geen aftrek</td>
 </tr>
 <tr>
-<td>€2.901 – €71.683</td>
+<td>€2.901 tot €71.683</td>
 <td>28% van het investeringsbedrag</td>
 </tr>
 <tr>
-<td>€71.684 – €132.746</td>
+<td>€71.684 tot €132.746</td>
 <td>Vast bedrag van €20.072</td>
 </tr>
 <tr>
-<td>€132.747 – €398.236</td>
+<td>€132.747 tot €398.236</td>
 <td>€20.072 min 7,56% van het deel boven €132.746</td>
 </tr>
 <tr>
@@ -152,7 +153,7 @@
 <p>Omdat de KIA per kalenderjaar naar je totale investering kijkt, kan timing een verschil maken. Een paar praktische punten:</p>
 <ul>
 <li><strong>Blijf je net onder €2.900?</strong> Dan mis je de hele aftrek. Overweeg je toch een investering te doen die je begin volgend jaar had gepland, dan kun je die soms naar voren halen om samen boven de grens uit te komen.</li>
-<li><strong>Investeer je in één jaar heel veel?</strong> Boven €71.683 geldt geen 28% meer, maar een vast bedrag. Soms is het gunstiger een grote investering over twee jaren te spreiden — maar laat dat alleen leiden door je bedrijfsbelang, niet alleen door de aftrek.</li>
+<li><strong>Investeer je in één jaar heel veel?</strong> Boven €71.683 geldt geen 28% meer, maar een vast bedrag. Soms is het gunstiger een grote investering over twee jaren te spreiden, maar laat dat alleen leiden door je bedrijfsbelang, niet alleen door de aftrek.</li>
 <li><strong>Let op het jaar van ingebruikname.</strong> De aftrek geldt in principe in het jaar dat je de verplichting aangaat. Betaal je pas later, dan gelden aanvullende regels. Check dat bij twijfel.</li>
 </ul>
 <p>De KIA gaat goed samen met andere ondernemersvoordelen zoals de zelfstandigenaftrek en de mkb-winstvrijstelling. Ze stapelen: eerst je gewone aftrekposten, dan de KIA, en over wat overblijft de mkb-winstvrijstelling van 12,7%.</p>
@@ -172,8 +173,8 @@
 <div class="ctabox"><h3>Minder administratie, meer ondernemen?</h3>
 Sum-IT leest je bonnetjes, zet je btw apart en laat per klus zien wat je verdient. Je profiel in het netwerk is gratis, voor altijd. Boekhouden erbij kan voor €11 per maand, alles inbegrepen.
 <br><a href="/#signup">Maak je gratis profiel aan →</a></div><p class="disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
-<div class="cards"><a class="card" href="/blog/btw-buitenlandse-klant-zzp.html"><h2>Btw en factureren aan buitenlandse klanten</h2><p>Factureren aan een klant in of buiten de EU? Lees hoe btw werkt bij buitenlandse klanten, wanneer je 0% of ver…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/btw-suppletie-corrigeren-zzp.html"><h2>Btw-suppletie: je btw-aangifte corrigeren</h2><p>Fout gemaakt in je btw-aangifte? Met een suppletie corrigeer je te veel of te weinig betaalde btw. Lees wannee…</p><p class="rm">Lees verder →</p></a></div>
+<div class="cards"><a class="card" href="/blog/btw-buitenlandse-klant-zzp.html"><h2>Btw en factureren aan buitenlandse klanten</h2><p>Factureren aan een klant in of buiten de EU? Lees hoe btw werkt bij buitenlandse klanten, wanneer je 0% of…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/btw-suppletie-corrigeren-zzp.html"><h2>Btw-suppletie: je btw-aangifte corrigeren</h2><p>Fout in je btw-aangifte? Met een suppletie corrigeer je te veel of te weinig betaalde btw. Lees wanneer het…</p><p class="rm">Lees verder →</p></a></div>
 </main>
-<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacyverklaring</a> · <a href="/">sum-it.eu</a><!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 </body>
 </html>

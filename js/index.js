@@ -42,7 +42,7 @@ const I18N = {
         hero_note:
             "No credit card required. Start with your email and explore Sum-IT at your own pace.",
         hero_spots: "Tradespeople in our network",
-        hero_audience: "Built for independent professionals and small teams.",
+        hero_audience: "Built for tradespeople and small teams.",
         hero_proof_title: "See the workflow",
         hero_proof_body: "from receipt to clearer numbers",
         hb1: "Privacy-first",
@@ -55,14 +55,14 @@ const I18N = {
         a_year: "Annual",
         a_in: "MONEY IN",
         a_out: "MONEY OUT",
-        a_thism: "This month",
-        a_thism2: "This month",
+        a_thism: "This month · incl. VAT",
+        a_thism2: "This month · incl. VAT",
         a_cash: "CASH HELD",
         a_vslm: "vs last month",
-        a_vat: "VAT — IN VS OUT",
+        a_vat: "VAT: IN VS OUT",
         a_est: "ESTIMATE",
-        a_coll: "Collected <b class='pk'>€1.932</b>",
-        a_paid: "Paid <b class='gr'>€207</b>",
+        a_coll: "Collected <b class='pk'>€1.676,53</b>",
+        a_paid: "Paid <b class='gr'>€49,46</b>",
         a_net: "Net VAT to set aside",
         a_act: "ACTIONS",
         a_drafts: "drafts need review",
@@ -89,10 +89,10 @@ const I18N = {
         a_msgsub: "Chat B2B agreements, accept terms, counter offer",
         a_msgs: "Messages",
         a_contacts: "Contacts",
-        a_c1: "Plumbing · 2,1 km · <em>voorbeeld</em>",
-        a_c2: "Electrician · 4,8 km · <em>voorbeeld</em>",
-        a_c3: "Carpentry · 6,3 km · <em>voorbeeld</em>",
-        a_c4: "Painting · 3,2 km · <em>voorbeeld</em>",
+        a_c1: "Plumbing · 2.1 km · <em>voorbeeld</em>",
+        a_c2: "Electrician · 4.8 km · <em>voorbeeld</em>",
+        a_c3: "Carpentry · 6.3 km · <em>voorbeeld</em>",
+        a_c4: "Painting · 3.2 km · <em>voorbeeld</em>",
         a_team1: "Team up",
         a_team2: "Team up",
         a_team3: "Team up",
@@ -141,10 +141,10 @@ const I18N = {
         c1_b: "Take a photo of a receipt, and Sum-IT reads it, files it, and remembers, so you don't have to.",
         c2_t: "Earn",
         c2_b: "All expenses automatically funnel into projects. See how much profit you made on every job, and which aren't performing as they should.",
-        d3a: "VAT — IN VS OUT",
+        d3a: "VAT: IN VS OUT",
         d3b: "ESTIMATE",
         d3c: "Net VAT to set aside",
-        d3d: "VAT return (quarterly), due 15 July",
+        d3d: "VAT return (quarterly), due 31 July",
         c3_t: "No surprise tax bill",
         c3_b: "Your VAT reserve fills as you're paid. Submitting expenses to your accountant becomes as easy as pressing a button.",
         hub_k: "Set projects. Run every job from one page",
@@ -219,12 +219,12 @@ const I18N = {
         ct_h2: "Know what to set aside, before the bill lands",
         ct_lead:
             "Your VAT reserve fills as you're paid, and Sum-IT keeps the estimate up to date. When the quarter ends, send it all to your accountant at the press of a button, or let Sum-IT guide you through filing it yourself, step by step.",
-        ct_c1: "VAT RETURN (QUARTERLY), DUE 15 JULY",
+        ct_c1: "VAT RETURN (QUARTERLY), DUE 31 JULY",
         ct_c2: "We keep the estimate current, set it aside already.",
         ct_c3: "RESERVE FILLED",
         ct_btn: "Send to your accountant →",
         ct_btn2: "Or file it yourself, guided step by step →",
-        cm_chip: "THE BIG ONE — IN BUILD, FREE FOREVER",
+        cm_chip: "THE BIG ONE: IN BUILD, FREE FOREVER",
         cm_h2: "Customers rate the smile. Pros rate the work.",
         cm_lead:
             "Nobody spots real quality like someone in the trade. With Sum-IT, you find local businesses through other entrepreneurs who've actually worked with them.",
@@ -290,7 +290,7 @@ const I18N = {
         st1b: '"Three jobs this week, I can\'t do them all…"',
         st1c: "Too much work is also a problem.",
         st2w: "Painter · Haarlem",
-        st2b: '"Send it over, terms agreed via Sum-IT. "',
+        st2b: '"Send it over, terms agreed via Sum-IT."',
         st2c: "<b>One team-up:</b> scope, price and terms fixed up front.",
         st3t: "Job done",
         st3w: "Customer happy",
@@ -300,7 +300,7 @@ const I18N = {
         br2: "Electricians",
         br3: "Carpenters",
         br4: "Painters",
-        br5: "Contractors",
+        br5: "Plasterers",
         br6: "already on the map",
         brd: "DEMO",
         cw1: "Build your crew",
@@ -315,11 +315,6 @@ const I18N = {
         bc2: "This is how you'll appear in the network. Make it yours and share it, every friend who joins through it counts.",
         bc3: "Your name",
         bc4: "Your trade",
-        bc5: "Painter",
-        bc6: "Plumber",
-        bc7: "Electrician",
-        bc8: "Carpenter",
-        bc9: "Contractor",
         bc10: "Other",
         bc11: "Download as image",
         bc12: "Share your card",
@@ -389,7 +384,7 @@ const I18N = {
         tm3r: "Commercial & Operations",
         tm3b: "Turns messy processes into simple products.",
         st1l: "micro-businesses in Europe",
-        st2l: "freelancers in the Netherlands",
+        st2l: "self-employed in the Netherlands (CBS, 2025)",
         st3v: "1 goal",
         st3l: "give you back the hours admin steals",
         pr_h2: "What others say",
@@ -422,17 +417,12 @@ const I18N = {
         f_mail: "E-mail",
         f_type: "What kind of business do you run?",
         f_pick: "Choose…",
-        f_o1: "Construction / technical trades",
-        f_o2: "Creative / media",
-        f_o3: "Consulting / services",
-        f_o4: "Webshop / retail",
-        f_o5: "Other",
         f_bk: "Do you work with a bookkeeper?",
         f_yes: "Yes",
         f_no: "No, I do it all myself",
         f_btn: "Create my free profile",
         f_priv:
-            "You'll get a welcome e-mail with your profile and personal link. Max one update per month, your data stays in the EU. <a href='/privacy'>Privacy policy</a>.",
+            "You'll get a welcome e-mail with your profile and personal link. Your data stays in the EU. <a href='/privacy.html'>Privacy statement</a>.",
         t_pos: "you're in the queue (demo)",
         t_body:
             "Check your inbox for our confirmation email, then share your personal link with your crew:",
@@ -442,11 +432,42 @@ const I18N = {
         foot: "Sum-IT is a product of Alpha Nova B.V., founded in the Netherlands · All data in the EU",
         fl_prijzen: "Pricing",
         fl_over: "About Us",
-        fl_zzp: "For Self-Employed",
+        fl_zzp: "For freelancers",
         fl_aannemers: "For Contractors",
         fl_boekhouders: "For Bookkeepers",
         fl_more_pricing: "More on pricing →",
         ftag: "TOGETHER TO THE TOP",
+        doc_title: "Sum-IT: Less faff. More business.",
+        hpl: "PRODUCT PREVIEW",
+        hf1: "Money in",
+        hf2: "+12.4% this month",
+        hf3: "VAT to set aside",
+        hf4: "Ready for review",
+        hf5: "Cash held",
+        hf6: "▲ 4.2% vs last month",
+        a_owner: "OWNER",
+        a_pct: "4.2%",
+        bc22: "Upload your logo",
+        bc23: "PNG, WEBP or SVG · transparent background",
+        bc24: "Browse",
+        bc25: "LIVE PREVIEW",
+        bc26: "Your network card",
+        in_k: "Blog",
+        in_h2: "Latest articles",
+        in_lead: "Practical guides in plain language: tax, jobs, working together and the 2026 rules. Articles are in Dutch.",
+        in_all: "All articles on the blog →",
+        in_read: "Read article →",
+        st1v: "24M+",
+        st2v: "1.2M",
+        f_mail_ph: "you@business.nl",
+        f_optin: "Yes, send me occasional Sum-IT updates (at most one a month). Optional, you can unsubscribe at any time.",
+        f_err: "Sorry, we couldn't save your sign-up. Your details are still here, please try again in a moment.",
+        f_err_invalid: "Please check your name and e-mail address and try again.",
+        f_sending: "Sending…",
+        of_150: "★ First 150 users: three months free",
+        fb150: "First 150 users: three months free",
+        of_left: "{n} of 150 places left",
+        of_full: "All 150 places have been taken",
     },
     nl: {
         m_blog: "Blog",
@@ -476,12 +497,12 @@ const I18N = {
         inv_close: "Sluiten",
         m_proj: "Projecten",
         m_comm: "Community",
-        m_price: "Prijs",
+        m_price: "Prijzen",
         m_team: "Team",
         m_join: "Gratis profiel aanmaken",
         cm_more: "Meer over het netwerk →",
         hero_kicker:
-            "Bijna live in Nederland — je profiel in het netwerk is gratis",
+            "Bijna live in Nederland: je profiel in het netwerk is gratis",
         foot_login: "Inloggen",
         hero_h1: "Minder boekhouden.<br><em>Meer ondernemen.</em>",
         hero_sub:
@@ -490,7 +511,7 @@ const I18N = {
         hero_note:
             "Geen creditcard nodig. Begin met je e-mailadres en verken Sum-IT op je eigen tempo.",
         hero_spots: "Vakmensen op de kaart",
-        hero_audience: "Gemaakt voor zelfstandigen en kleine teams.",
+        hero_audience: "Gemaakt voor vakmensen en kleine teams.",
         hero_proof_title: "Bekijk de workflow",
         hero_proof_body: "van bonnetje naar helder overzicht",
         hb1: "Privacy-first",
@@ -503,14 +524,14 @@ const I18N = {
         a_year: "Jaar",
         a_in: "BINNEN",
         a_out: "UIT",
-        a_thism: "Deze maand",
-        a_thism2: "Deze maand",
+        a_thism: "Deze maand · incl. btw",
+        a_thism2: "Deze maand · incl. btw",
         a_cash: "HUIDIG SALDO",
         a_vslm: "t.o.v. vorige maand",
-        a_vat: "BTW — IN VS UIT",
+        a_vat: "BTW: IN VS UIT",
         a_est: "SCHATTING",
-        a_coll: "Ontvangen <b class='pk'>€1.932</b>",
-        a_paid: "Betaald <b class='gr'>€207</b>",
+        a_coll: "Ontvangen <b class='pk'>€1.676,53</b>",
+        a_paid: "Betaald <b class='gr'>€49,46</b>",
         a_net: "Netto btw opzij te zetten",
         a_act: "TE DOEN",
         a_drafts: "bonnen te checken",
@@ -532,7 +553,7 @@ const I18N = {
         a_acc: "GEACCEPTEERD",
         a_sent: "VERZONDEN",
         a_linked: "Gekoppeld aan project",
-        a_green: "Greenlight →",
+        a_green: "Groen licht →",
         a_msg: "Berichten & Chat",
         a_msgsub:
             "Chat over B2B-afspraken, accepteer voorwaarden, doe een tegenbod",
@@ -590,10 +611,10 @@ const I18N = {
         c1_b: "Maak een foto van je bonnetje en Sum-IT leest, verwerkt en onthoudt 'm, zodat jij het niet hoeft te doen.",
         c2_t: "Verdien",
         c2_b: "Alle uitgaven stromen automatisch naar je projecten. Zie hoeveel winst je op elke klus maakt, en welke niet presteert zoals het zou moeten.",
-        d3a: "BTW — IN VS UIT",
+        d3a: "BTW: IN VS UIT",
         d3b: "SCHATTING",
         d3c: "Netto btw opzij te zetten",
-        d3d: "Btw-aangifte (kwartaal) vóór 15 juli",
+        d3d: "Btw-aangifte (kwartaal) uiterlijk 31 juli",
         c3_t: "Geen verrassende belastingaanslag!",
         c3_b: "Je btw-reserve vult zich terwijl je betaald wordt. Bonnetjes aanleveren bij je boekhouder wordt zo makkelijk als op een knop drukken.",
         hub_k: "Maak projecten. Run elke klus vanaf één pagina",
@@ -668,12 +689,12 @@ const I18N = {
         ct_h2: "Weet wat je opzij zet, vóór de aanslag valt",
         ct_lead:
             "Je btw-reserve vult zich terwijl je betaald wordt, en Sum-IT houdt de schatting actueel. Aan het eind van het kwartaal stuur je alles met één druk op de knop naar je boekhouder, óf Sum-IT begeleidt je stap voor stap als je het zelf doet.",
-        ct_c1: "BTW-AANGIFTE (KWARTAAL) VÓÓR 15 JULI",
+        ct_c1: "BTW-AANGIFTE (KWARTAAL) UITERLIJK 31 JULI",
         ct_c2: "We houden de schatting bij, zet het alvast opzij.",
         ct_c3: "RESERVE GEVULD",
         ct_btn: "Stuur naar boekhouder →",
         ct_btn2: "Of doe het zelf, stap voor stap begeleid →",
-        cm_chip: "DE GROTE BELOFTE — IN AANBOUW, GRATIS OM MEE TE DOEN",
+        cm_chip: "DE GROTE BELOFTE: IN AANBOUW, GRATIS OM MEE TE DOEN",
         cm_h2:
             "Klanten beoordelen de glimlach. Vakmensen beoordelen het werk.",
         cm_lead:
@@ -692,7 +713,7 @@ const I18N = {
         mp2: "Zet jouw regio op de kaart →",
         mp3: "Elk nieuw lid laat z'n stad oplichten. De tellers gaan live met de echte cijfers.",
         cm_s4b:
-            "Als het live gaat: betalingen lopen veilig via Sum-IT. Alles vooraf afgesproken, afgerekend zonder achteraan te zitten.",
+            "Als het live gaat: betalingen lopen veilig via Sum-IT. Alles vooraf afgesproken, afgerekend zonder erachteraan te hoeven zitten.",
         cm_s4s: "BINNENKORT",
         vt1x: "Wat moet als eerste live?",
         of_soon: "BINNENKORT",
@@ -704,7 +725,7 @@ const I18N = {
         ofs3: "Gekoppeld aan het project",
         ofs3b: "Kosten & resultaat automatisch bijgehouden",
         cm_note:
-            "<b>Verdien, als het live gaat:</b> betalingen lopen veilig via Sum-IT. Alles vooraf afgesproken, afgerekend zonder achteraan te zitten.",
+            "<b>Verdien, als het live gaat:</b> betalingen lopen veilig via Sum-IT. Alles vooraf afgesproken, afgerekend zonder erachteraan te hoeven zitten.",
         cm_you: "JIJ",
         cm_youb: "+ je crew",
         cm_v1: "voorbeeld",
@@ -741,7 +762,7 @@ const I18N = {
         st1b: '"Drie klussen deze week, ik red het niet…"',
         st1c: "Te veel werk is ook een probleem.",
         st2w: "Schilder · Haarlem",
-        st2b: '"Stuur maar door, voorwaarden vast via Sum-IT. "',
+        st2b: '"Stuur maar door, voorwaarden vast via Sum-IT."',
         st2c: "<b>Eén team-up:</b> omvang, prijs en voorwaarden vooraf vast.",
         st3t: "Klus geklaard",
         st3w: "Klant blij",
@@ -751,7 +772,7 @@ const I18N = {
         br2: "Elektriciens",
         br3: "Timmerlieden",
         br4: "Schilders",
-        br5: "Aannemers",
+        br5: "Stukadoors",
         br6: "al op de kaart",
         brd: "DEMO",
         cw1: "Bouw je crew alvast",
@@ -766,11 +787,6 @@ const I18N = {
         bc2: "Zo sta jij straks in het netwerk. Maak 'm van jou en deel 'm, elke vriend die via jouw kaartje meedoet, telt.",
         bc3: "Je naam",
         bc4: "Je vak",
-        bc5: "Schilder",
-        bc6: "Loodgieter",
-        bc7: "Elektricien",
-        bc8: "Timmerman",
-        bc9: "Aannemer",
         bc10: "Anders",
         bc11: "Download als afbeelding",
         bc12: "Deel je kaart",
@@ -828,7 +844,7 @@ const I18N = {
         bk_r2: "Btw voorgesorteerd (9% / 21%)",
         bk_r3: "Schoenendozen vol bonnetjes",
         trh: "Privacy moet ook eenvoudig zijn",
-        trb: "Alle data uitsluitend in de EU · GDPR by design · versleuteld onderweg · audit-veilige administratie waar je boekhouder en de Belastingdienst op kunnen vertrouwen.",
+        trb: "Alle data uitsluitend in de EU · ontworpen volgens de AVG · versleuteld onderweg · audit-veilige administratie waar je boekhouder en de Belastingdienst op kunnen vertrouwen.",
         tm_k: "Het team",
         tm_h2: "Gebouwd door mensen die het zelf geleefd hebben",
         tm_lead:
@@ -840,7 +856,7 @@ const I18N = {
         tm3r: "Commercieel & Operations",
         tm3b: "Maakt van rommelige processen simpele producten.",
         st1l: "micro-ondernemingen in Europa",
-        st2l: "zzp'ers in Nederland",
+        st2l: "zzp'ers in Nederland (CBS, 2025)",
         st3v: "1 doel",
         st3l: "jou de uren teruggeven die admin steelt",
         pr_h2: "Wat anderen zeggen",
@@ -874,17 +890,12 @@ const I18N = {
         f_mail: "E-mailadres",
         f_type: "Wat voor bedrijf heb je?",
         f_pick: "Kies…",
-        f_o1: "Bouw / technische diensten",
-        f_o2: "Creatief / media",
-        f_o3: "Advies / diensten",
-        f_o4: "Webshop / retail",
-        f_o5: "Anders",
         f_bk: "Werk je met een boekhouder?",
         f_yes: "Ja",
         f_no: "Nee, ik doe alles zelf",
         f_btn: "Maak mijn gratis profiel aan",
         f_priv:
-            "Je krijgt een welkomstmail met je profiel en je persoonlijke link. Max één update per maand, je data blijft in de EU. <a href='/privacy'>Privacyverklaring</a>.",
+            "Je krijgt een welkomstmail met je profiel en je persoonlijke link. Je data blijft in de EU. <a href='/privacy.html'>Privacyverklaring</a>.",
         t_pos: "je staat in de rij (demo)",
         t_body:
             "Check je inbox voor onze bevestigingsmail en deel daarna je persoonlijke link met je crew:",
@@ -899,6 +910,37 @@ const I18N = {
         fl_boekhouders: "Voor boekhouders",
         fl_more_pricing: "Meer over prijzen →",
         ftag: "SAMEN NAAR DE TOP",
+        doc_title: "Sum-IT: Minder boekhouden. Meer ondernemen.",
+        hpl: "PRODUCTVOORBEELD",
+        hf1: "Binnen",
+        hf2: "+12,4% deze maand",
+        hf3: "Btw opzij te zetten",
+        hf4: "Klaar om te controleren",
+        hf5: "Huidig saldo",
+        hf6: "▲ 4,2% t.o.v. vorige maand",
+        a_owner: "EIGENAAR",
+        a_pct: "4,2%",
+        bc22: "Upload je logo",
+        bc23: "PNG, WEBP of SVG · transparante achtergrond",
+        bc24: "Bladeren",
+        bc25: "LIVE VOORBEELD",
+        bc26: "Je netwerkkaartje",
+        in_k: "Blog",
+        in_h2: "Nieuwste artikelen",
+        in_lead: "Praktische gidsen in normale mensentaal: belasting, klussen, samenwerken en de regels van 2026.",
+        in_all: "Alle artikelen op de blog →",
+        in_read: "Lees artikel →",
+        st1v: "24 miljoen",
+        st2v: "1,2 miljoen",
+        f_mail_ph: "jij@bedrijf.nl",
+        f_optin: "Ja, stuur me af en toe updates over Sum-IT (hooguit één per maand). Niet verplicht, afmelden kan altijd.",
+        f_err: "Sorry, je aanmelding is niet opgeslagen. Je gegevens staan er nog, probeer het zo nog eens.",
+        f_err_invalid: "Controleer je naam en e-mailadres en probeer het opnieuw.",
+        f_sending: "Bezig met versturen…",
+        of_150: "★ Eerste 150 gebruikers: drie maanden gratis",
+        fb150: "Eerste 150 gebruikers: drie maanden gratis",
+        of_left: "Nog {n} van de 150 plekken",
+        of_full: "De 150 plekken zijn vergeven",
     },
 };
 let LANG = "en";
@@ -939,6 +981,20 @@ function setLang(l) {
         const k = el.getAttribute("data-i18n-ph");
         if (I18N[l][k] !== undefined) el.placeholder = I18N[l][k];
     });
+    if (I18N[l].doc_title) document.title = I18N[l].doc_title;
+    /* Signup form and business card use the app's trade list (/js/trades.js). */
+    if (window.SumitTrades) {
+        SumitTrades.fill(document.getElementById("type"), l);
+        var bt = document.getElementById("bctrade-in");
+        SumitTrades.fill(bt, l);
+        if (bt && !bt.dataset.ready) {
+            bt.dataset.ready = "1";
+            bt.value = "Schilder";
+        }
+    }
+    if (document.getElementById("bctrade-in")) bcUpdate();
+    renderOfferLeft();
+    renderLatest();
     cap.innerHTML = I18N[LANG]["cap" + cur];
     applyRole();
     wireAllShares();
@@ -969,14 +1025,156 @@ function applyRole() {
             if (I18N[LANG][k] !== undefined) el.innerHTML = I18N[LANG][k];
         }
     }
+    var offer = document.querySelector('[data-i18n="fb150"]');
+    if (offer) offer.parentElement.style.display = bk ? "none" : "";
     var lead = document.querySelector('[data-i18n="f_lead"]');
     if (lead) {
         var lk = bk ? "fbk_lead" : "f_lead";
         if (I18N[LANG][lk] !== undefined) lead.innerHTML = I18N[LANG][lk];
     }
 }
-let CLAIMED_DEMO = 0;
-const fillEl = document.getElementById("spotfill");
+/* ---- Blog section: the newest articles, chosen like "Nieuwste artikelen"
+   on /blog/ (blog/blog.js): featured CMS posts first, then newest date; on
+   equal dates CMS posts before static articles, static ones in blog order.
+   The static three are written into index.html by scripts/build-blog-index.mjs
+   so the section works without JavaScript; here we add CMS posts and EN text. */
+var BLOG_CATS = {
+    belasting: { nl: "Belasting & geld", en: "Tax & money" },
+    projecten: { nl: "Projecten, offertes & geld", en: "Projects, quotes & money" },
+    samenwerken: { nl: "Samenwerken & netwerk", en: "Working together & network" },
+    basis: { nl: "Starten & administratie", en: "Starting out & admin" },
+    "sum-it": { nl: "Sum-IT & vergelijken", en: "Sum-IT & comparisons" },
+};
+var LATEST = (function () {
+    var grid = document.getElementById("home-latest");
+    if (!grid) return null;
+    return Array.prototype.map.call(grid.querySelectorAll(".v24-blog-card"), function (c, i) {
+        return {
+            href: c.getAttribute("href"),
+            cat: c.dataset.cat,
+            date: c.dataset.date || "",
+            title: c.querySelector("h3").textContent,
+            desc: c.querySelector("p").textContent,
+            title_en: c.dataset.titleEn || "",
+            desc_en: c.dataset.descEn || "",
+            featured: false,
+            order: i,
+        };
+    });
+})();
+function latestDate(iso) {
+    try {
+        return new Intl.DateTimeFormat(LANG === "en" ? "en-GB" : "nl-NL", { day: "numeric", month: "short", year: "numeric" })
+            .format(new Date(iso + "T12:00:00")).replace(".", "");
+    } catch (e) {
+        return iso;
+    }
+}
+function renderLatest() {
+    var grid = document.getElementById("home-latest");
+    if (!grid || !LATEST || !LATEST.length) return;
+    var en = LANG === "en";
+    var make = function (tag, cls, text) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text !== undefined) e.textContent = text;
+        return e;
+    };
+    grid.textContent = "";
+    LATEST.forEach(function (p) {
+        var a = make("a", "v24-blog-card");
+        a.href = p.href;
+        var top = make("div", "v24-blog-top");
+        top.appendChild(make("span", "v24-blog-tag", (BLOG_CATS[p.cat] || BLOG_CATS.basis)[en ? "en" : "nl"]));
+        var arrow = make("span", "v24-blog-arrow");
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.appendChild(make("i", "fi fi-rr-arrow-up-right"));
+        top.appendChild(arrow);
+        a.appendChild(top);
+        a.appendChild(make("h3", null, (en && p.title_en) || p.title));
+        a.appendChild(make("p", null, (en && p.desc_en) || p.desc));
+        var meta = make("span", "v24-blog-meta");
+        if (p.date) {
+            var t = make("time", null, latestDate(p.date));
+            t.setAttribute("datetime", p.date);
+            meta.appendChild(t);
+            meta.appendChild(document.createTextNode(" · "));
+        }
+        meta.appendChild(document.createTextNode(I18N[LANG].in_read));
+        a.appendChild(meta);
+        grid.appendChild(a);
+    });
+}
+(function loadCmsLatest() {
+    var url = window.BLOG_SB_URL || window.SB_URL;
+    var key = window.BLOG_SB_URL ? window.BLOG_SB_ANON : window.SB_ANON;
+    if (!LATEST || !url || String(url).indexOf("http") !== 0) return;
+    var base = "slug,title,description,created_at";
+    /* Newest column set first; step down while the blog migrations haven't run. */
+    var levels = [base + ",published_at,category,is_featured,title_en,description_en", base + ",published_at,category,is_featured", base];
+    function attempt(i) {
+        return fetch(url + "/rest/v1/blog_posts?select=" + levels[i] + "&published=eq.true&order=created_at.desc&limit=100", {
+            headers: { apikey: key, Authorization: "Bearer " + key },
+        }).then(function (r) {
+            return r.json().then(function (body) {
+                if (!r.ok && body && body.code === "42703" && i < levels.length - 1) return attempt(i + 1);
+                if (!r.ok || !Array.isArray(body)) throw new Error("CMS request failed");
+                return body;
+            });
+        });
+    }
+    attempt(0)
+        .then(function (posts) {
+            var cms = posts
+                .filter(function (p) { return p && /^[a-z0-9-]{3,80}$/.test(p.slug || ""); })
+                .map(function (p) {
+                    var d = String(p.published_at || p.created_at || "").slice(0, 10);
+                    return {
+                        href: "/blog/post.html?slug=" + encodeURIComponent(p.slug),
+                        cat: BLOG_CATS[p.category] ? p.category : "basis",
+                        date: /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : "",
+                        title: p.title || "",
+                        desc: p.description || "",
+                        title_en: p.title_en || "",
+                        desc_en: p.description_en || "",
+                        featured: !!p.is_featured,
+                        order: -1,
+                    };
+                })
+                .filter(function (p) { return p.date; });
+            if (!cms.length) return;
+            LATEST = cms.concat(LATEST)
+                .sort(function (a, b) {
+                    if (a.featured !== b.featured) return a.featured ? -1 : 1;
+                    if (a.date !== b.date) return a.date > b.date ? -1 : 1;
+                    return a.order - b.order;
+                })
+                .slice(0, 3);
+            renderLatest();
+        })
+        .catch(function () { /* keep the static articles */ });
+})();
+
+/* Public stats. claimed_display is deliberately not used: older API
+   deployments add a fixed display offset to it, so it is not a real count. */
+var STATS = null;
+/* "X of 150 places left" — only shown with a real count (API field "claimed",
+   no offset) and only once switched on in config.js (SITE_CFG.offer). Never
+   negative; once the places are gone it says so. */
+function renderOfferLeft() {
+    var el = document.getElementById("offer-left");
+    if (!el) return;
+    var cfg = (window.SITE_CFG && SITE_CFG.offer) || {};
+    if (!cfg.showRemaining || !STATS || typeof STATS.claimed !== "number") {
+        el.hidden = true;
+        return;
+    }
+    var left = Math.max(0, (cfg.limit || 150) - STATS.claimed);
+    el.textContent = left > 0
+        ? I18N[LANG].of_left.replace("{n}", left)
+        : I18N[LANG].of_full;
+    el.hidden = false;
+}
 (function () {
     var base = (window.SITE_CFG && SITE_CFG.API_BASE) || "";
     fetch(base + "/api/stats/public")
@@ -985,29 +1183,23 @@ const fillEl = document.getElementById("spotfill");
         })
         .then(function (s) {
             if (!s) return;
-            if (typeof s.claimed_display === "number") {
-                CLAIMED_DEMO = s.claimed_display;
-                if (fillEl) fillEl.style.width = (CLAIMED_DEMO / 500) * 100 + "%";
-            }
-            // trades chips: update counts when real data flows (>=3 rule is server-side)
-            if (s.trades) {
-                var map = {
-                    br1: "bouw",
-                    br2: "creatief",
-                    br3: "advies",
-                    br4: "webshop",
-                    br5: "anders",
-                };
-                /* note: chips are trade-labeled; only swap counts when key exists */
-                document.querySelectorAll(".brchip b").forEach(function (b, i) {
-                    var keys = Object.keys(s.trades);
-                    if (keys[i] && s.trades[keys[i]] >= 3) {
-                        b.textContent = "×" + s.trades[keys[i]];
-                    }
-                });
-                var d1 = document.querySelector(".netband .demotag");
-                if (d1 && Object.keys(s.trades).length) d1.style.display = "none";
-            }
+            STATS = s;
+            renderOfferLeft();
+            /* "Al op de kaart" chips: replace the demo counts only when every
+               chip's own trade has real data (>=3 rule is server-side), so
+               demo and real numbers are never mixed and DEMO stays until then. */
+            var chips = document.querySelectorAll(".brchip[data-trade]");
+            var counts = [];
+            chips.forEach(function (chip) {
+                var n = s.trades && s.trades[chip.getAttribute("data-trade")];
+                if (typeof n === "number" && n >= 3) counts.push(n);
+            });
+            if (!chips.length || counts.length !== chips.length) return;
+            chips.forEach(function (chip, i) {
+                chip.querySelector("b").textContent = "×" + counts[i];
+            });
+            var d1 = document.querySelector(".netband .demotag");
+            if (d1) d1.style.display = "none";
         })
         .catch(function () { });
 })();
@@ -1664,8 +1856,12 @@ document
     .addEventListener("submit", function (e) {
         e.preventDefault();
         var f = this,
-            btn = document.getElementById("submitbtn");
+            btn = document.getElementById("submitbtn"),
+            err = document.getElementById("form-err");
+        if (btn.disabled) return;
         btn.disabled = true;
+        btn.textContent = I18N[LANG].f_sending;
+        if (err) err.hidden = true;
         var payload = {
             naam: document.getElementById("naam").value.trim(),
             email: document.getElementById("email").value.trim(),
@@ -1680,6 +1876,8 @@ document
             source: "site-founding500-v22",
             ref: document.getElementById("reffield").value || "",
             website: document.getElementById("hp-website").value || "",
+            /* Optional, separate consent for mailings (never pre-ticked). */
+            mailing_optin: document.getElementById("mailing-optin").checked,
         };
         var base = (window.SITE_CFG && SITE_CFG.API_BASE) || "";
         fetch(base + "/api/signup", {
@@ -1687,12 +1885,30 @@ document
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
         })
-            .catch(function () {
-                return null;
+            .then(function (r) {
+                return r.json()
+                    .catch(function () { return null; })
+                    .then(function (j) {
+                        if (r.ok && j && j.ok === true) return "ok";
+                        return r.status === 400 ? "invalid" : "error";
+                    });
             })
-            .then(function () {
-                document.getElementById("form-state").style.display = "none";
-                document.getElementById("thanks-state").style.display = "block";
+            .catch(function () {
+                return "error";
+            })
+            .then(function (result) {
+                btn.disabled = false;
+                applyRole(); /* restores the button label */
+                if (result === "ok") {
+                    document.getElementById("form-state").style.display = "none";
+                    document.getElementById("thanks-state").style.display = "block";
+                    return;
+                }
+                /* Form values stay as typed so the visitor can simply retry. */
+                if (err) {
+                    err.textContent = I18N[LANG][result === "invalid" ? "f_err_invalid" : "f_err"];
+                    err.hidden = false;
+                }
             });
     });
 // ---- Live content overrides (edited in admin.html, stored in Supabase) ----
@@ -1811,6 +2027,11 @@ mobile CTA and back-to-top. No dependency on the existing site JS. */
             return document.querySelector(a.getAttribute("href"));
         })
         .filter(Boolean);
+    function sectionOffset(section) {
+        var pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+        var margin = parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+        return pad + margin;
+    }
 
     function updateScrollUX() {
         var doc = document.documentElement;
@@ -1827,10 +2048,16 @@ mobile CTA and back-to-top. No dependency on the existing site JS. */
         if (mobileCta)
             mobileCta.classList.toggle("show", window.scrollY > 480);
 
-        var current = "";
+        /* A clicked section stops at scroll-padding-top + scroll-margin-top
+           (174px); compare against that same offset, and take the section
+           lowest on the page, so menu order (Team before Blog) can't win. */
+        var current = "", best = -Infinity;
         sections.forEach(function (section) {
-            if (section.getBoundingClientRect().top <= 130)
+            var top = section.getBoundingClientRect().top;
+            if (top <= sectionOffset(section) + 2 && top > best) {
+                best = top;
                 current = section.id;
+            }
         });
         links.forEach(function (link) {
             link.classList.toggle(

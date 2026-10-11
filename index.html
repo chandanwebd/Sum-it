@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Sum-IT: Less faff. More business.</title>
+    <title>Sum-IT: Minder boekhouden. Meer ondernemen.</title>
     <meta
       name="description"
-      content="Snap a photo of a receipt, and Sum-IT reads it, files it, and remembers, so you don't have to. The financial back office for Europe's micro-businesses. Create a free profile." />
+      content="Maak een foto van je bonnetje en Sum-IT leest, verwerkt en onthoudt 'm, zodat jij het niet hoeft te doen. De financiële backoffice voor vakmensen en kleine teams. Maak gratis je profiel aan." />
     <link rel="canonical" href="https://sum-it.eu/" />
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sum-it.eu/" />
-    <meta property="og:title" content="Sum-IT: Less faff. More business." />
+    <meta property="og:title" content="Sum-IT: Minder boekhouden. Meer ondernemen." />
+    <meta property="og:locale" content="nl_NL" />
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
@@ -32,11 +33,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check" />
     <meta
       property="og:description"
-      content="Snap a receipt, Sum-IT reads it and files it, so you don't have to. Create a free profile — being in the network costs nothing." />
+      content="Foto van je bonnetje en Sum-IT leest en verwerkt 'm, zodat jij het niet hoeft te doen. Maak je gratis profiel aan: in het netwerk staan kost niets." />
     <meta property="og:image" content="https://sum-it.eu/og-image.png" />
     <script src="config.js"></script>
+    <script src="/js/trades.js"></script>
+    <script src="/sb-config.js"></script>
     <script src="js/index.js" defer></script>
     <script src="components/header/header.js" defer></script>
+    <script src="/components/invoice/calc.js" defer></script>
     <script src="/components/invoice/invoice.js" defer></script>
 
     <script>
@@ -66,17 +70,17 @@
         <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="#pricing" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="#blog" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -86,13 +90,13 @@
         <a href="#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="#pricing" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="#blog" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -128,35 +132,35 @@
                 VAT</span>
             </div>
             <p class="hero-audience" data-i18n="hero_audience">
-              Built for independent professionals and small teams.
+              Built for tradespeople and small teams.
             </p>
           </div>
 
           <div class="phone-zone">
-            <div class="hero-product-label"><i></i> PRODUCT PREVIEW</div>
+            <div class="hero-product-label"><i></i> <span data-i18n="hpl">PRODUCT PREVIEW</span></div>
             <div class="hero-float one">
               <span class="hficon"><i
                   class="fi fi-rr-arrow-up-right"
-                  style="margin-top: 5px"></i></span><span><small>Money
-                  in</small><b>€9.660</b><span class="up">+12.4% this
+                  style="margin-top: 5px"></i></span><span><small data-i18n="hf1">Money
+                  in</small><b>€9.660</b><span class="up" data-i18n="hf2">+12.4% this
                   month</span></span>
             </div>
             <div class="hero-float two">
               <span class="hficon"><i class="fi fi-rr-check"
-                  style="margin-top: 5px"></i></span><span><small>VAT to set
-                  aside</small><b>€1.725</b><span class="up">Ready for
+                  style="margin-top: 5px"></i></span><span><small data-i18n="hf3">VAT to set
+                  aside</small><b>€1.627</b><span class="up" data-i18n="hf4">Ready for
                   review</span></span>
             </div>
             <div class="hero-float three">
-              <span class="hficon">€</span><span><small>Cash
-                  held</small><b>€20.661</b><span class="up">▲ 4.2% vs last
+              <span class="hficon">€</span><span><small data-i18n="hf5">Cash
+                  held</small><b>€20.661</b><span class="up" data-i18n="hf6">▲ 4.2% vs last
                   month</span></span>
             </div>
-            <div class="hero-proof">
+            <a class="hero-proof" href="#capture">
               <strong data-i18n="hero_proof_title">See the
                 workflow</strong><span data-i18n="hero_proof_body">from receipt
                 to clearer numbers</span>
-            </div>
+            </a>
             <div class="phone">
               <div class="screen">
                 <div class="livedemo" id="livedemo">
@@ -190,7 +194,7 @@
                   <span class="mk"><img src="/sum-it-logo-mark.svg"
                       alt /></span><span class="nm">Sum-IT</span><span
                     class="sp"></span><span class="chatpill">Chat</span><span
-                    class="rolechip">OWNER</span>
+                    class="rolechip" data-i18n="a_owner">OWNER</span>
                 </div>
                 <div class="view">
                   <!-- S0 DASHBOARD (real V4.1 screen) -->
@@ -209,37 +213,37 @@
                         <small><span data-i18n="a_in">MONEY IN</span><span
                             class="ico up">↗</span></small>
                         <div class="v in">€9.660,00</div>
-                        <div class="m" data-i18n="a_thism">This month</div>
+                        <div class="m" data-i18n="a_thism">This month · incl. VAT</div>
                       </div>
                       <div class="mcard">
                         <small><span data-i18n="a_out">MONEY OUT</span><span
                             class="ico dn">↘</span></small>
                         <div class="v out">€285,00</div>
-                        <div class="m" data-i18n="a_thism2">This month</div>
+                        <div class="m" data-i18n="a_thism2">This month · incl. VAT</div>
                       </div>
                     </div>
                     <div class="wide">
                       <div class="row">
                         <small data-i18n="a_cash">CASH HELD</small><span
-                          class="up">▲ 4,2%
+                          class="up">▲ <span data-i18n="a_pct">4.2%</span>
                           <span data-i18n="a_vslm">vs last month</span></span>
                       </div>
                       <div class="v">€20.661,00</div>
                     </div>
                     <div class="wide">
                       <div class="row">
-                        <small data-i18n="a_vat">VAT — IN VS OUT</small><span
+                        <small data-i18n="a_vat">VAT, IN VS OUT</small><span
                           class="estchip" data-i18n="a_est">ESTIMATE</span>
                       </div>
                       <div class="vatbar"></div>
                       <div class="vrow">
                         <span data-i18n="a_coll">Collected <b
-                            class="pk">€1.932</b></span><span
-                          data-i18n="a_paid">Paid <b class="gr">€207</b></span>
+                            class="pk">€1.676,53</b></span><span
+                          data-i18n="a_paid">Paid <b class="gr">€49,46</b></span>
                       </div>
                       <div class="vnet">
                         <span data-i18n="a_net">Net VAT to set
-                          aside</span><b>€1.725,00</b>
+                          aside</span><b>€1.627,07</b>
                       </div>
                     </div>
                     <div class="acthead" data-i18n="a_act">ACTIONS</div>
@@ -521,7 +525,7 @@
                   style="top: 30px; left: 40%; transform: rotate(6deg)">
                   <i></i><i class="w6"></i><i class="w8"></i>
                 </div>
-                <span class="euro" style="top: 24px; right: 10%">− € 150</span>
+                <span class="euro" style="top: 24px; right: 10%">−€150</span>
                 <span
                   class="euro"
                   style="top: 60px; right: 22%; animation-delay: 0.8s">− €
@@ -631,18 +635,18 @@
                   class="wide"
                   style="margin-top: 0; border: 1px solid var(--line)">
                   <div class="row">
-                    <small data-i18n="d3a">VAT — IN VS OUT</small><span
+                    <small data-i18n="d3a">VAT, IN VS OUT</small><span
                       class="estchip" data-i18n="d3b">ESTIMATE</span>
                   </div>
                   <div class="vatbar"></div>
                   <div class="vnet">
                     <span data-i18n="d3c">Net VAT to set
-                      aside</span><b>€1.725,00</b>
+                      aside</span><b>€1.627,07</b>
                   </div>
                 </div>
                 <div class="act warn" style="margin-top: 8px">
                   <span><span class="dot a"></span><span data-i18n="d3d">VAT
-                      return (quarterly), due 15 July</span></span>
+                      return (quarterly), due 31 July</span></span>
                 </div>
               </div>
               <h3 data-i18n="c3_t">No surprise tax bill</h3>
@@ -740,7 +744,7 @@
                     <span class="mk"><img src="/sum-it-logo-mark.svg"
                         alt /></span><span class="nm">Sum-IT</span><span
                       class="sp"></span><span class="chatpill">Chat</span><span
-                      class="rolechip">OWNER</span>
+                      class="rolechip" data-i18n="a_owner">OWNER</span>
                   </div>
                   <div class="view">
                     <div class="pscr on" id="pd-list">
@@ -1214,7 +1218,7 @@
             <div class="certcard">
               <div class="wide" style="margin-top: 0">
                 <div class="row">
-                  <small data-i18n="ct_c1">VAT RETURN (QUARTERLY), DUE 15
+                  <small data-i18n="ct_c1">VAT RETURN (QUARTERLY), DUE 31
                     JULY</small>
                 </div>
                 <div class="v" style="color: var(--pink)">€254,32</div>
@@ -1261,8 +1265,7 @@
         <div class="wrap2 reveal">
           <div class="comm community-familiar">
             <div class="community-intro">
-              <span class="community-chip" data-i18n="cm_chip">THE GREAT PROMISE
-                — UNDER CONSTRUCTION, FREE TO
+              <span class="community-chip" data-i18n="cm_chip">THE GREAT PROMISE, UNDER CONSTRUCTION, FREE TO
                 PARTICIPATE</span>
               <h2 data-i18n="cm_h2">
                 Customers judge the smile.
@@ -1595,16 +1598,16 @@
                   <span class="demotag" data-i18n="brd">DEMO</span>
                 </div>
                 <div class="brancherow" style="margin-top: 0">
-                  <span class="brchip dk"><span data-i18n="br1">Plumbers</span>
+                  <span class="brchip dk" data-trade="Loodgieter"><span data-i18n="br1">Plumbers</span>
                     <b>×12</b></span>
-                  <span class="brchip dk"><span
+                  <span class="brchip dk" data-trade="Elektricien"><span
                       data-i18n="br2">Electricians</span> <b>×8</b></span>
-                  <span class="brchip dk"><span
+                  <span class="brchip dk" data-trade="Timmerman"><span
                       data-i18n="br3">Carpenters</span> <b>×15</b></span>
-                  <span class="brchip dk"><span data-i18n="br4">Painters</span>
+                  <span class="brchip dk" data-trade="Schilder"><span data-i18n="br4">Painters</span>
                     <b>×9</b></span>
-                  <span class="brchip dk"><span
-                      data-i18n="br5">Contractors</span> <b>×6</b></span>
+                  <span class="brchip dk" data-trade="Stukadoor"><span
+                      data-i18n="br5">Plasterers</span> <b>×6</b></span>
                 </div>
               </div>
             </div>
@@ -1641,12 +1644,8 @@
                 </div>
                 <label data-i18n="bc4">Your trade</label>
                 <select id="bctrade-in" onchange="bcUpdate()">
-                  <option data-i18n="bc5">Painter</option>
-                  <option data-i18n="bc6">Plumber</option>
-                  <option data-i18n="bc7">Electrician</option>
-                  <option data-i18n="bc8">Carpenter</option>
-                  <option data-i18n="bc9">Contractor</option>
-                  <option data-i18n="bc10">Other</option>
+                  <!-- the app's ten trades are inserted here by /js/trades.js -->
+                  <option value="" data-i18n="bc10" data-trades-after>Other</option>
                 </select>
                 <input
                   type="text"
@@ -1673,10 +1672,10 @@
                       </svg>
                     </span>
                     <span class="bc-upload-copy">
-                      <span>Upload your logo</span>
-                      <small>PNG, WEBP or SVG · transparent background</small>
+                      <span data-i18n="bc22">Upload your logo</span>
+                      <small data-i18n="bc23">PNG, WEBP or SVG · transparent background</small>
                     </span>
-                    <span class="bc-upload-action">Browse</span>
+                    <span class="bc-upload-action" data-i18n="bc24">Browse</span>
                   </label>
                 </div>
                 <div class="bcerr" id="bcerr"></div>
@@ -1718,8 +1717,8 @@
               <div class="bc-preview-column">
                 <div class="bc-preview-heading">
                   <div>
-                    <span class="bc-preview-eyebrow">LIVE PREVIEW</span>
-                    <strong>Your network card</strong>
+                    <span class="bc-preview-eyebrow" data-i18n="bc25">LIVE PREVIEW</span>
+                    <strong data-i18n="bc26">Your network card</strong>
                   </div>
                   <span class="bc-live-dot"><i></i> Live</span>
                 </div>
@@ -1935,7 +1934,7 @@
                     viewBox="0 0 24 24">
                     <path
                       d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z" /></svg></a>
-                <a class="soc" id="shr-mail" title="E-mail"><svg
+                <a class="soc" id="shr-mail" title="E-mail" href="mailto:?subject=Sum-IT&amp;body=https%3A%2F%2Fsum-it.eu%2F"><svg
                     viewBox="0 0 24 24">
                     <path
                       d="M2 4h20v16H2zm2 2v.5l8 5.3 8-5.3V6zm16 12V9l-8 5.3L4 9v9z" /></svg></a>
@@ -1961,6 +1960,8 @@
                   in</span></span>
             </div>
             <div class="offerchips">
+              <span class="ochip" data-i18n="of_150">★ First 150 users: three months free</span>
+              <span class="ochip" id="offer-left" hidden></span>
               <span class="ochip" data-i18n="of_c1">✓ Everything included</span>
               <span class="ochip" data-i18n="of_c2">✓ Visible in the community
                 right away</span>
@@ -2083,59 +2084,25 @@
 
 
 
-      <!-- BLOG PREVIEW -->
+      <!-- BLOG: the three newest articles, same as "Nieuwste artikelen" on /blog/.
+           Written by scripts/build-blog-index.mjs; js/index.js adds CMS posts and EN text. -->
       <section id="blog">
         <div class="wrap2 reveal">
-          <div class="k">Insights</div>
-          <h2>Practical ideas for running a better business</h2>
-          <p class="lead">
-            Short, useful guidance on receipts, VAT, cash flow and the everyday
-            admin behind small businesses.
+          <div class="k" data-i18n="in_k">Blog</div>
+          <h2 data-i18n="in_h2">Nieuwste artikelen</h2>
+          <p class="lead" data-i18n="in_lead">
+            Praktische gidsen in normale mensentaal: belasting, klussen,
+            samenwerken en de regels van 2026.
           </p>
 
-          <div class="v24-blog-grid">
-            <a class="v24-blog-card" href="/blog/">
-              <div class="v24-blog-top">
-                <span class="v24-blog-tag">Finance</span>
-                <span class="v24-blog-arrow" aria-hidden="true"><i
-                    class="fi fi-rr-arrow-up-right"></i></span>
-              </div>
-              <h3>How to keep your business finances under control</h3>
-              <p>
-                Build a simple financial routine that keeps receipts, expenses
-                and project performance visible.
-              </p>
-              <span class="v24-blog-meta">Read the latest articles →</span>
-            </a>
-
-            <a class="v24-blog-card" href="/blog/">
-              <div class="v24-blog-top">
-                <span class="v24-blog-tag">VAT</span>
-                <span class="v24-blog-arrow" aria-hidden="true"><i
-                    class="fi fi-rr-arrow-up-right"></i></span>
-              </div>
-              <h3>VAT without the last-minute panic</h3>
-              <p>
-                Understand what to reserve, what to track and what your
-                accountant needs before filing time.
-              </p>
-              <span class="v24-blog-meta">Explore VAT guidance →</span>
-            </a>
-
-            <a class="v24-blog-card" href="/blog/">
-              <div class="v24-blog-top">
-                <span class="v24-blog-tag">Small business</span>
-                <span class="v24-blog-arrow" aria-hidden="true"><i
-                    class="fi fi-rr-arrow-up-right"></i></span>
-              </div>
-              <h3>Spend less time on admin, more time on the work</h3>
-              <p>
-                Simple workflows for independent professionals and small teams
-                who want their back office to run itself.
-              </p>
-              <span class="v24-blog-meta">Visit the Sum-IT blog →</span>
-            </a>
+          <div class="v24-blog-grid" id="home-latest">
+<!-- home-latest:start -->
+<a class="v24-blog-card" href="/blog/btw-buitenlandse-klant-zzp.html" data-cat="belasting" data-date="2026-08-01" data-title-en="VAT and invoicing foreign clients" data-desc-en="Invoicing a client inside or outside the EU? Learn how VAT works for foreign clients, when to apply 0% or reverse-charged VAT and what must be on the invoice."><div class="v24-blog-top"><span class="v24-blog-tag">Belasting &amp; geld</span><span class="v24-blog-arrow" aria-hidden="true"><i class="fi fi-rr-arrow-up-right"></i></span></div><h3>Btw en factureren aan buitenlandse klanten</h3><p>Factureren aan een klant in of buiten de EU? Lees hoe btw werkt bij buitenlandse klanten, wanneer je 0% of verlegde btw toepast en wat op de factuur moet.</p><span class="v24-blog-meta"><time datetime="2026-08-01">1 aug 2026</time> · Lees artikel →</span></a>
+<a class="v24-blog-card" href="/blog/btw-verleggen-zzp.html" data-cat="belasting" data-date="2026-08-01" data-title-en="Reverse-charging VAT as a freelancer: when and how" data-desc-en="VAT reverse charge explained for freelancers: when you shift the VAT, how to state it on your invoice and what it means for your VAT return. With an example."><div class="v24-blog-top"><span class="v24-blog-tag">Belasting &amp; geld</span><span class="v24-blog-arrow" aria-hidden="true"><i class="fi fi-rr-arrow-up-right"></i></span></div><h3>Btw verleggen als zzp'er: wanneer en hoe</h3><p>Btw verleggen uitgelegd voor zzp'ers: wanneer je de btw verlegt, hoe je dat op je factuur vermeldt en wat het betekent voor je btw-aangifte. Met voorbeeld.</p><span class="v24-blog-meta"><time datetime="2026-08-01">1 aug 2026</time> · Lees artikel →</span></a>
+<a class="v24-blog-card" href="/blog/btw-suppletie-corrigeren-zzp.html" data-cat="belasting" data-date="2026-08-01" data-title-en="VAT supplement: correcting your VAT return" data-desc-en="A mistake in your VAT return? A supplementary return corrects VAT paid too much or too little. Learn when it's required, the €1,000 threshold and how to do it."><div class="v24-blog-top"><span class="v24-blog-tag">Belasting &amp; geld</span><span class="v24-blog-arrow" aria-hidden="true"><i class="fi fi-rr-arrow-up-right"></i></span></div><h3>Btw-suppletie: je btw-aangifte corrigeren</h3><p>Fout in je btw-aangifte? Met een suppletie corrigeer je te veel of te weinig betaalde btw. Lees wanneer het moet, de grens van €1.000 en hoe je het doet.</p><span class="v24-blog-meta"><time datetime="2026-08-01">1 aug 2026</time> · Lees artikel →</span></a>
+<!-- home-latest:end -->
           </div>
+          <a class="v24-blog-all" href="/blog/" data-i18n="in_all">Alle artikelen op de blog →</a>
         </div>
       </section>
 
@@ -2197,16 +2164,16 @@
           </div>
           <div class="stats">
             <div class="stat">
-              <b>24M+</b>
+              <b data-i18n="st1v">24M+</b>
               <span data-i18n="st1l">
                 micro-businesses in Europe
               </span>
             </div>
 
             <div class="stat">
-              <b>1,8M</b>
+              <b data-i18n="st2v">1.2M</b>
               <span data-i18n="st2l">
-                freelancers in the Netherlands
+                self-employed in the Netherlands (CBS, 2025)
               </span>
             </div>
 
@@ -2233,6 +2200,9 @@
               <span class="fbchip"><span class="ck"><i
                     class="fi fi-rr-check"></i></span><span data-i18n="fb1">A
                   free profile in the network</span></span>
+              <span class="fbchip"><span class="ck"><i
+                    class="fi fi-rr-check"></i></span><span data-i18n="fb150">First 150
+                  users: three months free</span></span>
               <span class="fbchip"><span class="ck"><i
                     class="fi fi-rr-check"></i></span><span
                   data-i18n="fb2">Early access, before the public
@@ -2284,7 +2254,9 @@
                   id="email"
                   name="email"
                   required
-                  placeholder="you@business.nl" />
+                  autocomplete="email"
+                  placeholder="you@business.nl"
+                  data-i18n-ph="f_mail_ph" />
                 <div id="biz-fields">
                   <label for="type" data-i18n="f_type">What kind of business do
                     you run?</label>
@@ -2292,13 +2264,7 @@
                     <option value disabled selected data-i18n="f_pick">
                       Choose…
                     </option>
-                    <option data-i18n="f_o1">
-                      Construction / technical trades
-                    </option>
-                    <option data-i18n="f_o2">Creative / media</option>
-                    <option data-i18n="f_o3">Consulting / services</option>
-                    <option data-i18n="f_o4">Webshop / retail</option>
-                    <option data-i18n="f_o5">Other</option>
+                    <!-- the app's ten trades are inserted here by /js/trades.js -->
                   </select>
                   <label data-i18n="f_bk">Do you work with a bookkeeper?</label>
                   <div class="radio-row">
@@ -2328,6 +2294,11 @@
                   name="source"
                   value="site-founding500-v8" />
                 <input type="hidden" name="ref" id="reffield" value />
+                <label class="optin" for="mailing-optin">
+                  <input type="checkbox" id="mailing-optin" name="mailing_optin" value="ja" />
+                  <span data-i18n="f_optin">Yes, send me occasional Sum-IT updates (at most one a
+                    month). Optional, you can unsubscribe at any time.</span>
+                </label>
                 <button
                   class="btn big"
                   type="submit"
@@ -2336,10 +2307,11 @@
                   data-i18n="f_btn">
                   Create my free profile
                 </button>
+                <p class="form-err" id="form-err" role="alert" hidden></p>
                 <p class="fineprint" data-i18n="f_priv">
                   You'll get a welcome e-mail with your profile and personal
-                  link. Max one update per month, your data stays in the EU.
-                  <a href="/privacy">Privacy policy</a>.
+                  link. Your data stays in the EU.
+                  <a href="/privacy.html">Privacy statement</a>.
                 </p>
               </form>
             </div>
@@ -2388,7 +2360,7 @@
                     viewBox="0 0 24 24">
                     <path
                       d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z" /></svg></a>
-                <a class="soc" id="sh-mail" title="E-mail"><svg
+                <a class="soc" id="sh-mail" title="E-mail" href="mailto:?subject=Sum-IT&amp;body=https%3A%2F%2Fsum-it.eu%2F"><svg
                     viewBox="0 0 24 24">
                     <path
                       d="M2 4h20v16H2zm2 2v.5l8 5.3 8-5.3V6zm16 12V9l-8 5.3L4 9v9z" /></svg></a>
@@ -2405,17 +2377,17 @@
           class="ftag"
           data-i18n="ftag">TOGETHER TO THE TOP</span>
       </div>
-      <!-- SOCIALS: replace href="#" with real profile URLs when accounts exist -->
+      <!-- SOCIALS: URLs come from config.js (node components/footer/sync.mjs writes them here and in every other footer) -->
       <div class="fsoc" id="fsoc">
-        <a href="#" title="LinkedIn" data-soc="linkedin"><svg
+        <a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" data-soc="linkedin"><svg
             viewBox="0 0 24 24">
             <path
               d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z" /></svg></a>
-        <a href="#" title="Instagram" data-soc="instagram"><svg
+        <a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" data-soc="instagram"><svg
             viewBox="0 0 24 24">
             <path
               d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z" /></svg></a>
-        <a href="#" title="X" data-soc="x"><svg viewBox="0 0 24 24">
+        <a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" data-soc="x"><svg viewBox="0 0 24 24">
             <path
               d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z" /></svg></a>
       </div>
@@ -2431,7 +2403,7 @@
       <div class="flinks">
         <a href="/prijzen/" data-i18n="fl_prijzen">Pricing</a> ·
         <a href="/over-ons/" data-i18n="fl_over">About Us</a> ·
-        <a href="/voor/zzp/" data-i18n="fl_zzp">For Self-Employed</a> ·
+        <a href="/voor/zzp/" data-i18n="fl_zzp">For freelancers</a> ·
         <a href="/voor/aannemers/" data-i18n="fl_aannemers">For Contractors</a>
         ·
         <a href="/voor/boekhouders/" data-i18n="fl_boekhouders">For
@@ -2442,13 +2414,13 @@
         All data in the EU</span>
       · <a href="/blog/">Blog</a> ·
       <a href="/login.html" data-i18n="foot_login">Log in</a> ·
-      <a href="/privacy">Privacy</a>
+      <a href="/privacy.html">Privacy</a>
     </footer>
 
     <a class="v24-top" id="v24Top" href="#top" aria-label="Back to top">
       <i class="fi fi-rr-angle-up"></i></a>
 
-    <a class="v24-mobile-cta" id="v24MobileCta" href="#signup">Create your free
+    <a class="v24-mobile-cta" id="v24MobileCta" href="#signup" data-i18n="hero_cta">Create your free
       profile</a>
 
   </body>

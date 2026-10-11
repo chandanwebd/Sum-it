@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body>
 <!-- site-header:start -->
@@ -35,17 +36,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -55,13 +56,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -75,25 +76,25 @@
 <p data-i18n="ab_intro">Over Sum-IT in het kort: Sum-IT is een boekhoudapp en netwerk voor zzp&#x27;ers in de bouw, gemaakt door Alpha Nova B.V. in Breda. Op deze pagina lees je waarom we dit bouwen, voor wie, en hoe we dat samen met vakmensen doen.</p>
 
 <h2 data-i18n="ab_h2_why">Waarom we Sum-IT bouwen</h2>
-<p data-i18n="ab_why_p1">Drie dingen komen steeds terug bij zzp&#x27;ers in de bouw. De administratie voelt als een last die je inhaalt in het weekend. Je maakt een offerte, maar weet pas achteraf — of eigenlijk nooit — of de klus geld heeft opgeleverd. En een betrouwbare onderaannemer vinden gaat via via, in plaats van via een plek waar je kunt zien wie goed werk levert. Sum-IT is een poging om alle drie kleiner te maken.</p>
-<p data-i18n="ab_why_p2">Dat raakt niet alleen je portemonnee, het kost ook energie: avonden aan de keukentafel met bonnetjes, offertes die op gevoel worden geprijsd, en gokken of een onderaannemer wel op tijd komt opdagen. Sum-IT lost dat niet in één klap op, maar pakt het wel stap voor stap aan — eerst de administratie, dan het netwerk eromheen.</p>
+<p data-i18n="ab_why_p1">Drie dingen komen steeds terug bij zzp&#x27;ers in de bouw. De administratie voelt als een last die je inhaalt in het weekend. Je maakt een offerte, maar weet pas achteraf, of eigenlijk nooit, of de klus geld heeft opgeleverd. En een betrouwbare onderaannemer vinden gaat via via, in plaats van via een plek waar je kunt zien wie goed werk levert. Sum-IT is een poging om alle drie kleiner te maken.</p>
+<p data-i18n="ab_why_p2">Dat raakt niet alleen je portemonnee, het kost ook energie: avonden aan de keukentafel met bonnetjes, offertes die op gevoel worden geprijsd, en gokken of een onderaannemer wel op tijd komt opdagen. Sum-IT lost dat niet in één klap op, maar pakt het wel stap voor stap aan, eerst de administratie, dan het netwerk eromheen.</p>
 
 <h2 data-i18n="ab_h2_bookkeeping">Boekhouden dat zich verstopt</h2>
 <p data-i18n="ab_bookkeeping_p1">De boekhoudkant van Sum-IT is gemaakt voor <a href="/voor/zzp/">zzp&#x27;ers zonder boekhoudkennis</a>. Je fotografeert een bonnetje en het staat geboekt, btw uitgelezen. Er wordt automatisch geld apart gezet in een <a href="/tools/belastingpotje-calculator.html">belastingpotje</a> voor btw en inkomstenbelasting, je ziet <a href="/blog/winst-per-klus-berekenen.html">winst per klus</a> live, en je boekhouder krijgt aan het einde een schone export in plaats van een stapel bonnetjes. Eén plan, €11 per maand, alle data in de EU.</p>
 
 <h2 data-i18n="ab_h2_network">Een netwerk waar vakmensen elkaar aanbevelen</h2>
-<p data-i18n="ab_network_p1">Sum-IT is niet alleen een boekhoudapp. Het is ook een netwerk van vakmensen in de bouw, installatie, elektra en afwerking. Een profiel aanmaken is gratis, en dat blijft zo — voor altijd.</p>
+<p data-i18n="ab_network_p1">Sum-IT is niet alleen een boekhoudapp. Het is ook een netwerk van vakmensen in de bouw, installatie, elektra en afwerking. Een profiel aanmaken is gratis, en dat blijft zo, voor altijd.</p>
 <p data-i18n="ab_network_p2">Vertrouwen in dat netwerk komt niet van anonieme sterren-reviews. Het komt van vakmensen die elkaar aanbevelen, en van controles op KvK-inschrijving, btw-nummer en verzekering. Zo weet je met wie je praat, nog voordat je gaat samenwerken.</p>
-<p data-i18n="ab_network_p3">Het netwerk is bedoeld voor zzp&#x27;ers en kleine bedrijven in de bouw, installatie, elektra, schilderwerk, timmerwerk en aanverwante vakken. Zoek je een betrouwbare onderaannemer voor een klus, dan vind je die straks via mensen die al met elkaar gewerkt hebben — niet via een willekeurige zoekmachine.</p>
+<p data-i18n="ab_network_p3">Het netwerk is bedoeld voor zzp&#x27;ers en kleine bedrijven in de bouw, installatie, elektra, schilderwerk, timmerwerk en aanverwante vakken. Zoek je een betrouwbare onderaannemer voor een klus, dan vind je die straks via mensen die al met elkaar gewerkt hebben, niet via een willekeurige zoekmachine.</p>
 
 <h2 data-i18n="ab_h2_honest">Eerlijk over waar we staan</h2>
-<p data-i18n="ab_honest_p1">Sum-IT is in aanbouw. We bouwen het netwerk samen met de eerste vakmensen die zich aanmelden, en de boekhoudapp start bewust klein: geen bankkoppeling en geen personeelsadministratie, nog niet. We zeggen liever eerlijk wat er nog niet is, dan dat we iets beloven wat nog niet klaarstaat.</p>
+<p data-i18n="ab_honest_p1">Sum-IT is in aanbouw. We bouwen het netwerk samen met de eerste vakmensen die zich aanmelden, en de boekhoudapp start bewust klein: met een bankkoppeling, maar nog zonder personeelsadministratie. We zeggen liever eerlijk wat er nog niet is, dan dat we iets beloven wat nog niet klaarstaat.</p>
 
 <h2 data-i18n="ab_h2_who">Wie zit er achter Sum-IT?</h2>
 <p data-i18n="ab_who_p1">Sum-IT is een product van Alpha Nova B.V., gevestigd in Breda. We bouwen Sum-IT voor Nederlandse zzp&#x27;ers in de bouw en aanverwante vakken: mensen die willen bouwen aan hun bedrijf, niet aan hun administratie.</p>
 <p data-i18n="ab_who_p2">We kiezen bewust voor één duidelijke doelgroep in plaats van alles voor iedereen te willen zijn. Zo kan Sum-IT simpel blijven en aansluiten op hoe een vakman of vakvrouw werkt: onderweg, met de handen vol, en weinig tijd voor administratie tussen twee klussen door.</p>
 
-<div class="tip" data-i18n="ab_tip">Wil je alvast weten of je uurtarief klopt? Probeer de <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a> — gratis te gebruiken, ook zonder profiel.</div>
+<div class="tip" data-i18n="ab_tip">Wil je alvast weten of je uurtarief klopt? Probeer de <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a>, gratis te gebruiken, ook zonder profiel.</div>
 
 <h2 data-i18n="ab_h2_join">Doe mee</h2>
 <p data-i18n="ab_join_p1">Wil je meebouwen? Maak een gratis profiel aan in het netwerk, of bekijk eerst <a href="/community/">hoe het netwerk werkt</a>. Benieuwd wat boekhouden met Sum-IT kost? Check onze <a href="/prijzen/">prijzen</a>.</p>
@@ -120,27 +121,27 @@
 <a href="/blog/" data-i18n="c_blog">Blog</a> ·
 <a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
 <a href="/">sum-it.eu</a>
-</footer>
+<!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 <script>window.PAGE_I18N={"nl":{
 "ab_crumb_current":"Over ons",
 "ab_h1":"Wie zit er achter Sum-IT?",
 "ab_meta":"Sum-IT · Over ons · 3 min leestijd",
 "ab_intro":"Over Sum-IT in het kort: Sum-IT is een boekhoudapp en netwerk voor zzp&#x27;ers in de bouw, gemaakt door Alpha Nova B.V. in Breda. Op deze pagina lees je waarom we dit bouwen, voor wie, en hoe we dat samen met vakmensen doen.",
 "ab_h2_why":"Waarom we Sum-IT bouwen",
-"ab_why_p1":"Drie dingen komen steeds terug bij zzp&#x27;ers in de bouw. De administratie voelt als een last die je inhaalt in het weekend. Je maakt een offerte, maar weet pas achteraf — of eigenlijk nooit — of de klus geld heeft opgeleverd. En een betrouwbare onderaannemer vinden gaat via via, in plaats van via een plek waar je kunt zien wie goed werk levert. Sum-IT is een poging om alle drie kleiner te maken.",
-"ab_why_p2":"Dat raakt niet alleen je portemonnee, het kost ook energie: avonden aan de keukentafel met bonnetjes, offertes die op gevoel worden geprijsd, en gokken of een onderaannemer wel op tijd komt opdagen. Sum-IT lost dat niet in één klap op, maar pakt het wel stap voor stap aan — eerst de administratie, dan het netwerk eromheen.",
+"ab_why_p1":"Drie dingen komen steeds terug bij zzp&#x27;ers in de bouw. De administratie voelt als een last die je inhaalt in het weekend. Je maakt een offerte, maar weet pas achteraf, of eigenlijk nooit, of de klus geld heeft opgeleverd. En een betrouwbare onderaannemer vinden gaat via via, in plaats van via een plek waar je kunt zien wie goed werk levert. Sum-IT is een poging om alle drie kleiner te maken.",
+"ab_why_p2":"Dat raakt niet alleen je portemonnee, het kost ook energie: avonden aan de keukentafel met bonnetjes, offertes die op gevoel worden geprijsd, en gokken of een onderaannemer wel op tijd komt opdagen. Sum-IT lost dat niet in één klap op, maar pakt het wel stap voor stap aan, eerst de administratie, dan het netwerk eromheen.",
 "ab_h2_bookkeeping":"Boekhouden dat zich verstopt",
 "ab_bookkeeping_p1":"De boekhoudkant van Sum-IT is gemaakt voor <a href=\"/voor/zzp/\">zzp&#x27;ers zonder boekhoudkennis</a>. Je fotografeert een bonnetje en het staat geboekt, btw uitgelezen. Er wordt automatisch geld apart gezet in een <a href=\"/tools/belastingpotje-calculator.html\">belastingpotje</a> voor btw en inkomstenbelasting, je ziet <a href=\"/blog/winst-per-klus-berekenen.html\">winst per klus</a> live, en je boekhouder krijgt aan het einde een schone export in plaats van een stapel bonnetjes. Eén plan, €11 per maand, alle data in de EU.",
 "ab_h2_network":"Een netwerk waar vakmensen elkaar aanbevelen",
-"ab_network_p1":"Sum-IT is niet alleen een boekhoudapp. Het is ook een netwerk van vakmensen in de bouw, installatie, elektra en afwerking. Een profiel aanmaken is gratis, en dat blijft zo — voor altijd.",
+"ab_network_p1":"Sum-IT is niet alleen een boekhoudapp. Het is ook een netwerk van vakmensen in de bouw, installatie, elektra en afwerking. Een profiel aanmaken is gratis, en dat blijft zo, voor altijd.",
 "ab_network_p2":"Vertrouwen in dat netwerk komt niet van anonieme sterren-reviews. Het komt van vakmensen die elkaar aanbevelen, en van controles op KvK-inschrijving, btw-nummer en verzekering. Zo weet je met wie je praat, nog voordat je gaat samenwerken.",
-"ab_network_p3":"Het netwerk is bedoeld voor zzp&#x27;ers en kleine bedrijven in de bouw, installatie, elektra, schilderwerk, timmerwerk en aanverwante vakken. Zoek je een betrouwbare onderaannemer voor een klus, dan vind je die straks via mensen die al met elkaar gewerkt hebben — niet via een willekeurige zoekmachine.",
+"ab_network_p3":"Het netwerk is bedoeld voor zzp&#x27;ers en kleine bedrijven in de bouw, installatie, elektra, schilderwerk, timmerwerk en aanverwante vakken. Zoek je een betrouwbare onderaannemer voor een klus, dan vind je die straks via mensen die al met elkaar gewerkt hebben, niet via een willekeurige zoekmachine.",
 "ab_h2_honest":"Eerlijk over waar we staan",
-"ab_honest_p1":"Sum-IT is in aanbouw. We bouwen het netwerk samen met de eerste vakmensen die zich aanmelden, en de boekhoudapp start bewust klein: geen bankkoppeling en geen personeelsadministratie, nog niet. We zeggen liever eerlijk wat er nog niet is, dan dat we iets beloven wat nog niet klaarstaat.",
+"ab_honest_p1":"Sum-IT is in aanbouw. We bouwen het netwerk samen met de eerste vakmensen die zich aanmelden, en de boekhoudapp start bewust klein: met een bankkoppeling, maar nog zonder personeelsadministratie. We zeggen liever eerlijk wat er nog niet is, dan dat we iets beloven wat nog niet klaarstaat.",
 "ab_h2_who":"Wie zit er achter Sum-IT?",
 "ab_who_p1":"Sum-IT is een product van Alpha Nova B.V., gevestigd in Breda. We bouwen Sum-IT voor Nederlandse zzp&#x27;ers in de bouw en aanverwante vakken: mensen die willen bouwen aan hun bedrijf, niet aan hun administratie.",
 "ab_who_p2":"We kiezen bewust voor één duidelijke doelgroep in plaats van alles voor iedereen te willen zijn. Zo kan Sum-IT simpel blijven en aansluiten op hoe een vakman of vakvrouw werkt: onderweg, met de handen vol, en weinig tijd voor administratie tussen twee klussen door.",
-"ab_tip":"Wil je alvast weten of je uurtarief klopt? Probeer de <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a> — gratis te gebruiken, ook zonder profiel.",
+"ab_tip":"Wil je alvast weten of je uurtarief klopt? Probeer de <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a>, gratis te gebruiken, ook zonder profiel.",
 "ab_h2_join":"Doe mee",
 "ab_join_p1":"Wil je meebouwen? Maak een gratis profiel aan in het netwerk, of bekijk eerst <a href=\"/community/\">hoe het netwerk werkt</a>. Benieuwd wat boekhouden met Sum-IT kost? Check onze <a href=\"/prijzen/\">prijzen</a>.",
 "ab_h2_faq":"Veelgestelde vragen",
@@ -162,20 +163,20 @@
 "ab_meta":"Sum-IT · About us · 3 min read",
 "ab_intro":"About Sum-IT in short: Sum-IT is a bookkeeping app and network for self-employed tradespeople in construction, built by Alpha Nova B.V. in Breda. This page explains why we're building it, for whom, and how we do that together with tradespeople.",
 "ab_h2_why":"Why we're building Sum-IT",
-"ab_why_p1":"Three things keep coming up with self-employed tradespeople in construction. Admin feels like a burden you catch up on during the weekend. You send a quote, but only find out afterwards — or never — whether the job actually made money. And finding a reliable subcontractor happens through word of mouth, instead of through a place where you can see who delivers good work. Sum-IT is an attempt to make all three smaller.",
-"ab_why_p2":"That doesn't just cost you money, it costs energy too: evenings at the kitchen table with receipts, quotes priced by gut feeling, and gambling on whether a subcontractor will actually show up on time. Sum-IT won't fix that in one go, but it tackles it step by step — the admin first, then the network around it.",
+"ab_why_p1":"Three things keep coming up with self-employed tradespeople in construction. Admin feels like a burden you catch up on during the weekend. You send a quote, but only find out afterwards, or never, whether the job actually made money. And finding a reliable subcontractor happens through word of mouth, instead of through a place where you can see who delivers good work. Sum-IT is an attempt to make all three smaller.",
+"ab_why_p2":"That doesn't just cost you money, it costs energy too: evenings at the kitchen table with receipts, quotes priced by gut feeling, and gambling on whether a subcontractor will actually show up on time. Sum-IT won't fix that in one go, but it tackles it step by step, the admin first, then the network around it.",
 "ab_h2_bookkeeping":"Bookkeeping that stays out of your way",
 "ab_bookkeeping_p1":"The bookkeeping side of Sum-IT is built for <a href=\"/voor/zzp/\">self-employed people without bookkeeping knowledge</a>. You photograph a receipt and it's booked, VAT read out. Money is automatically set aside in a <a href=\"/tools/belastingpotje-calculator.html\">tax reserve</a> for VAT and income tax, you see <a href=\"/blog/winst-per-klus-berekenen.html\">profit per job</a> live, and your bookkeeper gets a clean export at the end instead of a pile of receipts. One plan, €11 a month, all data in the EU.",
 "ab_h2_network":"A network where pros vouch for pros",
-"ab_network_p1":"Sum-IT isn't just a bookkeeping app. It's also a network of tradespeople in construction, plumbing, electrical work and finishing. Creating a profile is free, and stays that way — forever.",
+"ab_network_p1":"Sum-IT isn't just a bookkeeping app. It's also a network of tradespeople in construction, plumbing, electrical work and finishing. Creating a profile is free, and stays that way, forever.",
 "ab_network_p2":"Trust in that network doesn't come from anonymous star ratings. It comes from pros vouching for pros, and from checks on Chamber of Commerce (KvK) registration, VAT number and insurance. That way you know who you're dealing with before you start working together.",
-"ab_network_p3":"The network is meant for self-employed people and small businesses in construction, plumbing, electrical work, painting, carpentry and related trades. Looking for a reliable subcontractor for a job? You'll find one through people who have already worked together — not through a random search engine.",
+"ab_network_p3":"The network is meant for self-employed people and small businesses in construction, plumbing, electrical work, painting, carpentry and related trades. Looking for a reliable subcontractor for a job? You'll find one through people who have already worked together, not through a random search engine.",
 "ab_h2_honest":"Honest about where we stand",
-"ab_honest_p1":"Sum-IT is still being built. We're building the network together with the first tradespeople who sign up, and the bookkeeping app starts deliberately small: no bank integration and no payroll yet. We'd rather be honest about what isn't there yet than promise something that isn't ready.",
+"ab_honest_p1":"Sum-IT is still being built. We're building the network together with the first tradespeople who sign up, and the bookkeeping app starts deliberately small: with a bank integration, but no payroll yet. We'd rather be honest about what isn't there yet than promise something that isn't ready.",
 "ab_h2_who":"Who's behind Sum-IT?",
 "ab_who_p1":"Sum-IT is a product of Alpha Nova B.V., based in Breda. We're building Sum-IT for Dutch self-employed tradespeople in construction and related trades: people who want to build their business, not their admin.",
 "ab_who_p2":"We deliberately choose one clear audience instead of trying to be everything for everyone. That keeps Sum-IT simple and matched to how a tradesperson actually works: on the move, hands full, and little time for admin between jobs.",
-"ab_tip":"Want to check whether your hourly rate is right? Try the <a href=\"/tools/uurtarief-calculator.html\">hourly-rate calculator</a> — free to use, even without a profile.",
+"ab_tip":"Want to check whether your hourly rate is right? Try the <a href=\"/tools/uurtarief-calculator.html\">hourly-rate calculator</a>, free to use, even without a profile.",
 "ab_h2_join":"Join in",
 "ab_join_p1":"Want to help build it? Create a free profile in the network, or first check out <a href=\"/community/\">how the network works</a>. Curious what bookkeeping with Sum-IT costs? Check our <a href=\"/prijzen/\">pricing</a>.",
 "ab_h2_faq":"Frequently asked questions",

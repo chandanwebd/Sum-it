@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="features">
 <!-- site-header:start -->
@@ -34,17 +35,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -54,13 +55,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -71,29 +72,29 @@
 <h1 data-i18n="fb_h1">Automatisch bonnetjes inboeken vanaf een foto</h1>
 <div class="meta" data-i18n="fb_meta">Functie · Bonnetjes scannen · 4 min leestijd</div>
 <article>
-<p data-i18n="fb_intro">Een bon fotograferen duurt drie seconden. Hem overtypen in een boekhoudprogramma duurt vijf minuten — en dat wordt zelden gedaan. Sum-IT slaat die stap over: foto bon, boekhouden gebeurt vanzelf. Geen handmatig invoeren, geen bonnetjes die zoekraken in een la.</p>
+<p data-i18n="fb_intro">Een bon fotograferen duurt drie seconden. Hem overtypen in een boekhoudprogramma duurt vijf minuten, en dat wordt zelden gedaan. Sum-IT slaat die stap over: foto bon, boekhouden gebeurt vanzelf. Geen handmatig invoeren, geen bonnetjes die zoekraken in een la.</p>
 
 <h2 data-i18n="fb_h2_how">Hoe werkt automatisch bonnetjes inboeken?</h2>
 <ul>
 <li data-i18n="fb_li1"><b>Foto maken.</b> Je fotografeert de bon met je telefoon, direct na het betalen.</li>
 <li data-i18n="fb_li2"><b>Btw automatisch uitgelezen.</b> Sum-IT leest leverancier, bedrag en btw-tarief uit de foto en zet ze klaar.</li>
-<li data-i18n="fb_li3"><b>Jij controleert, niet jij typt.</b> Eén blik, één tik op bevestigen — geen velden om handmatig in te vullen.</li>
+<li data-i18n="fb_li3"><b>Jij controleert, niet jij typt.</b> Eén blik, één tik op bevestigen, geen velden om handmatig in te vullen.</li>
 <li data-i18n="fb_li4"><b>Automatisch geboekt.</b> De boeking staat klaar voor je btw-overzicht en telt mee in je <a href="/functies/btw-apart-zetten/">belastingpotje</a>.</li>
 </ul>
 
 <h2 data-i18n="fb_h2_why">Waarom bon fotograferen slimmer is dan handmatig boeken</h2>
-<p data-i18n="fb_p_why">Bij foto bon boekhouden verdwijnt het overtypen — en daarmee de kans dat je een bonnetje vergeet of kwijtraakt. Bon fotograferen voor je administratie wordt zo een gewoonte in plaats van een taak die zich opstapelt tot het weekend of tot de aangifte. Elk bonnetje landt bovendien direct op het juiste project, zodat je meteen ziet <a href="/blog/winst-per-klus-berekenen.html">wat een klus je oplevert</a>.</p>
+<p data-i18n="fb_p_why">Boek je bonnetjes met een foto, dan verdwijnt het overtypen, en daarmee de kans dat je een bonnetje vergeet of kwijtraakt. Bon fotograferen voor je administratie wordt zo een gewoonte in plaats van een taak die zich opstapelt tot het weekend of tot de aangifte. Elk bonnetje landt bovendien direct op het juiste project, zodat je meteen ziet <a href="/blog/winst-per-klus-berekenen.html">wat een klus je oplevert</a>.</p>
 
 <div class="tip" data-i18n="fb_tip">Tip: fotografeer je bon op het moment dat je afrekent. Dat kost drie seconden en voorkomt een stapel bonnetjes die je later toch weer moet uitzoeken.</div>
 
 <h2 data-i18n="fb_h2_who">Voor wie is dit gemaakt?</h2>
-<p data-i18n="fb_p_who">Voor zzp'ers en kleine ondernemers die geen boekhoudkennis willen opbouwen, maar wel een nette administratie willen hebben. Sum-IT is in aanbouw en start bewust klein en simpel: geen bankkoppeling en geen personeelsadministratie vandaag, wel een werkende basis voor bonnetjes en btw — en betere offertes dankzij cijfers per klus. Alle data blijft in de EU.</p>
+<p data-i18n="fb_p_who">Voor zzp'ers en kleine ondernemers die geen boekhoudkennis willen opbouwen, maar wel een nette administratie willen hebben. Sum-IT is in aanbouw en start bewust klein en simpel: geen personeelsadministratie, wel een werkende basis voor bonnetjes en btw, en betere offertes dankzij cijfers per klus. Alle data blijft in de EU.</p>
 
 <h2 data-i18n="fb_h2_export">Klaar voor je boekhouder, zonder rompslomp</h2>
 <p data-i18n="fb_p_export">Elk bonnetje dat je automatisch inboekt, komt terecht in dezelfde nette administratie die je boekhouder straks nodig heeft. Werk je toch nog met een boekhouder voor je aangifte, dan hoeft die niet handmatig door een stapel foto's of bonnetjes te zoeken: de overdracht wordt een schone export in plaats van uren uitzoekwerk. Zo bespaar je niet alleen jezelf tijd bij het bijhouden, maar ook je boekhouder aan het einde van het jaar.</p>
 
 <h2 data-i18n="fb_h2_more">Meer over bonnetjes bewaren en scannen</h2>
-<p data-i18n="fb_p_more">Dit is de functiepagina over automatisch inboeken vanaf een foto. Wil je het bredere verhaal — waarom je bonnetjes moet bewaren, hoe lang, en wat er gebeurt als je er eentje kwijtraakt — lees dan onze gids <a href="/bonnetjes-scannen.html">bonnetjes scannen bij Sum-IT</a>. Benieuwd hoe je btw automatisch wordt apart gezet? Bekijk <a href="/functies/btw-apart-zetten/">btw apart zetten</a>. Wil je ook per klus zien wat je verdient? Kijk bij <a href="/functies/projecten/">projecten en winst per klus</a>.</p>
+<p data-i18n="fb_p_more">Dit is de functiepagina over automatisch inboeken vanaf een foto. Wil je het bredere verhaal, waarom je bonnetjes moet bewaren, hoe lang, en wat er gebeurt als je er eentje kwijtraakt, lees dan onze gids <a href="/bonnetjes-scannen.html">bonnetjes scannen bij Sum-IT</a>. Benieuwd hoe je btw automatisch wordt apart gezet? Bekijk <a href="/functies/btw-apart-zetten/">btw apart zetten</a>. Wil je ook per klus zien wat je verdient? Kijk bij <a href="/functies/projecten/">projecten en winst per klus</a>.</p>
 
 <h2 data-i18n="fb_h2_faq">Veelgestelde vragen</h2>
 <h3 data-i18n="fb_faq1_q">Moet ik na het scannen nog zelf iets invullen?</h3>
@@ -109,7 +110,7 @@
 </article>
 <div class="ctabox">
 <h3 data-i18n="fb_cta_h3">Maak je gratis profiel aan bij Sum-IT</h3>
-<span data-i18n="fb_cta_p">Foto van je bon, btw uitgelezen, boeking klaar — zo werkt bonnetjes verwerken bij Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.</span>
+<span data-i18n="fb_cta_p">Foto van je bon, btw uitgelezen, boeking klaar, zo werkt bonnetjes verwerken bij Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.</span>
 <br><a href="/#signup" data-i18n="fb_cta_btn">Maak je gratis profiel aan →</a>
 </div>
 <p class="disc" data-i18n="fb_disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
@@ -119,28 +120,28 @@
 <a href="/blog/" data-i18n="c_blog">Blog</a> ·
 <a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
 <a href="/">sum-it.eu</a>
-</footer>
+<!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 <script>
 window.PAGE_I18N={
 "nl":{
 "fb_crumb":"Bonnetjes scannen",
 "fb_h1":"Automatisch bonnetjes inboeken vanaf een foto",
 "fb_meta":"Functie · Bonnetjes scannen · 4 min leestijd",
-"fb_intro":"Een bon fotograferen duurt drie seconden. Hem overtypen in een boekhoudprogramma duurt vijf minuten — en dat wordt zelden gedaan. Sum-IT slaat die stap over: foto bon, boekhouden gebeurt vanzelf. Geen handmatig invoeren, geen bonnetjes die zoekraken in een la.",
+"fb_intro":"Een bon fotograferen duurt drie seconden. Hem overtypen in een boekhoudprogramma duurt vijf minuten, en dat wordt zelden gedaan. Sum-IT slaat die stap over: foto bon, boekhouden gebeurt vanzelf. Geen handmatig invoeren, geen bonnetjes die zoekraken in een la.",
 "fb_h2_how":"Hoe werkt automatisch bonnetjes inboeken?",
 "fb_li1":"<b>Foto maken.</b> Je fotografeert de bon met je telefoon, direct na het betalen.",
 "fb_li2":"<b>Btw automatisch uitgelezen.</b> Sum-IT leest leverancier, bedrag en btw-tarief uit de foto en zet ze klaar.",
-"fb_li3":"<b>Jij controleert, niet jij typt.</b> Eén blik, één tik op bevestigen — geen velden om handmatig in te vullen.",
+"fb_li3":"<b>Jij controleert, niet jij typt.</b> Eén blik, één tik op bevestigen, geen velden om handmatig in te vullen.",
 "fb_li4":"<b>Automatisch geboekt.</b> De boeking staat klaar voor je btw-overzicht en telt mee in je <a href=\"/functies/btw-apart-zetten/\">belastingpotje</a>.",
 "fb_h2_why":"Waarom bon fotograferen slimmer is dan handmatig boeken",
-"fb_p_why":"Bij foto bon boekhouden verdwijnt het overtypen — en daarmee de kans dat je een bonnetje vergeet of kwijtraakt. Bon fotograferen voor je administratie wordt zo een gewoonte in plaats van een taak die zich opstapelt tot het weekend of tot de aangifte. Elk bonnetje landt bovendien direct op het juiste project, zodat je meteen ziet <a href=\"/blog/winst-per-klus-berekenen.html\">wat een klus je oplevert</a>.",
+"fb_p_why":"Boek je bonnetjes met een foto, dan verdwijnt het overtypen, en daarmee de kans dat je een bonnetje vergeet of kwijtraakt. Bon fotograferen voor je administratie wordt zo een gewoonte in plaats van een taak die zich opstapelt tot het weekend of tot de aangifte. Elk bonnetje landt bovendien direct op het juiste project, zodat je meteen ziet <a href=\"/blog/winst-per-klus-berekenen.html\">wat een klus je oplevert</a>.",
 "fb_tip":"Tip: fotografeer je bon op het moment dat je afrekent. Dat kost drie seconden en voorkomt een stapel bonnetjes die je later toch weer moet uitzoeken.",
 "fb_h2_who":"Voor wie is dit gemaakt?",
-"fb_p_who":"Voor zzp'ers en kleine ondernemers die geen boekhoudkennis willen opbouwen, maar wel een nette administratie willen hebben. Sum-IT is in aanbouw en start bewust klein en simpel: geen bankkoppeling en geen personeelsadministratie vandaag, wel een werkende basis voor bonnetjes en btw — en betere offertes dankzij cijfers per klus. Alle data blijft in de EU.",
+"fb_p_who":"Voor zzp'ers en kleine ondernemers die geen boekhoudkennis willen opbouwen, maar wel een nette administratie willen hebben. Sum-IT is in aanbouw en start bewust klein en simpel: geen personeelsadministratie, wel een werkende basis voor bonnetjes en btw, en betere offertes dankzij cijfers per klus. Alle data blijft in de EU.",
 "fb_h2_export":"Klaar voor je boekhouder, zonder rompslomp",
 "fb_p_export":"Elk bonnetje dat je automatisch inboekt, komt terecht in dezelfde nette administratie die je boekhouder straks nodig heeft. Werk je toch nog met een boekhouder voor je aangifte, dan hoeft die niet handmatig door een stapel foto's of bonnetjes te zoeken: de overdracht wordt een schone export in plaats van uren uitzoekwerk. Zo bespaar je niet alleen jezelf tijd bij het bijhouden, maar ook je boekhouder aan het einde van het jaar.",
 "fb_h2_more":"Meer over bonnetjes bewaren en scannen",
-"fb_p_more":"Dit is de functiepagina over automatisch inboeken vanaf een foto. Wil je het bredere verhaal — waarom je bonnetjes moet bewaren, hoe lang, en wat er gebeurt als je er eentje kwijtraakt — lees dan onze gids <a href=\"/bonnetjes-scannen.html\">bonnetjes scannen bij Sum-IT</a>. Benieuwd hoe je btw automatisch wordt apart gezet? Bekijk <a href=\"/functies/btw-apart-zetten/\">btw apart zetten</a>. Wil je ook per klus zien wat je verdient? Kijk bij <a href=\"/functies/projecten/\">projecten en winst per klus</a>.",
+"fb_p_more":"Dit is de functiepagina over automatisch inboeken vanaf een foto. Wil je het bredere verhaal, waarom je bonnetjes moet bewaren, hoe lang, en wat er gebeurt als je er eentje kwijtraakt, lees dan onze gids <a href=\"/bonnetjes-scannen.html\">bonnetjes scannen bij Sum-IT</a>. Benieuwd hoe je btw automatisch wordt apart gezet? Bekijk <a href=\"/functies/btw-apart-zetten/\">btw apart zetten</a>. Wil je ook per klus zien wat je verdient? Kijk bij <a href=\"/functies/projecten/\">projecten en winst per klus</a>.",
 "fb_h2_faq":"Veelgestelde vragen",
 "fb_faq1_q":"Moet ik na het scannen nog zelf iets invullen?",
 "fb_faq1_a":"Nee, niet handmatig. Sum-IT leest leverancier, bedrag en btw-tarief uit de foto. Jij controleert de uitgelezen gegevens met een korte blik en bevestigt; daarna staat de boeking klaar.",
@@ -151,7 +152,7 @@ window.PAGE_I18N={
 "fb_faq4_q":"Telt een ingeboekt bonnetje mee in mijn btw-overzicht?",
 "fb_faq4_a":"Ja. Zodra je een bonnetje bevestigt, telt de btw automatisch mee in je btw-overzicht en in je belastingpotje voor de aangifte.",
 "fb_cta_h3":"Maak je gratis profiel aan bij Sum-IT",
-"fb_cta_p":"Foto van je bon, btw uitgelezen, boeking klaar — zo werkt bonnetjes verwerken bij Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.",
+"fb_cta_p":"Foto van je bon, btw uitgelezen, boeking klaar, zo werkt bonnetjes verwerken bij Sum-IT. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.",
 "fb_cta_btn":"Maak je gratis profiel aan →",
 "fb_disc":"Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.",
 "fb_faq5_q":"Zit automatisch bonnetjes inboeken bij het gratis profiel of bij de boekhouding?",
@@ -161,21 +162,21 @@ window.PAGE_I18N={
 "fb_crumb":"Receipt scanning",
 "fb_h1":"Automatic receipt booking from a photo",
 "fb_meta":"Feature · Receipt scanning · 4 min read",
-"fb_intro":"Taking a photo of a receipt takes three seconds. Typing it into bookkeeping software takes five minutes — so it rarely gets done. Sum-IT skips that step: photo in, booked automatically. No manual entry, no receipts lost in a drawer.",
+"fb_intro":"Taking a photo of a receipt takes three seconds. Typing it into bookkeeping software takes five minutes, so it rarely gets done. Sum-IT skips that step: photo in, booked automatically. No manual entry, no receipts lost in a drawer.",
 "fb_h2_how":"How does automatic receipt booking work?",
 "fb_li1":"<b>Take a photo.</b> You photograph the receipt with your phone, right after paying.",
 "fb_li2":"<b>VAT read out automatically.</b> Sum-IT reads the supplier, amount and VAT rate from the photo and prepares them.",
-"fb_li3":"<b>You check, you don't type.</b> One glance, one tap to confirm — no fields to fill in by hand.",
+"fb_li3":"<b>You check, you don't type.</b> One glance, one tap to confirm, no fields to fill in by hand.",
 "fb_li4":"<b>Booked automatically.</b> The entry is ready for your VAT overview and counts towards your <a href=\"/functies/btw-apart-zetten/\">tax reserve</a>.",
 "fb_h2_why":"Why photographing receipts beats manual bookkeeping",
-"fb_p_why":"Booking receipts from a photo removes the retyping step — and with it the chance you forget or lose a receipt. Photographing a receipt for your records becomes a habit instead of a task that piles up until the weekend or your tax return. Every receipt also lands on the right project straight away, so you instantly see <a href=\"/blog/winst-per-klus-berekenen.html\">what a job earns you</a>.",
+"fb_p_why":"Booking receipts from a photo removes the retyping step, and with it the chance you forget or lose a receipt. Photographing a receipt for your records becomes a habit instead of a task that piles up until the weekend or your tax return. Every receipt also lands on the right project straight away, so you instantly see <a href=\"/blog/winst-per-klus-berekenen.html\">what a job earns you</a>.",
 "fb_tip":"Tip: photograph your receipt the moment you pay. It takes three seconds and stops a pile of receipts you'd otherwise have to sort out later.",
 "fb_h2_who":"Who is this for?",
-"fb_p_who":"For sole traders and small business owners who don't want to become bookkeepers but do want tidy records. Sum-IT is in build and deliberately starts small and simple: no bank link and no payroll today, but a working basis for receipts and VAT — and better quotes thanks to figures per job. All data stays in the EU.",
+"fb_p_who":"For sole traders and small business owners who don't want to become bookkeepers but do want tidy records. Sum-IT is in build and deliberately starts small and simple: no payroll, but a working basis for receipts and VAT, and better quotes thanks to figures per job. All data stays in the EU.",
 "fb_h2_export":"Ready for your bookkeeper, without the hassle",
 "fb_p_export":"Every receipt you book automatically ends up in the same tidy set of records your bookkeeper will need later. If you still work with a bookkeeper for your tax return, they won't have to dig through a pile of photos or receipts by hand: the handover becomes a clean export instead of hours of sorting. That saves you time keeping records, and saves your bookkeeper time at year end too.",
 "fb_h2_more":"More on keeping and scanning receipts",
-"fb_p_more":"This is the feature page about automatic booking from a photo. Want the bigger picture — why you must keep receipts, for how long, and what happens if you lose one — read our guide <a href=\"/bonnetjes-scannen.html\">receipt scanning at Sum-IT</a>. Curious how your VAT gets set aside automatically? See <a href=\"/functies/btw-apart-zetten/\">setting VAT aside</a>. Want to see what you earn per job too? Check <a href=\"/functies/projecten/\">projects and profit per job</a>.",
+"fb_p_more":"This is the feature page about automatic booking from a photo. Want the bigger picture, why you must keep receipts, for how long, and what happens if you lose one, read our guide <a href=\"/bonnetjes-scannen.html\">receipt scanning at Sum-IT</a>. Curious how your VAT gets set aside automatically? See <a href=\"/functies/btw-apart-zetten/\">setting VAT aside</a>. Want to see what you earn per job too? Check <a href=\"/functies/projecten/\">projects and profit per job</a>.",
 "fb_h2_faq":"Frequently asked questions",
 "fb_faq1_q":"Do I still need to fill anything in myself after scanning?",
 "fb_faq1_a":"No, not manually. Sum-IT reads the supplier, amount and VAT rate from the photo. You check the extracted data with a quick glance and confirm; the entry is then ready.",
@@ -186,7 +187,7 @@ window.PAGE_I18N={
 "fb_faq4_q":"Does a booked receipt count towards my VAT overview?",
 "fb_faq4_a":"Yes. As soon as you confirm a receipt, the VAT automatically counts towards your VAT overview and your tax reserve for your return.",
 "fb_cta_h3":"Create your free profile at Sum-IT",
-"fb_cta_p":"Photo of your receipt, VAT read out, entry ready — that's how receipt processing works at Sum-IT. A profile in the network is free; bookkeeping on top is available from €11 per month, everything included.",
+"fb_cta_p":"Photo of your receipt, VAT read out, entry ready, that's how receipt processing works at Sum-IT. A profile in the network is free; bookkeeping on top is available from €11 per month, everything included.",
 "fb_cta_btn":"Create your free profile →",
 "fb_disc":"This article is general information, not tax or financial advice. For your situation, consult a bookkeeper or the Dutch Tax Authority."
 ,

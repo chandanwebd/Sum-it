@@ -16,11 +16,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sum-IT", "item": "https://sum-it.eu/"}, {"@type": "ListItem", "position": 2, "name": "Btw apart zetten", "item": "https://sum-it.eu/functies/btw-apart-zetten/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is een belastingpotje precies?", "acceptedAnswer": {"@type": "Answer", "text": "Het bedrag dat Sum-IT automatisch opzij zet bij elke boeking, zodat je op elk moment weet hoeveel geld eigenlijk al voor de Belastingdienst is en niet vrij te besteden is."}}, {"@type": "Question", "name": "Reserveert Sum-IT ook voor inkomstenbelasting, niet alleen btw?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bij elke boeking zet Sum-IT automatisch een deel opzij voor de btw en een deel voor de inkomstenbelasting, zodat beide potjes meegroeien met wat je verdient."}}, {"@type": "Question", "name": "Moet ik het gereserveerde bedrag zelf apart houden?", "acceptedAnswer": {"@type": "Answer", "text": "Sum-IT berekent en toont het bedrag; het daadwerkelijk wegzetten naar een aparte rekening doe je zelf, bijvoorbeeld naar een spaarrekening. Zo geef je het niet per ongeluk uit."}}, {"@type": "Question", "name": "Verandert mijn belastingpotje als ik minder verdien?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder — je ziet het bedrag steeds actueel."}}, {"@type": "Question", "name": "Zit het belastingpotje bij het gratis profiel of bij de boekhouding?", "acceptedAnswer": {"@type": "Answer", "text": "Bij de boekhouding. Een profiel in het netwerk is gratis; het belastingpotje hoort bij de boekhouding van €11 per maand, alles inbegrepen."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is een belastingpotje precies?", "acceptedAnswer": {"@type": "Answer", "text": "Het bedrag dat Sum-IT automatisch opzij zet bij elke boeking, zodat je op elk moment weet hoeveel geld eigenlijk al voor de Belastingdienst is en niet vrij te besteden is."}}, {"@type": "Question", "name": "Reserveert Sum-IT ook voor inkomstenbelasting, niet alleen btw?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bij elke boeking zet Sum-IT automatisch een deel opzij voor de btw en een deel voor de inkomstenbelasting, zodat beide potjes meegroeien met wat je verdient."}}, {"@type": "Question", "name": "Moet ik het gereserveerde bedrag zelf apart houden?", "acceptedAnswer": {"@type": "Answer", "text": "Sum-IT berekent en toont het bedrag; het daadwerkelijk wegzetten naar een aparte rekening doe je zelf, bijvoorbeeld naar een spaarrekening. Zo geef je het niet per ongeluk uit."}}, {"@type": "Question", "name": "Verandert mijn belastingpotje als ik minder verdien?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder, je ziet het bedrag steeds actueel."}}, {"@type": "Question", "name": "Zit het belastingpotje bij het gratis profiel of bij de boekhouding?", "acceptedAnswer": {"@type": "Answer", "text": "Bij de boekhouding. Een profiel in het netwerk is gratis; het belastingpotje hoort bij de boekhouding van €11 per maand, alles inbegrepen."}}]}</script>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="features">
 <!-- site-header:start -->
@@ -34,17 +35,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -54,13 +55,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -71,26 +72,26 @@
 <h1 data-i18n="fw_h1">Btw apart zetten: automatisch reserveren voor de aanslag</h1>
 <div class="meta" data-i18n="fw_meta">Functie · Belastingpotje · 4 min leestijd</div>
 <article>
-<p data-i18n="fw_intro">De grootste zzp-stress is niet de administratie, maar de rekening die er ineens ligt. Btw apart zetten is de gewoonte die dat voorkomt — maar wie doet dat nou consequent zelf, elke week weer? Sum-IT reserveert automatisch, bij elke boeking, zodat je nooit meer voor een verrassing komt te staan.</p>
+<p data-i18n="fw_intro">De grootste zzp-stress is niet de administratie, maar de rekening die er ineens ligt. Btw apart zetten is de gewoonte die dat voorkomt, maar wie doet dat nou consequent zelf, elke week weer? Sum-IT reserveert automatisch, bij elke boeking, zodat je nooit meer voor een verrassing komt te staan.</p>
 
 <h2 data-i18n="fw_h2_how">Hoe zet Sum-IT je btw automatisch apart?</h2>
 <ul>
 <li data-i18n="fw_li1"><b>Bij elke boeking.</b> Zodra een factuur of bonnetje verwerkt is, berekent Sum-IT direct het btw-deel en het deel voor inkomstenbelasting.</li>
-<li data-i18n="fw_li2"><b>Automatisch gereserveerd.</b> Btw reserveren automatisch betekent dat je belastingpotje meegroeit — geen rekenwerk, geen spreadsheet.</li>
+<li data-i18n="fw_li2"><b>Automatisch gereserveerd.</b> Automatisch btw reserveren betekent dat je belastingpotje meegroeit, geen rekenwerk, geen spreadsheet.</li>
 <li data-i18n="fw_li3"><b>Altijd actueel inzicht.</b> Je ziet op elk moment hoeveel geld eigenlijk al van de Belastingdienst is en dus niet vrij te besteden is.</li>
 <li data-i18n="fw_li4"><b>Gekoppeld aan je bonnetjes.</b> Elk <a href="/functies/bonnetjes-scannen/">gefotografeerd bonnetje</a> telt automatisch mee in je btw-overzicht en je potje.</li>
 </ul>
 
-<h2 data-i18n="fw_h2_compare">Btw reserveren automatisch versus zelf bijhouden</h2>
-<p data-i18n="fw_p_compare">Een belastingpotje zzp'ers zelf laten bijhouden werkt in theorie: percentage pakken, apart zetten, klaar. In de praktijk schiet het er als eerste bij in zodra het druk is. Automatisch btw apart zetten haalt die stap uit je hoofd — het gebeurt bij elke boeking, ook als jij er niet aan denkt.</p>
+<h2 data-i18n="fw_h2_compare">Automatisch btw reserveren of zelf bijhouden</h2>
+<p data-i18n="fw_p_compare">Een belastingpotje zzp'ers zelf laten bijhouden werkt in theorie: percentage pakken, apart zetten, klaar. In de praktijk schiet het er als eerste bij in zodra het druk is. Automatisch btw apart zetten haalt die stap uit je hoofd, het gebeurt bij elke boeking, ook als jij er niet aan denkt.</p>
 
 <div class="tip" data-i18n="fw_tip">Tip: wil je vooraf een indicatie van je percentages? Reken het door met onze <a href="/tools/belastingpotje-calculator.html">belastingpotje-calculator</a> (tarieven 2026).</div>
 
 <h2 data-i18n="fw_h2_self">Wat je zelf nog moet doen</h2>
-<p data-i18n="fw_p_self">Eerlijk is eerlijk: Sum-IT berekent en toont je belastingpotje, maar het geld daadwerkelijk wegzetten naar een aparte spaarrekening doe je nog zelf. Sum-IT is in aanbouw en start bewust klein en simpel — geen automatische overboekingen, geen bankkoppeling vandaag. Wel een heldere, actuele reservering waar je op kunt vertrouwen bij het boeken.</p>
+<p data-i18n="fw_p_self">Eerlijk is eerlijk: Sum-IT berekent en toont je belastingpotje, maar het geld daadwerkelijk wegzetten naar een aparte spaarrekening doe je nog zelf. Sum-IT doet geen automatische overboekingen. Wel krijg je een heldere, actuele reservering waar je op kunt vertrouwen bij het boeken.</p>
 
 <h2 data-i18n="fw_h2_export">Van belastingpotje naar aangifte</h2>
-<p data-i18n="fw_p_export">Het belastingpotje is geen doel op zich, maar een tussenstap naar een rustige aangifte. Omdat elke boeking al is verwerkt en het btw-deel al apart staat, hoef je bij de aangifte niet meer terug te rekenen wat je precies opzij had moeten zetten. Werk je met een boekhouder, dan levert Sum-IT een schone export op — de overdracht wordt een download in plaats van een map vol losse cijfers.</p>
+<p data-i18n="fw_p_export">Het belastingpotje is geen doel op zich, maar een tussenstap naar een rustige aangifte. Omdat elke boeking al is verwerkt en het btw-deel al apart staat, hoef je bij de aangifte niet meer terug te rekenen wat je precies opzij had moeten zetten. Werk je met een boekhouder, dan levert Sum-IT een schone export op, de overdracht wordt een download in plaats van een map vol losse cijfers.</p>
 
 <h2 data-i18n="fw_h2_more">Meer bij Sum-IT</h2>
 <p data-i18n="fw_p_more">Wil je zien hoe de boekingen zelf tot stand komen? Lees over <a href="/functies/bonnetjes-scannen/">automatisch bonnetjes inboeken</a>. Benieuwd wat een klus je écht oplevert nadat de btw eraf is? Bekijk <a href="/functies/projecten/">projecten en winst per klus</a>. Alle prijzen en wat er inbegrepen is, staan op <a href="/prijzen/">prijzen</a>.</p>
@@ -103,7 +104,7 @@
 <h3 data-i18n="fw_faq3_q">Moet ik het gereserveerde bedrag zelf apart houden?</h3>
 <p data-i18n="fw_faq3_a">Sum-IT berekent en toont het bedrag; het daadwerkelijk wegzetten naar een aparte rekening doe je zelf, bijvoorbeeld naar een spaarrekening. Zo geef je het niet per ongeluk uit.</p>
 <h3 data-i18n="fw_faq4_q">Verandert mijn belastingpotje als ik minder verdien?</h3>
-<p data-i18n="fw_faq4_a">Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder — je ziet het bedrag steeds actueel.</p>
+<p data-i18n="fw_faq4_a">Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder, je ziet het bedrag steeds actueel.</p>
 <h3 data-i18n="fw_faq5_q">Zit het belastingpotje bij het gratis profiel of bij de boekhouding?</h3>
 <p data-i18n="fw_faq5_a">Bij de boekhouding. Een profiel in het netwerk is gratis; het belastingpotje hoort bij de boekhouding van €11 per maand, alles inbegrepen.</p>
 </article>
@@ -119,26 +120,26 @@
 <a href="/blog/" data-i18n="c_blog">Blog</a> ·
 <a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
 <a href="/">sum-it.eu</a>
-</footer>
+<!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 <script>
 window.PAGE_I18N={
 "nl":{
 "fw_crumb":"Btw apart zetten",
 "fw_h1":"Btw apart zetten: automatisch reserveren voor de aanslag",
 "fw_meta":"Functie · Belastingpotje · 4 min leestijd",
-"fw_intro":"De grootste zzp-stress is niet de administratie, maar de rekening die er ineens ligt. Btw apart zetten is de gewoonte die dat voorkomt — maar wie doet dat nou consequent zelf, elke week weer? Sum-IT reserveert automatisch, bij elke boeking, zodat je nooit meer voor een verrassing komt te staan.",
+"fw_intro":"De grootste zzp-stress is niet de administratie, maar de rekening die er ineens ligt. Btw apart zetten is de gewoonte die dat voorkomt, maar wie doet dat nou consequent zelf, elke week weer? Sum-IT reserveert automatisch, bij elke boeking, zodat je nooit meer voor een verrassing komt te staan.",
 "fw_h2_how":"Hoe zet Sum-IT je btw automatisch apart?",
 "fw_li1":"<b>Bij elke boeking.</b> Zodra een factuur of bonnetje verwerkt is, berekent Sum-IT direct het btw-deel en het deel voor inkomstenbelasting.",
-"fw_li2":"<b>Automatisch gereserveerd.</b> Btw reserveren automatisch betekent dat je belastingpotje meegroeit — geen rekenwerk, geen spreadsheet.",
+"fw_li2":"<b>Automatisch gereserveerd.</b> Automatisch btw reserveren betekent dat je belastingpotje meegroeit, geen rekenwerk, geen spreadsheet.",
 "fw_li3":"<b>Altijd actueel inzicht.</b> Je ziet op elk moment hoeveel geld eigenlijk al van de Belastingdienst is en dus niet vrij te besteden is.",
 "fw_li4":"<b>Gekoppeld aan je bonnetjes.</b> Elk <a href=\"/functies/bonnetjes-scannen/\">gefotografeerd bonnetje</a> telt automatisch mee in je btw-overzicht en je potje.",
-"fw_h2_compare":"Btw reserveren automatisch versus zelf bijhouden",
-"fw_p_compare":"Een belastingpotje zzp'ers zelf laten bijhouden werkt in theorie: percentage pakken, apart zetten, klaar. In de praktijk schiet het er als eerste bij in zodra het druk is. Automatisch btw apart zetten haalt die stap uit je hoofd — het gebeurt bij elke boeking, ook als jij er niet aan denkt.",
+"fw_h2_compare":"Automatisch btw reserveren of zelf bijhouden",
+"fw_p_compare":"Een belastingpotje zzp'ers zelf laten bijhouden werkt in theorie: percentage pakken, apart zetten, klaar. In de praktijk schiet het er als eerste bij in zodra het druk is. Automatisch btw apart zetten haalt die stap uit je hoofd, het gebeurt bij elke boeking, ook als jij er niet aan denkt.",
 "fw_tip":"Tip: wil je vooraf een indicatie van je percentages? Reken het door met onze <a href=\"/tools/belastingpotje-calculator.html\">belastingpotje-calculator</a> (tarieven 2026).",
 "fw_h2_self":"Wat je zelf nog moet doen",
-"fw_p_self":"Eerlijk is eerlijk: Sum-IT berekent en toont je belastingpotje, maar het geld daadwerkelijk wegzetten naar een aparte spaarrekening doe je nog zelf. Sum-IT is in aanbouw en start bewust klein en simpel — geen automatische overboekingen, geen bankkoppeling vandaag. Wel een heldere, actuele reservering waar je op kunt vertrouwen bij het boeken.",
+"fw_p_self":"Eerlijk is eerlijk: Sum-IT berekent en toont je belastingpotje, maar het geld daadwerkelijk wegzetten naar een aparte spaarrekening doe je nog zelf. Sum-IT doet geen automatische overboekingen. Wel krijg je een heldere, actuele reservering waar je op kunt vertrouwen bij het boeken.",
 "fw_h2_export":"Van belastingpotje naar aangifte",
-"fw_p_export":"Het belastingpotje is geen doel op zich, maar een tussenstap naar een rustige aangifte. Omdat elke boeking al is verwerkt en het btw-deel al apart staat, hoef je bij de aangifte niet meer terug te rekenen wat je precies opzij had moeten zetten. Werk je met een boekhouder, dan levert Sum-IT een schone export op — de overdracht wordt een download in plaats van een map vol losse cijfers.",
+"fw_p_export":"Het belastingpotje is geen doel op zich, maar een tussenstap naar een rustige aangifte. Omdat elke boeking al is verwerkt en het btw-deel al apart staat, hoef je bij de aangifte niet meer terug te rekenen wat je precies opzij had moeten zetten. Werk je met een boekhouder, dan levert Sum-IT een schone export op, de overdracht wordt een download in plaats van een map vol losse cijfers.",
 "fw_h2_more":"Meer bij Sum-IT",
 "fw_p_more":"Wil je zien hoe de boekingen zelf tot stand komen? Lees over <a href=\"/functies/bonnetjes-scannen/\">automatisch bonnetjes inboeken</a>. Benieuwd wat een klus je écht oplevert nadat de btw eraf is? Bekijk <a href=\"/functies/projecten/\">projecten en winst per klus</a>. Alle prijzen en wat er inbegrepen is, staan op <a href=\"/prijzen/\">prijzen</a>.",
 "fw_h2_faq":"Veelgestelde vragen",
@@ -149,7 +150,7 @@ window.PAGE_I18N={
 "fw_faq3_q":"Moet ik het gereserveerde bedrag zelf apart houden?",
 "fw_faq3_a":"Sum-IT berekent en toont het bedrag; het daadwerkelijk wegzetten naar een aparte rekening doe je zelf, bijvoorbeeld naar een spaarrekening. Zo geef je het niet per ongeluk uit.",
 "fw_faq4_q":"Verandert mijn belastingpotje als ik minder verdien?",
-"fw_faq4_a":"Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder — je ziet het bedrag steeds actueel.",
+"fw_faq4_a":"Ja, het potje groeit mee met elke boeking. Verdien je een maand minder, dan reserveer je die maand ook minder, je ziet het bedrag steeds actueel.",
 "fw_cta_h3":"Maak je gratis profiel aan bij Sum-IT",
 "fw_cta_p":"Btw apart zetten zonder rekenwerk, bij elke boeking automatisch. Een profiel in het netwerk is gratis; boekhouden erbij kan vanaf €11 per maand, alles inbegrepen.",
 "fw_cta_btn":"Maak je gratis profiel aan →",
@@ -161,19 +162,19 @@ window.PAGE_I18N={
 "fw_crumb":"Setting VAT aside",
 "fw_h1":"Setting VAT aside: automatic reserve for your tax bill",
 "fw_meta":"Feature · Tax reserve · 4 min read",
-"fw_intro":"The biggest source of stress for sole traders isn't bookkeeping — it's the bill that suddenly lands. Setting VAT aside is the habit that prevents that, but who actually does it consistently, week after week? Sum-IT reserves automatically, on every booking, so the tax bill never surprises you again.",
+"fw_intro":"The biggest source of stress for sole traders isn't bookkeeping, it's the bill that suddenly lands. Setting VAT aside is the habit that prevents that, but who actually does it consistently, week after week? Sum-IT reserves automatically, on every booking, so the tax bill never surprises you again.",
 "fw_h2_how":"How does Sum-IT set your VAT aside automatically?",
 "fw_li1":"<b>On every booking.</b> As soon as an invoice or receipt is processed, Sum-IT immediately calculates the VAT share and the income tax share.",
-"fw_li2":"<b>Reserved automatically.</b> Automatic VAT reserving means your tax pot grows on its own — no calculations, no spreadsheet.",
+"fw_li2":"<b>Reserved automatically.</b> Automatic VAT reserving means your tax pot grows on its own, no calculations, no spreadsheet.",
 "fw_li3":"<b>Always up to date.</b> You can see at any moment how much money already belongs to the tax office and isn't yours to spend freely.",
 "fw_li4":"<b>Linked to your receipts.</b> Every <a href=\"/functies/bonnetjes-scannen/\">photographed receipt</a> automatically counts towards your VAT overview and your reserve.",
 "fw_h2_compare":"Automatic VAT reserving versus tracking it yourself",
-"fw_p_compare":"Letting sole traders keep their own tax reserve works in theory: take a percentage, set it aside, done. In practice it's the first thing to slip once things get busy. Setting VAT aside automatically takes that step out of your head — it happens on every booking, even when you're not thinking about it.",
+"fw_p_compare":"Letting sole traders keep their own tax reserve works in theory: take a percentage, set it aside, done. In practice it's the first thing to slip once things get busy. Setting VAT aside automatically takes that step out of your head, it happens on every booking, even when you're not thinking about it.",
 "fw_tip":"Tip: want an indication of the percentages up front? Run the numbers with our <a href=\"/tools/belastingpotje-calculator.html\">tax reserve calculator</a> (2026 rates).",
 "fw_h2_self":"What you still need to do yourself",
-"fw_p_self":"To be honest: Sum-IT calculates and shows your tax reserve, but actually moving the money to a separate savings account is still up to you. Sum-IT is in build and deliberately starts small and simple — no automatic transfers, no bank link today. What you do get is a clear, up-to-date reserve you can rely on with every booking.",
+"fw_p_self":"To be honest: Sum-IT calculates and shows your tax reserve, but actually moving the money to a separate savings account is still up to you. Sum-IT doesn't make automatic transfers. What you do get is a clear, up-to-date reserve you can rely on with every booking.",
 "fw_h2_export":"From tax reserve to tax return",
-"fw_p_export":"The tax reserve isn't a goal in itself, it's a step towards a calm tax return. Because every booking is already processed and the VAT share is already set aside, you no longer have to work backwards to figure out what you should have reserved. If you work with a bookkeeper, Sum-IT produces a clean export — the handover becomes a download instead of a folder full of loose numbers.",
+"fw_p_export":"The tax reserve isn't a goal in itself, it's a step towards a calm tax return. Because every booking is already processed and the VAT share is already set aside, you no longer have to work backwards to figure out what you should have reserved. If you work with a bookkeeper, Sum-IT produces a clean export, the handover becomes a download instead of a folder full of loose numbers.",
 "fw_h2_more":"More at Sum-IT",
 "fw_p_more":"Want to see how the bookings themselves come about? Read about <a href=\"/functies/bonnetjes-scannen/\">automatic receipt booking</a>. Curious what a job really earns you once the VAT is out? Check <a href=\"/functies/projecten/\">projects and profit per job</a>. All prices and what's included are on <a href=\"/prijzen/\">pricing</a>.",
 "fw_h2_faq":"Frequently asked questions",
@@ -184,7 +185,7 @@ window.PAGE_I18N={
 "fw_faq3_q":"Do I need to keep the reserved amount aside myself?",
 "fw_faq3_a":"Sum-IT calculates and shows the amount; actually moving it to a separate account, such as a savings account, is still up to you. That way you don't accidentally spend it.",
 "fw_faq4_q":"Does my tax reserve change if I earn less?",
-"fw_faq4_a":"Yes, the reserve grows with every booking. Earn less in a given month, and you reserve less that month too — the amount is always current.",
+"fw_faq4_a":"Yes, the reserve grows with every booking. Earn less in a given month, and you reserve less that month too, the amount is always current.",
 "fw_cta_h3":"Create your free profile at Sum-IT",
 "fw_cta_p":"Setting VAT aside without any calculations, automatically on every booking. A profile in the network is free; bookkeeping on top is available from €11 per month, everything included.",
 "fw_cta_btn":"Create your free profile →",

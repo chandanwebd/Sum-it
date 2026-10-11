@@ -16,6 +16,10 @@ const INDEX = join(root, "blog/index.html");
 const MANIFEST = join(root, "blog/index.json");
 const START = "<!-- blog-index:start -->";
 const END = "<!-- blog-index:end -->";
+// The homepage shows the same three "Nieuwste artikelen" between these markers.
+const HOME = join(root, "index.html");
+const HOME_START = "<!-- home-latest:start -->";
+const HOME_END = "<!-- home-latest:end -->";
 
 // Category order, ids (kept from the old page: /blog/#belasting etc. still work) and i18n keys.
 export const CATEGORIES = [
@@ -94,6 +98,30 @@ function toolCard(t) {
     `<span class="tc-go" data-i18n="bl_tool">Open de tool →</span></a>`;
 }
 
+// Newest three, ordered exactly like /blog/blog.js does at runtime: date
+// (newest first), then category order, then the order in index.json.
+function latestArticles(data) {
+  const catOrder = CATEGORIES.map((c) => c.id);
+  return data.articles
+    .map((a, i) => ({ a, d: articleMeta(a.href).date, k: catOrder.indexOf(a.category) * 1e4 + i }))
+    .filter((x) => x.d)
+    .sort((x, y) => (x.d !== y.d ? (y.d > x.d ? 1 : -1) : x.k - y.k))
+    .slice(0, 3)
+    .map((x) => x.a);
+}
+
+// Homepage card: same markup as the homepage blog section's cards (css/index.css .v24-blog-*).
+function homeCard(a) {
+  const cat = CATEGORIES.find((c) => c.id === a.category);
+  const date = articleMeta(a.href).date;
+  return `<a class="v24-blog-card" href="${esc(a.href)}" data-cat="${a.category}" data-date="${date}"` +
+    (a.title_en ? ` data-title-en="${esc(a.title_en)}"` : "") + (a.desc_en ? ` data-desc-en="${esc(a.desc_en)}"` : "") + `>` +
+    `<div class="v24-blog-top"><span class="v24-blog-tag">${esc(cat.label)}</span>` +
+    `<span class="v24-blog-arrow" aria-hidden="true"><i class="fi fi-rr-arrow-up-right"></i></span></div>` +
+    `<h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p>` +
+    `<span class="v24-blog-meta"><time datetime="${date}">${nlDate(date)}</time> · Lees artikel →</span></a>`;
+}
+
 function build(data) {
   const byCat = Object.fromEntries(CATEGORIES.map((c) => [c.id, []]));
   for (const a of data.articles) {
@@ -101,8 +129,7 @@ function build(data) {
     byCat[a.category].push(a);
   }
   const label = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
-  const dated = data.articles.map((a) => ({ a, d: articleMeta(a.href).date })).filter((x) => x.d);
-  const latest = dated.sort((x, y) => (y.d > x.d ? 1 : y.d < x.d ? -1 : 0)).slice(0, 3).map((x) => x.a);
+  const latest = latestArticles(data);
 
   const chips = [`<a class="bt-chip" href="/blog/" data-cat="" data-i18n="bx_all">Alles</a>`]
     .concat(CATEGORIES.map((c) => `<a class="bt-chip" href="/blog/?category=${c.id}" data-cat="${c.id}" data-i18n="${c.chip}">${esc(c.label)}</a>`))
@@ -120,7 +147,7 @@ function build(data) {
     `<div class="blog-status" id="blog-status" role="status" aria-live="polite" hidden></div>`,
     `<section id="latest" class="blog-sec is-latest" aria-labelledby="h-latest"><div class="shead"><h2 id="h-latest" data-i18n="bx_latest">Nieuwste artikelen</h2></div>`,
     `<div class="cardgrid">${latest.map((a) => card(a, label[a.category])).join("")}</div></section>`,
-    `<section id="tools" class="blog-sec is-tools" aria-labelledby="h-tools"><div class="shead"><h2 id="h-tools" data-i18n="bl3">Gratis tools</h2></div><p class="sdesc" data-i18n="bl4">Reken direct uit wat je moet reserveren of vragen — met de officiële 2026-tarieven.</p>`,
+    `<section id="tools" class="blog-sec is-tools" aria-labelledby="h-tools"><div class="shead"><h2 id="h-tools" data-i18n="bl3">Gratis tools</h2></div><p class="sdesc" data-i18n="bl4">Reken direct uit wat je moet reserveren of vragen, met de officiële 2026-tarieven.</p>`,
     `<div class="toolgrid">${data.tools.map(toolCard).join("")}</div></section>`);
   for (const c of CATEGORIES) {
     const list = byCat[c.id];
@@ -158,3 +185,10 @@ if (html.includes(START)) {
 }
 writeFileSync(INDEX, html);
 console.log(`blog/index.html: ${data.articles.length} article cards in ${CATEGORIES.length} categories`);
+
+let home = readFileSync(HOME, "utf8");
+if (!home.includes(HOME_START)) throw new Error("index.html has no " + HOME_START + " marker");
+home = home.slice(0, home.indexOf(HOME_START)) + HOME_START + "\n" +
+  latestArticles(data).map(homeCard).join("\n") + "\n" + home.slice(home.indexOf(HOME_END));
+writeFileSync(HOME, home);
+console.log("index.html: 3 newest articles in the homepage blog section");

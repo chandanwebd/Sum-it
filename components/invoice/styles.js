@@ -14,7 +14,8 @@
      ========================================================================= */
 
   /* Fictional sample data (same company, client and amounts as the invoice
-     on the homepage). Amounts are computed from the lines so they add up. */
+     on the homepage). Amounts are computed from the lines by calc.js
+     (window.SumitInvoiceCalc, discount before VAT) so they add up. */
   var ORG = {
     legal_name:"Jouw Bedrijf B.V.",
     address_line1:"Voorbeeldstraat 12",
@@ -34,17 +35,17 @@
     { d:{nl:"Afwerkprofiel RVS, geborsteld", en:"Stainless finishing profile"}, q:36, u:{nl:"m", en:"m"}, p:18.9 },
     { d:{nl:"Inmeten en voorbereiding", en:"Measuring and preparation"}, q:1, u:{nl:"post", en:"item"}, p:185 }
   ];
-  function r2(n){ return Math.round(n*100)/100; }
+  function calc(){ return window.SumitInvoiceCalc.compute(LINES,{ vatRate:VAT_RATE, discount:DISCOUNT }); }
   function lineItems(lang){
-    return LINES.map(function(l){
+    return calc().rows.map(function(r){
+      var l = r.line;
       return { description:l.d[lang], quantity:l.q, unit:l.u[lang], unit_price:l.p,
-        vat_rate:VAT_RATE, total_incl_vat:r2(r2(l.q*l.p)*(1+VAT_RATE)) };
+        vat_rate:VAT_RATE, total_excl_vat:r.amount };
     });
   }
   function amounts(){
-    var net = r2(LINES.reduce(function(s,l){ return s + r2(l.q*l.p); }, 0));
-    var vat = r2(net*VAT_RATE);
-    return { net:net, vat:vat, total:r2(net + vat - DISCOUNT) };
+    var c = calc();
+    return { net:c.subtotal, discount:c.discount, taxable:c.taxable, vat:c.vat, total:c.total };
   }
   var CLIENT = {
     name:{nl:"De Klant B.V.", en:"The Client B.V."},
@@ -64,7 +65,8 @@
       currency:"EUR",
       subtotal_excl_vat:a.net,
       vat_breakdown_by_rate:{"0.21":{vat:a.vat}},
-      discount_amount:DISCOUNT,
+      discount_amount:a.discount,
+      taxable_amount:a.taxable,
       final_amount:a.total,
       payment_term_text: en ? "30% on order, 70% within 14 days of completion" : "30% bij opdracht, 70% binnen 14 dagen na oplevering",
       is_reverse_charge:false,
@@ -84,7 +86,8 @@
       currency:"EUR",
       subtotal_excl_vat:a.net,
       vat_breakdown_by_rate:{"0.21":{vat:a.vat}},
-      discount_amount:DISCOUNT,
+      discount_amount:a.discount,
+      taxable_amount:a.taxable,
       final_amount:a.total,
       skonto_enabled:true, skonto_percentage:2, skonto_deadline:"2026-09-24",
       reverse_charge_legal_text:null,
@@ -100,14 +103,14 @@
       offer_date:"Datum",invoice_date:"Factuurdatum",valid_until:"Geldig tot",
       delivery_deadline:"Opleverdatum",due_date:"Vervaldatum",reference:"Referentie",
       description:"Omschrijving",qty:"Aantal",unit_price:"Stuksprijs",vat_pct:"Btw",
-      amount:"Bedrag",net_total:"Subtotaal",vat:"Btw",discount:"Korting",total:"Totaal",
+      amount:"Bedrag",net_total:"Subtotaal",vat:"Btw",discount:"Korting",taxable:"Totaal excl. btw",total:"Totaal",
       scope:"Werkzaamheden",terms:"Voorwaarden",payment:"Betaling",tax_id:"KVK",phone:"Tel",
       skonto:"Betalingskorting: {p}% bij betaling voor {d}.",sender:"Afzender"},
     en:{offer:"Offer",invoice:"Invoice",to:"To",bill_to:"Bill to",
       offer_date:"Date",invoice_date:"Invoice date",valid_until:"Valid until",
       delivery_deadline:"Delivery deadline",due_date:"Due date",reference:"Reference",
       description:"Description",qty:"Qty",unit_price:"Unit price",vat_pct:"VAT",
-      amount:"Amount",net_total:"Net total",vat:"VAT",discount:"Discount",total:"Total",
+      amount:"Amount",net_total:"Subtotal",vat:"VAT",discount:"Discount",taxable:"Total excl. VAT",total:"Total",
       scope:"Scope of work",terms:"Terms",payment:"Payment",tax_id:"Reg. no.",phone:"Tel",
       skonto:"Skonto: {p}% if paid by {d}.",sender:"Sender"}
   };
@@ -123,7 +126,7 @@
   function date(v,lang){
     if(!v) return "";
     if(lang!=="nl") return v;
-    var p = v.split("-"); return p[2]+"/"+p[1]+"/"+p[0];
+    var p = v.split("-"); return p[2]+"-"+p[1]+"-"+p[0];
   }
   function pct(r){ return Math.round(Number(r)*100)+"%"; }
   function esc(s){ return String(s==null?"":s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); }
@@ -147,11 +150,15 @@
       if(d.reference_po_number) meta.push([t.reference,d.reference_po_number]);
     }
     var totals = [];
+    // Discount comes off before VAT: subtotal, discount, taxable amount, VAT, total.
     totals.push([t.net_total,money(d.subtotal_excl_vat,lang),"muted"]);
+    if(d.discount_amount){
+      totals.push([t.discount,"-"+money(d.discount_amount,lang),"muted"]);
+      totals.push([t.taxable,money(d.taxable_amount,lang),"muted"]);
+    }
     Object.keys(d.vat_breakdown_by_rate||{}).forEach(function(r){
       totals.push([t.vat+" "+pct(r),money(d.vat_breakdown_by_rate[r].vat,lang),"muted"]);
     });
-    if(d.discount_amount) totals.push([t.discount,"-"+money(d.discount_amount,lang),"muted"]);
 
     var foot = [];
     if(isOffer){
@@ -165,7 +172,7 @@
     }
 
     var sender = [ORG.address_line1,ORG.address_line2,(ORG.postal_code+" "+ORG.city).trim(),
-      "BTW: "+ORG.vat_id, t.phone+": "+ORG.phone, ORG.email];
+      "BTW: "+ORG.vat_id, t.tax_id+": "+ORG.kvk, t.phone+": "+ORG.phone, ORG.email];
     if(!isOffer){ sender.push(ORG.website); sender.push("IBAN: "+IBAN); }
 
     return {
@@ -198,7 +205,7 @@
         '<td class="num q">'+money(li.quantity,m.lang)+(opt.unitInQty&&li.unit?' '+esc(li.unit):'')+'</td>'+
         '<td class="num p">'+money(li.unit_price,m.lang)+(opt.unitInQty?'':esc(unit))+'</td>'+
         '<td class="num v">'+pct(li.vat_rate)+'</td>'+
-        '<td class="num a">'+money(li.total_incl_vat,m.lang)+'</td></tr>';
+        '<td class="num a">'+money(li.total_excl_vat,m.lang)+'</td></tr>';
     }).join("");
   }
   function headCells(m){
@@ -1692,11 +1699,11 @@
     desc:"",
     render:function(m){
       var groups = [
-        { name: m.lang==="nl" ? "Materiaal" : "Materials", idx:[0,1] },
-        { name: m.lang==="nl" ? "Uitvoering" : "Execution", idx:[2,3,4] }
+        { name: m.lang==="nl" ? "Materiaal" : "Materials", idx:[1,2] },
+        { name: m.lang==="nl" ? "Uitvoering" : "Execution", idx:[0,3] }
       ];
       var body = groups.map(function(g){
-        var sub = g.idx.reduce(function(a,i){ return a + (m.lines[i] ? Number(m.lines[i].total_incl_vat) : 0); },0);
+        var sub = g.idx.reduce(function(a,i){ return a + (m.lines[i] ? Number(m.lines[i].total_excl_vat) : 0); },0);
         var head = '<tr class="grp"><td class="d" colspan="4">'+esc(g.name)+'</td><td class="num a">'+money(sub,m.lang)+'</td></tr>';
         var body = g.idx.filter(function(i){return m.lines[i];}).map(function(i){
           var li = m.lines[i], unit = li.unit ? " / "+li.unit : "";
@@ -1704,7 +1711,7 @@
             '<td class="num q">'+money(li.quantity,m.lang)+'</td>'+
             '<td class="num p">'+money(li.unit_price,m.lang)+esc(unit)+'</td>'+
             '<td class="num v">'+pct(li.vat_rate)+'</td>'+
-            '<td class="num a">'+money(li.total_incl_vat,m.lang)+'</td></tr>';
+            '<td class="num a">'+money(li.total_excl_vat,m.lang)+'</td></tr>';
         }).join("");
         return head+body;
       }).join("");

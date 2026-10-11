@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="pricing">
 <!-- site-header:start -->
@@ -35,17 +36,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -55,13 +56,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -72,7 +73,7 @@
 <h1 data-i18n="pr_h1">Wat kost Sum-IT?</h1>
 <div class="meta" data-i18n="pr_meta">Sum-IT · Prijzen · 3 min leestijd</div>
 <article>
-<p data-i18n="pr_intro">Zoek je naar Sum-IT prijzen, boekhoudapp prijzen of gewoon de boekhoudprogramma kosten voor een zzp&#x27;er? Het antwoord is kort. Sum-IT heeft twee prijzen en niet meer: een gratis profiel in het netwerk van vakmensen, voor altijd, en boekhouden erbij voor €11 per maand, alles inbegrepen. Geen instapprijs die later duurder wordt en geen functies die achter een dure laag verstopt zitten. Op deze pagina lees je precies wat je voor elk bedrag krijgt, en wat nog in aanbouw is.</p>
+<p data-i18n="pr_intro">Wat kost Sum-IT, en wat betaal je als zzp&#x27;er eigenlijk voor een boekhoudapp? Het antwoord is kort. Sum-IT heeft twee prijzen en niet meer: een gratis profiel in het netwerk van vakmensen, voor altijd, en boekhouden erbij voor €11 per maand, alles inbegrepen. Geen instapprijs die later duurder wordt en geen functies die achter een dure laag verstopt zitten. Op deze pagina lees je precies wat je voor elk bedrag krijgt, en wat nog in aanbouw is.</p>
 
 <h2 data-i18n="pr_h2_two">Twee prijzen, verder niets</h2>
 <p data-i18n="pr_two_intro">Sum-IT bestaat uit twee onderdelen die los van elkaar werken. Je kunt gratis meedoen met het netwerk, of ook gaan boekhouden met Sum-IT voor €11 per maand. Geen tussenlagen, geen jaarabonnement, geen opstartkosten.</p>
@@ -98,7 +99,8 @@
 <li data-i18n="pr_card_paid_li1">Foto van een bonnetje = automatisch geboekt, inclusief btw.</li>
 <li data-i18n="pr_card_paid_li2">Automatisch belastingpotje: geld apart voor btw en inkomstenbelasting.</li>
 <li data-i18n="pr_card_paid_li3">Winst per klus, live, zodat je weet wat een opdracht echt oplevert.</li>
-<li data-i18n="pr_card_paid_li4">Schone export voor je boekhouder — de overdracht wordt een download.</li>
+<li data-i18n="pr_card_paid_li5">Actie: de eerste 150 gebruikers krijgen drie maanden gratis.</li>
+<li data-i18n="pr_card_paid_li4">Schone export voor je boekhouder, de overdracht wordt een download.</li>
 </ul>
 <div class="note" data-i18n="pr_card_paid_note">Eén plan. Geen lagen, geen losse modules, geen opstartkosten. Data blijft in de EU.</div>
 </div>
@@ -106,10 +108,9 @@
 
 <h2 data-i18n="pr_h2_status">Eerlijk: het netwerk is in aanbouw</h2>
 <p data-i18n="pr_status_p1">We zijn eerlijk over waar Sum-IT staat. Het netwerk is in aanbouw: we bouwen het stap voor stap op, samen met de vakmensen die zich aanmelden. Maak je nu gratis een profiel aan, dan ben je er vanaf het begin bij.</p>
-<p data-i18n="pr_status_p2">Ook de boekhoudapp start bewust klein en simpel. Er is vandaag geen bankkoppeling en geen personeelsadministratie. Heb je dat nu al nodig, dan is een gevestigd, breed pakket de betere keus. Wil je juist een tool die boekhouden zo klein mogelijk maakt, dan is Sum-IT er voor jou.</p>
 
 <h2 data-i18n="pr_h2_replace">Wat €11 per maand vervangt</h2>
-<p data-i18n="pr_replace_p1">We zetten liever geen lange functielijst tegenover een ander boekhoudprogramma. De kosten van een boekhoudprogramma vergelijk je niet op knoppen, maar op tijd. €11 per maand vervangt geen ander abonnement — het vervangt uren administratie: bonnetjes sorteren, btw uitzoeken, achteraf uitrekenen of een klus wel winst maakte.</p>
+<p data-i18n="pr_replace_p1">We zetten liever geen lange functielijst tegenover een ander boekhoudprogramma. De kosten van een boekhoudprogramma vergelijk je niet op knoppen, maar op tijd. €11 per maand vervangt geen ander abonnement, het vervangt uren administratie: bonnetjes sorteren, btw uitzoeken, achteraf uitrekenen of een klus wel winst maakte.</p>
 <p data-i18n="pr_replace_p2">Reken zelf uit wat een uur van jouw tijd waard is met de <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a>, en wat je opzij moet zetten voor de fiscus met de <a href="/tools/belastingpotje-calculator.html">belastingpotje-calculator</a> (tarieven 2026).</p>
 
 <div class="tip" data-i18n="pr_tip">Twijfel je tussen zelf boekhouden en een boekhouder inschakelen? Sum-IT combineert allebei: jij houdt overzicht op je telefoon, je boekhouder krijgt aan het einde van het jaar een schone export.</div>
@@ -139,12 +140,12 @@
 <a href="/blog/" data-i18n="c_blog">Blog</a> ·
 <a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
 <a href="/">sum-it.eu</a>
-</footer>
+<!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 <script>window.PAGE_I18N={"nl":{
 "pr_crumb_current":"Prijzen",
 "pr_h1":"Wat kost Sum-IT?",
 "pr_meta":"Sum-IT · Prijzen · 3 min leestijd",
-"pr_intro":"Zoek je naar Sum-IT prijzen, boekhoudapp prijzen of gewoon de boekhoudprogramma kosten voor een zzp&#x27;er? Het antwoord is kort. Sum-IT heeft twee prijzen en niet meer: een gratis profiel in het netwerk van vakmensen, voor altijd, en boekhouden erbij voor €11 per maand, alles inbegrepen. Geen instapprijs die later duurder wordt en geen functies die achter een dure laag verstopt zitten. Op deze pagina lees je precies wat je voor elk bedrag krijgt, en wat nog in aanbouw is.",
+"pr_intro":"Wat kost Sum-IT, en wat betaal je als zzp&#x27;er eigenlijk voor een boekhoudapp? Het antwoord is kort. Sum-IT heeft twee prijzen en niet meer: een gratis profiel in het netwerk van vakmensen, voor altijd, en boekhouden erbij voor €11 per maand, alles inbegrepen. Geen instapprijs die later duurder wordt en geen functies die achter een dure laag verstopt zitten. Op deze pagina lees je precies wat je voor elk bedrag krijgt, en wat nog in aanbouw is.",
 "pr_h2_two":"Twee prijzen, verder niets",
 "pr_two_intro":"Sum-IT bestaat uit twee onderdelen die los van elkaar werken. Je kunt gratis meedoen met het netwerk, of ook gaan boekhouden met Sum-IT voor €11 per maand. Geen tussenlagen, geen jaarabonnement, geen opstartkosten.",
 "pr_card_free_title":"Gratis profiel",
@@ -161,13 +162,13 @@
 "pr_card_paid_li1":"Foto van een bonnetje = automatisch geboekt, inclusief btw.",
 "pr_card_paid_li2":"Automatisch belastingpotje: geld apart voor btw en inkomstenbelasting.",
 "pr_card_paid_li3":"Winst per klus, live, zodat je weet wat een opdracht echt oplevert.",
-"pr_card_paid_li4":"Schone export voor je boekhouder — de overdracht wordt een download.",
+"pr_card_paid_li4":"Schone export voor je boekhouder, de overdracht wordt een download.",
+"pr_card_paid_li5":"Actie: de eerste 150 gebruikers krijgen drie maanden gratis.",
 "pr_card_paid_note":"Eén plan. Geen lagen, geen losse modules, geen opstartkosten. Data blijft in de EU.",
 "pr_h2_status":"Eerlijk: het netwerk is in aanbouw",
 "pr_status_p1":"We zijn eerlijk over waar Sum-IT staat. Het netwerk is in aanbouw: we bouwen het stap voor stap op, samen met de vakmensen die zich aanmelden. Maak je nu gratis een profiel aan, dan ben je er vanaf het begin bij.",
-"pr_status_p2":"Ook de boekhoudapp start bewust klein en simpel. Er is vandaag geen bankkoppeling en geen personeelsadministratie. Heb je dat nu al nodig, dan is een gevestigd, breed pakket de betere keus. Wil je juist een tool die boekhouden zo klein mogelijk maakt, dan is Sum-IT er voor jou.",
 "pr_h2_replace":"Wat €11 per maand vervangt",
-"pr_replace_p1":"We zetten liever geen lange functielijst tegenover een ander boekhoudprogramma. De kosten van een boekhoudprogramma vergelijk je niet op knoppen, maar op tijd. €11 per maand vervangt geen ander abonnement — het vervangt uren administratie: bonnetjes sorteren, btw uitzoeken, achteraf uitrekenen of een klus wel winst maakte.",
+"pr_replace_p1":"We zetten liever geen lange functielijst tegenover een ander boekhoudprogramma. De kosten van een boekhoudprogramma vergelijk je niet op knoppen, maar op tijd. €11 per maand vervangt geen ander abonnement, het vervangt uren administratie: bonnetjes sorteren, btw uitzoeken, achteraf uitrekenen of een klus wel winst maakte.",
 "pr_replace_p2":"Reken zelf uit wat een uur van jouw tijd waard is met de <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a>, en wat je opzij moet zetten voor de fiscus met de <a href=\"/tools/belastingpotje-calculator.html\">belastingpotje-calculator</a> (tarieven 2026).",
 "pr_tip":"Twijfel je tussen zelf boekhouden en een boekhouder inschakelen? Sum-IT combineert allebei: jij houdt overzicht op je telefoon, je boekhouder krijgt aan het einde van het jaar een schone export.",
 "pr_h2_faq":"Veelgestelde vragen",
@@ -189,7 +190,7 @@
 "pr_crumb_current":"Pricing",
 "pr_h1":"What does Sum-IT cost?",
 "pr_meta":"Sum-IT · Pricing · 3 min read",
-"pr_intro":"Looking for Sum-IT pricing, bookkeeping app pricing, or just what a bookkeeping program costs for a self-employed tradesperson? The answer is short. Sum-IT has two prices and nothing more: a free profile in the network of tradespeople, forever, and bookkeeping on top for €11 a month, everything included. No entry price that gets more expensive later, and no features hidden behind a pricier tier. This page tells you exactly what you get for each amount, and what's still being built.",
+"pr_intro":"What does Sum-IT cost, and what does a bookkeeping app cost a self-employed tradesperson? The answer is short. Sum-IT has two prices and nothing more: a free profile in the network of tradespeople, forever, and bookkeeping on top for €11 a month, everything included. No entry price that gets more expensive later, and no features hidden behind a pricier tier. This page tells you exactly what you get for each amount, and what's still being built.",
 "pr_h2_two":"Two prices, nothing else",
 "pr_two_intro":"Sum-IT has two parts that work independently. You can join the network for free, or also start bookkeeping with Sum-IT for €11 a month. No extra tiers, no annual contract, no setup costs.",
 "pr_card_free_title":"Free profile",
@@ -206,13 +207,13 @@
 "pr_card_paid_li1":"Photo of a receipt = booked automatically, VAT included.",
 "pr_card_paid_li2":"Automatic tax reserve: money set aside for VAT and income tax.",
 "pr_card_paid_li3":"Profit per job, live, so you know what a job actually earns you.",
-"pr_card_paid_li4":"Clean export for your bookkeeper — the handover becomes a download.",
+"pr_card_paid_li4":"Clean export for your bookkeeper, the handover becomes a download.",
+"pr_card_paid_li5":"Offer: the first 150 users get three months free.",
 "pr_card_paid_note":"One plan. No tiers, no add-on modules, no setup costs. Data stays in the EU.",
 "pr_h2_status":"Honestly: the network is still being built",
 "pr_status_p1":"We're honest about where Sum-IT stands. The network is being built step by step, together with the tradespeople who sign up. Create your free profile now and you're in from the start.",
-"pr_status_p2":"The bookkeeping app also starts deliberately small and simple. There's no bank integration and no payroll today. If you need that right now, an established, broader package is the better choice today. If you want a tool that makes bookkeeping as small as possible, Sum-IT is for you.",
 "pr_h2_replace":"What €11 a month replaces",
-"pr_replace_p1":"We'd rather not put a long feature list up against another bookkeeping program. You don't compare bookkeeping program costs by buttons, but by time. €11 a month doesn't replace another subscription — it replaces hours of admin: sorting receipts, figuring out VAT, working out afterwards whether a job actually made a profit.",
+"pr_replace_p1":"We'd rather not put a long feature list up against another bookkeeping program. You don't compare bookkeeping program costs by buttons, but by time. €11 a month doesn't replace another subscription, it replaces hours of admin: sorting receipts, figuring out VAT, working out afterwards whether a job actually made a profit.",
 "pr_replace_p2":"Work out what an hour of your time is worth with the <a href=\"/tools/uurtarief-calculator.html\">hourly-rate calculator</a>, and what you should set aside for tax with the <a href=\"/tools/belastingpotje-calculator.html\">tax-pot calculator</a> (2026 rates).",
 "pr_tip":"Torn between doing your own bookkeeping and hiring a bookkeeper? Sum-IT combines both: you keep an overview on your phone, your bookkeeper gets a clean export at year-end.",
 "pr_h2_faq":"Frequently asked questions",

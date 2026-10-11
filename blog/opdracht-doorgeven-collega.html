@@ -15,11 +15,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Te veel werk? Zo schuif je een klus door", "description": "Te veel werk? Zo geef je een opdracht door aan een collega-zzp'er: doorverwijzen, onderaanneming of samen offreren. Mét tips voor fee en klantrelatie.", "datePublished": "2026-07-25", "author": {"@type": "Organization", "name": "Sum-IT"}, "publisher": {"@type": "Organization", "name": "Sum-IT", "logo": {"@type": "ImageObject", "url": "https://sum-it.eu/sum-it-logo-mark.png"}}, "mainEntityOfPage": "https://sum-it.eu/blog/opdracht-doorgeven-collega.html"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mag ik geld vragen voor het doorverwijzen van een klant?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Spreek de fee vooraf af met je collega, hou hem redelijk en factureer met btw. Veel zzp'ers werken liever met gesloten beurzen: jij gunt nu een klus, je collega later een keer aan jou."}}, {"@type": "Question", "name": "Ben ik verantwoordelijk voor het werk van mijn collega?", "acceptedAnswer": {"@type": "Answer", "text": "Bij doorverwijzen niet: de klant sluit een overeenkomst met je collega. Bij onderaanneming wél: jij bent de hoofdaannemer en de klant spreekt jou aan op het eindresultaat. Leg dan vast wie intern aansprakelijk is en check de verzekering van je collega."}}, {"@type": "Question", "name": "Geldt de Wet DBA als ik een collega inhuur voor mijn klus?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bij onderaanneming ben jij opdrachtgever, dus de Wet DBA geldt ook voor jou. Zorg dat je collega echt als zelfstandige werkt: eigen aanpak, eigen gereedschap, afgesproken resultaat. Sinds 1 januari 2025 wordt hier weer op gehandhaafd."}}, {"@type": "Question", "name": "Hoe voorkom ik dat mijn collega er met mijn klant vandoor gaat?", "acceptedAnswer": {"@type": "Answer", "text": "Maak er vooraf een afspraak over, bijvoorbeeld dat vervolgwerk eerst via jou loopt. Zet het kort op de mail. En kies collega's die je vertrouwt — in een goed netwerk is klanten afpakken not done."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mag ik geld vragen voor het doorverwijzen van een klant?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Spreek de fee vooraf af met je collega, hou hem redelijk en factureer met btw. Veel zzp'ers werken liever met gesloten beurzen: jij gunt nu een klus, je collega later een keer aan jou."}}, {"@type": "Question", "name": "Ben ik verantwoordelijk voor het werk van mijn collega?", "acceptedAnswer": {"@type": "Answer", "text": "Bij doorverwijzen niet: de klant sluit een overeenkomst met je collega. Bij onderaanneming wél: jij bent de hoofdaannemer en de klant spreekt jou aan op het eindresultaat. Leg dan vast wie intern aansprakelijk is en check de verzekering van je collega."}}, {"@type": "Question", "name": "Geldt de Wet DBA als ik een collega inhuur voor mijn klus?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Bij onderaanneming ben jij opdrachtgever, dus de Wet DBA geldt ook voor jou. Zorg dat je collega echt als zelfstandige werkt: eigen aanpak, eigen gereedschap, afgesproken resultaat. Sinds 1 januari 2025 wordt hier weer op gehandhaafd."}}, {"@type": "Question", "name": "Hoe voorkom ik dat mijn collega er met mijn klant vandoor gaat?", "acceptedAnswer": {"@type": "Answer", "text": "Maak er vooraf een afspraak over, bijvoorbeeld dat vervolgwerk eerst via jou loopt. Zet het kort op de mail. En kies collega's die je vertrouwt: in een goed netwerk is klanten afpakken not done."}}]}</script>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="blog">
 <!-- site-header:start -->
@@ -33,17 +34,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -53,13 +54,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -68,10 +69,10 @@
 <main id="main">
 <div class="crumb"><a href="/">Home</a> · <a href="/blog/">Blog</a> · Te veel werk? Zo schuif je een klus door…</div>
 <h1>Te veel werk? Zo schuif je een klus door</h1>
-<div class="meta">Sum-IT · Samenwerken · 5 min leestijd · bijgewerkt 2026-07-25</div>
+<div class="meta">Sum-IT · Samenwerken &amp; netwerk · 5 min leestijd · <time datetime="2026-07-25">25 jul 2026</time></div>
 <article>
 <p>Heb je te veel werk, dan kun je een klus op drie manieren doorschuiven naar een collega-zzp&#39;er: doorverwijzen (de klant wordt klant van je collega), onderaanneming (jij blijft hoofdaannemer en huurt je collega in) of samen offreren (jullie verdelen de klus). Welke route slim is, hangt af van hoeveel grip je wilt houden en hoeveel risico je wilt dragen. Bescherm in alle gevallen twee dingen: je klantrelatie en de kwaliteit die onder jouw naam geleverd wordt.</p>
-<p>&quot;Nee&quot; verkopen voelt zonde. Slecht werk afleveren omdat je overloopt is erger. Doorschuiven is vaak de beste derde optie — als je het goed regelt.</p>
+<p>&quot;Nee&quot; verkopen voelt zonde. Slecht werk afleveren omdat je overloopt is erger. Doorschuiven is vaak de beste derde optie, als je het goed regelt.</p>
 <h2>Welke drie routes zijn er om een klus door te geven?</h2>
 <div class="table-wrap"><table>
 <thead>
@@ -115,37 +116,37 @@
 </tbody></table></div>
 <p>Kort door de bocht: doorverwijzen is het simpelst, onderaanneming geeft de meeste grip (en het meeste werk), samen offreren zit ertussenin.</p>
 <h2>Wanneer kies je welke route?</h2>
-<p><strong>Doorverwijzen</strong> past als de klus buiten je vak ligt, of als je agenda écht vol zit. Stel: Sanne is schilder en krijgt een stucklus aangeboden. Ze verwijst door naar Ruben, klaar. Netjes: meld het de klant eerlijk en breng klant en collega actief met elkaar in contact — dat is meteen goed voor je gunfactor.</p>
-<p><strong>Onderaanneming</strong> past als de klant per se met jóú zaken wil doen, of als de klus deels van jou blijft. Jij blijft aanspreekpunt en verkoopt het geheel; je collega doet (een deel van) het werk. Let op: dan word jij opdrachtgever en gelden de spelregels uit ons artikel over <a href="/blog/zzper-inhuren-als-zzper.html">het inhuren van een andere zzp&#39;er</a> — inclusief de <a href="/blog/wet-dba-2026-uitgelegd.html">Wet DBA</a>, die sinds 1 januari 2025 weer gehandhaafd wordt. In de bouw komt daar de btw-verlegging en <a href="/blog/ketenaansprakelijkheid-bouw.html">ketenaansprakelijkheid</a> bij.</p>
+<p><strong>Doorverwijzen</strong> past als de klus buiten je vak ligt, of als je agenda écht vol zit. Stel: Sanne is schilder en krijgt een stucklus aangeboden. Ze verwijst door naar Ruben, klaar. Netjes: meld het de klant eerlijk en breng klant en collega actief met elkaar in contact. Dat is meteen goed voor je gunfactor.</p>
+<p><strong>Onderaanneming</strong> past als de klant per se met jóú zaken wil doen, of als de klus deels van jou blijft. Jij blijft aanspreekpunt en verkoopt het geheel; je collega doet (een deel van) het werk. Let op: dan word jij opdrachtgever en gelden de spelregels uit ons artikel over <a href="/blog/zzper-inhuren-als-zzper.html">het inhuren van een andere zzp&#39;er</a>, inclusief de <a href="/blog/wet-dba-2026-uitgelegd.html">Wet DBA</a>, die sinds 1 januari 2025 weer gehandhaafd wordt. In de bouw komt daar de btw-verlegging en <a href="/blog/ketenaansprakelijkheid-bouw.html">ketenaansprakelijkheid</a> bij.</p>
 <p><strong>Samen offreren</strong> past bij grotere klussen met duidelijk te knippen delen: jij het schilderwerk, je collega het stucwerk. Ieder offreert en factureert het eigen deel, dus niemand draagt risico voor de ander. Maak wel één iemand aanspreekpunt richting klant, anders wordt het rommelig. Hoe je een sterke offerte neerzet lees je in <a href="/blog/offerte-maken-zzp.html">offerte maken als zzp&#39;er</a>.</p>
-<p>KVK schreef eerder al nuttig over de stap <a href="https://www.kvk.nl/advies-en-informatie/bedrijf-starten/van-uurtjefactuurtje-naar-uitbesteden/">van uurtje-factuurtje naar uitbesteden</a> — het denkwerk daarachter geldt ook voor eenmalige klussen.</p>
+<p>KVK schreef eerder al nuttig over de stap <a href="https://www.kvk.nl/advies-en-informatie/bedrijf-starten/van-uurtjefactuurtje-naar-uitbesteden/">van uurtje-factuurtje naar uitbesteden</a>: het denkwerk daarachter geldt ook voor eenmalige klussen.</p>
 <h2>Mag je een fee vragen als je een klus doorverwijst?</h2>
 <p>Ja, dat mag gewoon. Gebruikelijk is één van deze drie vormen:</p>
 <ul>
 <li><strong>Gesloten beurzen.</strong> Jij gunt Ruben deze klus, Ruben denkt aan jou bij de volgende. In hechte vaknetwerken is dit de norm.</li>
-<li><strong>Een eenmalige fee.</strong> Een bescheiden bedrag of klein percentage van de opdrachtwaarde, als dank voor de lead. Spreek het vooraf af, factureer het netjes met btw aan je collega en hou het redelijk — een fee die te hoog is, prijst de klus voor je collega kapot.</li>
+<li><strong>Een eenmalige fee.</strong> Een bescheiden bedrag of klein percentage van de opdrachtwaarde, als dank voor de lead. Spreek het vooraf af, factureer het netjes met btw aan je collega en hou het redelijk: een fee die te hoog is, prijst de klus voor je collega kapot.</li>
 <li><strong>Marge via onderaanneming.</strong> Geen fee, maar het verschil tussen wat de klant jou betaalt en wat jij je collega betaalt. Daar hoort dan wél verantwoordelijkheid bij.</li>
 </ul>
-<p>Wees transparant. Een fee is normaal, maar stiekem gedoe erover sloopt het vertrouwen — en juist dat vertrouwen levert je op lange termijn de meeste klussen op.</p>
+<p>Wees transparant. Een fee is normaal, maar stiekem gedoe erover sloopt het vertrouwen, en juist dat vertrouwen levert je op lange termijn de meeste klussen op.</p>
 <h2>Hoe bescherm je je klantrelatie?</h2>
 <p>De grootste angst bij doorschuiven: &quot;straks ben ik mijn klant kwijt.&quot; Terecht punt, dus regel het vooraf.</p>
 <ol>
 <li><strong>Wees eerlijk tegen de klant.</strong> &quot;Ik heb nu geen ruimte, maar ik ken iemand die dit uitstekend kan.&quot; Klanten waarderen dat vrijwel altijd.</li>
 <li><strong>Maak een relatie-afspraak met je collega.</strong> Bijvoorbeeld: vervolgopdrachten van deze klant lopen eerst via jou, of je collega benadert de klant niet actief voor ander werk. Zet het in een mailtje of in je <a href="/blog/algemene-voorwaarden-zzp.html">algemene voorwaarden</a>.</li>
 <li><strong>Blijf bij onderaanneming zelf het aanspreekpunt.</strong> Eén gezicht richting klant; je collega stemt wijzigingen met jou af, niet rechtstreeks met de klant.</li>
-<li><strong>Vraag na afloop hoe het beviel.</strong> Zo blijf je in beeld — en hoor je het meteen als er iets misging.</li>
+<li><strong>Vraag na afloop hoe het beviel.</strong> Zo blijf je in beeld, en hoor je het meteen als er iets misging.</li>
 </ol>
-<p>Andersom werkt het net zo: wie klussen gunt, krijgt ze ook teruggegund. Zo bouw je aan een netwerk dat werk oplevert zonder koude acquisitie — daarover meer in <a href="/blog/klanten-vinden-zzp.html">klanten vinden als zzp&#39;er</a>.</p>
+<p>Andersom werkt het net zo: wie klussen gunt, krijgt ze ook teruggegund. Zo bouw je aan een netwerk dat werk oplevert zonder koude acquisitie. Daarover meer in <a href="/blog/klanten-vinden-zzp.html">klanten vinden als zzp&#39;er</a>.</p>
 <h2>Hoe borg je de kwaliteit als een ander het werk doet?</h2>
 <p>Bij doorverwijzen zet je alleen je reputatie in: verwijs dus alleen door naar mensen van wie je het werk kent. Bij onderaanneming sta jij garant, dus doe iets meer:</p>
 <ol>
-<li>Bekijk eerder werk of vraag referenties — <a href="https://www.kvk.nl/marketing/tips-voor-zakelijk-netwerken/">zakelijk netwerken</a> helpt om die vakgenoten te kennen vóór je ze nodig hebt.</li>
+<li>Bekijk eerder werk of vraag referenties. <a href="https://www.kvk.nl/marketing/tips-voor-zakelijk-netwerken/">Zakelijk netwerken</a> helpt om die vakgenoten te kennen vóór je ze nodig hebt.</li>
 <li>Begin klein: eerst een dagklus samen, dan pas een week.</li>
 <li>Leg het gewenste resultaat vast, met opleverdatum en kwaliteitseisen.</li>
 <li>Spreek af wie aansprakelijk is bij fouten en check of je collega verzekerd is.</li>
 <li>Plan een oplevercheck vóórdat de klant het ziet.</li>
 </ol>
-<p>En reken vooraf even door of er genoeg marge overblijft — een doorgeschoven klus met te dunne marge en vol risico kun je beter laten lopen. Gebruik daarvoor de aanpak uit <a href="/blog/winst-per-klus-berekenen.html">winst per klus berekenen</a>.</p>
+<p>En reken vooraf even door of er genoeg marge overblijft: een doorgeschoven klus met te dunne marge en vol risico kun je beter laten lopen. Gebruik daarvoor de aanpak uit <a href="/blog/winst-per-klus-berekenen.html">winst per klus berekenen</a>.</p>
 
 <h2>Veelgestelde vragen</h2>
 <h3>Mag ik geld vragen voor het doorverwijzen van een klant?</h3>
@@ -155,13 +156,13 @@
 <h3>Geldt de Wet DBA als ik een collega inhuur voor mijn klus?</h3>
 <p>Ja. Bij onderaanneming ben jij opdrachtgever, dus de Wet DBA geldt ook voor jou. Zorg dat je collega echt als zelfstandige werkt: eigen aanpak, eigen gereedschap, afgesproken resultaat. Sinds 1 januari 2025 wordt hier weer op gehandhaafd.</p>
 <h3>Hoe voorkom ik dat mijn collega er met mijn klant vandoor gaat?</h3>
-<p>Maak er vooraf een afspraak over, bijvoorbeeld dat vervolgwerk eerst via jou loopt. Zet het kort op de mail. En kies collega&#x27;s die je vertrouwt — in een goed netwerk is klanten afpakken not done.</p>
+<p>Maak er vooraf een afspraak over, bijvoorbeeld dat vervolgwerk eerst via jou loopt. Zet het kort op de mail. En kies collega&#x27;s die je vertrouwt: in een goed netwerk is klanten afpakken not done.</p>
 </article>
 <div class="ctabox"><h3>Minder administratie, meer ondernemen?</h3>
 Sum-IT leest je bonnetjes, zet je btw apart en laat per klus zien wat je verdient. Je profiel in het netwerk is gratis, voor altijd. Boekhouden erbij kan voor €11 per maand, alles inbegrepen.
 <br><a href="/#signup">Maak je gratis profiel aan →</a></div><p class="disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
-<div class="cards"><a class="card" href="/blog/ketenaansprakelijkheid-bouw.html"><h2>Ketenaansprakelijkheid in bouw en techniek: zo houd je de keten schoon</h2><p>Ketenaansprakelijkheid betekent: als hoofdaannemer opdraaien voor loonheffingen van je onderaannemer. Zo werke…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/klanten-vinden-zzp.html"><h2>Klanten vinden zonder acquisitie-ziel</h2><p>Klanten vinden als zzp&#x27;er zonder gladde verkooppraatjes? Begin bij je warme netwerk, vraag op het juiste momen…</p><p class="rm">Lees verder →</p></a></div>
+<div class="cards"><a class="card" href="/blog/ketenaansprakelijkheid-bouw.html"><h2>Ketenaansprakelijkheid in bouw en techniek: zo houd je de keten schoon</h2><p>Ketenaansprakelijkheid betekent: als hoofdaannemer opdraaien voor loonheffingen van je onderaannemer. Zo…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/klanten-vinden-zzp.html"><h2>Klanten vinden zonder acquisitie-ziel</h2><p>Klanten vinden als zzp&#x27;er zonder gladde verkooppraatjes? Begin bij je warme netwerk, vraag op het juiste…</p><p class="rm">Lees verder →</p></a></div>
 </main>
-<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacyverklaring</a> · <a href="/">sum-it.eu</a><!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 </body>
 </html>

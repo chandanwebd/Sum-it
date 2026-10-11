@@ -17,7 +17,8 @@ export async function notifyAdmin(env, s) {
     ['Role', roleLabel], ['Name', s.naam], ['Email', s.email],
     ['Company type', s.bedrijfstype], ['Works with bookkeeper', s.boekhouder],
     ['Phone', s.telefoon], ['City', s.city || s.stad], ['Language', s.taal],
-    ['Source', s.source], ['Referral code', s.ref_code], ['Referred by', s.referred_by]
+    ['Source', s.source], ['Referral code', s.ref_code], ['Referred by', s.referred_by],
+    ['Mailing opt-in', s.mailing_optin ? 'Yes' : 'No']
   ].map(([k, v]) => `<tr><td style="padding:4px 14px 4px 0;color:#64748B">${k}</td><td style="padding:4px 0"><b>${esc(v)}</b></td></tr>`).join('');
   const html = `<div style="font-family:sans-serif;max-width:540px">
 <h2 style="margin:0 0 6px">New Sum-IT signup — ${roleLabel}</h2>
@@ -54,7 +55,7 @@ function welcomeMail(t, pos, link, setup) {
          <a href="${setup}" style="display:inline-block;background:${C.green};color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px;padding:15px 32px;border-radius:999px">${t.ctaLabel} &rarr;</a>
          <p style="margin:14px 0 0;font-size:13px;line-height:1.55;color:${C.mute}">${t.ctaHint} <a href="https://sum-it.eu/login.html" style="color:${C.green};text-decoration:underline">${t.loginWord}</a>.</p>
        </td></tr>`
-    : `<tr><td style="padding:2px 40px 0"><p style="margin:0;font-size:15px;line-height:1.55;color:${C.ink}">${t.portalFallback} <a href="https://sum-it.eu/portal.html" style="color:${C.green};font-weight:bold;text-decoration:none">${t.portalWord}</a>.</p></td></tr>`;
+    : `<tr><td style="padding:2px 40px 0"><p style="margin:0;font-size:15px;line-height:1.55;color:${C.ink}">${t.portalFallback} <a href="https://sum-it.eu/portal.html?lang=${t.lang}" style="color:${C.green};font-weight:bold;text-decoration:none">${t.portalWord}</a>.</p></td></tr>`;
   const html = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef0f5;margin:0;padding:24px 12px;font-family:Arial,Helvetica,sans-serif">
 <tr><td align="center">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden">
@@ -93,24 +94,26 @@ function welcomeMail(t, pos, link, setup) {
 
 const MAIL_T = {
   nl: {
-    subject: p => `Je staat op plek #${p} — welkom bij de Founding 500`,
+    lang: 'nl',
+    subject: p => `Je staat op plek #${p}: welkom bij de Founding 500`,
     welcome: 'Welkom bij Sum-IT!',
     intro: 'Je aanmelding is bevestigd. Dit is jouw plek in de rij:',
     queueLabel: 'Jouw plek', ctaLabel: 'Stel je wachtwoord in &amp; open je portal',
     ctaHint: 'E&eacute;n klik bevestigt meteen je e-mailadres. Link verlopen? Gebruik "wachtwoord vergeten" op de',
     loginWord: 'loginpagina', portalFallback: 'Bekijk je plek in je', portalWord: 'member-portal',
-    refText: 'Dit is jouw persoonlijke link &mdash; elke vriend die via jou meedoet, telt:',
+    refText: 'Dit is jouw persoonlijke link. Elke vriend die via jou meedoet, telt:',
     signoff: 'Samen naar de top,', team: 'Team Sum-IT',
     footer: '&copy; 2026 Sum-IT &middot; Een product van Alpha Nova B.V. &middot; Je gegevens blijven in de EU (AVG).'
   },
   en: {
-    subject: p => `You're #${p} in the queue — welcome to the Founding 500`,
+    lang: 'en',
+    subject: p => `You're #${p} in the queue: welcome to the Founding 500`,
     welcome: 'Welcome to Sum-IT!',
     intro: 'Your signup is confirmed. Here is your spot in the queue:',
     queueLabel: 'Your spot', ctaLabel: 'Set your password &amp; open your portal',
     ctaHint: 'One click also confirms your email. Link expired? Use "forgot password" on the',
     loginWord: 'login page', portalFallback: 'See your spot in your', portalWord: 'member portal',
-    refText: 'This is your personal link &mdash; every friend who joins through it counts:',
+    refText: 'This is your personal link. Every friend who joins through it counts:',
     signoff: 'Together to the top,', team: 'Team Sum-IT',
     footer: '&copy; 2026 Sum-IT &middot; A product of Alpha Nova B.V. &middot; Your data stays in the EU (GDPR).'
   }
@@ -123,7 +126,7 @@ export const MAILS = {
 
 /* Creates the auth user (e-mail pre-confirmed) and returns a one-click
    set-password link for the welcome mail. Null on any failure. */
-export async function createPortalLink(env, email) {
+export async function createPortalLink(env, email, taal) {
   try {
     await fetch(`${env.SUPABASE_URL}/auth/v1/admin/users`, {
       method: 'POST', headers: sbHeaders(env),
@@ -139,7 +142,7 @@ export async function createPortalLink(env, email) {
     if (!hashed) return null;
     // Link straight to our own page; the token is only redeemed there by JavaScript,
     // so inbox link-scanners cannot burn it and there is no Supabase redirect screen.
-    return 'https://sum-it.eu/wachtwoord.html?token_hash=' + encodeURIComponent(hashed) + '&type=recovery';
+    return 'https://sum-it.eu/wachtwoord.html?token_hash=' + encodeURIComponent(hashed) + '&type=recovery&lang=' + (taal === 'en' ? 'en' : 'nl');
   } catch { return null; }
 }
 
@@ -157,10 +160,9 @@ export async function markWelcomed(env, email) {
 /* Sends the welcome mail via Brevo (no-op without key). */
 export async function sendWelcome(env, email, pos, refCode, taal) {
   if (!env.BREVO_API_KEY || !pos) return;
-  const offset = Number(env.DISPLAY_OFFSET ?? 143);
   const link = 'https://sum-it.eu/?ref=' + refCode;
-  const setup = await createPortalLink(env, email);
-  const m = (MAILS[taal] || MAILS.nl)(pos + offset, link, setup);
+  const setup = await createPortalLink(env, email, taal);
+  const m = (MAILS[taal] || MAILS.nl)(pos, link, setup); // real position, no display offset
   const from = env.MAIL_FROM || 'Sum-IT <hallo@sum-it.eu>';
   const fm = from.match(/^(.*)<(.+)>$/) || [null, 'Sum-IT', from];
   await fetch('https://api.brevo.com/v3/smtp/email', {

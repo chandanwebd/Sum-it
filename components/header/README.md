@@ -17,7 +17,7 @@ node components/header/sync.mjs
 ```
 
 The homepage copy gets in-page anchors automatically (`/#capture` → `#capture`,
-and links with `data-home-href` use that value, e.g. Pricing → `#pricing`).
+and links with `data-home-href` use that value instead; Pricing and Blog have none and always open their own pages).
 
 Each page also needs:
 

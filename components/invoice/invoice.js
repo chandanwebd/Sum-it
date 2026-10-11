@@ -3,9 +3,10 @@
  * Renders an example invoice with the same fields and layout as the app's
  * invoice PDF ("Kantoor" style: invoices/pdf.py): sender + IBAN, bill-to,
  * number, invoice/due date, reference, lines (qty, unit price, VAT %, amount
- * incl. VAT), net total, VAT per rate, discount, total, payment panel
+ * excl. VAT), subtotal, discount, total excl. VAT, VAT, total, payment panel
  * (pay before, amount, IBAN, account name, reference, QR) and terms.
- * All amounts are computed from the line items, so the numbers always add up.
+ * All amounts are computed from the line items by calc.js (discount before
+ * VAT), so the numbers always add up. Load calc.js before this file.
  *
  * Usage: <div data-invoice></div>  (+ optional data-invoice-open="#dialog-id"
  * on a button to show the full invoice in a <dialog>).
@@ -48,7 +49,7 @@
     nl: {
       invoice: "Factuur", billTo: "Factuuradres", invoiceDate: "Factuurdatum", dueDate: "Vervaldatum", reference: "Referentie",
       description: "Omschrijving", qty: "Aantal", unitPrice: "Stuksprijs", vat: "Btw", amount: "Bedrag",
-      net: "Subtotaal", discount: "Korting", total: "Totaal", payBefore: "Te betalen vóór", accountName: "Ten name van",
+      net: "Subtotaal", discount: "Korting", taxable: "Totaal excl. btw", total: "Totaal", payBefore: "Te betalen vóór", accountName: "Ten name van",
       payRef: "Kenmerk", scan: "Scan om te betalen", terms: "Voorwaarden", kvk: "KVK",
       skonto: "Betalingskorting: {p}% bij betaling vóór {d}.", note: "Vermeld het factuurnummer bij betaling.",
       calculated: "Totalen automatisch berekend", label: "Voorbeeldfactuur", qr: "Betaal-QR (illustratie)"
@@ -56,7 +57,7 @@
     en: {
       invoice: "Invoice", billTo: "Bill to", invoiceDate: "Invoice date", dueDate: "Due date", reference: "Reference",
       description: "Description", qty: "Qty", unitPrice: "Unit price", vat: "VAT", amount: "Amount",
-      net: "Net total", discount: "Discount", total: "Total", payBefore: "Pay before", accountName: "Account name",
+      net: "Subtotal", discount: "Discount", taxable: "Total excl. VAT", total: "Total", payBefore: "Pay before", accountName: "Account name",
       payRef: "Reference", scan: "Scan to pay", terms: "Terms", kvk: "Reg. no.",
       skonto: "Early payment discount: {p}% if paid by {d}.", note: "Please quote the invoice number with your payment.",
       calculated: "Totals calculated automatically", label: "Sample invoice", qr: "Payment QR (illustration)"
@@ -74,21 +75,16 @@
   function qty(v, lang) { return new Intl.NumberFormat(lang === "en" ? "en-GB" : "nl-NL").format(v); }
   function date(iso, lang) {
     var p = iso.split("-");
-    return lang === "en" ? iso : p[2] + "/" + p[1] + "/" + p[0];
+    return lang === "en" ? iso : p[2] + "-" + p[1] + "-" + p[0];
   }
   function lang() { return (document.documentElement.lang || "nl").slice(0, 2) === "en" ? "en" : "nl"; }
 
   function totals() {
-    var net = 0, incl = 0;
-    var rows = DATA.lines.map(function (l) {
-      var ex = round2(l.q * l.p);
-      var inc = round2(ex * (1 + VAT));
-      net += ex; incl += inc;
-      return { line: l, ex: ex, inc: inc };
-    });
-    net = round2(net);
-    var vat = round2(net * VAT);
-    return { rows: rows, net: net, vat: vat, discount: DATA.discount, total: round2(net + vat - DATA.discount) };
+    var T = window.SumitInvoiceCalc.compute(DATA.lines, { vatRate: VAT, discount: DATA.discount });
+    return {
+      rows: T.rows, net: T.subtotal, discount: T.discount, taxable: T.taxable,
+      vat: T.vat, total: T.total
+    };
   }
 
   /* ---------- DOM helpers ---------- */
@@ -172,7 +168,7 @@
         h("td", "inv-q", [qty(l.q, lng) + " " + l.u[lng]]),
         h("td", "inv-p", [money(l.p, lng)]),
         h("td", "inv-v", [Math.round(VAT * 100) + "%"]),
-        h("td", "inv-a", [amount(r.inc, lng)])
+        h("td", "inv-a", [amount(r.amount, lng)])
       ]);
       tr.style.setProperty("--i", i);
       body.appendChild(tr);
@@ -192,8 +188,9 @@
       h("span", "inv-badge", [t.calculated], { "aria-hidden": "true" }),
       h("dl", "inv-totals", [
         h("div", null, [h("dt", null, [t.net]), h("dd", null, [amount(T.net, lng)])]),
-        h("div", null, [h("dt", null, [t.vat + " " + Math.round(VAT * 100) + "%"]), h("dd", null, [amount(T.vat, lng)])]),
         h("div", null, [h("dt", null, [t.discount]), h("dd", null, ["−", amount(T.discount, lng)])]),
+        h("div", null, [h("dt", null, [t.taxable]), h("dd", null, [amount(T.taxable, lng)])]),
+        h("div", null, [h("dt", null, [t.vat + " " + Math.round(VAT * 100) + "%"]), h("dd", null, [amount(T.vat, lng)])]),
         h("div", "inv-grand", [h("dt", null, [t.total + " (EUR)"]), h("dd", null, [amount(T.total, lng)])])
       ])
     ]);

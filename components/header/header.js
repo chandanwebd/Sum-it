@@ -113,10 +113,17 @@
         ticking = false;
         root.classList.toggle("is-scrolled", window.scrollY > 16);
         if (active || !sectionLinks.length) return;
-        var current = "";
+        /* A section reached via the menu stops at scroll-padding-top +
+           scroll-margin-top below the viewport top; use that same offset and
+           pick the section lowest on the page, so the menu order doesn't matter. */
+        var current = "", best = -Infinity;
+        var pad = parseFloat(window.getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
         sectionLinks.forEach(function (link) {
           var section = document.querySelector(link.getAttribute("href"));
-          if (section && section.getBoundingClientRect().top <= 130) current = link.getAttribute("data-nav");
+          if (!section) return;
+          var top = section.getBoundingClientRect().top;
+          var offset = pad + (parseFloat(window.getComputedStyle(section).scrollMarginTop) || 0);
+          if (top <= offset + 2 && top > best) { best = top; current = link.getAttribute("data-nav"); }
         });
         root.querySelectorAll("[data-nav]").forEach(function (link) {
           link.classList.toggle("active", link.getAttribute("data-nav") === current);

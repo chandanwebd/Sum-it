@@ -44,6 +44,7 @@ input:focus{outline:2px solid var(--green)}
 .foot{color:var(--mut-d);font-size:12px;text-align:center;margin-top:22px}
 .foot a{color:#fff}
 </style>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body>
 <div class="top">
@@ -62,11 +63,11 @@ input:focus{outline:2px solid var(--green)}
       <input id="pw" type="password" required autocomplete="current-password" minlength="12">
       <button class="btn" id="btn" type="submit" data-i18n="btn">Inloggen</button>
       <div class="err" id="err"></div>
-      <div class="alt" style="margin-top:10px"><a href="#" onclick="return forgot()" data-i18n="forgot">Wachtwoord vergeten?</a></div>
+      <div class="alt" style="margin-top:10px"><a href="/wachtwoord.html?request=1" onclick="rememberEmail()" data-i18n="forgot">Wachtwoord vergeten?</a></div>
     </form>
     <div class="alt" data-i18n="alt">Nog geen account? <a href="/portal.html">Maak er een in het member-portal</a></div>
   </div>
-  <div class="foot"><span data-i18n="foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> · <a href="/privacy">Privacy</a></div>
+  <div class="foot"><span data-i18n="foot">Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU</span> · <a href="/privacy.html">Privacy</a><!-- site-socials:start --><div class="site-socials is-dark"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></div>
 </div>
 <script>
 var I18N={
@@ -75,14 +76,12 @@ var I18N={
      alt:'Nog geen account? <a href="/portal.html">Maak er een in het member-portal</a>',
      e_cfg:"Backend nog niet geconfigureerd.",e_conf:"Bevestig eerst je e-mailadres via de mail die je kreeg.",
      e_fail:"Inloggen mislukt: controleer e-mail en wachtwoord.",forgot:"Wachtwoord vergeten?",
-     f_mail:"Vul eerst je e-mailadres in, klik dan opnieuw.",f_sent:"Mail verstuurd! Klik de link om een nieuw wachtwoord te kiezen.",
      foot:"Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU"},
  en:{h1:"Log in",sub:"For members and admins. Log in with the e-mail address of your Sum-IT account.",
      l_email:"E-mail address",l_pw:"Password",btn:"Log in",
      alt:'No account yet? <a href="/portal.html">Create one in the member portal</a>',
      e_cfg:"Backend not configured yet.",e_conf:"Please confirm your e-mail address first via the mail you received.",
      e_fail:"Login failed: check your e-mail and password.",forgot:"Forgot your password?",
-     f_mail:"Fill in your e-mail address first, then click again.",f_sent:"Mail sent! Click the link to choose a new password.",
      foot:"Sum-IT is a product of Alpha Nova B.V. · All data stays in the EU"}};
 var LANG='nl';
 function setLang(l){LANG=l;try{localStorage.setItem('sumit_lang',l);}catch(e){}
@@ -120,13 +119,10 @@ async function doLogin(ev){
   routeUser();
   return false;
 }
-async function forgot(){
-  var err=document.getElementById('err');err.textContent='';
-  var em=(document.getElementById('email').value||'').trim().toLowerCase();
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em)){err.textContent=I18N[LANG].f_mail;return false;}
-  var r=await SB.auth.resetPasswordForEmail(em,{redirectTo:'https://sum-it.eu/wachtwoord.html'});
-  err.textContent=r.error?r.error.message:I18N[LANG].f_sent;
-  return false;
+/* "Wachtwoord vergeten?" opens the reset-request form on wachtwoord.html.
+   A typed e-mail address is handed over via sessionStorage, never the URL. */
+function rememberEmail(){
+  try{sessionStorage.setItem('sumit_reset_email',(document.getElementById('email').value||'').trim());}catch(e){}
 }
 // already logged in? route straight away
 if(SB){SB.auth.getSession().then(function(s){if(s.data&&s.data.session)routeUser();});}

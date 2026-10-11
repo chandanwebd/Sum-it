@@ -16,11 +16,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sum-IT", "item": "https://sum-it.eu/"}, {"@type": "ListItem", "position": 2, "name": "Voor aannemers", "item": "https://sum-it.eu/voor/aannemers/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Voor welke vakmensen is Sum-IT gemaakt?", "acceptedAnswer": {"@type": "Answer", "text": "Voor aannemers, onderaannemers en zzp'ers in de bouw: loodgieters, elektriciens, schilders, timmerlieden en andere vakmensen die per klus of project werken."}}, {"@type": "Question", "name": "Hoe werkt het netwerk om onderaannemers te vinden?", "acceptedAnswer": {"@type": "Answer", "text": "Je maakt een gratis profiel aan met je vak en regio. Andere vakmensen vinden je zo, en jij vindt hen. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen."}}, {"@type": "Question", "name": "Kan ik per project zien wat ik overhoud?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Sum-IT houdt materiaal en facturen per klus bij en laat live zien wat een project je oplevert, zodat je scherper kan offreren op het volgende."}}, {"@type": "Question", "name": "Wat kost Sum-IT voor aannemers?", "acceptedAnswer": {"@type": "Answer", "text": "Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen — één plan, geen verborgen extra's."}}, {"@type": "Question", "name": "Is het netwerk al live?", "acceptedAnswer": {"@type": "Answer", "text": "Het netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op; maak nu een gratis profiel aan, dan ben je er vanaf het begin bij."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Voor welke vakmensen is Sum-IT gemaakt?", "acceptedAnswer": {"@type": "Answer", "text": "Voor aannemers, onderaannemers en zzp'ers in de bouw: loodgieters, elektriciens, schilders, timmerlieden en andere vakmensen die per klus of project werken."}}, {"@type": "Question", "name": "Hoe werkt het netwerk om onderaannemers te vinden?", "acceptedAnswer": {"@type": "Answer", "text": "Je maakt een gratis profiel aan met je vak en regio. Andere vakmensen vinden je zo, en jij vindt hen. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen."}}, {"@type": "Question", "name": "Kan ik per project zien wat ik overhoud?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Sum-IT houdt materiaal en facturen per klus bij en laat live zien wat een project je oplevert, zodat je scherper kan offreren op het volgende."}}, {"@type": "Question", "name": "Wat kost Sum-IT voor aannemers?", "acceptedAnswer": {"@type": "Answer", "text": "Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen, één plan, geen verborgen extra's."}}, {"@type": "Question", "name": "Is het netwerk al live?", "acceptedAnswer": {"@type": "Answer", "text": "Het netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op; maak nu een gratis profiel aan, dan ben je er vanaf het begin bij."}}]}</script>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body>
 <!-- site-header:start -->
@@ -34,17 +35,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -54,13 +55,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -71,26 +72,26 @@
 <h1 data-i18n="va_h1">Boekhouding voor aannemers, onderaannemers en vakmensen in de bouw</h1>
 <div class="meta" data-i18n="va_meta">Sum-IT · Voor aannemers · 6 min leestijd</div>
 <article>
-<p data-i18n="va_intro">Tussen klussen door nog een uur besteden aan bonnetjes en facturen — daar wordt niemand blij van. Toch is dat voor veel aannemers, onderaannemers en zzp'ers in de bouw de realiteit: 's avonds, in het weekend, met een stapel bonnetjes op het dashboard. Sum-IT is gemaakt om dat kleiner te maken, en om je te helpen aan nieuw werk te komen via een netwerk van vakmensen die elkaar aanbevelen.</p>
+<p data-i18n="va_intro">Tussen klussen door nog een uur besteden aan bonnetjes en facturen, daar wordt niemand blij van. Toch is dat voor veel aannemers, onderaannemers en zzp'ers in de bouw de realiteit: 's avonds, in het weekend, met een stapel bonnetjes op het dashboard. Sum-IT is gemaakt om dat kleiner te maken, en om je te helpen aan nieuw werk te komen via een netwerk van vakmensen die elkaar aanbevelen.</p>
 
 <h2 data-i18n="va_h2_1">Weet per klus wat je overhoudt</h2>
-<p data-i18n="va_p1">Een dag factureren en dan pas aan het eind van het jaar zien of een klus wat opleverde: dat is te laat. Sum-IT houdt materiaalkosten en facturen per klus of project bij, en laat live zien wat je overhoudt. Zo zie je tijdens het werk al of een klus loont — en offreer je scherper op de volgende.</p>
+<p data-i18n="va_p1">Een dag factureren en dan pas aan het eind van het jaar zien of een klus wat opleverde: dat is te laat. Sum-IT houdt materiaalkosten en facturen per klus of project bij, en laat live zien wat je overhoudt. Zo zie je tijdens het werk al of een klus loont, en offreer je scherper op de volgende.</p>
 
-<div class="tip" data-i18n="va_tip">Nog geen scherp uurtarief? Bereken het met de gratis <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a> — inclusief materiaalkosten, verzekeringen en de onbetaalde uren tussen klussen door.</div>
+<div class="tip" data-i18n="va_tip">Nog geen scherp uurtarief? Bereken het met de gratis <a href="/tools/uurtarief-calculator.html">uurtarief-calculator</a>, inclusief materiaalkosten, verzekeringen en de onbetaalde uren tussen klussen door.</div>
 
 <h2 data-i18n="va_h2_2">Het netwerk: vind en word gevonden als onderaannemer</h2>
 <span class="badge" data-i18n="va_badge">In aanbouw</span>
-<p data-i18n="va_p2">Zit je zonder onderaannemer voor een klus, of zoek je zelf werk als onderaannemer? Sum-IT bouwt een netwerk van vakmensen — aannemers, loodgieters, elektriciens, schilders en meer — waarin je elkaar vindt. Je maakt een gratis profiel met je vak en regio, zodat anderen je kunnen vinden en jij hen.</p>
-<p data-i18n="va_p3">Vertrouwen is de basis. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen — geen anonieme sterrenreviews van onbekenden, maar collega's die voor elkaar instaan.</p>
-<p data-i18n="va_p4">Eerlijk is eerlijk: dit netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op, stap voor stap. Een gratis profiel aanmaken kan je nu al — voor altijd gratis, ook later.</p>
+<p data-i18n="va_p2">Zit je zonder onderaannemer voor een klus, of zoek je zelf werk als onderaannemer? Sum-IT bouwt een netwerk van vakmensen, aannemers, loodgieters, elektriciens, schilders en meer, waarin je elkaar vindt. Je maakt een gratis profiel met je vak en regio, zodat anderen je kunnen vinden en jij hen.</p>
+<p data-i18n="va_p3">Vertrouwen is de basis. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen, geen anonieme sterrenreviews van onbekenden, maar collega's die voor elkaar instaan.</p>
+<p data-i18n="va_p4">Eerlijk is eerlijk: dit netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op, stap voor stap. Een gratis profiel aanmaken kan je nu al, voor altijd gratis, ook later.</p>
 
 <h2 data-i18n="va_h2_3">Simpele boekhouding ernaast</h2>
-<p data-i18n="va_p5">Naast het netwerk kan Sum-IT ook je boekhouding doen. Foto van een bonnetje is een boeking, inclusief btw. Sum-IT reserveert automatisch een belastingpotje voor btw en inkomstenbelasting, en levert aan het eind een schone export voor je boekhouder — handig als je net als veel <a href="/voor/zzp/">zzp'ers</a> geen boekhoudkennis hebt en die overdracht liever een download laat zijn. Werk je met een boekhouder? Lees hoe Sum-IT en boekhouders <a href="/voor/boekhouders/">samenwerken</a>.</p>
+<p data-i18n="va_p5">Naast het netwerk kan Sum-IT ook je boekhouding doen. Foto van een bonnetje is een boeking, inclusief btw. Sum-IT reserveert automatisch een belastingpotje voor btw en inkomstenbelasting, en levert aan het eind een schone export voor je boekhouder, handig als je net als veel <a href="/voor/zzp/">zzp'ers</a> geen boekhoudkennis hebt en die overdracht liever een download laat zijn. Werk je met een boekhouder? Lees hoe Sum-IT en boekhouders <a href="/voor/boekhouders/">samenwerken</a>.</p>
 
 <h2 data-i18n="va_h2_4">Wat het kost</h2>
-<p data-i18n="va_p6">Een profiel in het netwerk is gratis, voor altijd — ook als je alleen op zoek bent naar onderaannemers of nieuw werk. Wil je ook de boekhouding via Sum-IT laten lopen, dan betaal je één vast bedrag: €11 per maand, alles inbegrepen. Bekijk alle prijzen op <a href="/prijzen/">de prijzenpagina</a>.</p>
+<p data-i18n="va_p6">Een profiel in het netwerk is gratis, voor altijd, ook als je alleen op zoek bent naar onderaannemers of nieuw werk. Wil je ook de boekhouding via Sum-IT laten lopen, dan betaal je één vast bedrag: €11 per maand, alles inbegrepen. Bekijk alle prijzen op <a href="/prijzen/">de prijzenpagina</a>.</p>
 
-<p data-i18n="va_honest">Sum-IT is in aanbouw en start bewust klein en simpel. Er is nu geen bankkoppeling en geen personeelsadministratie — heb je die vandaag nodig, dan is een gevestigd pakket voorlopig de betere keuze. Wil je meebouwen aan een simpele tool en een netwerk van vakmensen die elkaar helpen aan werk, dan is Sum-IT er voor jou.</p>
+<p data-i18n="va_honest">Sum-IT is in aanbouw en start bewust klein en simpel. Er is nu geen personeelsadministratie: heb je die vandaag nodig, dan is een gevestigd pakket voorlopig de betere keuze. Wil je meebouwen aan een simpele tool en een netwerk van vakmensen die elkaar helpen aan werk, dan is Sum-IT er voor jou.</p>
 
 <h2 data-i18n="va_faq_h">Veelgestelde vragen</h2>
 <h3 data-i18n="va_faq1_q">Voor welke vakmensen is Sum-IT gemaakt?</h3>
@@ -100,7 +101,7 @@
 <h3 data-i18n="va_faq3_q">Kan ik per project zien wat ik overhoud?</h3>
 <p data-i18n="va_faq3_a">Ja. Sum-IT houdt materiaal en facturen per klus bij en laat live zien wat een project je oplevert, zodat je scherper kan offreren op het volgende.</p>
 <h3 data-i18n="va_faq4_q">Wat kost Sum-IT voor aannemers?</h3>
-<p data-i18n="va_faq4_a">Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen — één plan, geen verborgen extra's.</p>
+<p data-i18n="va_faq4_a">Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen, één plan, geen verborgen extra's.</p>
 <h3 data-i18n="va_faq5_q">Is het netwerk al live?</h3>
 <p data-i18n="va_faq5_a">Het netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op; maak nu een gratis profiel aan, dan ben je er vanaf het begin bij.</p>
 
@@ -109,11 +110,11 @@
 <a class="card" href="/voor/zzp/"><h3 data-i18n="va_card_a_h">Voor zzp'ers</h3><p data-i18n="va_card_a_p">Boekhouding zonder boekhoudkennis: bonnetje maken is boeking klaar.</p><span class="rm" data-i18n="va_more">Meer lezen →</span></a>
 <a class="card" href="/voor/boekhouders/"><h3 data-i18n="va_card_b_h">Voor boekhouders</h3><p data-i18n="va_card_b_p">Hoe Sum-IT met je samenwerkt: je klant levert een schone export in plaats van een schoenendoos.</p><span class="rm" data-i18n="va_more">Meer lezen →</span></a>
 <a class="card" href="/community/"><h3 data-i18n="va_card_c_h">Het netwerk van vakmensen</h3><p data-i18n="va_card_c_p">Bekijk hoe profielen eruitzien en hoe verificatie via KvK en verzekering werkt.</p><span class="rm" data-i18n="va_more">Meer lezen →</span></a>
-<a class="card" href="/prijzen/"><h3 data-i18n="va_card_d_h">Prijzen</h3><p data-i18n="va_card_d_p">Gratis profiel, of boekhouding voor €11 per maand — alles inbegrepen.</p><span class="rm" data-i18n="va_more">Meer lezen →</span></a>
+<a class="card" href="/prijzen/"><h3 data-i18n="va_card_d_h">Prijzen</h3><p data-i18n="va_card_d_p">Gratis profiel, of boekhouding voor €11 per maand, alles inbegrepen.</p><span class="rm" data-i18n="va_more">Meer lezen →</span></a>
 </div>
 
 </article>
-<div class="ctabox"><h3 data-i18n="va_cta_h">Word gevonden voor je volgende klus</h3><span data-i18n="va_cta_p">Maak een gratis profiel aan in het netwerk van vakmensen. Voor altijd gratis — de boekhouding voeg je toe wanneer jij dat wil.</span><br><a href="/#signup" data-i18n="va_cta_btn">Maak je gratis profiel aan →</a></div>
+<div class="ctabox"><h3 data-i18n="va_cta_h">Word gevonden voor je volgende klus</h3><span data-i18n="va_cta_p">Maak een gratis profiel aan in het netwerk van vakmensen. Voor altijd gratis, de boekhouding voeg je toe wanneer jij dat wil.</span><br><a href="/#signup" data-i18n="va_cta_btn">Maak je gratis profiel aan →</a></div>
 <p class="disc" data-i18n="va_disc">Dit is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
 </main>
 <footer>
@@ -121,26 +122,26 @@
 <a href="/blog/" data-i18n="c_blog">Blog</a> ·
 <a href="/privacy.html" data-i18n="c_priv">Privacyverklaring</a> ·
 <a href="/">sum-it.eu</a>
-</footer>
+<!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 <script>
 window.PAGE_I18N={"nl":{
 "va_crumb":"Voor aannemers",
 "va_h1":"Boekhouding voor aannemers, onderaannemers en vakmensen in de bouw",
 "va_meta":"Sum-IT · Voor aannemers · 6 min leestijd",
-"va_intro":"Tussen klussen door nog een uur besteden aan bonnetjes en facturen — daar wordt niemand blij van. Toch is dat voor veel aannemers, onderaannemers en zzp'ers in de bouw de realiteit: 's avonds, in het weekend, met een stapel bonnetjes op het dashboard. Sum-IT is gemaakt om dat kleiner te maken, en om je te helpen aan nieuw werk te komen via een netwerk van vakmensen die elkaar aanbevelen.",
+"va_intro":"Tussen klussen door nog een uur besteden aan bonnetjes en facturen, daar wordt niemand blij van. Toch is dat voor veel aannemers, onderaannemers en zzp'ers in de bouw de realiteit: 's avonds, in het weekend, met een stapel bonnetjes op het dashboard. Sum-IT is gemaakt om dat kleiner te maken, en om je te helpen aan nieuw werk te komen via een netwerk van vakmensen die elkaar aanbevelen.",
 "va_h2_1":"Weet per klus wat je overhoudt",
-"va_p1":"Een dag factureren en dan pas aan het eind van het jaar zien of een klus wat opleverde: dat is te laat. Sum-IT houdt materiaalkosten en facturen per klus of project bij, en laat live zien wat je overhoudt. Zo zie je tijdens het werk al of een klus loont — en offreer je scherper op de volgende.",
-"va_tip":"Nog geen scherp uurtarief? Bereken het met de gratis <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a> — inclusief materiaalkosten, verzekeringen en de onbetaalde uren tussen klussen door.",
+"va_p1":"Een dag factureren en dan pas aan het eind van het jaar zien of een klus wat opleverde: dat is te laat. Sum-IT houdt materiaalkosten en facturen per klus of project bij, en laat live zien wat je overhoudt. Zo zie je tijdens het werk al of een klus loont, en offreer je scherper op de volgende.",
+"va_tip":"Nog geen scherp uurtarief? Bereken het met de gratis <a href=\"/tools/uurtarief-calculator.html\">uurtarief-calculator</a>, inclusief materiaalkosten, verzekeringen en de onbetaalde uren tussen klussen door.",
 "va_h2_2":"Het netwerk: vind en word gevonden als onderaannemer",
 "va_badge":"In aanbouw",
-"va_p2":"Zit je zonder onderaannemer voor een klus, of zoek je zelf werk als onderaannemer? Sum-IT bouwt een netwerk van vakmensen — aannemers, loodgieters, elektriciens, schilders en meer — waarin je elkaar vindt. Je maakt een gratis profiel met je vak en regio, zodat anderen je kunnen vinden en jij hen.",
-"va_p3":"Vertrouwen is de basis. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen — geen anonieme sterrenreviews van onbekenden, maar collega's die voor elkaar instaan.",
-"va_p4":"Eerlijk is eerlijk: dit netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op, stap voor stap. Een gratis profiel aanmaken kan je nu al — voor altijd gratis, ook later.",
+"va_p2":"Zit je zonder onderaannemer voor een klus, of zoek je zelf werk als onderaannemer? Sum-IT bouwt een netwerk van vakmensen, aannemers, loodgieters, elektriciens, schilders en meer, waarin je elkaar vindt. Je maakt een gratis profiel met je vak en regio, zodat anderen je kunnen vinden en jij hen.",
+"va_p3":"Vertrouwen is de basis. Profielen worden geverifieerd via KvK, btw-nummer en verzekering, en vakmensen bevelen elkaar aan bij anderen, geen anonieme sterrenreviews van onbekenden, maar collega's die voor elkaar instaan.",
+"va_p4":"Eerlijk is eerlijk: dit netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op, stap voor stap. Een gratis profiel aanmaken kan je nu al, voor altijd gratis, ook later.",
 "va_h2_3":"Simpele boekhouding ernaast",
-"va_p5":"Naast het netwerk kan Sum-IT ook je boekhouding doen. Foto van een bonnetje is een boeking, inclusief btw. Sum-IT reserveert automatisch een belastingpotje voor btw en inkomstenbelasting, en levert aan het eind een schone export voor je boekhouder — handig als je net als veel <a href=\"/voor/zzp/\">zzp'ers</a> geen boekhoudkennis hebt en die overdracht liever een download laat zijn. Werk je met een boekhouder? Lees hoe Sum-IT en boekhouders <a href=\"/voor/boekhouders/\">samenwerken</a>.",
+"va_p5":"Naast het netwerk kan Sum-IT ook je boekhouding doen. Foto van een bonnetje is een boeking, inclusief btw. Sum-IT reserveert automatisch een belastingpotje voor btw en inkomstenbelasting, en levert aan het eind een schone export voor je boekhouder, handig als je net als veel <a href=\"/voor/zzp/\">zzp'ers</a> geen boekhoudkennis hebt en die overdracht liever een download laat zijn. Werk je met een boekhouder? Lees hoe Sum-IT en boekhouders <a href=\"/voor/boekhouders/\">samenwerken</a>.",
 "va_h2_4":"Wat het kost",
-"va_p6":"Een profiel in het netwerk is gratis, voor altijd — ook als je alleen op zoek bent naar onderaannemers of nieuw werk. Wil je ook de boekhouding via Sum-IT laten lopen, dan betaal je één vast bedrag: €11 per maand, alles inbegrepen. Bekijk alle prijzen op <a href=\"/prijzen/\">de prijzenpagina</a>.",
-"va_honest":"Sum-IT is in aanbouw en start bewust klein en simpel. Er is nu geen bankkoppeling en geen personeelsadministratie — heb je die vandaag nodig, dan is een gevestigd pakket voorlopig de betere keuze. Wil je meebouwen aan een simpele tool en een netwerk van vakmensen die elkaar helpen aan werk, dan is Sum-IT er voor jou.",
+"va_p6":"Een profiel in het netwerk is gratis, voor altijd, ook als je alleen op zoek bent naar onderaannemers of nieuw werk. Wil je ook de boekhouding via Sum-IT laten lopen, dan betaal je één vast bedrag: €11 per maand, alles inbegrepen. Bekijk alle prijzen op <a href=\"/prijzen/\">de prijzenpagina</a>.",
+"va_honest":"Sum-IT is in aanbouw en start bewust klein en simpel. Er is nu geen personeelsadministratie: heb je die vandaag nodig, dan is een gevestigd pakket voorlopig de betere keuze. Wil je meebouwen aan een simpele tool en een netwerk van vakmensen die elkaar helpen aan werk, dan is Sum-IT er voor jou.",
 "va_faq_h":"Veelgestelde vragen",
 "va_faq1_q":"Voor welke vakmensen is Sum-IT gemaakt?",
 "va_faq1_a":"Voor aannemers, onderaannemers en zzp'ers in de bouw: loodgieters, elektriciens, schilders, timmerlieden en andere vakmensen die per klus of project werken.",
@@ -149,7 +150,7 @@ window.PAGE_I18N={"nl":{
 "va_faq3_q":"Kan ik per project zien wat ik overhoud?",
 "va_faq3_a":"Ja. Sum-IT houdt materiaal en facturen per klus bij en laat live zien wat een project je oplevert, zodat je scherper kan offreren op het volgende.",
 "va_faq4_q":"Wat kost Sum-IT voor aannemers?",
-"va_faq4_a":"Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen — één plan, geen verborgen extra's.",
+"va_faq4_a":"Een profiel in het netwerk is gratis, voor altijd. De boekhouding kost €11 per maand, alles inbegrepen, één plan, geen verborgen extra's.",
 "va_faq5_q":"Is het netwerk al live?",
 "va_faq5_a":"Het netwerk is in aanbouw. We bouwen het bewust samen met de eerste vakmensen op; maak nu een gratis profiel aan, dan ben je er vanaf het begin bij.",
 "va_ok_h":"Ook interessant",
@@ -160,30 +161,30 @@ window.PAGE_I18N={"nl":{
 "va_card_c_h":"Het netwerk van vakmensen",
 "va_card_c_p":"Bekijk hoe profielen eruitzien en hoe verificatie via KvK en verzekering werkt.",
 "va_card_d_h":"Prijzen",
-"va_card_d_p":"Gratis profiel, of boekhouding voor €11 per maand — alles inbegrepen.",
+"va_card_d_p":"Gratis profiel, of boekhouding voor €11 per maand, alles inbegrepen.",
 "va_more":"Meer lezen →",
 "va_cta_h":"Word gevonden voor je volgende klus",
-"va_cta_p":"Maak een gratis profiel aan in het netwerk van vakmensen. Voor altijd gratis — de boekhouding voeg je toe wanneer jij dat wil.",
+"va_cta_p":"Maak een gratis profiel aan in het netwerk van vakmensen. Voor altijd gratis, de boekhouding voeg je toe wanneer jij dat wil.",
 "va_cta_btn":"Maak je gratis profiel aan →",
 "va_disc":"Dit is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst."
 },"en":{
 "va_crumb":"For contractors",
 "va_h1":"Bookkeeping for contractors, subcontractors and tradespeople in construction",
 "va_meta":"Sum-IT · For contractors · 6 min read",
-"va_intro":"Spending another hour on receipts and invoices between jobs — nobody enjoys that. Yet for many contractors, subcontractors and freelancers in construction, that's the reality: in the evening, at the weekend, with a stack of receipts on the dashboard. Sum-IT is built to make that smaller, and to help you find new work through a network of tradespeople who recommend each other.",
+"va_intro":"Spending another hour on receipts and invoices between jobs, nobody enjoys that. Yet for many contractors, subcontractors and freelancers in construction, that's the reality: in the evening, at the weekend, with a stack of receipts on the dashboard. Sum-IT is built to make that smaller, and to help you find new work through a network of tradespeople who recommend each other.",
 "va_h2_1":"Know what every job actually earns you",
-"va_p1":"Invoicing all day and only finding out at year-end whether a job paid off: that's too late. Sum-IT tracks material costs and invoices per job or project, and shows live what you're left with. That way you already see during the work whether a job is worth it — and quote sharper on the next one.",
-"va_tip":"Don't have a sharp hourly rate yet? Work it out with the free <a href=\"/tools/uurtarief-calculator.html\">hourly rate calculator</a> — including material costs, insurance and the unpaid hours between jobs.",
+"va_p1":"Invoicing all day and only finding out at year-end whether a job paid off: that's too late. Sum-IT tracks material costs and invoices per job or project, and shows live what you're left with. That way you already see during the work whether a job is worth it, and quote sharper on the next one.",
+"va_tip":"Don't have a sharp hourly rate yet? Work it out with the free <a href=\"/tools/uurtarief-calculator.html\">hourly rate calculator</a>, including material costs, insurance and the unpaid hours between jobs.",
 "va_h2_2":"The network: find and be found as a subcontractor",
 "va_badge":"In build",
-"va_p2":"Short a subcontractor for a job, or looking for work as a subcontractor yourself? Sum-IT is building a network of tradespeople — contractors, plumbers, electricians, painters and more — where you find each other. You create a free profile with your trade and region, so others can find you and you can find them.",
-"va_p3":"Trust is the foundation. Profiles are verified via KvK (Chamber of Commerce), VAT number and insurance, and tradespeople vouch for each other — no anonymous star reviews from strangers, but colleagues who stand behind each other.",
-"va_p4":"Let's be honest: this network is in build. We're building it deliberately together with the first tradespeople, step by step. You can create a free profile now — free forever, later too.",
+"va_p2":"Short a subcontractor for a job, or looking for work as a subcontractor yourself? Sum-IT is building a network of tradespeople, contractors, plumbers, electricians, painters and more, where you find each other. You create a free profile with your trade and region, so others can find you and you can find them.",
+"va_p3":"Trust is the foundation. Profiles are verified via KvK (Chamber of Commerce), VAT number and insurance, and tradespeople vouch for each other, no anonymous star reviews from strangers, but colleagues who stand behind each other.",
+"va_p4":"Let's be honest: this network is in build. We're building it deliberately together with the first tradespeople, step by step. You can create a free profile now, free forever, later too.",
 "va_h2_3":"Simple bookkeeping alongside it",
-"va_p5":"Besides the network, Sum-IT can also handle your bookkeeping. A photo of a receipt is a booking, VAT included. Sum-IT automatically sets aside a tax pot for VAT and income tax, and delivers a clean export for your bookkeeper at the end — handy if, like many <a href=\"/voor/zzp/\">freelancers</a>, you have no bookkeeping knowledge and would rather that handover be a download. Working with a bookkeeper? Read how Sum-IT and bookkeepers <a href=\"/voor/boekhouders/\">work together</a>.",
+"va_p5":"Besides the network, Sum-IT can also handle your bookkeeping. A photo of a receipt is a booking, VAT included. Sum-IT automatically sets aside a tax pot for VAT and income tax, and delivers a clean export for your bookkeeper at the end, handy if, like many <a href=\"/voor/zzp/\">freelancers</a>, you have no bookkeeping knowledge and would rather that handover be a download. Working with a bookkeeper? Read how Sum-IT and bookkeepers <a href=\"/voor/boekhouders/\">work together</a>.",
 "va_h2_4":"What it costs",
-"va_p6":"A profile in the network is free, forever — even if you're only looking for subcontractors or new work. Want Sum-IT to handle your bookkeeping too? Pay one fixed amount: €11 per month, everything included. See all prices on <a href=\"/prijzen/\">the pricing page</a>.",
-"va_honest":"Sum-IT is in build and starts deliberately small and simple. There's no bank integration and no payroll administration today — if you need those now, an established package is the better choice for the time being. Want to help build a simple tool and a network of tradespeople who help each other to work? Sum-IT is for you.",
+"va_p6":"A profile in the network is free, forever, even if you're only looking for subcontractors or new work. Want Sum-IT to handle your bookkeeping too? Pay one fixed amount: €11 per month, everything included. See all prices on <a href=\"/prijzen/\">the pricing page</a>.",
+"va_honest":"Sum-IT is in build and starts deliberately small and simple. There's no payroll administration today. If you need that now, an established package is the better choice for the time being. Want to help build a simple tool and a network of tradespeople who help each other to work? Sum-IT is for you.",
 "va_faq_h":"Frequently asked questions",
 "va_faq1_q":"Which tradespeople is Sum-IT built for?",
 "va_faq1_a":"For contractors, subcontractors and freelancers in construction: plumbers, electricians, painters, carpenters and other tradespeople who work per job or project.",
@@ -192,7 +193,7 @@ window.PAGE_I18N={"nl":{
 "va_faq3_q":"Can I see what I'm left with per project?",
 "va_faq3_a":"Yes. Sum-IT tracks materials and invoices per job and shows live what a project earns you, so you can quote sharper on the next one.",
 "va_faq4_q":"What does Sum-IT cost for contractors?",
-"va_faq4_a":"A profile in the network is free, forever. Bookkeeping costs €11 per month, everything included — one plan, no hidden extras.",
+"va_faq4_a":"A profile in the network is free, forever. Bookkeeping costs €11 per month, everything included, one plan, no hidden extras.",
 "va_faq5_q":"Is the network already live?",
 "va_faq5_a":"The network is in build. We're building it deliberately together with the first tradespeople; create a free profile now and you're in from the start.",
 "va_ok_h":"Also interesting",
@@ -203,10 +204,10 @@ window.PAGE_I18N={"nl":{
 "va_card_c_h":"The network of tradespeople",
 "va_card_c_p":"See what profiles look like and how verification via KvK and insurance works.",
 "va_card_d_h":"Pricing",
-"va_card_d_p":"Free profile, or bookkeeping for €11 per month — everything included.",
+"va_card_d_p":"Free profile, or bookkeeping for €11 per month, everything included.",
 "va_more":"Read more →",
 "va_cta_h":"Get found for your next job",
-"va_cta_p":"Create a free profile in the network of tradespeople. Free forever — add bookkeeping whenever you want.",
+"va_cta_p":"Create a free profile in the network of tradespeople. Free forever, add bookkeeping whenever you want.",
 "va_cta_btn":"Create your free profile →",
 "va_disc":"This is general information, not tax or financial advice. Consult a bookkeeper or the Dutch Tax Administration for your situation."
 }};

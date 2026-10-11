@@ -1,0 +1,68 @@
+/* Sum-IT social links in the site footer.
+   Markup is written into each page by components/footer/sync.mjs. */
+.site-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* "footer" in the selectors outranks pages' own "footer a" link colours. */
+:is(footer, .foot) .site-socials a {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-line, #e2e8f0);
+  border-radius: 999px;
+  color: var(--c-muted, #64748b);
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+:is(footer, .foot) .site-socials a:hover {
+  color: var(--c-green-700, #007a55);
+  border-color: currentColor;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+:is(footer, .foot) .site-socials a:focus-visible {
+  outline: 3px solid var(--c-green-300, #7be3be);
+  outline-offset: 2px;
+}
+
+.site-socials svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* Centred footer line on the dark login and portal pages. */
+.site-socials.is-dark {
+  justify-content: center;
+}
+
+.foot .site-socials.is-dark a {
+  border-color: rgba(255, 255, 255, .22);
+  color: rgba(255, 255, 255, .72);
+}
+
+.foot .site-socials.is-dark a:hover {
+  color: #fff;
+}
+
+/* Community page: the icons sit in the footer nav, next to its links. */
+.footer-inner nav:has(.site-socials) {
+  align-items: center;
+}
+
+.footer-inner nav .site-socials {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(footer, .foot) .site-socials a { transition: none; }
+  :is(footer, .foot) .site-socials a:hover { transform: none; }
+}

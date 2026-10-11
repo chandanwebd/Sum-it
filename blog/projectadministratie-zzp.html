@@ -15,11 +15,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Projectadministratie zonder gedoe", "description": "Projectadministratie voor zzp'ers: houd per klus offerte, uren, bonnetjes en factuur bij elkaar. Simpele structuur, 10 minuten per week, direct overzicht.", "datePublished": "2026-07-25", "author": {"@type": "Organization", "name": "Sum-IT"}, "publisher": {"@type": "Organization", "name": "Sum-IT", "logo": {"@type": "ImageObject", "url": "https://sum-it.eu/sum-it-logo-mark.png"}}, "mainEntityOfPage": "https://sum-it.eu/blog/projectadministratie-zzp.html"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is een projectadministratie verplicht?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Verplicht is alleen een deugdelijke administratie: facturen, bonnetjes, bankafschriften en contracten, 7 jaar bewaard (10 jaar bij onroerend goed). Per klus ordenen is een keuze — maar wel de keuze die van dezelfde papieren ook nog een stuurmiddel maakt."}}, {"@type": "Question", "name": "Mag ik bonnetjes alleen digitaal bewaren?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, digitaal bewaren mag van de Belastingdienst, als de gegevens juist, volledig, leesbaar en controleerbaar blijven gedurende de hele bewaartermijn. Foto of scan van een papieren bon is prima. Zorg wel voor een back-up: \"telefoon kwijt\" is geen geldig excuus."}}, {"@type": "Question", "name": "Welke uren tel ik mee voor het urencriterium?", "acceptedAnswer": {"@type": "Answer", "text": "Alle uren voor je bedrijf: ook reistijd, offertes, administratie en acquisitie — niet alleen declarabele uren. Voor de zelfstandigenaftrek moet je in 2026 aan 1.225 uur komen en dat aannemelijk kunnen maken. Een urenoverzicht per klus plus je algemene uren is daarvoor prima bewijs."}}, {"@type": "Question", "name": "Heb ik hier software voor nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Mappen in je cloudopslag en een simpel urenlijstje werken prima om mee te starten. Software wordt interessant zodra je merkt dat je bonnetjes kwijtraakt, facturen te laat stuurt of geen zicht hebt op winst per klus — dan verdient het zichzelf snel terug."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is een projectadministratie verplicht?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Verplicht is alleen een deugdelijke administratie: facturen, bonnetjes, bankafschriften en contracten, 7 jaar bewaard (10 jaar bij onroerend goed). Per klus ordenen is een keuze, maar wel de keuze die van dezelfde papieren ook nog een stuurmiddel maakt."}}, {"@type": "Question", "name": "Mag ik bonnetjes alleen digitaal bewaren?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, digitaal bewaren mag van de Belastingdienst, als de gegevens juist, volledig, leesbaar en controleerbaar blijven gedurende de hele bewaartermijn. Foto of scan van een papieren bon is prima. Zorg wel voor een back-up: \"telefoon kwijt\" is geen geldig excuus."}}, {"@type": "Question", "name": "Welke uren tel ik mee voor het urencriterium?", "acceptedAnswer": {"@type": "Answer", "text": "Alle uren voor je bedrijf: ook reistijd, offertes, administratie en acquisitie, niet alleen declarabele uren. Voor de zelfstandigenaftrek moet je in 2026 aan 1.225 uur komen en dat aannemelijk kunnen maken. Een urenoverzicht per klus plus je algemene uren is daarvoor prima bewijs."}}, {"@type": "Question", "name": "Heb ik hier software voor nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Mappen in je cloudopslag en een simpel urenlijstje werken prima om mee te starten. Software wordt interessant zodra je merkt dat je bonnetjes kwijtraakt, facturen te laat stuurt of geen zicht hebt op winst per klus, dan verdient het zichzelf snel terug."}}]}</script>
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/components/header/header.css">
 <script src="/components/header/header.js" defer></script>
+<link rel="stylesheet" href="/components/footer/footer.css">
 </head>
 <body data-page="blog">
 <!-- site-header:start -->
@@ -33,17 +34,17 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="right">
         <div class="langs" role="group" aria-label="Taal / Language">
           <button type="button" id="lang-en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
           <button type="button" id="lang-nl" lang="nl" aria-pressed="true" class="on" onclick="setLang('nl')">NL</button>
         </div>
-        <a class="navlogin" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn small" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="navlogin" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn small" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-controls="mobmenu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -53,13 +54,13 @@
         <a href="/#invoicing" data-nav="invoicing" data-i18n="m_inv">Facturen</a>
         <a href="/#control" data-nav="projects" data-i18n="m_proj">Projecten</a>
         <a href="/community/" data-nav="community" data-i18n="m_comm">Community</a>
-        <a href="/prijzen/" data-home-href="#pricing" data-nav="pricing" data-i18n="m_price">Prijzen</a>
+        <a href="/prijzen/" data-nav="pricing" data-i18n="m_price">Prijzen</a>
         <a href="/#team" data-nav="team" data-i18n="m_team">Team</a>
-        <a href="/blog/" data-home-href="#blog" data-nav="blog" data-i18n="m_blog">Blog</a>
+        <a href="/blog/" data-nav="blog" data-i18n="m_blog">Blog</a>
       </nav>
       <div class="mobmenu-actions">
-        <a class="btn ghost" href="https://stg.sum-it.eu/login" data-i18n="nav_login">Inloggen</a>
-        <a class="btn" href="https://stg.sum-it.eu/register" data-i18n="nav_cta">Gratis profiel aanmaken</a>
+        <a class="btn ghost" href="/login.html" data-i18n="nav_login">Inloggen</a>
+        <a class="btn" href="/#signup" data-i18n="nav_cta">Gratis profiel aanmaken</a>
       </div>
     </div>
   </div>
@@ -68,11 +69,11 @@
 <main id="main">
 <div class="crumb"><a href="/">Home</a> · <a href="/blog/">Blog</a> · Projectadministratie zonder gedoe…</div>
 <h1>Projectadministratie zonder gedoe</h1>
-<div class="meta">Sum-IT · Ondernemen · 4 min leestijd · bijgewerkt 2026-07-25</div>
+<div class="meta">Sum-IT · Projecten, offertes &amp; geld · 4 min leestijd · <time datetime="2026-07-25">25 jul 2026</time></div>
 <article>
-<p>Projectadministratie is niets meer dan dit: per klus alles op één plek bewaren — offerte, akkoord, uren, bonnetjes, kilometers en de factuur. Eén map per klus, één vaste naamgeving, tien minuten bijwerken per week. Meer is het niet. De winst is groot: je ziet per klus wat je verdient, je bewijst meerwerk zwart op wit, je factureert sneller en je boekhouder is klaar met je in een fractie van de tijd. Zo zet je het op.</p>
+<p>Projectadministratie is niets meer dan dit: per klus alles op één plek bewaren: offerte, akkoord, uren, bonnetjes, kilometers en de factuur. Eén map per klus, één vaste naamgeving, tien minuten bijwerken per week. Meer is het niet. De winst is groot: je ziet per klus wat je verdient, je bewijst meerwerk zwart op wit, je factureert sneller en je boekhouder is klaar met je in een fractie van de tijd. Zo zet je het op.</p>
 <h2>Waarom een administratie per klus en niet één grote stapel?</h2>
-<p>De meeste zzp&#39;ers bewaren alles op één hoop: een schoenendoos bonnetjes, een mailbox vol offertes, uren &quot;in het hoofd&quot;. Aan het eind van het kwartaal klopt het meestal nog nét voor de btw-aangifte — maar je weet niets.</p>
+<p>De meeste zzp&#39;ers bewaren alles op één hoop: een schoenendoos bonnetjes, een mailbox vol offertes, uren &quot;in het hoofd&quot;. Aan het eind van het kwartaal klopt het meestal nog nét voor de btw-aangifte, maar je weet niets.</p>
 <p>Sorteer je diezelfde papieren per klus, dan verandert je administratie van een verplicht nummer in een stuurmiddel. Je ziet ineens dat die &quot;mooie grote klus&quot; nauwelijks iets opleverde en die kleine klus juist veel. Die vraag beantwoord je alleen als de kosten en uren per klus bij elkaar staan. Hoe je die rekensom daarna maakt, lees je in <a href="/blog/winst-per-klus-berekenen.html">winst per klus berekenen</a>.</p>
 <p>Bijkomend voordeel: de Belastingdienst eist sowieso dat je administratie <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/onderneming_starten/houd-een-goede-administratie-bij/houd-een-goede-administratie-bij">juist, volledig en controleerbaar</a> is. Een klusstructuur regelt dat bijna vanzelf.</p>
 <h2>Wat bewaar je per klus?</h2>
@@ -108,48 +109,48 @@
 <td>Compleet dossier als betaling uitblijft</td>
 </tr>
 </tbody></table></div>
-<p>Twee aanvullingen. Je uren bijhouden heeft dubbele waarde: je hebt ze nodig voor nacalculatie, en ze tellen mee voor het <a href="/blog/urencriterium-zelfstandigenaftrek.html">urencriterium van 1.225 uur</a> voor de zelfstandigenaftrek. En bonnetjes: fotograferen of scannen mag, <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren">digitaal bewaren is toegestaan</a> zolang alles juist, volledig en leesbaar blijft. Hoe je dat slim aanpakt lees je in <a href="/blog/bonnetjes-bewaren-belastingdienst.html">bonnetjes bewaren voor de Belastingdienst</a> — of bekijk hoe wij <a href="/#capture">bonnetjes scannen</a> aanpakken.</p>
+<p>Twee aanvullingen. Je uren bijhouden heeft dubbele waarde: je hebt ze nodig voor nacalculatie, en ze tellen mee voor het <a href="/blog/urencriterium-zelfstandigenaftrek.html">urencriterium van 1.225 uur</a> voor de zelfstandigenaftrek. En bonnetjes: fotograferen of scannen mag, <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/ondernemen/administratie/hoelang-moet-u-gegevens-bewaren">digitaal bewaren is toegestaan</a> zolang alles juist, volledig en leesbaar blijft. Hoe je dat slim aanpakt lees je in <a href="/blog/bonnetjes-bewaren-belastingdienst.html">bonnetjes bewaren voor de Belastingdienst</a>, of bekijk hoe wij <a href="/#capture">bonnetjes scannen</a> aanpakken.</p>
 <h2>Hoe zet je een simpele structuur op in 4 stappen?</h2>
 <ol>
-<li><strong>Maak één map per klus</strong> met een vaste naam: <code>2026-07 Jansen – badkamer</code>. Jaar-maand vooraan, dan sorteert alles vanzelf chronologisch. Digitaal in je cloudopslag, of fysiek één plastic mapje in de bus — allebei prima.</li>
+<li><strong>Maak één map per klus</strong> met een vaste naam: <code>2026-07 Jansen - badkamer</code>. Jaar-maand vooraan, dan sorteert alles vanzelf chronologisch. Digitaal in je cloudopslag, of fysiek één plastic mapje in de bus: allebei prima.</li>
 <li><strong>Gebruik in elke map dezelfde vier vakken</strong>: offerte &amp; afspraken, uren &amp; kilometers, bonnetjes &amp; inkoop, facturen. Vier submappen of vier vaste kopjes in één document. Consistentie is belangrijker dan het systeem zelf.</li>
 <li><strong>Werk wekelijks tien minuten bij.</strong> Vrijdagmiddag: bonnetjes fotograferen en in de juiste map, uren van de week noteren, kilometers erbij. Tien minuten per week voorkomt het kwartaal-weekend van vier uur zoeken.</li>
 <li><strong>Sluit elke klus af met een nacalculatie.</strong> Vijf minuten: opbrengst min kosten, gedeeld door uren. Schrijf de uitkomst bovenop de map. Na een paar klussen zie je precies welk werk je moet opzoeken en welk werk je moet laten lopen.</li>
 </ol>
-<p>Stel: Sanne is schilder. Klant belt over een kras op een deur, drie maanden na oplevering. Zij opent één map en heeft binnen een minuut de offerte (&quot;exclusief binnendeuren&quot;), het meerwerk-appje en de opleverfoto&#39;s. Gesprek klaar. Zonder klusmap was dit een avond zoeken geweest — of een schadeclaim.</p>
+<p>Stel: Sanne is schilder. Klant belt over een kras op een deur, drie maanden na oplevering. Zij opent één map en heeft binnen een minuut de offerte (&quot;exclusief binnendeuren&quot;), het meerwerk-appje en de opleverfoto&#39;s. Gesprek klaar. Zonder klusmap was dit een avond zoeken geweest, of een schadeclaim.</p>
 <h2>Wat levert projectadministratie je op?</h2>
 <ul>
-<li><strong>Je ziet welke klussen geld opleveren</strong> — en durft op cijfers je <a href="/blog/uurtarief-berekenen-zzp.html">tarief te verhogen</a> of nee te zeggen.</li>
+<li><strong>Je ziet welke klussen geld opleveren</strong>, en durft op cijfers je <a href="/blog/uurtarief-berekenen-zzp.html">tarief te verhogen</a> of nee te zeggen.</li>
 <li><strong>Je offertes worden beter</strong>, want je volgende inschatting bouwt op echte uren en echte materiaalkosten in plaats van gevoel.</li>
 <li><strong>Meerwerk-discussies win je</strong>, omdat akkoord en afspraken per klus vindbaar zijn.</li>
 <li><strong>Je factureert sneller en vollediger</strong>: alles staat al klaar, je vergeet geen materiaal of meerwerk meer.</li>
-<li><strong>Je btw-aangifte en jaarcijfers zijn zo gepiept</strong>, en je <a href="/blog/samenwerken-met-boekhouder.html">boekhouder</a> krijgt een schone export in plaats van een schoenendoos. Dat scheelt uren — en boekhouders rekenen al snel €65 tot €100 per uur.</li>
+<li><strong>Je btw-aangifte en jaarcijfers zijn zo gepiept</strong>, en je <a href="/blog/samenwerken-met-boekhouder.html">boekhouder</a> krijgt een schone export in plaats van een schoenendoos. Dat scheelt uren, en boekhouders rekenen al snel €65 tot €100 per uur.</li>
 <li><strong>Je voldoet aan de bewaarplicht</strong>: je administratie moet 7 jaar bewaard blijven (10 jaar bij onroerend goed). Met een map per klus gooit niemand per ongeluk iets weg.</li>
 </ul>
 <h2>Hoe hou je het vol?</h2>
 <p>Het beste systeem is het systeem dat je volhoudt. Drie regels:</p>
 <ul>
-<li><strong>Direct, niet later.</strong> Bonnetje bij de kassa meteen fotograferen kost drie seconden. Datzelfde bonnetje drie weken later terugvinden kost een kwartier — als het nog leesbaar is.</li>
+<li><strong>Direct, niet later.</strong> Bonnetje bij de kassa meteen fotograferen kost drie seconden. Datzelfde bonnetje drie weken later terugvinden kost een kwartier, als het nog leesbaar is.</li>
 <li><strong>Eén vaste plek.</strong> Niet half in de mail, half in de app, half in de bus. Alles gaat naar de klusmap, altijd.</li>
 <li><strong>Koppel het aan een gewoonte.</strong> Vrijdagmiddag, koffie erbij, tien minuten bijwerken. Klaar voor het weekend.</li>
 </ul>
-<p>Begin klein: zet het systeem alleen op voor je huidige en volgende klus. Oude troep opruimen komt later wel — of nooit, ook prima.</p>
+<p>Begin klein: zet het systeem alleen op voor je huidige en volgende klus. Oude troep opruimen komt later wel, of nooit, ook prima.</p>
 
 <h2>Veelgestelde vragen</h2>
 <h3>Is een projectadministratie verplicht?</h3>
-<p>Nee. Verplicht is alleen een deugdelijke administratie: facturen, bonnetjes, bankafschriften en contracten, 7 jaar bewaard (10 jaar bij onroerend goed). Per klus ordenen is een keuze — maar wel de keuze die van dezelfde papieren ook nog een stuurmiddel maakt.</p>
+<p>Nee. Verplicht is alleen een deugdelijke administratie: facturen, bonnetjes, bankafschriften en contracten, 7 jaar bewaard (10 jaar bij onroerend goed). Per klus ordenen is een keuze, maar wel de keuze die van dezelfde papieren ook nog een stuurmiddel maakt.</p>
 <h3>Mag ik bonnetjes alleen digitaal bewaren?</h3>
 <p>Ja, digitaal bewaren mag van de Belastingdienst, als de gegevens juist, volledig, leesbaar en controleerbaar blijven gedurende de hele bewaartermijn. Foto of scan van een papieren bon is prima. Zorg wel voor een back-up: &quot;telefoon kwijt&quot; is geen geldig excuus.</p>
 <h3>Welke uren tel ik mee voor het urencriterium?</h3>
-<p>Alle uren voor je bedrijf: ook reistijd, offertes, administratie en acquisitie — niet alleen declarabele uren. Voor de zelfstandigenaftrek moet je in 2026 aan 1.225 uur komen en dat aannemelijk kunnen maken. Een urenoverzicht per klus plus je algemene uren is daarvoor prima bewijs.</p>
+<p>Alle uren voor je bedrijf: ook reistijd, offertes, administratie en acquisitie, niet alleen declarabele uren. Voor de zelfstandigenaftrek moet je in 2026 aan 1.225 uur komen en dat aannemelijk kunnen maken. Een urenoverzicht per klus plus je algemene uren is daarvoor prima bewijs.</p>
 <h3>Heb ik hier software voor nodig?</h3>
-<p>Nee. Mappen in je cloudopslag en een simpel urenlijstje werken prima om mee te starten. Software wordt interessant zodra je merkt dat je bonnetjes kwijtraakt, facturen te laat stuurt of geen zicht hebt op winst per klus — dan verdient het zichzelf snel terug.</p>
+<p>Nee. Mappen in je cloudopslag en een simpel urenlijstje werken prima om mee te starten. Software wordt interessant zodra je merkt dat je bonnetjes kwijtraakt, facturen te laat stuurt of geen zicht hebt op winst per klus, dan verdient het zichzelf snel terug.</p>
 </article>
 <div class="ctabox"><h3>Minder administratie, meer ondernemen?</h3>
 Sum-IT leest je bonnetjes, zet je btw apart en laat per klus zien wat je verdient. Je profiel in het netwerk is gratis, voor altijd. Boekhouden erbij kan voor €11 per maand, alles inbegrepen.
 <br><a href="/#signup">Maak je gratis profiel aan →</a></div><p class="disc">Dit artikel is algemene informatie, geen belasting- of financieel advies. Overleg voor jouw situatie met een boekhouder of de Belastingdienst.</p>
-<div class="cards"><a class="card" href="/blog/auto-zakelijk-of-prive-zzp.html"><h2>Auto zakelijk of privé rijden: wat is slimmer voor jou?</h2><p>Auto zakelijk of privé rijden als zzp&#x27;er? Vergelijk €0,25 per km met bijtelling 22% (EV 18%), btw-forfait en r…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/factuur-niet-betaald.html"><h2>Factuur niet betaald? Dit doe je</h2><p>Factuur niet betaald? Volg dit stappenplan: herinnering, aanmaning, incasso. Met de betaaltermijnen, incassoko…</p><p class="rm">Lees verder →</p></a></div>
+<div class="cards"><a class="card" href="/blog/auto-zakelijk-of-prive-zzp.html"><h2>Auto zakelijk of privé rijden: wat is slimmer voor jou?</h2><p>Auto zakelijk of privé rijden als zzp&#x27;er? Vergelijk €0,25 per km met bijtelling 22% (EV 18%), btw-forfait en…</p><p class="rm">Lees verder →</p></a><a class="card" href="/blog/factuur-niet-betaald.html"><h2>Factuur niet betaald? Dit doe je</h2><p>Factuur niet betaald? Volg dit stappenplan: herinnering, aanmaning, incasso. Met de betaaltermijnen…</p><p class="rm">Lees verder →</p></a></div>
 </main>
-<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/">sum-it.eu</a></footer>
+<footer>Sum-IT is een product van Alpha Nova B.V. · Alle data in de EU · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacyverklaring</a> · <a href="/">sum-it.eu</a><!-- site-socials:start --><div class="site-socials"><a href="https://www.linkedin.com/company/sum-it-eu/" target="_blank" rel="noopener" title="LinkedIn" aria-label="Sum-IT · LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a><a href="https://www.instagram.com/sumit.eu/" target="_blank" rel="noopener" title="Instagram" aria-label="Sum-IT · Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg></a><a href="https://x.com/SumITEurope" target="_blank" rel="noopener" title="X" aria-label="Sum-IT · X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.5 2H8l4.4 5.8zm-1.1 18h1.7L7 3.7H5.2z"/></svg></a></div><!-- site-socials:end --></footer>
 </body>
 </html>

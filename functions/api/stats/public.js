@@ -1,7 +1,9 @@
 /* GET /api/stats/public — public counters for the site (cached 60s).
-   Returns: { claimed_display, cities:{...>=3 only}, trades:{...>=3 only}, bookkeepers }
-   claimed_display = real confirmed count + DISPLAY_OFFSET (default 143).
-   Env: SUPABASE_URL, SUPABASE_SERVICE_KEY, DISPLAY_OFFSET */
+   Returns: { claimed, claimed_display, cities:{...>=3 only}, trades:{...>=3 only}, bookkeepers }
+   claimed = real number of confirmed signups (all roles). claimed_display is
+   kept for older front-ends and is now the same real number: the former
+   DISPLAY_OFFSET (+143) is no longer added, so the env var can be removed.
+   Env: SUPABASE_URL, SUPABASE_SERVICE_KEY */
 
 export async function onRequestGet({ env }) {
   const headers = {
@@ -21,10 +23,10 @@ export async function onRequestGet({ env }) {
     });
     if (!r.ok) throw new Error('stats failed');
     const s = await r.json();
-    const offset = Number(env.DISPLAY_OFFSET ?? 143);
+    const claimed = s.claimed || 0;
     return new Response(JSON.stringify({
-      claimed_display: (s.claimed || 0) + offset,
-      claimed_real: undefined, // never expose the raw number publicly
+      claimed,
+      claimed_display: claimed,
       cities: s.cities || {},
       trades: s.trades || {},
       bookkeepers: s.bookkeepers || 0

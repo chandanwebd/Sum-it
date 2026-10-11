@@ -5356,6 +5356,58 @@ select:focus {
   color: var(--indigo);
 }
 
+/* Optional mailing consent (never pre-ticked) and the signup error state. */
+.formcard .optin {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--slate);
+  cursor: pointer;
+}
+
+.formcard .optin input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  padding: 0;
+  accent-color: var(--green-d);
+}
+
+.form-err {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.form-err[hidden] {
+  display: none;
+}
+
+a.hero-proof {
+  text-decoration: none;
+}
+
+/* Link from the homepage blog section to the full blog. */
+.v24-blog-all {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--green-d);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.v24-blog-all:hover {
+  text-decoration: underline;
+}
+
 .thanks {
   display: none;
 }

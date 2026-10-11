@@ -57,11 +57,11 @@ input:focus{outline:2px solid var(--green)}
       </form>
     </div>
     <div id="st-bad" class="hide">
-      <h1 data-i18n="b_h1">Deze link werkt niet (meer)</h1>
-      <div class="sub" data-i18n="b_sub">De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.</div>
+      <h1 id="bad-h1" data-i18n="b_h1">Deze link werkt niet (meer)</h1>
+      <div class="sub" id="bad-sub" data-i18n="b_sub">De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.</div>
       <label for="email" data-i18n="l_email">E-mailadres</label>
       <input id="email" type="email" autocomplete="email">
-      <button class="btn" onclick="resend()" data-i18n="b_btn">Stuur mij een nieuwe link</button>
+      <button class="btn" id="btn2" onclick="resend()" data-i18n="b_btn">Stuur mij een nieuwe link</button>
       <div class="err" id="err2"></div><div class="okmsg hide" id="ok2" data-i18n="b_ok">Verstuurd! Check je inbox (en spam).</div>
       <div class="alt"><a href="/login.html" data-i18n="b_login">Of ga naar de loginpagina</a></div>
     </div>
@@ -74,13 +74,17 @@ var I18N={
      l_pw1:"Wachtwoord (min. 12 tekens)",l_pw2:"Herhaal je wachtwoord",f_btn:"Opslaan & naar mijn portal",
      b_h1:"Deze link werkt niet (meer)",b_sub:"De link is verlopen of al gebruikt. Vraag hieronder een nieuwe aan, je krijgt hem direct per mail.",
      l_email:"E-mailadres",b_btn:"Stuur mij een nieuwe link",b_ok:"Verstuurd! Check je inbox (en spam).",b_login:"Of ga naar de loginpagina",
-     e_match:"De wachtwoorden zijn niet gelijk.",e_save:"Opslaan mislukt: ",e_mail:"Vul een geldig e-mailadres in."},
+     r_h1:"Wachtwoord vergeten?",r_sub:"Vul het e-mailadres van je Sum-IT-account in. Je krijgt meteen een link om een nieuw wachtwoord te kiezen.",r_btn:"Stuur mij een resetlink",
+     r_ok:"Als er een account bij dit e-mailadres hoort, is de link verstuurd. Check je inbox (en spam).",
+     e_match:"De wachtwoorden zijn niet gelijk.",e_save:"Opslaan mislukt: ",e_mail:"Vul een geldig e-mailadres in.",e_cfg:"Er ging iets mis bij het laden. Ververs de pagina en probeer het opnieuw."},
  en:{w_h1:"One moment…",w_sub:"Checking your link.",
      f_h1:"Choose your password",f_sub:"Your e-mail address is confirmed. Pick a password of at least 12 characters and you'll be taken straight to your member portal. The same account will work in the app later.",
      l_pw1:"Password (min. 12 characters)",l_pw2:"Repeat your password",f_btn:"Save & go to my portal",
      b_h1:"This link no longer works",b_sub:"The link expired or was already used. Request a new one below, it arrives by e-mail right away.",
      l_email:"E-mail address",b_btn:"Send me a new link",b_ok:"Sent! Check your inbox (and spam).",b_login:"Or go to the login page",
-     e_match:"The passwords don't match.",e_save:"Saving failed: ",e_mail:"Enter a valid e-mail address."}};
+     r_h1:"Forgot your password?",r_sub:"Enter the e-mail address of your Sum-IT account. We'll send you a link to choose a new password right away.",r_btn:"Send me a reset link",
+     r_ok:"If an account exists for this e-mail address, the link is on its way. Check your inbox (and spam).",
+     e_match:"The passwords don't match.",e_save:"Saving failed: ",e_mail:"Enter a valid e-mail address.",e_cfg:"Something went wrong while loading. Refresh the page and try again."}};
 var LANG='nl';
 function setLang(l){LANG=l;try{localStorage.setItem('sumit_lang',l);}catch(e){}
   document.documentElement.lang=l;
@@ -88,15 +92,30 @@ function setLang(l){LANG=l;try{localStorage.setItem('sumit_lang',l);}catch(e){}
   document.getElementById('lang-nl').classList.toggle('on',l==='nl');
   document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');
     if(I18N[l][k]!==undefined)el.innerHTML=I18N[l][k];});}
-try{setLang(localStorage.getItem('sumit_lang')==='en'?'en':'nl');}catch(e){setLang('nl');}
+(function(){
+  var q=new URLSearchParams(location.search).get('lang');
+  if(q==='en'||q==='nl'){setLang(q);return;}
+  try{setLang(localStorage.getItem('sumit_lang')==='en'?'en':'nl');}catch(e){setLang('nl');}
+})();
 
 var SB=null;
 try{if(window.SB_URL&&window.SB_URL.indexOf('http')===0&&window.supabase){SB=window.supabase.createClient(window.SB_URL,window.SB_ANON);}}catch(e){}
 function show(id){['st-wait','st-form','st-bad'].forEach(function(x){document.getElementById(x).classList.toggle('hide',x!==id);});}
 
+/* Coming from "Wachtwoord vergeten?" (?request=1): show the request form
+   straight away, worded as a reset request instead of an expired link. */
+function requestMode(){
+  [['bad-h1','r_h1'],['bad-sub','r_sub'],['btn2','r_btn'],['ok2','r_ok']].forEach(function(x){
+    document.getElementById(x[0]).setAttribute('data-i18n',x[1]);});
+  setLang(LANG);
+  try{var em=sessionStorage.getItem('sumit_reset_email');if(em)document.getElementById('email').value=em;sessionStorage.removeItem('sumit_reset_email');}catch(e){}
+  show('st-bad');
+  document.getElementById('email').focus();
+}
 async function boot(){
-  if(!SB){show('st-bad');return;}
   var qs=new URLSearchParams(location.search);
+  if(qs.get('request')==='1'&&!qs.get('token_hash')){requestMode();return;}
+  if(!SB){show('st-bad');return;}
   var th=qs.get('token_hash');
   if(th){
     var v=await SB.auth.verifyOtp({type:qs.get('type')||'recovery',token_hash:th});
@@ -126,7 +145,11 @@ async function resend(){
   var em=(document.getElementById('email').value||'').trim().toLowerCase();
   var err=document.getElementById('err2');err.textContent='';
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em)){err.textContent=I18N[LANG].e_mail;return;}
+  if(!SB){err.textContent=I18N[LANG].e_cfg;return;}
+  document.getElementById('ok2').classList.add('hide');
+  var btn=document.getElementById('btn2');btn.disabled=true;
   var r=await SB.auth.resetPasswordForEmail(em,{redirectTo:'https://sum-it.eu/wachtwoord.html'});
+  btn.disabled=false;
   if(r.error){err.textContent=r.error.message;return;}
   document.getElementById('ok2').classList.remove('hide');
 }

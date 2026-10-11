@@ -37,7 +37,6 @@ Nothing here requires writing code. Where a value is created, paste it in the pl
    - `LAPOSTA_API_KEY`, `LAPOSTA_LIST_ID` — from step 2.3
    - `BREVO_API_KEY` — step 4 (may be empty at first; welcome mail is skipped, all else works)
    - `MAIL_FROM` — e.g. `Sum-IT <hallo@sum-it.eu>`
-   - `DISPLAY_OFFSET` — `143`
 3. Deploy. Test on the `*.pages.dev` preview URL: signup → Laposta confirm mail → click → webhook → portal shows position.
 4. DNS switch (the conscious moment): domain sum-it.eu → Cloudflare Pages custom domain, remove GitHub Pages. Old site stays in git history; rollback = point DNS back.
 
@@ -50,10 +49,11 @@ Nothing here requires writing code. Where a value is created, paste it in the pl
 - [ ] End-to-end test with a real e-mail + a second e-mail via the ?ref= link (counter +1 in portal)
 - [ ] `config.js`: fill social URLs when the accounts exist (icons appear automatically)
 - [ ] Cloudflare → Web Analytics: enable for sum-it.eu (free, cookieless)
-- [ ] `/privacy` page live before promoting (processors: Supabase, Laposta, Brevo, Cloudflare; contact privacy@sum-it.eu)
+- [ ] `/privacy.html` page live before promoting (processors: Supabase, Laposta, Brevo, Cloudflare; contact privacy@sum-it.eu)
 - [ ] Remove DEMO labels that now have live data (map stays DEMO until cities reach ≥3s)
 - [ ] Enable pg_cron purge (bottom of `supabase-setup-v2.sql`)
 
 ## Notes
-- The +143 counter offset lives in `DISPLAY_OFFSET` (one env var; set to 0 to show the real count).
+- Counters and queue positions show real numbers; the former `DISPLAY_OFFSET` (+143) is no longer used and can be removed from the Cloudflare env.
+- Run `supabase-setup-v7.sql` to store the optional mailing consent (`signups.mailing_optin`). Only people who tick it are added to the Laposta list (single opt-in mode). With `DOUBLE_OPTIN=1` every signup is still added, because Laposta then confirms the signup itself.
 - Everything degrades gracefully: without Laposta key the signup still lands in Supabase; without Brevo the welcome mail is skipped; without Supabase the site falls back to demo data.
