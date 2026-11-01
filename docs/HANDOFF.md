@@ -131,6 +131,7 @@ You are continuing work on the Sum-IT website: a Dutch ZZP bookkeeping product b
 7. **Git:** decide whether to merge `ui-redesign` and `blog-redesign` into `main` and push.
 
 ### Rules to keep following
+- After editing homepage texts in `js/index.js`, run `node scripts/prerender-home-i18n.mjs` (writes the Dutch text into `index.html` for crawlers; `tests/seo.test.mjs` fails if it is stale). Run all tests with `node --test tests/*.test.mjs`.
 - Change presentation, not business logic.
 - Don't rename IDs, classes or `data-*` attributes used by JS (see the lists in `docs/ui-ux-audit.md` §3).
 - Don't submit real forms or write to production Supabase without asking.

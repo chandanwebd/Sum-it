@@ -40,7 +40,8 @@
 
 .site-header .header-wrap {
   position: relative;
-  max-width: var(--container);
+  /* A little wider than the page content so all eight menu items fit. */
+  max-width: calc(var(--container) + 80px);
   height: 100%;
   margin: 0 auto;
   padding: 0 var(--gutter);
@@ -100,7 +101,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-  padding: 0 var(--sp-3);
+  padding: 0 var(--sp-2);
   border-radius: var(--radius-sm);
   color: var(--c-on-dark-muted);
   font-size: var(--fs-nav);
@@ -122,8 +123,8 @@
 .site-header .menu a.active::after {
   content: "";
   position: absolute;
-  left: var(--sp-3);
-  right: var(--sp-3);
+  left: var(--sp-2);
+  right: var(--sp-2);
   bottom: 4px;
   height: 2px;
   border-radius: 2px;
@@ -348,11 +349,11 @@
 }
 
 /* Breakpoints */
-@media (max-width: 1180px) {
-  .site-header .menu a { padding: 0 var(--sp-2); }
+@media (max-width: 1320px) {
+  .site-header .nav { gap: var(--sp-3); }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1240px) {
   .site-header .menu { display: none; }
   .site-header .burger { display: inline-flex; }
 }

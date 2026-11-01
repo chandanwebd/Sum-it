@@ -3,6 +3,9 @@
  * thumbnail; click opens a full-size preview with previous / next.
  * Controls: series, document (invoice / quote) and accent colour. The
  * document language follows the site language switch (EN / NL).
+ * Featured mode (homepage): data-featured="id:#accent,id:#accent" on the
+ * grid shows only those designs, each in its own accent colour; the
+ * controls are then left out of the page and skipped here.
  */
 (function (window, document) {
   "use strict";
@@ -42,22 +45,34 @@
   var lb = document.getElementById("ig-lb");
   var stage = document.getElementById("ig-lb-stage");
 
+  var FEATURED = null;
+  var spec = grid.getAttribute("data-featured");
+  if (spec) {
+    var pool = API.sets.a.concat(API.sets.b, API.sets.c);
+    FEATURED = spec.split(",").map(function (part) {
+      var p = part.trim().split(":");
+      var skin = pool.filter(function (k) { return k.id === p[0]; })[0];
+      return skin ? { skin: skin, accent: p[1] || state.accent } : null;
+    }).filter(Boolean);
+  }
+
   function lang() { return (window.SUMIT_LANG || document.documentElement.lang || "nl").slice(0, 2) === "en" ? "en" : "nl"; }
   function tr(key, vars) {
     var s = UI[lang()][key];
     Object.keys(vars || {}).forEach(function (k) { s = s.split("{" + k + "}").join(vars[k]); });
     return s;
   }
-  function skins() { return API.sets[state.set]; }
+  function skins() { return FEATURED ? FEATURED.map(function (f) { return f.skin; }) : API.sets[state.set]; }
+  function accentAt(i) { return FEATURED ? FEATURED[i].accent : state.accent; }
   function nameOf(skin) { return lang() === "en" ? (NAMES_EN[skin.id] || skin.name) : skin.name; }
   function tagOf(skin) { return lang() === "en" ? (TAGS_EN[skin.tag] || skin.tag) : skin.tag; }
 
   /* One A4 page: spine (invoice = striped, quote = solid) + the skin's HTML. */
-  function page(skin, m) {
+  function page(skin, m, accent) {
     var out = skin.render(m);
     var host = document.createElement("div");
     host.className = "ig-page skin-" + skin.id;
-    var tok = API.accentTokens(state.accent);
+    var tok = API.accentTokens(accent || state.accent);
     Object.keys(tok).forEach(function (k) { host.style.setProperty(k, tok[k]); });
     var mark = document.createElement("div");
     mark.className = "docmark " + (m.isOffer ? "offer" : "invoice");
@@ -92,7 +107,7 @@
       btn.className = "ig-thumb";
       btn.dataset.i = String(i);
       btn.setAttribute("aria-label", tr("enlarge", { name: nameOf(skin) }));
-      var built = page(skin, m);
+      var built = page(skin, m, accentAt(i));
       built.node.setAttribute("aria-hidden", "true");
       css.push(built.css);
       btn.appendChild(built.node);
@@ -113,7 +128,8 @@
     });
     styleTag.textContent = css.join("\n");
     grid.querySelectorAll(".ig-page").forEach(shrinkToFit);
-    document.getElementById("ig-count").textContent = tr("count", { n: list.length, set: SERIES[state.set][lang()], doc: tr(state.doc) });
+    var count = document.getElementById("ig-count");
+    if (count) count.textContent = tr("count", { n: list.length, set: SERIES[state.set][lang()], doc: tr(state.doc) });
     fit();
   }
 
@@ -137,7 +153,7 @@
     var list = skins();
     state.open = ((i % list.length) + list.length) % list.length;
     var skin = list[state.open];
-    var built = page(skin, API.model(state.doc, lang()));
+    var built = page(skin, API.model(state.doc, lang()), accentAt(state.open));
     styleTag.textContent += "\n" + built.css;
     stage.textContent = "";
     stage.appendChild(built.node);
@@ -172,6 +188,7 @@
 
   function wireSeg(id, key) {
     var el = document.getElementById(id);
+    if (!el) return;
     el.addEventListener("click", function (e) {
       var b = e.target.closest("button");
       if (!b) return;
@@ -192,11 +209,11 @@
     sw.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === preset)); });
     rebuild();
   }
-  sw.addEventListener("click", function (e) {
+  if (sw && custom) sw.addEventListener("click", function (e) {
     var b = e.target.closest("button");
     if (b) setAccent(b.dataset.c, b);
   });
-  custom.addEventListener("input", function () { setAccent(custom.value, null); });
+  if (sw && custom) custom.addEventListener("input", function () { setAccent(custom.value, null); });
 
   document.addEventListener("langchange", rebuild);
   var resizeTimer = null;

@@ -3,7 +3,7 @@
    only has an empty <header id="site-header"> it is fetched as a fallback.
    Exposes the legacy global toggleMenu()/closeMenu() used by inline handlers. */
 (function (window, document) {
-  var DESKTOP = window.matchMedia ? window.matchMedia("(min-width: 1081px)") : null;
+  var DESKTOP = window.matchMedia ? window.matchMedia("(min-width: 1241px)") : null;
 
   function $(id) { return document.getElementById(id); }
 

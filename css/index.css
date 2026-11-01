@@ -8758,7 +8758,7 @@ footer .flogo img {
   font-weight: 100;
   letter-spacing: -.01em;
   text-align: center;
-  font-family: "Satisfy", cursive;
+  font-family: var(--font-sans);
 }
 
 #community .story-result {
@@ -9173,4 +9173,63 @@ html {
   font-weight: 700;
   line-height: 1.2;
   color: var(--indigo);
+}
+
+/* =========================================================
+   CLIENT FEEDBACK 2026-11: shorter homepage
+   ========================================================= */
+/* Testimonials use the site font (was the handwritten "Satisfy"). */
+#community .story-quote {
+  font-size: 19px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  #community .story-quote { font-size: 16px; }
+}
+
+/* Feature cards: links to the dedicated feature pages. */
+.cap-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  margin-top: 28px;
+}
+
+.cap-links a {
+  padding: 9px 16px;
+  border: 1px solid var(--c-line, #e2e8f0);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--c-indigo);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+
+.cap-links a:hover {
+  border-color: var(--c-green);
+  color: var(--c-green-700);
+}
+
+/* Team: link to /team/ under the stats. */
+#team .v24-blog-all { margin-top: 28px; }
+
+/* Bookkeeper band: link to /voor/boekhouders/. */
+.bk-more {
+  display: inline-block;
+  margin: 22px 0 0 18px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.bk-more:hover { color: var(--c-green-300); }
+
+@media (max-width: 560px) {
+  .bk-more { display: block; margin: 16px 0 0; }
 }

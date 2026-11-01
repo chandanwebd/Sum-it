@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sum-it.eu/</loc><lastmod>2026-07-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sum-it.eu/</loc><lastmod>2026-11-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://sum-it.eu/blog/</loc><lastmod>2026-07-25</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/tools/belastingpotje-calculator.html</loc><lastmod>2026-07-25</lastmod><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/tools/uurtarief-calculator.html</loc><lastmod>2026-07-25</lastmod><priority>0.7</priority></url>
@@ -90,7 +90,7 @@
   <url><loc>https://sum-it.eu/blog/zzp-samenwerken-in-collectief.html</loc><lastmod>2026-08-01</lastmod><priority>0.6</priority></url>
   <url><loc>https://sum-it.eu/blog/zzp-starten-naast-loondienst.html</loc><lastmod>2026-08-01</lastmod><priority>0.6</priority></url>
   <url><loc>https://sum-it.eu/community/</loc><lastmod>2026-08-01</lastmod><priority>0.6</priority></url>
-  <url><loc>https://sum-it.eu/prijzen/</loc><lastmod>2026-08-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sum-it.eu/prijzen/</loc><lastmod>2026-11-01</lastmod><priority>0.8</priority></url>
   <url><loc>https://sum-it.eu/over-ons/</loc><lastmod>2026-08-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/voor/zzp/</loc><lastmod>2026-08-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://sum-it.eu/voor/aannemers/</loc><lastmod>2026-08-12</lastmod><priority>0.8</priority></url>
@@ -100,6 +100,6 @@
   <url><loc>https://sum-it.eu/functies/bonnetjes-scannen/</loc><lastmod>2026-08-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/functies/btw-apart-zetten/</loc><lastmod>2026-08-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/functies/projecten/</loc><lastmod>2026-08-12</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sum-it.eu/functies/facturen/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sum-it.eu/functies/facturen/</loc><lastmod>2026-11-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://sum-it.eu/privacy.html</loc><lastmod>2026-10-11</lastmod><priority>0.3</priority></url>
 </urlset>

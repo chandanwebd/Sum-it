@@ -135,6 +135,13 @@ body[data-page="invoicing"] {
 .ig-card ul { margin: 0; padding: 0; list-style: none; }
 .ig-card li { position: relative; margin: 0 0 6px; padding-left: 20px; color: var(--c-text); font-size: 14.5px; line-height: 1.55; }
 .ig-card li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--c-green); }
+/* Questions about invoicing: always visible, no accordion. */
+.ig-faq { max-width: 760px; margin: var(--sp-7) 0 0; }
+.ig-faq > h2 { margin: 0 0 16px; color: var(--c-indigo); font-size: var(--fs-h2); font-weight: 700; line-height: 1.2; }
+.ig-faq-item { padding: 16px 0; border-top: 1px solid #dfe7ee; }
+.ig-faq-item h3 { margin: 0 0 6px; color: var(--c-ink); font-size: 17px; font-weight: 700; line-height: 1.35; }
+.ig-faq-item p { margin: 0; color: #4b5563; font-size: 15.5px; line-height: 1.65; }
+.ig-faq-item a { color: var(--c-green-700); font-weight: 600; }
 .ig-legend { display: flex; gap: 12px; align-items: center; margin: 4px 0 10px; }
 .ig-legend i { display: inline-block; width: 14px; height: 36px; border-radius: 3px; background: var(--c-indigo); }
 .ig-legend i.striped { background-color: var(--c-navy-900); background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .28) 0 4px, transparent 4px 9px); }

@@ -1,10 +1,12 @@
 /* Sum-IT site config — editable without touching the site code.
    API_BASE: '' means same origin (Cloudflare Pages Functions under /api/*).
    socials: leave a URL empty ('') to HIDE that icon on the site.
-   offer: the "first 150 users get three months free" promotion. The
-     "X of 150 places left" counter stays hidden until showRemaining is true;
-     switch it on only once it is confirmed that the API's real signup count
-     ("claimed", see functions/api/stats/public.js) is what the 150 refers to.
+   offer.promo: the promotion text on the homepage and /prijzen/ (js/promo.js),
+     per language; simple HTML (<s>, <strong>) is allowed. promoActive: false
+     hides it everywhere. The duration of the free period is not stated on
+     purpose: it still has to be confirmed by the client.
+   offer.limit / showRemaining: the old "X of 150 places left" counter. Keep it
+     off: the client asked not to mention a first-customers limit.
    No display offsets: counters and queue positions show the real numbers. */
 window.SITE_CFG = {
   API_BASE: 'https://sum-it-app.pages.dev',
@@ -16,7 +18,12 @@ window.SITE_CFG = {
   },
   offer: {
     limit: 150,
-    showRemaining: false
+    showRemaining: false,
+    promoActive: true,
+    promo: {
+      nl: 'Normaal <s>€11</s>, <strong>GRATIS</strong> als je je nu aanmeldt!',
+      en: 'Normally <s>€11</s>, <strong>FREE</strong> if you sign up right now!'
+    }
   },
   fallbackClaimed: 0,
   QUEUE_OFFSET: 0
