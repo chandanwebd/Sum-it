@@ -6532,6 +6532,10 @@ h2 {
   transform: translateY(-3px);
 }
 
+.v24-top svg {
+  display: block;
+}
+
 /* Better touch targets */
 @media (pointer: coarse) {
 
