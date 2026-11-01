@@ -78,7 +78,7 @@
     setMeta("og:title", p.meta_title || p.title, "property");
     setMeta("og:description", desc, "property");
     setMeta("og:url", canonical, "property");
-    setMeta("og:image", image || SITE + "/og-image.png", "property");
+    setMeta("og:image", image || SITE + "/og-image.jpg", "property");
     if (image && p.cover_alt) setMeta("og:image:alt", p.cover_alt, "property");
     setMeta("twitter:card", image ? "summary_large_image" : "summary");
     setMeta("article:published_time", p.published_at || p.created_at, "property");
